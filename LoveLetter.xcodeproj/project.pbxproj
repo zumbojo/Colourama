@@ -50,6 +50,7 @@
 		CED03B4216AA33300077CAB8 /* CLPaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPaletteView.h; sourceTree = "<group>"; };
 		CED03B4316AA33300077CAB8 /* CLPaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPaletteView.m; sourceTree = "<group>"; };
 		CED03B4516AA34230077CAB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CED03B4716AA37200077CAB8 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +122,7 @@
 				CED03B2316AA28660077CAB8 /* Default.png */,
 				CED03B2516AA28660077CAB8 /* Default@2x.png */,
 				CED03B2716AA28660077CAB8 /* Default-568h@2x.png */,
+				CED03B4716AA37200077CAB8 /* constants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
