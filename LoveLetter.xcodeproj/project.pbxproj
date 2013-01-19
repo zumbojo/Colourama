@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78556A16AB5BE40064460E /* CLPaletteViewController.m */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE78556916AB5BE40064460E /* CLPaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPaletteViewController.h; sourceTree = "<group>"; };
+		CE78556A16AB5BE40064460E /* CLPaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPaletteViewController.m; sourceTree = "<group>"; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,6 +146,8 @@
 			children = (
 				CED03B4216AA33300077CAB8 /* CLPaletteView.h */,
 				CED03B4316AA33300077CAB8 /* CLPaletteView.m */,
+				CE78556916AB5BE40064460E /* CLPaletteViewController.h */,
+				CE78556A16AB5BE40064460E /* CLPaletteViewController.m */,
 			);
 			name = "Pretty Views";
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				CED03B3A16AA2D5C0077CAB8 /* CLPalette.m in Sources */,
 				CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */,
 				CED03B4416AA33300077CAB8 /* CLPaletteView.m in Sources */,
+				CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +352,7 @@
 				CED03B3616AA28660077CAB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
