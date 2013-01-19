@@ -18,6 +18,7 @@
     if (self) {
         _palette = palette;
      
+        /*
         NSUInteger index = 0;
         for (CLSlat *slat in self.palette.slats) {
             CGFloat width = self.frame.size.width * slat.width;
@@ -26,6 +27,23 @@
             [self addSubview:slatView];
             index++;
         }
+         */
+        
+        CGFloat width = self.frame.size.width * 0.33;
+        UIView *one = [[UIView alloc] initWithFrame:CGRectMake(width * 0, 0, width, self.frame.size.height)];
+        one.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
+        [self addSubview:one];
+        
+        UIView *two = [[UIView alloc] initWithFrame:CGRectMake(width * 1, 0, width, self.frame.size.height)];
+        two.layer.backgroundColor = ((CLSlat *)self.palette.slats[1]).color.CGColor;
+        [self addSubview:two];
+
+        UIView *three = [[UIView alloc] initWithFrame:CGRectMake(width * 2, 0, width, self.frame.size.height)];
+        three.layer.backgroundColor = ((CLSlat *)self.palette.slats[2]).color.CGColor;
+        [self addSubview:three];
+        
+        
+        
     }
     return self;
 }
