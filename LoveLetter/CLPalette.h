@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CLSlat.h"
 
 @interface CLPalette : NSObject
 

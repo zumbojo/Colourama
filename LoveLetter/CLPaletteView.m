@@ -9,7 +9,6 @@
 #import "CLPaletteView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CLPalette.h"
-#import "CLSlat.h"
 
 @implementation CLPaletteView
 
@@ -19,7 +18,9 @@
     if (self) {
         _palette = palette;
         
-        self.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
+        NSUInteger randomIndex = arc4random_uniform(self.palette.slats.count);
+        CLSlat *slat = ((CLSlat *)self.palette.slats[randomIndex]);
+        self.layer.backgroundColor = slat.color.CGColor;
     }
     return self;
 }

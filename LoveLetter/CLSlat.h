@@ -14,6 +14,6 @@
 @interface CLSlat : NSObject
 
 @property (nonatomic) UIColor *color;
-@property (nonatomic) CGFloat *width;
+@property (nonatomic) CGFloat width;
 
 @end
