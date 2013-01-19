@@ -10,4 +10,8 @@
 
 @interface CLPalette : NSObject
 
+@property (nonatomic) NSArray *slats;
+
+// todo: initFromJSON or something
+
 @end

@@ -21,6 +21,7 @@
 		CED03B3116AA28660077CAB8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3016AA28660077CAB8 /* ViewController.m */; };
 		CED03B3A16AA2D5C0077CAB8 /* CLPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3916AA2D5C0077CAB8 /* CLPalette.m */; };
 		CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3C16AA2E220077CAB8 /* CLSlat.m */; };
+		CED03B4416AA33300077CAB8 /* CLPaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B4316AA33300077CAB8 /* CLPaletteView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		CED03B3916AA2D5C0077CAB8 /* CLPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPalette.m; sourceTree = "<group>"; };
 		CED03B3B16AA2E220077CAB8 /* CLSlat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSlat.h; sourceTree = "<group>"; };
 		CED03B3C16AA2E220077CAB8 /* CLSlat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSlat.m; sourceTree = "<group>"; };
+		CED03B4216AA33300077CAB8 /* CLPaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPaletteView.h; sourceTree = "<group>"; };
+		CED03B4316AA33300077CAB8 /* CLPaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPaletteView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				CED03B3716AA2D0A0077CAB8 /* ColourLovers */,
+				CED03B3E16AA322C0077CAB8 /* Pretty Views */,
 				CED03B2016AA28660077CAB8 /* AppDelegate.h */,
 				CED03B2116AA28660077CAB8 /* AppDelegate.m */,
 				CED03B2916AA28660077CAB8 /* MainStoryboard_iPhone.storyboard */,
@@ -126,6 +130,15 @@
 				CED03B3C16AA2E220077CAB8 /* CLSlat.m */,
 			);
 			name = ColourLovers;
+			sourceTree = "<group>";
+		};
+		CED03B3E16AA322C0077CAB8 /* Pretty Views */ = {
+			isa = PBXGroup;
+			children = (
+				CED03B4216AA33300077CAB8 /* CLPaletteView.h */,
+				CED03B4316AA33300077CAB8 /* CLPaletteView.m */,
+			);
+			name = "Pretty Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +213,7 @@
 				CED03B3116AA28660077CAB8 /* ViewController.m in Sources */,
 				CED03B3A16AA2D5C0077CAB8 /* CLPalette.m in Sources */,
 				CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */,
+				CED03B4416AA33300077CAB8 /* CLPaletteView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
