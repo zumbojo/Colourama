@@ -20,6 +20,7 @@
 		CED03B2E16AA28660077CAB8 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED03B2C16AA28660077CAB8 /* MainStoryboard_iPad.storyboard */; };
 		CED03B3116AA28660077CAB8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3016AA28660077CAB8 /* ViewController.m */; };
 		CED03B3A16AA2D5C0077CAB8 /* CLPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3916AA2D5C0077CAB8 /* CLPalette.m */; };
+		CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3C16AA2E220077CAB8 /* CLSlat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		CED03B3016AA28660077CAB8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CED03B3816AA2D5C0077CAB8 /* CLPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPalette.h; sourceTree = "<group>"; };
 		CED03B3916AA2D5C0077CAB8 /* CLPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPalette.m; sourceTree = "<group>"; };
+		CED03B3B16AA2E220077CAB8 /* CLSlat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSlat.h; sourceTree = "<group>"; };
+		CED03B3C16AA2E220077CAB8 /* CLSlat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSlat.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 			children = (
 				CED03B3816AA2D5C0077CAB8 /* CLPalette.h */,
 				CED03B3916AA2D5C0077CAB8 /* CLPalette.m */,
+				CED03B3B16AA2E220077CAB8 /* CLSlat.h */,
+				CED03B3C16AA2E220077CAB8 /* CLSlat.m */,
 			);
 			name = ColourLovers;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				CED03B2216AA28660077CAB8 /* AppDelegate.m in Sources */,
 				CED03B3116AA28660077CAB8 /* ViewController.m in Sources */,
 				CED03B3A16AA2D5C0077CAB8 /* CLPalette.m in Sources */,
+				CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
