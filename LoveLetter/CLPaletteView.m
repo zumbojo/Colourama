@@ -30,18 +30,34 @@
          */
         
         CGFloat width = self.frame.size.width * 0.33;
-        UIView *one = [[UIView alloc] initWithFrame:CGRectMake(width * 0, 0, width, self.frame.size.height)];
+        UIView *one = [[UIView alloc] init];
         one.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
         [self addSubview:one];
         
-        UIView *two = [[UIView alloc] initWithFrame:CGRectMake(width * 1, 0, width, self.frame.size.height)];
-        two.layer.backgroundColor = ((CLSlat *)self.palette.slats[1]).color.CGColor;
-        [self addSubview:two];
-
-        UIView *three = [[UIView alloc] initWithFrame:CGRectMake(width * 2, 0, width, self.frame.size.height)];
-        three.layer.backgroundColor = ((CLSlat *)self.palette.slats[2]).color.CGColor;
-        [self addSubview:three];
+//        UIView *two = [[UIView alloc] initWithFrame:CGRectMake(width * 1, 0, width, self.frame.size.height)];
+//        two.layer.backgroundColor = ((CLSlat *)self.palette.slats[1]).color.CGColor;
+//        [self addSubview:two];
+//
+//        UIView *three = [[UIView alloc] initWithFrame:CGRectMake(width * 2, 0, width, self.frame.size.height)];
+//        three.layer.backgroundColor = ((CLSlat *)self.palette.slats[2]).color.CGColor;
+//        [self addSubview:three];
         
+        
+        [one setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        NSDictionary *views = NSDictionaryOfVariableBindings(one);
+        
+        [self addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[one]|"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:views]];
+        
+        [self addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[one]|"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:views]];
         
         
     }
