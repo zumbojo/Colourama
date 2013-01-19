@@ -22,6 +22,7 @@
 		CED03B3A16AA2D5C0077CAB8 /* CLPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3916AA2D5C0077CAB8 /* CLPalette.m */; };
 		CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3C16AA2E220077CAB8 /* CLSlat.m */; };
 		CED03B4416AA33300077CAB8 /* CLPaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B4316AA33300077CAB8 /* CLPaletteView.m */; };
+		CED03B4616AA34240077CAB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B4516AA34230077CAB8 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		CED03B3C16AA2E220077CAB8 /* CLSlat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSlat.m; sourceTree = "<group>"; };
 		CED03B4216AA33300077CAB8 /* CLPaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPaletteView.h; sourceTree = "<group>"; };
 		CED03B4316AA33300077CAB8 /* CLPaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPaletteView.m; sourceTree = "<group>"; };
+		CED03B4516AA34230077CAB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED03B4616AA34240077CAB8 /* QuartzCore.framework in Frameworks */,
 				CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */,
 				CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */,
 				CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +87,7 @@
 		CED03B1016AA28660077CAB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CED03B4516AA34230077CAB8 /* QuartzCore.framework */,
 				CED03B1116AA28660077CAB8 /* UIKit.framework */,
 				CED03B1316AA28660077CAB8 /* Foundation.framework */,
 				CED03B1516AA28660077CAB8 /* CoreGraphics.framework */,

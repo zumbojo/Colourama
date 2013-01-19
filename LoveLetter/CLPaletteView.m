@@ -7,14 +7,19 @@
 //
 
 #import "CLPaletteView.h"
+#import <QuartzCore/QuartzCore.h>
+#import "CLPalette.h"
+#import "CLSlat.h"
 
 @implementation CLPaletteView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame palette:(CLPalette *)palette
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        _palette = palette;
+        
+        self.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
     }
     return self;
 }

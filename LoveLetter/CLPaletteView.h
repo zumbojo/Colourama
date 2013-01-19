@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class CLPalette;
+
 @interface CLPaletteView : UIView
+
+- (id)initWithFrame:(CGRect)frame palette:(CLPalette *)palette;
+
+@property (nonatomic, readonly) CLPalette *palette;
 
 @end
