@@ -32,29 +32,36 @@
         CGFloat width = self.frame.size.width * 0.33;
         UIView *one = [[UIView alloc] init];
         one.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
+        [one setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self addSubview:one];
         
-//        UIView *two = [[UIView alloc] initWithFrame:CGRectMake(width * 1, 0, width, self.frame.size.height)];
-//        two.layer.backgroundColor = ((CLSlat *)self.palette.slats[1]).color.CGColor;
-//        [self addSubview:two];
-//
+        UIView *two = [[UIView alloc] init];
+        two.layer.backgroundColor = ((CLSlat *)self.palette.slats[1]).color.CGColor;
+        [two setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:two];
+
 //        UIView *three = [[UIView alloc] initWithFrame:CGRectMake(width * 2, 0, width, self.frame.size.height)];
 //        three.layer.backgroundColor = ((CLSlat *)self.palette.slats[2]).color.CGColor;
 //        [self addSubview:three];
         
+        // visual format syntax: http://developer.apple.com/library/mac/#documentation/UserExperience/Conceptual/AutolayoutPG/Articles/formatLanguage.html#//apple_ref/doc/uid/TP40010853-CH3-SW1
         
-        [one setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        NSDictionary *views = NSDictionaryOfVariableBindings(one);
+        NSDictionary *views = NSDictionaryOfVariableBindings(one, two);
         
         [self addConstraints:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[one]|"
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[one][two(==one)]|"
                                                  options:0
                                                  metrics:nil
                                                    views:views]];
         
         [self addConstraints:
          [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[one]|"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:views]];
+
+        [self addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[two]|"
                                                  options:0
                                                  metrics:nil
                                                    views:views]];
