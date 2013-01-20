@@ -37,13 +37,15 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] init];
-    pvc.view.bounds = self.view.bounds;
-    return pvc;
+    return [self brandNewPaletteViewController];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
+    return [self brandNewPaletteViewController];
+}
+
+- (CLPaletteViewController *)brandNewPaletteViewController {
     CLPaletteViewController *pvc = [[CLPaletteViewController alloc] init];
     pvc.view.bounds = self.view.bounds;
     return pvc;
