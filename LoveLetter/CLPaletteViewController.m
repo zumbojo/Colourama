@@ -28,7 +28,27 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.view.layer.backgroundColor = [UIColor purpleColor].CGColor;
+    
+    NSArray *allNamedColors = @[ // well, except clearColor and whiteColor
+        [UIColor blackColor],
+        [UIColor blueColor],
+        [UIColor brownColor],
+        [UIColor cyanColor],
+        [UIColor darkGrayColor],
+        [UIColor grayColor],
+        [UIColor greenColor],
+        [UIColor lightGrayColor],
+        [UIColor blueColor],
+        [UIColor blueColor],
+        [UIColor magentaColor],
+        [UIColor orangeColor],
+        [UIColor purpleColor],
+        [UIColor redColor],
+        [UIColor yellowColor]
+    ];
+    
+    // random background color
+    self.view.layer.backgroundColor = ((UIColor *)allNamedColors[arc4random_uniform(allNamedColors.count)]).CGColor;
 }
 
 - (void)didReceiveMemoryWarning

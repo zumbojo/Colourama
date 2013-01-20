@@ -29,7 +29,7 @@
         }
          */
         
-        CGFloat width = self.frame.size.width * 0.33;
+        //CGFloat width = self.frame.size.width * 0.33;
         UIView *one = [[UIView alloc] init];
         one.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
         [one setTranslatesAutoresizingMaskIntoConstraints:NO];

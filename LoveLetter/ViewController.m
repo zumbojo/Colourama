@@ -32,6 +32,39 @@
 }
 
 #pragma mark -
+#pragma mark UIPageViewControllerDataSource
+// based on http://www.techotopia.com/index.php/An_Example_iOS_5_iPhone_UIPageViewController_Application
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
+{
+//    NSUInteger index = [self indexOfViewController:
+//                        (ContentViewController *)viewController];
+//    if ((index == 0) || (index == NSNotFound)) {
+//        return nil;
+//    }
+//    
+//    index--;
+//    return [self viewControllerAtIndex:index];
+    return nil;
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+{
+//    NSUInteger index = [self indexOfViewController:
+//                        (ContentViewController *)viewController];
+//    if (index == NSNotFound) {
+//        return nil;
+//    }
+//    
+//    index++;
+//    if (index == [self.pageContent count]) {
+//        return nil;
+//    }
+//    return [self viewControllerAtIndex:index];
+    return nil;
+}
+
+#pragma mark -
 #pragma mark Test Data
 
 - (CLPalette *)samplePalette {
