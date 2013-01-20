@@ -100,7 +100,7 @@
 }
 
 - (CLPaletteViewController *)brandNewPaletteViewController {
-    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] initWithPalette:[self samplePalette]];
+    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] initWithPalette:(CLPalette *)[self samplePalettes][0]];
     pvc.view.bounds = self.view.bounds;
     return pvc;
 }
@@ -114,33 +114,27 @@
 #pragma mark -
 #pragma mark Test Data
 
-- (CLPalette *)samplePalette {
-    // "cheer up emo kid"
-    // http://www.colourlovers.com/api/palette/1930&showPaletteWidths=1
-
-    return [CLPalette paletteFromArray:@[
+- (NSArray *)samplePalettes {
+    return @[
+        // "cheer up emo kid"
+        // http://www.colourlovers.com/api/palette/1930&showPaletteWidths=1
+        [CLPalette paletteFromArray:@[
             @[@"556270", [NSNumber numberWithFloat:0.2]],
             @[@"4ECDC4", [NSNumber numberWithFloat:0.2]],
             @[@"C7F464", [NSNumber numberWithFloat:0.2]],
             @[@"FF6B6B", [NSNumber numberWithFloat:0.2]],
             @[@"C44D58", [NSNumber numberWithFloat:0.2]]
-            ]];
+            ]],
     
-//    // "cheer up emo kid"
-//    // http://www.colourlovers.com/api/palette/1930&showPaletteWidths=1
-//    
-//    NSMutableArray *slats = [[NSMutableArray alloc] init];
-//    
-//    for (NSString *hex in @[@"556270", @"4ECDC4", @"C7F464", @"FF6B6B", @"C44D58"]) {
-//        CLSlat *slat = [[CLSlat alloc] init];
-//        slat.color = UIColorFromRGBString(hex);
-//        slat.width = 0.2f;
-//        [slats addObject:slat];
-//    }
-//    
-//    CLPalette *palette = [[CLPalette alloc] init];
-//    palette.slats = slats;
-//    return palette;
+        // "Metro"
+        // http://www.colourlovers.com/api/palette/1&showPaletteWidths=1
+        [CLPalette paletteFromArray:@[
+            @[@"515151", [NSNumber numberWithFloat:0.25]],
+            @[@"FFFFFF", [NSNumber numberWithFloat:0.25]],
+            @[@"00B4FF", [NSNumber numberWithFloat:0.25]],
+            @[@"EEEEEE", [NSNumber numberWithFloat:0.25]]
+            ]],
+    ];
 }
 
 @end
