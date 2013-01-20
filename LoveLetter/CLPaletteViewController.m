@@ -40,7 +40,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.view.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
+    NSUInteger randomIndex = arc4random_uniform(self.palette.slats.count);
+    self.view.layer.backgroundColor = ((CLSlat *)self.palette.slats[randomIndex]).color.CGColor;
 }
 
 - (void)didReceiveMemoryWarning
