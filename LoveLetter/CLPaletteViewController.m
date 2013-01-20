@@ -106,12 +106,16 @@
     if (show == self.showVariableWidths) {
         return;
     }
-    
-    // todo: animation
-    
+
     _showVariableWidths = show;
     [self.view removeConstraints:(self.showVariableWidths ? self.uniformWidthConstraints : self.variableWidthConstraints)];
     [self.view addConstraints:(self.showVariableWidths ? self.variableWidthConstraints : self.uniformWidthConstraints)];
+    
+    if (animated) {
+        [UIView animateWithDuration:1.0f animations:^{ // http://stackoverflow.com/questions/12926566/are-nslayoutconstraints-animatable
+            [self.view layoutIfNeeded];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning

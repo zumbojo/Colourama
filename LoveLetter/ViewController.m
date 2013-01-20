@@ -151,7 +151,7 @@
     
     // toggle variable widths for all palette view controllers:
     for (CLPaletteViewController *pvc in self.contentControllers) {
-        [pvc setShowVariableWidths:!pvc.showVariableWidths animated:NO];
+        [pvc setShowVariableWidths:!pvc.showVariableWidths animated:YES];
     }
 }
 
