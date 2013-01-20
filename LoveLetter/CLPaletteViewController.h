@@ -15,6 +15,6 @@
 @property (nonatomic) CLPalette *palette;
 
 - (id)initWithPalette:(CLPalette *)palette;
-- (void)setShowProportionalWidths:(BOOL)show animated:(BOOL)animated;
+- (void)setShowVariableWidths:(BOOL)show animated:(BOOL)animated;
 
 @end
