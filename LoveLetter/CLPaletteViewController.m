@@ -64,11 +64,11 @@
         
         if (slatView == self.slatViews[0]) { // if first, glue left to superview left
             NSLog(@"first");
-            [self.view addConstraints:
-             [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[slatView]|"
-                                                     options:0
-                                                     metrics:nil
-                                                       views:views]];
+            [self.view addConstraint:
+             [NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+            
+            [self.view addConstraint:
+             [NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
         }
         else { // if not first, glue left to last, set width equal to first
             NSLog(@"not first");
