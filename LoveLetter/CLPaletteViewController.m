@@ -50,9 +50,12 @@
         slatView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.slatViews addObject:slatView];
         [self.view addSubview:slatView];
+        
+        // add width width constraint:
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:slat.width constant:0]];
     }
     
-    // add constraints
+    // add remaining constraints (height, positioning):
     for (UIView *slatView in self.slatViews) {
         NSDictionary *views = NSDictionaryOfVariableBindings(slatView);
         
@@ -72,8 +75,8 @@
             UIView *last = self.slatViews[[self.slatViews indexOfObject:slatView] - 1];
             [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:last attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
             
-            UIView *first = self.slatViews[0];
-            [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:first attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
+//            UIView *first = self.slatViews[0];
+//            [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:first attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
         }
         
         if (slatView == self.slatViews.lastObject) { // if last, glue right to superview right
