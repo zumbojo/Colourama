@@ -1,16 +1,17 @@
 //
 //  ViewController.h
-//  PageApp
+//  LoveLetter
 //
-//  Created by user on 1/19/13.
+//  Created by user on 1/18/13.
 //  Copyright (c) 2013 Kevin Lawson. All rights reserved.
 //
+
 
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController <UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIPageViewController *pageController;
-@property (strong, nonatomic) NSArray *pageContent;
+@property (strong, nonatomic) NSArray *contentControllers;
 
 @end

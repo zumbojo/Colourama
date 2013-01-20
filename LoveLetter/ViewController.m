@@ -1,10 +1,11 @@
 //
 //  ViewController.m
-//  PageApp
+//  LoveLetter
 //
-//  Created by user on 1/19/13.
+//  Created by user on 1/18/13.
 //  Copyright (c) 2013 Kevin Lawson. All rights reserved.
 //
+
 
 #import "ViewController.h"
 #import "CLPaletteViewController.h"
@@ -18,24 +19,16 @@
 - (CLPaletteViewController *)viewControllerAtIndex:(NSUInteger)index
 {
     // Return the data view controller for the given index.
-    if (([self.pageContent count] == 0) ||
-        (index >= [self.pageContent count])) {
+    if (([self.contentControllers count] == 0) ||
+        (index >= [self.contentControllers count])) {
         return nil;
     }
-    
-    // Create a new view controller and pass suitable data.
-//    ContentViewController *dataViewController =
-//    [[ContentViewController alloc]
-//     initWithNibName:@"ContentViewController"
-//     bundle:nil];
-//    dataViewController.dataObject =
-//    [self.pageContent objectAtIndex:index];
-    return [self.pageContent objectAtIndex:index];
+    return [self.contentControllers objectAtIndex:index];
 }
 
 - (NSUInteger)indexOfViewController:(CLPaletteViewController *)viewController
 {
-    return [self.pageContent indexOfObject:viewController];
+    return [self.contentControllers indexOfObject:viewController];
 }
 
 - (UIViewController *)pageViewController:
@@ -62,7 +55,7 @@
     }
     
     index++;
-    if (index == [self.pageContent count]) {
+    if (index == [self.contentControllers count]) {
         return nil;
     }
     return [self viewControllerAtIndex:index];
@@ -111,7 +104,7 @@
         pvc.view.bounds = self.view.bounds;
         [pageStrings addObject:pvc];
     }
-    self.pageContent = [[NSArray alloc] initWithArray:pageStrings];
+    self.contentControllers = [[NSArray alloc] initWithArray:pageStrings];
 }
 
 - (void)didReceiveMemoryWarning
