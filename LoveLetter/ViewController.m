@@ -98,13 +98,15 @@
     NSMutableArray *pageStrings = [[NSMutableArray alloc] init];
     for (int i = 1; i < 11; i++)
     {
-//        NSString *contentString = [[NSString alloc]
-//                                   initWithFormat:@"<html><head></head><body><h1>Chapter %d</h1><p>This is the page %d of content displayed using UIPageViewController in iOS 5.</p></body></html>", i, i];
-        CLPaletteViewController *pvc = [[CLPaletteViewController alloc] init];
-        pvc.view.bounds = self.view.bounds;
-        [pageStrings addObject:pvc];
+        [pageStrings addObject:[self brandNewPaletteViewController]];
     }
     self.contentControllers = [[NSArray alloc] initWithArray:pageStrings];
+}
+
+- (CLPaletteViewController *)brandNewPaletteViewController {
+    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] init];
+    pvc.view.bounds = self.view.bounds;
+    return pvc;
 }
 
 - (void)didReceiveMemoryWarning
