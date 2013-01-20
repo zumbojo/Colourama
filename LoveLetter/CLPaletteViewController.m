@@ -84,6 +84,10 @@
     }
 }
 
+- (void)setShowProportionalWidths:(BOOL)show animated:(BOOL)animated {
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
