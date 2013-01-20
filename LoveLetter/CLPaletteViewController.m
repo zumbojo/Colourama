@@ -40,8 +40,41 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSUInteger randomIndex = arc4random_uniform(self.palette.slats.count);
-    self.view.layer.backgroundColor = ((CLSlat *)self.palette.slats[randomIndex]).color.CGColor;
+    UIView *one = [[UIView alloc] init];
+    one.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
+    [one setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:one];
+    
+    UIView *two = [[UIView alloc] init];
+    two.layer.backgroundColor = ((CLSlat *)self.palette.slats[1]).color.CGColor;
+    [two setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:two];
+    
+    //        UIView *three = [[UIView alloc] initWithFrame:CGRectMake(width * 2, 0, width, self.frame.size.height)];
+    //        three.layer.backgroundColor = ((CLSlat *)self.palette.slats[2]).color.CGColor;
+    //        [self addSubview:three];
+    
+    // visual format syntax: http://developer.apple.com/library/mac/#documentation/UserExperience/Conceptual/AutolayoutPG/Articles/formatLanguage.html#//apple_ref/doc/uid/TP40010853-CH3-SW1
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(one, two);
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[one][two(==one)]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[one]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[two]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
 }
 
 - (void)didReceiveMemoryWarning
