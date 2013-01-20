@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIPageViewControllerDataSource>
 
-@property (weak, nonatomic) IBOutlet UIView *stageView;
+@property (weak, nonatomic) UIPageViewController *pageController;
 
 @end
