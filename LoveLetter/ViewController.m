@@ -113,24 +113,34 @@
 
 - (NSArray *)samplePalettes {
     return @[
-        // "cheer up emo kid"
-        // http://www.colourlovers.com/api/palette/1930&showPaletteWidths=1
-        [CLPalette paletteFromArray:@[
-            @[@"556270", [NSNumber numberWithFloat:0.2]],
-            @[@"4ECDC4", [NSNumber numberWithFloat:0.2]],
-            @[@"C7F464", [NSNumber numberWithFloat:0.2]],
-            @[@"FF6B6B", [NSNumber numberWithFloat:0.2]],
-            @[@"C44D58", [NSNumber numberWithFloat:0.2]]
-            ]],
+    // "Terra?"
+    // http://www.colourlovers.com/api/palette/292482&showPaletteWidths=1
+    [CLPalette paletteFromArray:@[
+     @[@"E8DDCB", [NSNumber numberWithFloat:0.05]],
+     @[@"CDB380", [NSNumber numberWithFloat:0.06]],
+     @[@"036564", [NSNumber numberWithFloat:0.06]],
+     @[@"033649", [NSNumber numberWithFloat:0.14]],
+     @[@"031634", [NSNumber numberWithFloat:0.69]]
+     ]],
     
-        // "Metro"
-        // http://www.colourlovers.com/api/palette/1&showPaletteWidths=1
-        [CLPalette paletteFromArray:@[
-            @[@"515151", [NSNumber numberWithFloat:0.25]],
-            @[@"FFFFFF", [NSNumber numberWithFloat:0.25]],
-            @[@"00B4FF", [NSNumber numberWithFloat:0.25]],
-            @[@"EEEEEE", [NSNumber numberWithFloat:0.25]]
-            ]],
+    // "cheer up emo kid"
+    // http://www.colourlovers.com/api/palette/1930&showPaletteWidths=1
+    [CLPalette paletteFromArray:@[
+     @[@"556270", [NSNumber numberWithFloat:0.2]],
+     @[@"4ECDC4", [NSNumber numberWithFloat:0.2]],
+     @[@"C7F464", [NSNumber numberWithFloat:0.2]],
+     @[@"FF6B6B", [NSNumber numberWithFloat:0.2]],
+     @[@"C44D58", [NSNumber numberWithFloat:0.2]]
+     ]],
+
+    // "Metro"
+    // http://www.colourlovers.com/api/palette/1&showPaletteWidths=1
+    [CLPalette paletteFromArray:@[
+     @[@"515151", [NSNumber numberWithFloat:0.25]],
+     @[@"FFFFFF", [NSNumber numberWithFloat:0.25]],
+     @[@"00B4FF", [NSNumber numberWithFloat:0.25]],
+     @[@"EEEEEE", [NSNumber numberWithFloat:0.25]]
+     ]],
     ];
 }
 
