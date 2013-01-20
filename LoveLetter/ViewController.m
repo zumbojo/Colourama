@@ -62,7 +62,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self createContentPages];
+    [self populateContentControllers];
     NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
                                                         forKey:UIPageViewControllerOptionSpineLocationKey];
     
@@ -89,20 +89,17 @@
     [self.pageController didMoveToParentViewController:self];
 }
 
-- (void) createContentPages
+- (void)populateContentControllers
 {
-    NSMutableArray *pageStrings = [[NSMutableArray alloc] init];
-    for (int i = 1; i < 11; i++)
-    {
-        [pageStrings addObject:[self brandNewPaletteViewController]];
+    NSMutableArray *pvcs = [[NSMutableArray alloc] init];
+    
+    for (CLPalette *palette in [self samplePalettes]) {
+        CLPaletteViewController *pvc = [[CLPaletteViewController alloc] initWithPalette:palette];
+        pvc.view.bounds = self.view.bounds;
+        [pvcs addObject:pvc];
     }
-    self.contentControllers = [[NSArray alloc] initWithArray:pageStrings];
-}
-
-- (CLPaletteViewController *)brandNewPaletteViewController {
-    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] initWithPalette:(CLPalette *)[self samplePalettes][0]];
-    pvc.view.bounds = self.view.bounds;
-    return pvc;
+    
+    self.contentControllers = [NSArray arrayWithArray:pvcs];
 }
 
 - (void)didReceiveMemoryWarning
