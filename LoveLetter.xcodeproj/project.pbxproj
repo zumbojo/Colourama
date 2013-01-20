@@ -22,7 +22,6 @@
 		CED03B3116AA28660077CAB8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3016AA28660077CAB8 /* ViewController.m */; };
 		CED03B3A16AA2D5C0077CAB8 /* CLPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3916AA2D5C0077CAB8 /* CLPalette.m */; };
 		CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3C16AA2E220077CAB8 /* CLSlat.m */; };
-		CED03B4416AA33300077CAB8 /* CLPaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B4316AA33300077CAB8 /* CLPaletteView.m */; };
 		CED03B4616AA34240077CAB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B4516AA34230077CAB8 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +49,6 @@
 		CED03B3916AA2D5C0077CAB8 /* CLPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPalette.m; sourceTree = "<group>"; };
 		CED03B3B16AA2E220077CAB8 /* CLSlat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSlat.h; sourceTree = "<group>"; };
 		CED03B3C16AA2E220077CAB8 /* CLSlat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSlat.m; sourceTree = "<group>"; };
-		CED03B4216AA33300077CAB8 /* CLPaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPaletteView.h; sourceTree = "<group>"; };
-		CED03B4316AA33300077CAB8 /* CLPaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPaletteView.m; sourceTree = "<group>"; };
 		CED03B4516AA34230077CAB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CED03B4716AA37200077CAB8 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,8 +141,6 @@
 		CED03B3E16AA322C0077CAB8 /* Pretty Views */ = {
 			isa = PBXGroup;
 			children = (
-				CED03B4216AA33300077CAB8 /* CLPaletteView.h */,
-				CED03B4316AA33300077CAB8 /* CLPaletteView.m */,
 				CE78556916AB5BE40064460E /* CLPaletteViewController.h */,
 				CE78556A16AB5BE40064460E /* CLPaletteViewController.m */,
 			);
@@ -224,7 +219,6 @@
 				CED03B3116AA28660077CAB8 /* ViewController.m in Sources */,
 				CED03B3A16AA2D5C0077CAB8 /* CLPalette.m in Sources */,
 				CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */,
-				CED03B4416AA33300077CAB8 /* CLPaletteView.m in Sources */,
 				CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
