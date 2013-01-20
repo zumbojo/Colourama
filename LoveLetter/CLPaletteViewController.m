@@ -50,7 +50,10 @@
         slatView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.slatViews addObject:slatView];
         [self.view addSubview:slatView];
-        
+    }
+    
+    // add constraints
+    for (UIView *slatView in self.slatViews) {
         NSDictionary *views = NSDictionaryOfVariableBindings(slatView);
         
         // vertical is easy:
@@ -69,9 +72,9 @@
         else { // if not first, glue left to last, set width equal to first
             NSLog(@"not first");
             UIView *last = self.slatViews[[self.slatViews indexOfObject:slatView] - 1];
-//            NSLayoutConstraint *middleGlue = [NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:last attribute:NSLayoutAttributeRight multiplier:1 constant:0];
-//            NSLog(@"middleGlue: %p", middleGlue);
-//            [self.view addConstraint:middleGlue];
+            NSLayoutConstraint *middleGlue = [NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:last attribute:NSLayoutAttributeRight multiplier:1 constant:0];
+            NSLog(@"middleGlue: %p", middleGlue);
+            [self.view addConstraint:middleGlue];
             
             UIView *first = self.slatViews[0];
             [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:first attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
