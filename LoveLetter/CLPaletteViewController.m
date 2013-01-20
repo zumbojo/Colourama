@@ -40,6 +40,32 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    // add slat views:
+    for (CLSlat *slat in self.palette.slats) {
+        UIView *slatView = [[UIView alloc] init];
+        slatView.layer.backgroundColor = slat.color.CGColor;
+        slatView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview:slatView];
+        
+        NSDictionary *views = NSDictionaryOfVariableBindings(slatView);
+        
+        // vertical is easy:
+        [self.view addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[slatView]|"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:views]];
+        
+        // horizontal is a bit more involved:
+        
+        // if first, glue left to superview left
+        
+        // if not first, glue left to last, set width equal to first
+        
+        // if last, glue right to superview right
+    }
+    
+    
     UIView *one = [[UIView alloc] init];
     one.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
     [one setTranslatesAutoresizingMaskIntoConstraints:NO];
