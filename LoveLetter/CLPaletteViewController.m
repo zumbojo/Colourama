@@ -102,6 +102,15 @@
 }
 
 - (void)setShowVariableWidths:(BOOL)show animated:(BOOL)animated {
+    if (show == self.showVariableWidths) {
+        return;
+    }
+    
+    // todo: animation
+    
+    self.showVariableWidths = show;
+    [self.view removeConstraints:(self.showVariableWidths ? self.uniformWidthConstraints : self.variableWidthConstraints)];
+    [self.view addConstraints:(self.showVariableWidths ? self.variableWidthConstraints : self.uniformWidthConstraints)];
     
 }
 
