@@ -7,6 +7,7 @@
 //
 
 #import "CLPaletteViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CLPaletteViewController ()
 
@@ -27,6 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.layer.backgroundColor = [UIColor purpleColor].CGColor;
 }
 
 - (void)didReceiveMemoryWarning
