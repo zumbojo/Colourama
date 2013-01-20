@@ -52,7 +52,9 @@
         [self.view addSubview:slatView];
         
         // add width width constraint:
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:slat.width constant:0]];
+        if (slat != self.palette.slats.lastObject) { // last (rightmost) slat's width not explicitly set, in order to avoid "Unable to simultaneously satisfy constraints." warnings.  The last's left and right attributes are set as part of later constraints, so it all works out; last takes up all of the remaining space; last's slat.width is ignored.
+            [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:slat.width constant:0]];
+        }
     }
     
     // add remaining constraints (height, positioning):
@@ -71,12 +73,9 @@
         if (slatView == self.slatViews[0]) { // if first, glue left to superview left
             [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
         }
-        else { // if not first, glue left to last, set width equal to first
+        else { // if not first, glue left to last
             UIView *last = self.slatViews[[self.slatViews indexOfObject:slatView] - 1];
             [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:last attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-            
-//            UIView *first = self.slatViews[0];
-//            [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:first attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
         }
         
         if (slatView == self.slatViews.lastObject) { // if last, glue right to superview right
