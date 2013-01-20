@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "CLPaletteView.h"
+#import "CLPaletteViewController.h"
 #import "CLPalette.h"
 
 @interface ViewController ()
@@ -21,8 +21,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    CLPaletteView *pv = [[CLPaletteView alloc] initWithFrame:self.view.frame palette:[self samplePalette]];
-    [self.view addSubview:pv];
+//    CLPaletteView *pv = [[CLPaletteView alloc] initWithFrame:self.view.frame palette:[self samplePalette]];
+//    [self.view addSubview:pv];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,31 +37,16 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-//    NSUInteger index = [self indexOfViewController:
-//                        (ContentViewController *)viewController];
-//    if ((index == 0) || (index == NSNotFound)) {
-//        return nil;
-//    }
-//    
-//    index--;
-//    return [self viewControllerAtIndex:index];
-    return nil;
+    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] init];
+    pvc.view.bounds = self.view.bounds;
+    return pvc;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-//    NSUInteger index = [self indexOfViewController:
-//                        (ContentViewController *)viewController];
-//    if (index == NSNotFound) {
-//        return nil;
-//    }
-//    
-//    index++;
-//    if (index == [self.pageContent count]) {
-//        return nil;
-//    }
-//    return [self viewControllerAtIndex:index];
-    return nil;
+    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] init];
+    pvc.view.bounds = self.view.bounds;
+    return pvc;
 }
 
 #pragma mark -
