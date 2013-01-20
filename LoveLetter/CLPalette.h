@@ -13,6 +13,8 @@
 
 @property (nonatomic) NSArray *slats;
 
++ (CLPalette *)paletteFromArray:(NSArray *)array; // array of @[string, NSNumber]s
+
 // todo: initFromJSON or something
 
 @end

@@ -9,6 +9,7 @@
 
 #import "ViewController.h"
 #import "CLPaletteViewController.h"
+#import "CLPalette.h"
 
 @interface ViewController ()
 
@@ -99,7 +100,7 @@
 }
 
 - (CLPaletteViewController *)brandNewPaletteViewController {
-    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] init];
+    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] initWithPalette:[self samplePalette]];
     pvc.view.bounds = self.view.bounds;
     return pvc;
 }
@@ -108,6 +109,38 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark Test Data
+
+- (CLPalette *)samplePalette {
+    // "cheer up emo kid"
+    // http://www.colourlovers.com/api/palette/1930&showPaletteWidths=1
+
+    return [CLPalette paletteFromArray:@[
+            @[@"556270", [NSNumber numberWithFloat:0.2]],
+            @[@"4ECDC4", [NSNumber numberWithFloat:0.2]],
+            @[@"C7F464", [NSNumber numberWithFloat:0.2]],
+            @[@"FF6B6B", [NSNumber numberWithFloat:0.2]],
+            @[@"C44D58", [NSNumber numberWithFloat:0.2]]
+            ]];
+    
+//    // "cheer up emo kid"
+//    // http://www.colourlovers.com/api/palette/1930&showPaletteWidths=1
+//    
+//    NSMutableArray *slats = [[NSMutableArray alloc] init];
+//    
+//    for (NSString *hex in @[@"556270", @"4ECDC4", @"C7F464", @"FF6B6B", @"C44D58"]) {
+//        CLSlat *slat = [[CLSlat alloc] init];
+//        slat.color = UIColorFromRGBString(hex);
+//        slat.width = 0.2f;
+//        [slats addObject:slat];
+//    }
+//    
+//    CLPalette *palette = [[CLPalette alloc] init];
+//    palette.slats = slats;
+//    return palette;
 }
 
 @end

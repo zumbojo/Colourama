@@ -8,6 +8,7 @@
 
 #import "CLPaletteViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CLPalette.h"
 
 @interface CLPaletteViewController ()
 
@@ -15,11 +16,21 @@
 
 @implementation CLPaletteViewController
 
+/*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+    }
+    return self;
+}
+ */
+
+- (id)initWithPalette:(CLPalette *)palette {
+    self = [super init];
+    if (self) {
+        self.palette = palette;
     }
     return self;
 }
@@ -29,26 +40,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSArray *allNamedColors = @[ // well, except clearColor and whiteColor
-        [UIColor blackColor],
-        [UIColor blueColor],
-        [UIColor brownColor],
-        [UIColor cyanColor],
-        [UIColor darkGrayColor],
-        [UIColor grayColor],
-        [UIColor greenColor],
-        [UIColor lightGrayColor],
-        [UIColor blueColor],
-        [UIColor blueColor],
-        [UIColor magentaColor],
-        [UIColor orangeColor],
-        [UIColor purpleColor],
-        [UIColor redColor],
-        [UIColor yellowColor]
-    ];
-    
-    // random background color
-    self.view.layer.backgroundColor = ((UIColor *)allNamedColors[arc4random_uniform(allNamedColors.count)]).CGColor;
+    self.view.layer.backgroundColor = ((CLSlat *)self.palette.slats[0]).color.CGColor;
 }
 
 - (void)didReceiveMemoryWarning

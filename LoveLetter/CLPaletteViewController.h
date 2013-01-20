@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class CLPalette;
+
 @interface CLPaletteViewController : UIViewController
+
+@property (nonatomic) CLPalette *palette;
+
+- (id)initWithPalette:(CLPalette *)palette;
 
 @end
