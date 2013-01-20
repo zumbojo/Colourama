@@ -1,14 +1,13 @@
 //
 //  ViewController.m
-//  LoveLetter
+//  PageApp
 //
-//  Created by user on 1/18/13.
+//  Created by user on 1/19/13.
 //  Copyright (c) 2013 Kevin Lawson. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "CLPaletteViewController.h"
-#import "CLPalette.h"
 
 @interface ViewController ()
 
@@ -16,60 +15,109 @@
 
 @implementation ViewController
 
+- (CLPaletteViewController *)viewControllerAtIndex:(NSUInteger)index
+{
+    // Return the data view controller for the given index.
+    if (([self.pageContent count] == 0) ||
+        (index >= [self.pageContent count])) {
+        return nil;
+    }
+    
+    // Create a new view controller and pass suitable data.
+//    ContentViewController *dataViewController =
+//    [[ContentViewController alloc]
+//     initWithNibName:@"ContentViewController"
+//     bundle:nil];
+//    dataViewController.dataObject =
+//    [self.pageContent objectAtIndex:index];
+    return [self.pageContent objectAtIndex:index];
+}
+
+- (NSUInteger)indexOfViewController:(CLPaletteViewController *)viewController
+{
+    return [self.pageContent indexOfObject:viewController];
+}
+
+- (UIViewController *)pageViewController:
+(UIPageViewController *)pageViewController viewControllerBeforeViewController:
+(UIViewController *)viewController
+{
+    NSUInteger index = [self indexOfViewController:
+                        (CLPaletteViewController *)viewController];
+    if ((index == 0) || (index == NSNotFound)) {
+        return nil;
+    }
+    
+    index--;
+    return [self viewControllerAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:
+(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+{
+    NSUInteger index = [self indexOfViewController:
+                        (CLPaletteViewController *)viewController];
+    if (index == NSNotFound) {
+        return nil;
+    }
+    
+    index++;
+    if (index == [self.pageContent count]) {
+        return nil;
+    }
+    return [self viewControllerAtIndex:index];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self createContentPages];
+    NSDictionary *options =
+    [NSDictionary dictionaryWithObject:
+     [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
+                                forKey: UIPageViewControllerOptionSpineLocationKey];
     
-//    CLPaletteView *pv = [[CLPaletteView alloc] initWithFrame:self.view.frame palette:[self samplePalette]];
-//    [self.view addSubview:pv];
+    self.pageController = [[UIPageViewController alloc]
+                           initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl
+                           navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                           options: options];
+    
+    self.pageController.dataSource = self;
+    [[self.pageController view] setFrame:[[self view] bounds]];
+    
+    CLPaletteViewController *initialViewController =
+    [self viewControllerAtIndex:0];
+    NSArray *viewControllers =
+    [NSArray arrayWithObject:initialViewController];
+    
+    [self.pageController setViewControllers:viewControllers
+                                  direction:UIPageViewControllerNavigationDirectionForward
+                                   animated:NO
+                                 completion:nil];
+    
+    [self addChildViewController:self.pageController];
+    [[self view] addSubview:[self.pageController view]];
+    [self.pageController didMoveToParentViewController:self];
+}
+
+- (void) createContentPages
+{
+    NSMutableArray *pageStrings = [[NSMutableArray alloc] init];
+    for (int i = 1; i < 11; i++)
+    {
+//        NSString *contentString = [[NSString alloc]
+//                                   initWithFormat:@"<html><head></head><body><h1>Chapter %d</h1><p>This is the page %d of content displayed using UIPageViewController in iOS 5.</p></body></html>", i, i];
+        CLPaletteViewController *pvc = [[CLPaletteViewController alloc] init];
+        pvc.view.bounds = self.view.bounds;
+        [pageStrings addObject:pvc];
+    }
+    self.pageContent = [[NSArray alloc] initWithArray:pageStrings];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark -
-#pragma mark UIPageViewControllerDataSource
-// based on http://www.techotopia.com/index.php/An_Example_iOS_5_iPhone_UIPageViewController_Application
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
-{
-    return [self brandNewPaletteViewController];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
-{
-    return [self brandNewPaletteViewController];
-}
-
-- (CLPaletteViewController *)brandNewPaletteViewController {
-    CLPaletteViewController *pvc = [[CLPaletteViewController alloc] init];
-    pvc.view.bounds = self.view.bounds;
-    return pvc;
-}
-
-#pragma mark -
-#pragma mark Test Data
-
-- (CLPalette *)samplePalette {
-    // "cheer up emo kid"
-    // http://www.colourlovers.com/api/palette/1930&showPaletteWidths=1
-    
-    NSMutableArray *slats = [[NSMutableArray alloc] init];
-    
-    for (NSString *hex in @[@"556270", @"4ECDC4", @"C7F464", @"FF6B6B", @"C44D58"]) {
-        CLSlat *slat = [[CLSlat alloc] init];
-        slat.color = UIColorFromRGBString(hex);
-        slat.width = 0.2f;
-        [slats addObject:slat];
-    }
-    
-    CLPalette *palette = [[CLPalette alloc] init];
-    palette.slats = slats;
-    return palette;
 }
 
 @end
