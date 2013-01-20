@@ -71,6 +71,7 @@
                            navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                            options: options];
     
+    self.pageController.delegate = self;
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     
@@ -142,6 +143,16 @@
      @[@"EEEEEE", [NSNumber numberWithFloat:0.25]]
      ]],
     ];
+}
+
+// using this as a test button for now, until I add actual buttons.  If this is no longer used, you can probably drop the UIPageViewControllerDelegate <>
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
+    NSLog(@"transition completed; performing stupid test actions");
+    
+    // toggle variable widths for all palette view controllers:
+    for (CLPaletteViewController *pvc in self.contentControllers) {
+        [pvc setShowVariableWidths:!pvc.showVariableWidths animated:NO];
+    }
 }
 
 @end

@@ -15,7 +15,6 @@
 @property (nonatomic) NSMutableArray *slatViews;
 @property (nonatomic) NSMutableArray *variableWidthConstraints;
 @property (nonatomic) NSMutableArray *uniformWidthConstraints;
-@property (nonatomic) BOOL showVariableWidths;
 
 @end
 
@@ -37,7 +36,9 @@
     if (self) {
         self.palette = palette;
         self.slatViews = [[NSMutableArray alloc] init];
-        self.showVariableWidths = YES;
+        self.variableWidthConstraints = [[NSMutableArray alloc] init];
+        self.uniformWidthConstraints = [[NSMutableArray alloc] init];
+        _showVariableWidths = YES;
     }
     return self;
 }
@@ -108,10 +109,9 @@
     
     // todo: animation
     
-    self.showVariableWidths = show;
+    _showVariableWidths = show;
     [self.view removeConstraints:(self.showVariableWidths ? self.uniformWidthConstraints : self.variableWidthConstraints)];
     [self.view addConstraints:(self.showVariableWidths ? self.variableWidthConstraints : self.uniformWidthConstraints)];
-    
 }
 
 - (void)didReceiveMemoryWarning

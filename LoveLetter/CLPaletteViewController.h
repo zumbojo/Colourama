@@ -13,6 +13,7 @@
 @interface CLPaletteViewController : UIViewController
 
 @property (nonatomic) CLPalette *palette;
+@property (nonatomic, readonly) BOOL showVariableWidths; // change using setShowVariableWidths:animated:
 
 - (id)initWithPalette:(CLPalette *)palette;
 - (void)setShowVariableWidths:(BOOL)show animated:(BOOL)animated;
