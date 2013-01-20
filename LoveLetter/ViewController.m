@@ -31,9 +31,7 @@
     return [self.contentControllers indexOfObject:viewController];
 }
 
-- (UIViewController *)pageViewController:
-(UIPageViewController *)pageViewController viewControllerBeforeViewController:
-(UIViewController *)viewController
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
     NSUInteger index = [self indexOfViewController:
                         (CLPaletteViewController *)viewController];
@@ -45,8 +43,7 @@
     return [self viewControllerAtIndex:index];
 }
 
-- (UIViewController *)pageViewController:
-(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
     NSUInteger index = [self indexOfViewController:
                         (CLPaletteViewController *)viewController];
@@ -65,13 +62,11 @@
 {
     [super viewDidLoad];
     [self createContentPages];
-    NSDictionary *options =
-    [NSDictionary dictionaryWithObject:
-     [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
-                                forKey: UIPageViewControllerOptionSpineLocationKey];
+    NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
+                                                        forKey:UIPageViewControllerOptionSpineLocationKey];
     
     self.pageController = [[UIPageViewController alloc]
-                           initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl
+                           initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                            navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                            options: options];
     
