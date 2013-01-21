@@ -13,6 +13,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic) NSTimer *controlVisibilityTimer;
+
 @end
 
 @implementation ViewController
@@ -91,6 +93,7 @@
     [self.view bringSubviewToFront:self.testButton];
     [self.pageController didMoveToParentViewController:self];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
+    [self hideControlsAfterDelay];
 }
 
 - (void)populateContentControllers
@@ -141,18 +144,22 @@
 
 #pragma mark UI Helpers
 
-// Control hide/show logic is based on MWPhotoBrowser.
+// Control hide/show logic from MWPhotoBrowser.
 
 - (BOOL)controlsAreHidden {
     return self.settingsButton.alpha == 0;
+}
+
+- (void)hideControls {
+    [self setControlsHidden:YES animated:YES permanent:NO];
 }
 
 - (void)toggleControls {
     [self setControlsHidden:![self controlsAreHidden] animated:YES permanent:NO];
 }
 
-- (void)setControlsHidden:(BOOL)hidden animated:(BOOL)animated permanent:(BOOL)permanent { 
-    // todo: handle permanent
+- (void)setControlsHidden:(BOOL)hidden animated:(BOOL)animated permanent:(BOOL)permanent {
+    [self cancelControlHiding];
     
     CGFloat alpha = hidden ? 0.0f : 1.0f;
     
@@ -166,24 +173,25 @@
         self.testButton.alpha = alpha;
         self.settingsButton.alpha = alpha;
     }
+    
+    if (!permanent) {
+        [self hideControlsAfterDelay];
+    }
 }
 
-//- (void)cancelControlHiding {
-//	// If a timer exists then cancel and release
-//	if (_controlVisibilityTimer) {
-//		[_controlVisibilityTimer invalidate];
-//		[_controlVisibilityTimer release];
-//		_controlVisibilityTimer = nil;
-//	}
-//}
-//
-//// Enable/disable control visiblity timer
-//- (void)hideControlsAfterDelay {
-//	if (![self areControlsHidden]) {
-//        [self cancelControlHiding];
-//		_controlVisibilityTimer = [[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideControls) userInfo:nil repeats:NO] retain];
-//	}
-//}
+- (void)cancelControlHiding {
+	if (self.controlVisibilityTimer) {
+		[self.controlVisibilityTimer invalidate];
+	}
+}
+
+// Enable/disable control visiblity timer
+- (void)hideControlsAfterDelay {
+	if (![self controlsAreHidden]) {
+        [self cancelControlHiding];
+		self.controlVisibilityTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideControls) userInfo:nil repeats:NO];
+	}
+}
 
 #pragma mark -
 #pragma mark Test Data
