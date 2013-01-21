@@ -16,4 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
+- (IBAction)testButtonTouched:(id)sender;
+- (IBAction)settingsButtonTouched:(id)sender;
+
 @end

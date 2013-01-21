@@ -111,6 +111,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - 
+#pragma mark Buttons
+
+- (IBAction)testButtonTouched:(id)sender {
+    NSLog(@"testButtonTouched");
+}
+
+- (IBAction)settingsButtonTouched:(id)sender {
+    NSLog(@"settingsButtonTouched");
+}
+
 #pragma mark -
 #pragma mark Test Data
 
