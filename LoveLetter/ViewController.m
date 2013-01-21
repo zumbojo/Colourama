@@ -90,6 +90,7 @@
     [self.view bringSubviewToFront:self.settingsButton];
     [self.view bringSubviewToFront:self.testButton];
     [self.pageController didMoveToParentViewController:self];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
 }
 
 - (void)populateContentControllers
@@ -115,7 +116,8 @@
 #pragma mark - 
 #pragma mark Buttons
 
-- (IBAction)testButtonTouched:(id)sender {    
+- (IBAction)testButtonTouched:(id)sender {
+    NSLog(@"testButtonTouched");
     // toggle variable widths for all palette view controllers:
     for (CLPaletteViewController *pvc in self.contentControllers) {
         [pvc setShowVariableWidths:!pvc.showVariableWidths animated:YES];
@@ -124,6 +126,17 @@
 
 - (IBAction)settingsButtonTouched:(id)sender {
     NSLog(@"settingsButtonTouched");
+}
+
+#pragma mark -
+#pragma mark Gestures
+
+- (void)handleTap:(UITapGestureRecognizer *)sender {
+    // http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UITapGestureRecognizer_Class/Reference/Reference.html#//apple_ref/occ/cl/UITapGestureRecognizer
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        NSLog(@"tap");
+        // handling code
+    }
 }
 
 #pragma mark -
