@@ -86,7 +86,9 @@
                                  completion:nil];
     
     [self addChildViewController:self.pageController];
-    [[self view] addSubview:[self.pageController view]];
+    [self.view addSubview:self.pageController.view];
+    [self.view bringSubviewToFront:self.settingsButton];
+    [self.view bringSubviewToFront:self.testButton];
     [self.pageController didMoveToParentViewController:self];
 }
 
