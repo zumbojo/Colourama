@@ -225,7 +225,17 @@
      @[@"00B4FF", [NSNumber numberWithFloat:0.25]],
      @[@"EEEEEE", [NSNumber numberWithFloat:0.25]]
      ]],
-    ];
+    
+    // "Ashley's Peanut Cake"
+    // http://www.colourlovers.com/api/palette/2646927&showPaletteWidths=1
+    [CLPalette paletteFromArray:@[
+     @[@"5F5453", [NSNumber numberWithFloat:0.37]],
+     @[@"EEB548", [NSNumber numberWithFloat:0.10]],
+     @[@"F7C95F", [NSNumber numberWithFloat:0.05]],
+     @[@"D5BD95", [NSNumber numberWithFloat:0.03]],
+     @[@"6D6379", [NSNumber numberWithFloat:0.45]]
+     ]]
+    ];    
 }
 
 // using this as a test button for now, until I add actual buttons.  If this is no longer used, you can probably drop the UIPageViewControllerDelegate <>
