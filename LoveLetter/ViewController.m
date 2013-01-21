@@ -137,7 +137,6 @@
 - (void)handleTap:(UITapGestureRecognizer *)sender {
     // http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UITapGestureRecognizer_Class/Reference/Reference.html#//apple_ref/occ/cl/UITapGestureRecognizer
     if (sender.state == UIGestureRecognizerStateEnded) {
-        NSLog(@"tap");
         [self toggleControls];
     }
 }
