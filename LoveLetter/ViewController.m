@@ -114,6 +114,7 @@
 
 
 #pragma mark - 
+#pragma mark UI
 #pragma mark Buttons
 
 - (IBAction)testButtonTouched:(id)sender {
@@ -128,16 +129,61 @@
     NSLog(@"settingsButtonTouched");
 }
 
-#pragma mark -
 #pragma mark Gestures
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
     // http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UITapGestureRecognizer_Class/Reference/Reference.html#//apple_ref/occ/cl/UITapGestureRecognizer
     if (sender.state == UIGestureRecognizerStateEnded) {
         NSLog(@"tap");
-        // handling code
+        [self toggleControls];
     }
 }
+
+#pragma mark UI Helpers
+
+// Control hide/show logic is based on MWPhotoBrowser.
+
+- (BOOL)controlsAreHidden {
+    return self.settingsButton.alpha == 0;
+}
+
+- (void)toggleControls {
+    [self setControlsHidden:![self controlsAreHidden] animated:YES permanent:NO];
+}
+
+- (void)setControlsHidden:(BOOL)hidden animated:(BOOL)animated permanent:(BOOL)permanent { 
+    // todo: handle permanent
+    
+    CGFloat alpha = hidden ? 0.0f : 1.0f;
+    
+    if (animated) {
+        [UIView animateWithDuration:0.35 animations:^{
+            self.testButton.alpha = alpha;
+            self.settingsButton.alpha = alpha;
+        }];
+    }
+    else {
+        self.testButton.alpha = alpha;
+        self.settingsButton.alpha = alpha;
+    }
+}
+
+//- (void)cancelControlHiding {
+//	// If a timer exists then cancel and release
+//	if (_controlVisibilityTimer) {
+//		[_controlVisibilityTimer invalidate];
+//		[_controlVisibilityTimer release];
+//		_controlVisibilityTimer = nil;
+//	}
+//}
+//
+//// Enable/disable control visiblity timer
+//- (void)hideControlsAfterDelay {
+//	if (![self areControlsHidden]) {
+//        [self cancelControlHiding];
+//		_controlVisibilityTimer = [[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideControls) userInfo:nil repeats:NO] retain];
+//	}
+//}
 
 #pragma mark -
 #pragma mark Test Data
