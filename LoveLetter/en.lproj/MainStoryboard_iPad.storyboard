@@ -11,11 +11,57 @@
                     <view key="view" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haO-Ua-hni">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="FNo-h5-vAH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="settings">
+                                    <color key="titleColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingsButtonTouched:" destination="2" eventType="touchUpInside" id="VJ7-Uh-Wkw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADq-xn-iBl">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="ICW-mn-Jp8"/>
+                                    <constraint firstAttribute="height" constant="44" id="X4e-Us-7yQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="test |">
+                                    <color key="titleColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testButtonTouched:" destination="2" eventType="touchUpInside" id="q6l-q1-COS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ADq-xn-iBl" firstAttribute="top" secondItem="haO-Ua-hni" secondAttribute="top" type="default" id="2t4-OB-zEs"/>
+                            <constraint firstAttribute="trailing" secondItem="ADq-xn-iBl" secondAttribute="trailing" constant="49" id="9sT-ay-W6x"/>
+                            <constraint firstItem="haO-Ua-hni" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="WTk-0g-HlN"/>
+                            <constraint firstItem="haO-Ua-hni" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="ePu-1A-6fD"/>
+                            <constraint firstItem="ADq-xn-iBl" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="k3t-8J-hCv"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="settingsButton" destination="haO-Ua-hni" id="6d0-2s-NVH"/>
+                        <outlet property="testButton" destination="ADq-xn-iBl" id="Fz3-4E-Uc8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
@@ -23,10 +69,16 @@
         </scene>
     </scenes>
     <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="stageView" candidateClass="UIView"/>
+                <relationship kind="action" name="settingsButtonTouched:"/>
+                <relationship kind="action" name="testButtonTouched:"/>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="testButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
