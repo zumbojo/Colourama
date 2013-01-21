@@ -48,6 +48,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    // Set background to that of the last slat.  Autolayout was (intermittently :/) failing to properly fill the last slat, resulting in white gaps bleeding through.
+    // This hides those.
+    self.view.layer.backgroundColor = ((CLSlat *)self.palette.slats.lastObject).color.CGColor;
+    
     // add slat views:
     for (CLSlat *slat in self.palette.slats) {
         UIView *slatView = [[UIView alloc] init];
