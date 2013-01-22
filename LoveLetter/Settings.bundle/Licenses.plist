@@ -18,11 +18,9 @@
 			<key>Title</key>
 			<string>==========
                 
-The following software may be included in this product: MBProgressHUD.  This software contains the following license and notice below:
+The following software may be included in this product: AFNetworking.  This software contains the following license and notice below:
                 
-This code is distributed under the terms and conditions of the MIT license.
-
-Copyright (c) 2011 Matej Bukovinski
+Copyright (c) 2011 Gowalla (http://gowalla.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
