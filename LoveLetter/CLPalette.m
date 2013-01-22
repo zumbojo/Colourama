@@ -72,6 +72,29 @@
     ]
     */
     
+    CLPalette *palette = [[CLPalette alloc] init];
+    palette.remoteId = [[json valueForKeyPath:@"id"] intValue];
+    palette.title = [json valueForKeyPath:@"title"];
+    palette.userName = [json valueForKeyPath:@"userName"];
+    palette.numViews = [[json valueForKeyPath:@"numViews"] intValue];
+    palette.numVotes = [[json valueForKeyPath:@"numVotes"] intValue];
+    palette.numComments = [[json valueForKeyPath:@"numComments"] intValue];
+    palette.numHearts = [[json valueForKeyPath:@"numHearts"] intValue];
+    
+    NSMutableArray *slats = [[NSMutableArray alloc] init];
+    NSArray *colors = [json valueForKeyPath:@"colors"];
+    NSArray *colorWidths = [json valueForKeyPath:@"colorWidths"];
+    NSUInteger index = 0;
+    for (NSString *hexColor in colors) {
+        CLSlat *slat = [[CLSlat alloc] init];
+        slat.color = UIColorFromRGBString(hexColor);
+        slat.width = [colorWidths[index] floatValue];
+        [slats addObject:slat];
+        index++;
+    }
+    palette.slats = slats;
+    
+    return palette;
 }
 
 @end

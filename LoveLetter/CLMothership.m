@@ -7,6 +7,7 @@
 //
 
 #import "CLMothership.h"
+#import "CLPalette.h"
 #import "AFNetworking.h"
 
 @implementation CLMothership
@@ -64,27 +65,7 @@ static const int kColourLoversDefaultPageSize = 20;
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSMutableArray* parsed = [[NSMutableArray alloc] init];
         for (id node in JSON) {
-            /*
-            ColourPalette* palette = [[ColourPalette alloc] init];
-            
-            // parse basic properties
-            palette.remoteId = [node valueForKeyPath:@"id"];
-            palette.title = [node valueForKeyPath:@"title"];
-            palette.user = [node valueForKeyPath:@"userName"];
-            palette.url = [node valueForKeyPath:@"url"];
-            
-            // parse the colours as string and into a UIColor
-            NSMutableArray* hexColors = [[NSMutableArray alloc] init];
-            NSMutableArray* colors = [[NSMutableArray alloc] init];
-            for (NSString* colorHex in [node valueForKeyPath:@"colors"]) {
-                [hexColors addObject:colorHex];
-                [colors addObject:[ColourLovers colorWithHexString:colorHex]];
-            }
-            palette.hexColors = hexColors;
-            palette.colors = colors;
-            
-            [parsed addObject:palette];
-             */
+            [parsed addObject:[CLPalette paletteFromJSON:node]];
         }
         
         // notify the caller of our success and send the list of colours along
