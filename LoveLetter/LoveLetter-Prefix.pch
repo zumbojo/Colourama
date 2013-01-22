@@ -11,5 +11,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <SystemConfiguration/SystemConfiguration.h> // https://github.com/AFNetworking/AFNetworking/issues/577
+    #import <MobileCoreServices/MobileCoreServices.h> // https://github.com/AFNetworking/AFNetworking/issues/577
     #import "constants.h"
 #endif

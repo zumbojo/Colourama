@@ -19,6 +19,8 @@
 		CE78561116AE3A400064460E /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78560416AE36140064460E /* AFURLConnectionOperation.m */; };
 		CE78561216AE3A400064460E /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78560616AE36140064460E /* AFXMLRequestOperation.m */; };
 		CE78561316AE3A400064460E /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78560816AE36140064460E /* UIImageView+AFNetworking.m */; };
+		CE78561D16AE42A50064460E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78561C16AE42A50064460E /* SystemConfiguration.framework */; };
+		CE78562016AE42AE0064460E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78561F16AE42AE0064460E /* MobileCoreServices.framework */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -61,6 +63,8 @@
 		CE78560716AE36140064460E /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		CE78560816AE36140064460E /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		CE78560916AE36980064460E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		CE78561C16AE42A50064460E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CE78561F16AE42AE0064460E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE78562016AE42AE0064460E /* MobileCoreServices.framework in Frameworks */,
+				CE78561D16AE42A50064460E /* SystemConfiguration.framework in Frameworks */,
 				CED03B4616AA34240077CAB8 /* QuartzCore.framework in Frameworks */,
 				CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */,
 				CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */,
@@ -166,6 +172,8 @@
 		CED03B1016AA28660077CAB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE78561F16AE42AE0064460E /* MobileCoreServices.framework */,
+				CE78561C16AE42A50064460E /* SystemConfiguration.framework */,
 				CED03B4516AA34230077CAB8 /* QuartzCore.framework */,
 				CED03B1116AA28660077CAB8 /* UIKit.framework */,
 				CED03B1316AA28660077CAB8 /* Foundation.framework */,
