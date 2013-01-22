@@ -10,6 +10,15 @@
 		CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78556A16AB5BE40064460E /* CLPaletteViewController.m */; };
 		CE7855E116AE34110064460E /* CLMothership.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855E016AE34110064460E /* CLMothership.m */; };
 		CE78560A16AE36980064460E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE78560916AE36980064460E /* Settings.bundle */; };
+		CE78560B16AE3A400064460E /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855F716AE36140064460E /* AFHTTPClient.m */; };
+		CE78560C16AE3A400064460E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855F916AE36140064460E /* AFHTTPRequestOperation.m */; };
+		CE78560D16AE3A400064460E /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855FB16AE36140064460E /* AFImageRequestOperation.m */; };
+		CE78560E16AE3A400064460E /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855FD16AE36140064460E /* AFJSONRequestOperation.m */; };
+		CE78560F16AE3A400064460E /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855FF16AE36140064460E /* AFNetworkActivityIndicatorManager.m */; };
+		CE78561016AE3A400064460E /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78560216AE36140064460E /* AFPropertyListRequestOperation.m */; };
+		CE78561116AE3A400064460E /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78560416AE36140064460E /* AFURLConnectionOperation.m */; };
+		CE78561216AE3A400064460E /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78560616AE36140064460E /* AFXMLRequestOperation.m */; };
+		CE78561316AE3A400064460E /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78560816AE36140064460E /* UIImageView+AFNetworking.m */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -292,6 +301,15 @@
 				CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */,
 				CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */,
 				CE7855E116AE34110064460E /* CLMothership.m in Sources */,
+				CE78560B16AE3A400064460E /* AFHTTPClient.m in Sources */,
+				CE78560C16AE3A400064460E /* AFHTTPRequestOperation.m in Sources */,
+				CE78560D16AE3A400064460E /* AFImageRequestOperation.m in Sources */,
+				CE78560E16AE3A400064460E /* AFJSONRequestOperation.m in Sources */,
+				CE78560F16AE3A400064460E /* AFNetworkActivityIndicatorManager.m in Sources */,
+				CE78561016AE3A400064460E /* AFPropertyListRequestOperation.m in Sources */,
+				CE78561116AE3A400064460E /* AFURLConnectionOperation.m in Sources */,
+				CE78561216AE3A400064460E /* AFXMLRequestOperation.m in Sources */,
+				CE78561316AE3A400064460E /* UIImageView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

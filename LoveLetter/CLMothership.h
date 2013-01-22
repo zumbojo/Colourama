@@ -8,8 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    ColourPaletteTypeNew,
+    ColourPaletteTypeTop,
+    ColourPaletteTypeRandom
+} ColourPaletteType;
+
 @interface CLMothership : NSObject
 
 + (CLMothership *)sharedInstance;
+
+- (void)loadPalettes:(void (^)(NSArray* palettes))block; // loads the top 20 palettes with default options
+- (void)loadPalettesOfType:(ColourPaletteType)type success:(void (^)(NSArray* palettes))block;
+- (void)loadPalettesOfType:(ColourPaletteType)type withNumber:(int)numResults andOffset:(int)offset success:(void (^)(NSArray* palettes))block;
 
 @end

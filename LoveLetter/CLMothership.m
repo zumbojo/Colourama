@@ -7,8 +7,13 @@
 //
 
 #import "CLMothership.h"
+#import "AFNetworking.h"
 
 @implementation CLMothership
+
+// Based heavily on https://github.com/gdawg/iOSColourLovers (especially the loadPalette methods), then modified for petty pickiness and/or fun.
+
+static const int kColourLoversDefaultPageSize = 20;
 
 + (CLMothership *)sharedInstance { // http://stuartkhall.com/posts/ios-development-tips-i-would-want-if-i-was-starting-out-today
     static CLMothership *_shared = nil;
@@ -17,6 +22,78 @@
         _shared = [[CLMothership alloc] init];
     });
     return _shared;
+}
+
+-(void) loadPalettes:(void (^)(NSArray* palettes))success {
+    [self loadPalettesOfType:ColourPaletteTypeTop success:success];
+}
+
+-(void) loadPalettesOfType:(ColourPaletteType)type success:(void (^)(NSArray* palettes))success {
+    [self loadPalettesOfType:type withNumber:kColourLoversDefaultPageSize andOffset:0 success:success];
+}
+
+-(void) loadPalettesOfType:(ColourPaletteType)type withNumber:(int)numResults andOffset:(int)offset success:(void (^)(NSArray* palettes))success {
+    NSString* urlString = @"http://www.colourlovers.com/api/palettes/";
+    switch (type) {
+        case ColourPaletteTypeTop:
+            urlString = [urlString stringByAppendingString:@"top"];
+            break;
+            
+        case ColourPaletteTypeNew:
+            urlString = [urlString stringByAppendingString:@"new"];
+            break;
+            
+        case ColourPaletteTypeRandom:
+            urlString = [urlString stringByAppendingString:@"random"];
+            break;
+            
+        default:
+            break;
+    }
+    urlString = [urlString stringByAppendingString:@"?format=json"];
+    
+    // the api only allows loading one random colour at a time, no offset
+    if (type != ColourPaletteTypeRandom) {
+        urlString = [urlString stringByAppendingFormat:@"&numResults=%d",numResults];
+        urlString = [urlString stringByAppendingFormat:@"&resultOffset=%d",offset];
+    }
+    
+    NSLog(@"loading colours at url %@",urlString);
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSMutableArray* parsed = [[NSMutableArray alloc] init];
+        for (id node in JSON) {
+            /*
+            ColourPalette* palette = [[ColourPalette alloc] init];
+            
+            // parse basic properties
+            palette.remoteId = [node valueForKeyPath:@"id"];
+            palette.title = [node valueForKeyPath:@"title"];
+            palette.user = [node valueForKeyPath:@"userName"];
+            palette.url = [node valueForKeyPath:@"url"];
+            
+            // parse the colours as string and into a UIColor
+            NSMutableArray* hexColors = [[NSMutableArray alloc] init];
+            NSMutableArray* colors = [[NSMutableArray alloc] init];
+            for (NSString* colorHex in [node valueForKeyPath:@"colors"]) {
+                [hexColors addObject:colorHex];
+                [colors addObject:[ColourLovers colorWithHexString:colorHex]];
+            }
+            palette.hexColors = hexColors;
+            palette.colors = colors;
+            
+            [parsed addObject:palette];
+             */
+        }
+        
+        // notify the caller of our success and send the list of colours along
+        success(parsed);
+        
+    } failure:nil];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [queue addOperation:operation];
 }
 
 @end
