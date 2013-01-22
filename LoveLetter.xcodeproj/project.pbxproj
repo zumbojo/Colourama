@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78556A16AB5BE40064460E /* CLPaletteViewController.m */; };
 		CE7855E116AE34110064460E /* CLMothership.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855E016AE34110064460E /* CLMothership.m */; };
+		CE78560A16AE36980064460E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE78560916AE36980064460E /* Settings.bundle */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -50,6 +51,7 @@
 		CE78560616AE36140064460E /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		CE78560716AE36140064460E /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		CE78560816AE36140064460E /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		CE78560916AE36980064460E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -183,6 +185,7 @@
 		CED03B1816AA28660077CAB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE78560916AE36980064460E /* Settings.bundle */,
 				CED03B1916AA28660077CAB8 /* LoveLetter-Info.plist */,
 				CED03B1A16AA28660077CAB8 /* InfoPlist.strings */,
 				CED03B1D16AA28660077CAB8 /* main.m */,
@@ -271,6 +274,7 @@
 				CED03B2816AA28660077CAB8 /* Default-568h@2x.png in Resources */,
 				CED03B2B16AA28660077CAB8 /* MainStoryboard_iPhone.storyboard in Resources */,
 				CED03B2E16AA28660077CAB8 /* MainStoryboard_iPad.storyboard in Resources */,
+				CE78560A16AE36980064460E /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
