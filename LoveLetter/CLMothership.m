@@ -51,7 +51,7 @@ static const int kColourLoversDefaultPageSize = 20;
         default:
             break;
     }
-    urlString = [urlString stringByAppendingString:@"?format=json"];
+    urlString = [urlString stringByAppendingString:@"?format=json&showPaletteWidths=1"];
     
     // the api only allows loading one random colour at a time, no offset
     if (type != ColourPaletteTypeRandom) {
