@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "CLPaletteViewController.h"
 #import "CLPalette.h"
+#import "CLMothership.h"
 
 @interface ViewController ()
 
@@ -100,13 +101,21 @@
 {
     NSMutableArray *pvcs = [[NSMutableArray alloc] init];
     
-    for (CLPalette *palette in [self samplePalettes]) {
+    [pvcs addObjectsFromArray:[self paletteViewControllersFromPalettes:[self samplePalettes]]];
+    
+    self.contentControllers = pvcs;
+}
+
+- (NSArray *)paletteViewControllersFromPalettes:(NSArray *)palettes {
+    NSMutableArray *pvcs = [[NSMutableArray alloc] init];
+    
+    for (CLPalette *palette in palettes) {
         CLPaletteViewController *pvc = [[CLPaletteViewController alloc] initWithPalette:palette];
         pvc.view.bounds = self.view.bounds;
         [pvcs addObject:pvc];
     }
     
-    self.contentControllers = [NSArray arrayWithArray:pvcs];
+    return [NSArray arrayWithArray:pvcs];
 }
 
 - (void)didReceiveMemoryWarning
@@ -122,10 +131,17 @@
 
 - (IBAction)testButtonTouched:(id)sender {
     NSLog(@"testButtonTouched");
+
+    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
+        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
+        NSLog(@"palettes loaded, added to contentControllers");
+    }];
+    
+    
     // toggle variable widths for all palette view controllers:
-    for (CLPaletteViewController *pvc in self.contentControllers) {
-        [pvc setShowVariableWidths:!pvc.showVariableWidths animated:YES];
-    }
+//    for (CLPaletteViewController *pvc in self.contentControllers) {
+//        [pvc setShowVariableWidths:!pvc.showVariableWidths animated:YES];
+//    }
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
