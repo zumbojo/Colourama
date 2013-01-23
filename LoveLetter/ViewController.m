@@ -22,20 +22,8 @@
 
 @implementation ViewController
 
-- (CLPaletteViewController *)viewControllerAtIndex:(NSUInteger)index
-{
-    // Return the data view controller for the given index.
-    if (([self.contentControllers count] == 0) ||
-        (index >= [self.contentControllers count])) {
-        return nil;
-    }
-    return [self.contentControllers objectAtIndex:index];
-}
-
-- (NSUInteger)indexOfViewController:(CLPaletteViewController *)viewController
-{
-    return [self.contentControllers indexOfObject:viewController];
-}
+#pragma mark -
+#pragma mark UIPageViewControllerDataSource
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
@@ -63,6 +51,50 @@
     }
     return [self viewControllerAtIndex:index];
 }
+
+
+// Helpers:
+
+- (CLPaletteViewController *)viewControllerAtIndex:(NSUInteger)index
+{
+    // Return the data view controller for the given index.
+    if (([self.contentControllers count] == 0) ||
+        (index >= [self.contentControllers count])) {
+        return nil;
+    }
+    return [self.contentControllers objectAtIndex:index];
+}
+
+- (NSUInteger)indexOfViewController:(CLPaletteViewController *)viewController
+{
+    return [self.contentControllers indexOfObject:viewController];
+}
+
+
+#pragma mark -
+#pragma mark UIPageViewControllerDelegate
+
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
+    
+    // no easy way to get the current page from UIPageViewController; it must be done manually:
+    // http://stackoverflow.com/questions/8400870/uipageviewcontroller-return-the-current-visible-view
+    
+    if (completed) {
+        self.currentPage = self.pendingPage;
+    }
+    else {
+        self.pendingPage = nil;
+    }
+    
+    NSLog(@"did trans: %d, current: %p", completed, self.currentPage);
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
+    NSLog(@"will trans to: %p", pendingViewControllers[0]);
+    self.pendingPage = pendingViewControllers[0];
+}
+
+#pragma mark -
 
 - (void)viewDidLoad
 {
@@ -270,21 +302,6 @@
      @[@"6D6379", [NSNumber numberWithFloat:0.45]]
      ]]
     ];    
-}
-
-// using this as a test button for now, until I add actual buttons.  If this is no longer used, you can probably drop the UIPageViewControllerDelegate <>
-- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
-//    NSLog(@"0th: %p", [self viewControllerAtIndex:0]);
-//    NSLog(@"did trans: %d, %p", completed, previousViewControllers[0]);
-    
-    if (completed) {
-        self.currentPage = self.pendingPage;
-    }
-}
-
-- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
-    //NSLog(@"will trans: %p", pendingViewControllers[0]);
-    self.pendingPage = pendingViewControllers[0];
 }
 
 @end
