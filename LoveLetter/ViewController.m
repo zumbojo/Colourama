@@ -11,6 +11,7 @@
 #import "CLPaletteViewController.h"
 #import "CLPalette.h"
 #import "CLMothership.h"
+#import "KLTransitionProxyViewController.h"
 
 @interface ViewController ()
 
@@ -171,10 +172,17 @@
 
     // manually push next VC, as a test of setViewControllers:direction:animated:completion:
     
+//    NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
+//    UIViewController *nextVC = [self viewControllerAtIndex:currentIndex + 1];
+//    [self.pageController setViewControllers:@[nextVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+//    
+
     NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
-    UIViewController *nextVC = [self viewControllerAtIndex:currentIndex + 1];
-    [self.pageController setViewControllers:@[nextVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    
+    UIViewController *fromVC = self.currentPage;
+    UIViewController *toVC = [self viewControllerAtIndex:currentIndex + 1];
+
+    [self.pageController setViewControllers:@[toVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+
     
     
     
