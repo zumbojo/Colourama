@@ -27,8 +27,7 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self indexOfViewController:
-                        (CLPaletteViewController *)viewController];
+    NSUInteger index = [self indexOfViewController:viewController];
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
@@ -39,8 +38,7 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self indexOfViewController:
-                        (CLPaletteViewController *)viewController];
+    NSUInteger index = [self indexOfViewController:viewController];
     if (index == NSNotFound) {
         return nil;
     }
@@ -52,10 +50,9 @@
     return [self viewControllerAtIndex:index];
 }
 
-
 // Helpers:
 
-- (CLPaletteViewController *)viewControllerAtIndex:(NSUInteger)index
+- (UIViewController *)viewControllerAtIndex:(NSUInteger)index
 {
     // Return the data view controller for the given index.
     if (([self.contentControllers count] == 0) ||
@@ -65,7 +62,7 @@
     return [self.contentControllers objectAtIndex:index];
 }
 
-- (NSUInteger)indexOfViewController:(CLPaletteViewController *)viewController
+- (NSUInteger)indexOfViewController:(UIViewController *)viewController
 {
     return [self.contentControllers indexOfObject:viewController];
 }
@@ -112,8 +109,7 @@
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     
-    CLPaletteViewController *initialViewController =
-    [self viewControllerAtIndex:0];
+    UIViewController *initialViewController = [self viewControllerAtIndex:0];
     NSArray *viewControllers =
     [NSArray arrayWithObject:initialViewController];
     
