@@ -95,6 +95,12 @@
     [self.pageController didMoveToParentViewController:self];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
     [self hideControlsAfterDelay];
+    
+    // request a handful of new palettes:
+    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
+        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
+        NSLog(@"palettes loaded, added to contentControllers");
+    }];
 }
 
 - (void)populateContentControllers
@@ -132,10 +138,10 @@
 - (IBAction)testButtonTouched:(id)sender {
     NSLog(@"testButtonTouched");
 
-    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
-        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
-        NSLog(@"palettes loaded, added to contentControllers");
-    }];
+//    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
+//        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
+//        NSLog(@"palettes loaded, added to contentControllers");
+//    }];
     
     
     // toggle variable widths for all palette view controllers:
