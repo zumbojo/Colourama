@@ -15,6 +15,8 @@
 @interface ViewController ()
 
 @property (nonatomic) NSTimer *controlVisibilityTimer;
+@property (nonatomic) UIViewController *pendingPage; // for testing
+@property (nonatomic) UIViewController *currentPage; // for testing
 
 @end
 
@@ -88,6 +90,7 @@
                                    animated:NO
                                  completion:nil];
     
+    self.currentPage = viewControllers[0];
     [self addChildViewController:self.pageController];
     [self.view addSubview:self.pageController.view];
     [self.view bringSubviewToFront:self.settingsButton];
@@ -138,6 +141,15 @@
 - (IBAction)testButtonTouched:(id)sender {
     NSLog(@"testButtonTouched");
 
+    // manually push next VC, as a test of setViewControllers:direction:animated:completion:
+    
+    NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
+    UIViewController *nextVC = [self viewControllerAtIndex:currentIndex + 1];
+    [self.pageController setViewControllers:@[nextVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
+    
+    
+    
 //    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
 //        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
 //        NSLog(@"palettes loaded, added to contentControllers");
@@ -262,8 +274,17 @@
 
 // using this as a test button for now, until I add actual buttons.  If this is no longer used, you can probably drop the UIPageViewControllerDelegate <>
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
+//    NSLog(@"0th: %p", [self viewControllerAtIndex:0]);
+//    NSLog(@"did trans: %d, %p", completed, previousViewControllers[0]);
+    
+    if (completed) {
+        self.currentPage = self.pendingPage;
+    }
+}
 
-    // todo: cleanup?
+- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
+    //NSLog(@"will trans: %p", pendingViewControllers[0]);
+    self.pendingPage = pendingViewControllers[0];
 }
 
 @end
