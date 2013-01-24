@@ -21,8 +21,6 @@
 		CE78561316AE3A400064460E /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78560816AE36140064460E /* UIImageView+AFNetworking.m */; };
 		CE78561D16AE42A50064460E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78561C16AE42A50064460E /* SystemConfiguration.framework */; };
 		CE78562016AE42AE0064460E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78561F16AE42AE0064460E /* MobileCoreServices.framework */; };
-		CE78562316AF8AD80064460E /* KLPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78562216AF8AD80064460E /* KLPageViewController.m */; };
-		CE78562616AFA3320064460E /* KLTransitionProxyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78562516AFA3320064460E /* KLTransitionProxyViewController.m */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -67,10 +65,6 @@
 		CE78560916AE36980064460E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE78561C16AE42A50064460E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE78561F16AE42AE0064460E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		CE78562116AF8AD80064460E /* KLPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLPageViewController.h; sourceTree = "<group>"; };
-		CE78562216AF8AD80064460E /* KLPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLPageViewController.m; sourceTree = "<group>"; };
-		CE78562416AFA3320064460E /* KLTransitionProxyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTransitionProxyViewController.h; sourceTree = "<group>"; };
-		CE78562516AFA3320064460E /* KLTransitionProxyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTransitionProxyViewController.m; sourceTree = "<group>"; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -236,10 +230,6 @@
 			children = (
 				CE78556916AB5BE40064460E /* CLPaletteViewController.h */,
 				CE78556A16AB5BE40064460E /* CLPaletteViewController.m */,
-				CE78562116AF8AD80064460E /* KLPageViewController.h */,
-				CE78562216AF8AD80064460E /* KLPageViewController.m */,
-				CE78562416AFA3320064460E /* KLTransitionProxyViewController.h */,
-				CE78562516AFA3320064460E /* KLTransitionProxyViewController.m */,
 			);
 			name = "Pretty Views";
 			sourceTree = "<group>";
@@ -328,8 +318,6 @@
 				CE78561116AE3A400064460E /* AFURLConnectionOperation.m in Sources */,
 				CE78561216AE3A400064460E /* AFXMLRequestOperation.m in Sources */,
 				CE78561316AE3A400064460E /* UIImageView+AFNetworking.m in Sources */,
-				CE78562316AF8AD80064460E /* KLPageViewController.m in Sources */,
-				CE78562616AFA3320064460E /* KLTransitionProxyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
