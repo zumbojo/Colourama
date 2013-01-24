@@ -108,7 +108,7 @@
     
     self.pageController.delegate = self;
     self.pageController.dataSource = self;
-    [[self.pageController view] setFrame:[[self view] bounds]];
+    self.pageController.view.frame = self.view.bounds;
     
     UIViewController *initialViewController = [self viewControllerAtIndex:0];
     NSArray *viewControllers =
