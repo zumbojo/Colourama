@@ -15,6 +15,7 @@
 @interface ViewController ()
 
 @property (nonatomic) NSTimer *controlVisibilityTimer; // for fading out buttons after a nice delay
+@property (nonatomic) NSTimer *fadeToNextPageTimer;
 @property (nonatomic) UIViewController *pendingPage; // for keeping track of the current page in UIPageViewController (see UIPageViewControllerDelegate method comments)
 @property (nonatomic) UIViewController *currentPage; // ditto
 
@@ -170,7 +171,14 @@
     NSLog(@"testButtonTouched");
     [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
 
-    [self fadeToNextPage];
+    // toggle fadeToNextPageTimer:
+    if (!self.fadeToNextPageTimer) {
+        self.fadeToNextPageTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(fadeToNextPage) userInfo:nil repeats:YES];
+    }
+    else {
+        [self.fadeToNextPageTimer invalidate];
+        self.fadeToNextPageTimer = nil;
+    }
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
