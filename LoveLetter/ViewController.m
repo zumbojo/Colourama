@@ -178,10 +178,14 @@
 //    
 
     NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
-    UIViewController *fromVC = self.currentPage;
+    //UIViewController *fromVC = self.currentPage;
     UIViewController *toVC = [self viewControllerAtIndex:currentIndex + 1];
 
-    [self.pageController setViewControllers:@[toVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    [self.pageController setViewControllers:@[toVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:^(BOOL finished){
+        if (finished) {
+            self.currentPage = toVC;
+        }
+    }];
 
     
     
