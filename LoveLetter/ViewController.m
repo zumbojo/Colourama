@@ -168,39 +168,14 @@
 
 - (IBAction)testButtonTouched:(id)sender {
     NSLog(@"testButtonTouched");
+    [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
 
-    NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
-    UIViewController *fromVC = self.currentPage;
-    UIViewController *toVC = [self viewControllerAtIndex:currentIndex + 1];
-
-    if ([fromVC isKindOfClass:[CLPaletteViewController class]]) {
-        CLPalette *palette = ((CLPaletteViewController *)fromVC).palette;
-        
-        CLPaletteViewController *ghost = [[CLPaletteViewController alloc] initWithPalette:palette]; // this will be added to the main VC, and faded out
-        ghost.view.frame = self.view.bounds;
-        [self addChildViewController:ghost];
-        [self.view insertSubview:ghost.view belowSubview:self.settingsButton];
-        
-        [UIView animateWithDuration:1
-                         animations:^{
-                             ghost.view.alpha = 0;
-                         }
-                         completion:^(BOOL finished) {
-                             [ghost.view removeFromSuperview];
-                             [ghost removeFromParentViewController];
-                         }];
-    }
-    
-    // push toVC in background
-    [self.pageController setViewControllers:@[toVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:^(BOOL finished){
-        if (finished) {
-            self.currentPage = toVC;
-        }
-    }];
+    [self fadeToNextPage];
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
     NSLog(@"settingsButtonTouched");
+    [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
 }
 
 #pragma mark Gestures
@@ -261,6 +236,42 @@
         [self cancelControlHiding];
 		self.controlVisibilityTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideControls) userInfo:nil repeats:NO];
 	}
+}
+
+// fancy fade trick:
+
+- (void)fadeToNextPage {
+    NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
+    UIViewController *fromVC = self.currentPage;
+    UIViewController *toVC = [self viewControllerAtIndex:currentIndex + 1];
+    
+    if ([fromVC isKindOfClass:[CLPaletteViewController class]]) {
+        // create a copy of the currently shown pvc, add it to the main VC, then slowly fade it out as the page view controller is instantly manually advanced in the background
+        
+        CLPalette *palette = ((CLPaletteViewController *)fromVC).palette;
+        
+        CLPaletteViewController *ghost = [[CLPaletteViewController alloc] initWithPalette:palette];
+        ghost.view.frame = self.view.bounds;
+        [self addChildViewController:ghost];
+        [self.view insertSubview:ghost.view belowSubview:self.settingsButton];
+        
+        // sneakily push toVC in background
+        [self.pageController setViewControllers:@[toVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:^(BOOL finished){
+            if (finished) {
+                self.currentPage = toVC;
+            }
+        }];
+        
+        // now fade out the ghost
+        [UIView animateWithDuration:1
+                         animations:^{
+                             ghost.view.alpha = 0;
+                         }
+                         completion:^(BOOL finished) {
+                             [ghost.view removeFromSuperview];
+                             [ghost removeFromParentViewController];
+                         }];
+    }
 }
 
 #pragma mark -
