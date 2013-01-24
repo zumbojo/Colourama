@@ -14,9 +14,9 @@
 
 @interface ViewController ()
 
-@property (nonatomic) NSTimer *controlVisibilityTimer;
-@property (nonatomic) UIViewController *pendingPage; // for testing
-@property (nonatomic) UIViewController *currentPage; // for testing
+@property (nonatomic) NSTimer *controlVisibilityTimer; // for fading out buttons after a nice delay
+@property (nonatomic) UIViewController *pendingPage; // for keeping track of the current page in UIPageViewController (see UIPageViewControllerDelegate method comments)
+@property (nonatomic) UIViewController *currentPage; // ditto
 
 @end
 
