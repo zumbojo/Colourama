@@ -11,7 +11,6 @@
 #import "CLPaletteViewController.h"
 #import "CLPalette.h"
 #import "CLMothership.h"
-#import "KLTransitionProxyViewController.h"
 
 @interface ViewController ()
 
@@ -178,9 +177,41 @@
 //    
 
     NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
-    //UIViewController *fromVC = self.currentPage;
+    UIViewController *fromVC = self.currentPage;
     UIViewController *toVC = [self viewControllerAtIndex:currentIndex + 1];
 
+    if ([fromVC isKindOfClass:[CLPaletteViewController class]]) {
+        CLPalette *palette = ((CLPaletteViewController *)fromVC).palette;
+        
+        CLPaletteViewController *ghost = [[CLPaletteViewController alloc] initWithPalette:palette]; // this will be added to the main VC, and faded out
+        ghost.view.frame = self.view.bounds;
+        [self addChildViewController:ghost];
+        [self.view insertSubview:ghost.view belowSubview:self.settingsButton];
+        
+        [UIView animateWithDuration:1
+                         animations:^{
+                             ghost.view.alpha = 0;
+                         }
+                         completion:^(BOOL finished) {
+                             [ghost.view removeFromSuperview];
+                             [ghost removeFromParentViewController];
+                         }];
+    }
+    
+    
+    
+    
+//    UIViewController *fromVCcopy = [fromVC copy];
+//    NSLog(@"fromVC: %p, fromVCcopy: %p", fromVC, fromVCcopy);
+    
+    //
+    //[fromVC removeFromParentViewController];
+//    [self addChildViewController:fromVC];
+//    [self.view addSubview:fromVC.view];
+    
+    
+    
+    // push toVC in background
     [self.pageController setViewControllers:@[toVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:^(BOOL finished){
         if (finished) {
             self.currentPage = toVC;
