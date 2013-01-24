@@ -169,13 +169,6 @@
 - (IBAction)testButtonTouched:(id)sender {
     NSLog(@"testButtonTouched");
 
-    // manually push next VC, as a test of setViewControllers:direction:animated:completion:
-    
-//    NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
-//    UIViewController *nextVC = [self viewControllerAtIndex:currentIndex + 1];
-//    [self.pageController setViewControllers:@[nextVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-//    
-
     NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
     UIViewController *fromVC = self.currentPage;
     UIViewController *toVC = [self viewControllerAtIndex:currentIndex + 1];
@@ -198,39 +191,12 @@
                          }];
     }
     
-    
-    
-    
-//    UIViewController *fromVCcopy = [fromVC copy];
-//    NSLog(@"fromVC: %p, fromVCcopy: %p", fromVC, fromVCcopy);
-    
-    //
-    //[fromVC removeFromParentViewController];
-//    [self addChildViewController:fromVC];
-//    [self.view addSubview:fromVC.view];
-    
-    
-    
     // push toVC in background
     [self.pageController setViewControllers:@[toVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:^(BOOL finished){
         if (finished) {
             self.currentPage = toVC;
         }
     }];
-
-    
-    
-    
-//    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
-//        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
-//        NSLog(@"palettes loaded, added to contentControllers");
-//    }];
-    
-    
-    // toggle variable widths for all palette view controllers:
-//    for (CLPaletteViewController *pvc in self.contentControllers) {
-//        [pvc setShowVariableWidths:!pvc.showVariableWidths animated:YES];
-//    }
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
