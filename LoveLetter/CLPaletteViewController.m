@@ -104,6 +104,8 @@
             [self.view addConstraint:[NSLayoutConstraint constraintWithItem:slatView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
         }
     }
+    
+    [super addThingLabels];
 }
 
 - (void)setShowVariableWidths:(BOOL)show animated:(BOOL)animated {
