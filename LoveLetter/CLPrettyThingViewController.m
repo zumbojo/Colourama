@@ -21,17 +21,19 @@
     byLineLabel.backgroundColor = [UIColor clearColor];
     [self.view addSubview:byLineLabel];
     
-    // fancy attributed text:
-    // http://stackoverflow.com/questions/3586871/bold-non-bold-text-in-a-single-uilabel
-    const CGFloat fontSize = 15;
-    UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
-    UIFont *regularFont = [UIFont systemFontOfSize:fontSize];
-    
-    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:@"a thing" attributes:@{NSFontAttributeName : boldFont}];
-    [attributedText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" by " attributes:@{NSFontAttributeName : regularFont}]];
-    [attributedText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"somebody" attributes:@{NSFontAttributeName : boldFont}]];
-    
-    byLineLabel.attributedText = attributedText;
+    if (self.prettyThing.title && self.prettyThing.userName) { // todo: remove this check as soon as bundled palettes are created via bundled JSON
+        // fancy attributed text:
+        // http://stackoverflow.com/questions/3586871/bold-non-bold-text-in-a-single-uilabel
+        const CGFloat fontSize = 15;
+        UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
+        UIFont *regularFont = [UIFont systemFontOfSize:fontSize];
+        
+        NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:self.prettyThing.title attributes:@{NSFontAttributeName : boldFont}];
+        [attributedText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" by " attributes:@{NSFontAttributeName : regularFont}]];
+        [attributedText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.userName attributes:@{NSFontAttributeName : boldFont}]];
+        
+        byLineLabel.attributedText = attributedText;
+    }
     
     // constraints:
     NSDictionary *views = NSDictionaryOfVariableBindings(byLineLabel);

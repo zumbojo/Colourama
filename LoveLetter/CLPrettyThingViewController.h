@@ -13,7 +13,7 @@
 
 @interface CLPrettyThingViewController : UIViewController
 
-@property (nonatomic) CLPrettyThing *prettyThing;
+@property (nonatomic, readonly) CLPrettyThing *prettyThing;
 
 - (void)addThingLabels;
 

@@ -43,6 +43,10 @@
     return self;
 }
 
+- (CLPrettyThing *)prettyThing {
+    return self.palette;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
