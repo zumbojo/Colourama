@@ -15,9 +15,26 @@
 @implementation CLPrettyThingViewController
 
 - (void)addThingLabels {
-    UILabel *byLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 200, 100)];
+    UILabel *byLineLabel = [[UILabel alloc] init];
+    byLineLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    byLineLabel.textColor = [UIColor lightGrayColor];
+    byLineLabel.backgroundColor = [UIColor clearColor];
 	byLineLabel.text = @"Lorem...";
 	[self.view addSubview:byLineLabel];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(byLineLabel);
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineLabel]-5-|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"[byLineLabel]-5-|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];    
 }
 
 /*
