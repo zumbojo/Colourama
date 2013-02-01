@@ -42,7 +42,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="testButtonTouched:" destination="2" eventType="touchUpInside" id="r0k-cu-iBb"/>
+                                    <action selector="shareButtonTouched:" destination="2" eventType="touchUpInside" id="6yb-fo-Iwm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -61,7 +61,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="settingsButton" destination="Oh8-xw-PbR" id="o5s-fR-xTi"/>
-                        <outlet property="testButton" destination="Lcp-SI-KKD" id="RmW-dY-CFE"/>
+                        <outlet property="shareButton" destination="Lcp-SI-KKD" id="2iD-D4-pgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>

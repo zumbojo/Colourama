@@ -13,10 +13,10 @@
 
 @property (strong, nonatomic) UIPageViewController *pageController;
 @property (strong, nonatomic) NSMutableArray *contentControllers;
-@property (weak, nonatomic) IBOutlet UIButton *testButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
-- (IBAction)testButtonTouched:(id)sender;
+- (IBAction)shareButtonTouched:(id)sender;
 - (IBAction)settingsButtonTouched:(id)sender;
 
 @end
