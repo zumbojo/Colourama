@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+@interface ViewController : UIViewController <UIActionSheetDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 @property (strong, nonatomic) UIPageViewController *pageController;
 @property (strong, nonatomic) NSMutableArray *contentControllers;

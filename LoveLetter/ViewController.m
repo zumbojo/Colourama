@@ -19,6 +19,8 @@
 @property (nonatomic) UIViewController *pendingPage; // for keeping track of the current page in UIPageViewController (see UIPageViewControllerDelegate method comments)
 @property (nonatomic) UIViewController *currentPage; // ditto
 
+@property (nonatomic) UIActionSheet *shareMenu;
+
 @end
 
 @implementation ViewController
@@ -171,6 +173,28 @@
     NSLog(@"shareButtonTouched");
     [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
 
+    // create shareMenu (or hide existing):
+    if (self.shareMenu) {
+        // dismiss existing shareMenu to prevent multiple from appearing:
+        // see http://stackoverflow.com/questions/5448987/ipads-uiactionsheet-showing-multiple-times
+        [self.shareMenu dismissWithClickedButtonIndex:-1 animated:NO];
+    }
+    else {
+        self.shareMenu = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open in Safari", nil];
+    }
+    
+    // show shareMenu:
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [self.shareMenu showFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview animated:YES];
+        // http://stackoverflow.com/questions/13710789/uiactionsheet-showfromrect-autorotation
+    }
+    else {
+        [self.shareMenu showInView:self.view];
+    }
+    
+    /*
+    // for testing fadeToNextPageTimer
+    //
     // toggle fadeToNextPageTimer:
     if (!self.fadeToNextPageTimer) {
         self.fadeToNextPageTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(fadeToNextPage) userInfo:nil repeats:YES];
@@ -179,6 +203,7 @@
         [self.fadeToNextPageTimer invalidate];
         self.fadeToNextPageTimer = nil;
     }
+     */
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
