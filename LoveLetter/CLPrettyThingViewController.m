@@ -15,7 +15,9 @@
 @implementation CLPrettyThingViewController
 
 - (void)addThingLabels {
-    NSLog(@"addThingLabels is nye");
+    UILabel *byLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 200, 100)];
+	byLineLabel.text = @"Lorem...";
+	[self.view addSubview:byLineLabel];
 }
 
 /*
