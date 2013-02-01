@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLPrettyThingViewController.h"
 
 @class CLPalette;
 
-@interface CLPaletteViewController : UIViewController
+@interface CLPaletteViewController : CLPrettyThingViewController
 
 @property (nonatomic) CLPalette *palette;
 @property (nonatomic, readonly) BOOL showVariableWidths; // change using setShowVariableWidths:animated:
