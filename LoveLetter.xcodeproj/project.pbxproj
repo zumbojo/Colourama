@@ -22,6 +22,7 @@
 		CE78561D16AE42A50064460E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78561C16AE42A50064460E /* SystemConfiguration.framework */; };
 		CE78562016AE42AE0064460E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78561F16AE42AE0064460E /* MobileCoreServices.framework */; };
 		CE78563516BB47480064460E /* CLPrettyThingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78563416BB47480064460E /* CLPrettyThingViewController.m */; };
+		CE78563916BB48190064460E /* CLPrettyThing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78563816BB48190064460E /* CLPrettyThing.m */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -68,6 +69,8 @@
 		CE78561F16AE42AE0064460E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CE78563316BB47480064460E /* CLPrettyThingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPrettyThingViewController.h; sourceTree = "<group>"; };
 		CE78563416BB47480064460E /* CLPrettyThingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPrettyThingViewController.m; sourceTree = "<group>"; };
+		CE78563716BB48190064460E /* CLPrettyThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPrettyThing.h; sourceTree = "<group>"; };
+		CE78563816BB48190064460E /* CLPrettyThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPrettyThing.m; sourceTree = "<group>"; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,6 +116,7 @@
 		CE7855E316AE34220064460E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE78563A16BB481E0064460E /* Abstract */,
 				CED03B3816AA2D5C0077CAB8 /* CLPalette.h */,
 				CED03B3916AA2D5C0077CAB8 /* CLPalette.m */,
 				CED03B3B16AA2E220077CAB8 /* CLSlat.h */,
@@ -153,6 +157,24 @@
 				CE78560816AE36140064460E /* UIImageView+AFNetworking.m */,
 			);
 			name = "AFNetworking (ba9185d)";
+			sourceTree = "<group>";
+		};
+		CE78563A16BB481E0064460E /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				CE78563716BB48190064460E /* CLPrettyThing.h */,
+				CE78563816BB48190064460E /* CLPrettyThing.m */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		CE78563B16BB482D0064460E /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				CE78563316BB47480064460E /* CLPrettyThingViewController.h */,
+				CE78563416BB47480064460E /* CLPrettyThingViewController.m */,
+			);
+			name = Abstract;
 			sourceTree = "<group>";
 		};
 		CED03B0216AA28660077CAB8 = {
@@ -231,8 +253,7 @@
 		CED03B3E16AA322C0077CAB8 /* Pretty Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE78563316BB47480064460E /* CLPrettyThingViewController.h */,
-				CE78563416BB47480064460E /* CLPrettyThingViewController.m */,
+				CE78563B16BB482D0064460E /* Abstract */,
 				CE78556916AB5BE40064460E /* CLPaletteViewController.h */,
 				CE78556A16AB5BE40064460E /* CLPaletteViewController.m */,
 			);
@@ -324,6 +345,7 @@
 				CE78561216AE3A400064460E /* AFXMLRequestOperation.m in Sources */,
 				CE78561316AE3A400064460E /* UIImageView+AFNetworking.m in Sources */,
 				CE78563516BB47480064460E /* CLPrettyThingViewController.m in Sources */,
+				CE78563916BB48190064460E /* CLPrettyThing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
