@@ -20,4 +20,7 @@
 @property (nonatomic) NSUInteger numHearts;
 @property (nonatomic) NSUInteger rank;
 
+// convenience:
+@property (nonatomic, readonly) NSURL *webPageURL;
+
 @end

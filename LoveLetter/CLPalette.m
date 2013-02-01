@@ -10,6 +10,7 @@
 
 @implementation CLPalette
 
+/*
 - (id)init
 {
     self = [super init]; // http://stackoverflow.com/a/12428407/103058
@@ -17,6 +18,12 @@
         
     }
     return self;
+}
+ */
+
+- (NSURL *)webPageURL {
+    // example: http://www.colourlovers.com/palette/2668882
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@/palette/%d", COLOURLOVERS_URL_BASE, self.remoteId]];
 }
 
 + (CLPalette *)paletteFromArray:(NSArray *)array {

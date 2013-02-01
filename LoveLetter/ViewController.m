@@ -211,6 +211,15 @@
     [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
 }
 
+#pragma mark UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [[UIApplication sharedApplication] openURL:((CLPrettyThingViewController *)self.currentPage).prettyThing.webPageURL]; // http://stackoverflow.com/questions/9343443/alertview-open-safari
+        // todo: remove cast if self.currentPage is changed to a CLPrettyThingViewController
+    }
+}
+
 #pragma mark Gestures
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {

@@ -15,3 +15,6 @@ NSUInteger rgbHex; \
 [[NSScanner scannerWithString:str] scanHexInt:&rgbHex]; \
 UIColorFromRGB(rgbHex); \
 })
+
+// Constants:
+#define COLOURLOVERS_URL_BASE   @"http://www.colourlovers.com"

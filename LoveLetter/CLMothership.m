@@ -34,7 +34,7 @@ static const int kColourLoversDefaultPageSize = 20;
 }
 
 -(void) loadPalettesOfType:(ColourPaletteType)type withNumber:(int)numResults andOffset:(int)offset success:(void (^)(NSArray* palettes))success {
-    NSString* urlString = @"http://www.colourlovers.com/api/palettes/";
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/palettes/", COLOURLOVERS_URL_BASE];
     switch (type) {
         case ColourPaletteTypeTop:
             urlString = [urlString stringByAppendingString:@"top"];
