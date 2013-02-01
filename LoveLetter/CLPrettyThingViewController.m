@@ -19,9 +19,21 @@
     byLineLabel.translatesAutoresizingMaskIntoConstraints = NO;
     byLineLabel.textColor = [UIColor lightGrayColor];
     byLineLabel.backgroundColor = [UIColor clearColor];
-	byLineLabel.text = @"Lorem...";
-	[self.view addSubview:byLineLabel];
+    [self.view addSubview:byLineLabel];
     
+    // fancy attributed text:
+    // http://stackoverflow.com/questions/3586871/bold-non-bold-text-in-a-single-uilabel
+    const CGFloat fontSize = 15;
+    UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
+    UIFont *regularFont = [UIFont systemFontOfSize:fontSize];
+    
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:@"a thing" attributes:@{NSFontAttributeName : boldFont}];
+    [attributedText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" by " attributes:@{NSFontAttributeName : regularFont}]];
+    [attributedText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"somebody" attributes:@{NSFontAttributeName : boldFont}]];
+    
+    byLineLabel.attributedText = attributedText;
+    
+    // constraints:
     NSDictionary *views = NSDictionaryOfVariableBindings(byLineLabel);
     
     [self.view addConstraints:
