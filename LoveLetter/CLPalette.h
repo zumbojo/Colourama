@@ -7,19 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CLPrettyThing.h"
 #import "CLSlat.h"
 
-@interface CLPalette : NSObject
+@interface CLPalette : CLPrettyThing
 
 // from API:
-@property (nonatomic) NSUInteger remoteId;
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *userName;
-@property (nonatomic) NSUInteger numViews;
-@property (nonatomic) NSUInteger numVotes;
-@property (nonatomic) NSUInteger numComments;
-@property (nonatomic) NSUInteger numHearts;
-@property (nonatomic) NSUInteger rank;
+// (All were moved to CLPrettyThing.)
 
 // convenience:
 @property (nonatomic) NSArray *slats;

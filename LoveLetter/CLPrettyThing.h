@@ -10,4 +10,14 @@
 
 @interface CLPrettyThing : NSObject
 
+// from API:
+@property (nonatomic) NSUInteger remoteId;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *userName;
+@property (nonatomic) NSUInteger numViews;
+@property (nonatomic) NSUInteger numVotes;
+@property (nonatomic) NSUInteger numComments;
+@property (nonatomic) NSUInteger numHearts;
+@property (nonatomic) NSUInteger rank;
+
 @end
