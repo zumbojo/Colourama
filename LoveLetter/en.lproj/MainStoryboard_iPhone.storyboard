@@ -34,7 +34,7 @@
                                     <constraint firstAttribute="width" constant="82" id="vLn-g5-WoX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="test |">
+                                <state key="normal" title="share |">
                                     <color key="titleColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -48,11 +48,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Lcp-SI-KKD" secondAttribute="trailing" constant="55" id="CCt-UB-128"/>
                             <constraint firstItem="Lcp-SI-KKD" firstAttribute="top" secondItem="Oh8-xw-PbR" secondAttribute="top" type="default" id="Fqq-hh-ct8"/>
-                            <constraint firstAttribute="trailing" secondItem="Lcp-SI-KKD" secondAttribute="trailing" constant="49" id="PSN-Kg-EcI"/>
                             <constraint firstItem="Oh8-xw-PbR" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="lFG-88-lgs"/>
                             <constraint firstItem="Oh8-xw-PbR" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="lz4-WX-V53"/>
-                            <constraint firstItem="Lcp-SI-KKD" firstAttribute="baseline" secondItem="Oh8-xw-PbR" secondAttribute="baseline" type="default" id="nmU-Ci-j6y"/>
                             <constraint firstItem="Lcp-SI-KKD" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="r89-3s-P3L"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -76,9 +75,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="settingsButtonTouched:"/>
-                <relationship kind="action" name="testButtonTouched:"/>
+                <relationship kind="action" name="shareButtonTouched:"/>
                 <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="testButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

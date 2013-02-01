@@ -34,7 +34,7 @@
                                     <constraint firstAttribute="height" constant="44" id="X4e-Us-7yQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="test |">
+                                <state key="normal" title="share |">
                                     <color key="titleColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -49,7 +49,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ADq-xn-iBl" firstAttribute="top" secondItem="haO-Ua-hni" secondAttribute="top" type="default" id="2t4-OB-zEs"/>
-                            <constraint firstAttribute="trailing" secondItem="ADq-xn-iBl" secondAttribute="trailing" constant="49" id="9sT-ay-W6x"/>
+                            <constraint firstAttribute="trailing" secondItem="ADq-xn-iBl" secondAttribute="trailing" constant="57" id="VWI-pe-5gu"/>
                             <constraint firstItem="haO-Ua-hni" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="WTk-0g-HlN"/>
                             <constraint firstItem="haO-Ua-hni" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="ePu-1A-6fD"/>
                             <constraint firstItem="ADq-xn-iBl" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="k3t-8J-hCv"/>
@@ -76,9 +76,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="settingsButtonTouched:"/>
-                <relationship kind="action" name="testButtonTouched:"/>
+                <relationship kind="action" name="shareButtonTouched:"/>
                 <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="testButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
