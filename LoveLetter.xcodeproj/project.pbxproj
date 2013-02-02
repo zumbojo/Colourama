@@ -23,6 +23,8 @@
 		CE78562016AE42AE0064460E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78561F16AE42AE0064460E /* MobileCoreServices.framework */; };
 		CE78563516BB47480064460E /* CLPrettyThingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78563416BB47480064460E /* CLPrettyThingViewController.m */; };
 		CE78563916BB48190064460E /* CLPrettyThing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78563816BB48190064460E /* CLPrettyThing.m */; };
+		CE78564B16BCA30C0064460E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78564916BCA30B0064460E /* SettingsViewController.m */; };
+		CE78564C16BCA30C0064460E /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE78564A16BCA30C0064460E /* SettingsViewController.xib */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -71,6 +73,9 @@
 		CE78563416BB47480064460E /* CLPrettyThingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPrettyThingViewController.m; sourceTree = "<group>"; };
 		CE78563716BB48190064460E /* CLPrettyThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPrettyThing.h; sourceTree = "<group>"; };
 		CE78563816BB48190064460E /* CLPrettyThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPrettyThing.m; sourceTree = "<group>"; };
+		CE78564816BCA30B0064460E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		CE78564916BCA30B0064460E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		CE78564A16BCA30C0064460E /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -218,6 +223,9 @@
 				CED03B2C16AA28660077CAB8 /* MainStoryboard_iPad.storyboard */,
 				CED03B2F16AA28660077CAB8 /* ViewController.h */,
 				CED03B3016AA28660077CAB8 /* ViewController.m */,
+				CE78564816BCA30B0064460E /* SettingsViewController.h */,
+				CE78564916BCA30B0064460E /* SettingsViewController.m */,
+				CE78564A16BCA30C0064460E /* SettingsViewController.xib */,
 				CED03B1816AA28660077CAB8 /* Supporting Files */,
 				CE7855F316AE35C10064460E /* External */,
 			);
@@ -318,6 +326,7 @@
 				CED03B2B16AA28660077CAB8 /* MainStoryboard_iPhone.storyboard in Resources */,
 				CED03B2E16AA28660077CAB8 /* MainStoryboard_iPad.storyboard in Resources */,
 				CE78560A16AE36980064460E /* Settings.bundle in Resources */,
+				CE78564C16BCA30C0064460E /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +355,7 @@
 				CE78561316AE3A400064460E /* UIImageView+AFNetworking.m in Sources */,
 				CE78563516BB47480064460E /* CLPrettyThingViewController.m in Sources */,
 				CE78563916BB48190064460E /* CLPrettyThing.m in Sources */,
+				CE78564B16BCA30C0064460E /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
