@@ -11,6 +11,7 @@
 #import "CLPaletteViewController.h"
 #import "CLPalette.h"
 #import "CLMothership.h"
+#import "SettingsViewController.h"
 
 @interface ViewController ()
 
@@ -20,6 +21,8 @@
 @property (nonatomic) UIViewController *currentPage; // ditto
 
 @property (nonatomic) UIActionSheet *shareMenu;
+@property (nonatomic) UIPopoverController *settingsPopover;
+//@property (nonatomic) SettingsViewController *settingsViewController; // necessary?
 
 @end
 
@@ -193,8 +196,20 @@
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
-    NSLog(@"settingsButtonTouched");
     [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
+    
+    SettingsViewController *settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    
+    // show settingsVC:
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        // http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/Popovers.html
+        self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:settingsViewController];
+        self.settingsPopover.popoverContentSize = settingsViewController.view.frame.size;
+        [self.settingsPopover presentPopoverFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    else {
+        // todo: modal view controller
+    }
 }
 
 #pragma mark UIActionSheetDelegate

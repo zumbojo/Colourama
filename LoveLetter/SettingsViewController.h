@@ -10,4 +10,6 @@
 
 @interface SettingsViewController : UIViewController
 
+- (IBAction)testButtonTouched:(id)sender;
+
 @end

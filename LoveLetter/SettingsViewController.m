@@ -35,4 +35,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)testButtonTouched:(id)sender {
+    NSLog(@"testButtonTouched");
+}
+
 @end
