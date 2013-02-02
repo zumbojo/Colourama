@@ -210,7 +210,11 @@
         [self.settingsPopover presentPopoverFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else {
-        // todo: modal view controller
+        // http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html
+        
+        // todo: nav bar or something for dismissal
+        self.settingsViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        [self presentViewController:self.settingsViewController animated:YES completion:nil];
     }
 }
 
