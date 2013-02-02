@@ -11,7 +11,6 @@
 #import "CLPaletteViewController.h"
 #import "CLPalette.h"
 #import "CLMothership.h"
-#import "SettingsViewController.h"
 
 @interface ViewController ()
 
@@ -199,6 +198,7 @@
     [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
     
     SettingsViewController *settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    settingsViewController.delegate = self;
     
     // show settingsVC:
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
