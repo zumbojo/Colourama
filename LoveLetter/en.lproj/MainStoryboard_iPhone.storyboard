@@ -48,11 +48,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Lcp-SI-KKD" secondAttribute="bottom" constant="14" id="8Ru-Tx-wRY"/>
                             <constraint firstAttribute="trailing" secondItem="Lcp-SI-KKD" secondAttribute="trailing" constant="55" id="CCt-UB-128"/>
                             <constraint firstItem="Lcp-SI-KKD" firstAttribute="top" secondItem="Oh8-xw-PbR" secondAttribute="top" type="default" id="Fqq-hh-ct8"/>
+                            <constraint firstItem="Oh8-xw-PbR" firstAttribute="bottom" secondItem="Lcp-SI-KKD" secondAttribute="bottom" type="default" id="ebv-Ta-A8l"/>
                             <constraint firstItem="Oh8-xw-PbR" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="lFG-88-lgs"/>
-                            <constraint firstItem="Oh8-xw-PbR" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="lz4-WX-V53"/>
-                            <constraint firstItem="Lcp-SI-KKD" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="r89-3s-P3L"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>

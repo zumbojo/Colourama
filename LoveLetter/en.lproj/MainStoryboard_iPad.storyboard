@@ -49,10 +49,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ADq-xn-iBl" firstAttribute="top" secondItem="haO-Ua-hni" secondAttribute="top" type="default" id="2t4-OB-zEs"/>
+                            <constraint firstItem="ADq-xn-iBl" firstAttribute="bottom" secondItem="haO-Ua-hni" secondAttribute="bottom" type="default" id="IQh-2N-Eon"/>
                             <constraint firstAttribute="trailing" secondItem="ADq-xn-iBl" secondAttribute="trailing" constant="57" id="VWI-pe-5gu"/>
                             <constraint firstItem="haO-Ua-hni" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="WTk-0g-HlN"/>
-                            <constraint firstItem="haO-Ua-hni" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="ePu-1A-6fD"/>
-                            <constraint firstItem="ADq-xn-iBl" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="k3t-8J-hCv"/>
+                            <constraint firstAttribute="bottom" secondItem="ADq-xn-iBl" secondAttribute="bottom" constant="14" id="hG1-K2-yqv"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
