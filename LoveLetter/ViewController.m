@@ -21,7 +21,7 @@
 
 @property (nonatomic) UIActionSheet *shareMenu;
 @property (nonatomic) UIPopoverController *settingsPopover;
-//@property (nonatomic) SettingsViewController *settingsViewController; // necessary?
+@property (nonatomic) SettingsViewController *settingsViewController;
 
 @end
 
@@ -197,14 +197,16 @@
 - (IBAction)settingsButtonTouched:(id)sender {
     [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
     
-    SettingsViewController *settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-    settingsViewController.delegate = self;
+    if (!self.settingsViewController) {
+        self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+        self.settingsViewController.delegate = self;
+    }
     
     // show settingsVC:
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         // http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/Popovers.html
-        self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:settingsViewController];
-        self.settingsPopover.popoverContentSize = settingsViewController.view.frame.size;
+        self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:self.settingsViewController];
+        self.settingsPopover.popoverContentSize = self.settingsViewController.view.frame.size;
         [self.settingsPopover presentPopoverFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else {
