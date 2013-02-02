@@ -170,7 +170,6 @@
 #pragma mark Buttons
 
 - (IBAction)shareButtonTouched:(id)sender {
-    NSLog(@"shareButtonTouched");
     [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
 
     // create shareMenu (or hide existing):
@@ -191,19 +190,6 @@
     else {
         [self.shareMenu showInView:self.view];
     }
-    
-    /*
-    // for testing fadeToNextPageTimer
-    //
-    // toggle fadeToNextPageTimer:
-    if (!self.fadeToNextPageTimer) {
-        self.fadeToNextPageTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(fadeToNextPage) userInfo:nil repeats:YES];
-    }
-    else {
-        [self.fadeToNextPageTimer invalidate];
-        self.fadeToNextPageTimer = nil;
-    }
-     */
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
@@ -317,6 +303,18 @@
 }
 
 #pragma mark -
+#pragma mark Test Methods
+
+- (void)toggleFadeToNextPageTimer {
+    if (!self.fadeToNextPageTimer) {
+        self.fadeToNextPageTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(fadeToNextPage) userInfo:nil repeats:YES];
+    }
+    else {
+        [self.fadeToNextPageTimer invalidate];
+        self.fadeToNextPageTimer = nil;
+    }
+}
+
 #pragma mark Test Data
 
 - (NSArray *)samplePalettes {
