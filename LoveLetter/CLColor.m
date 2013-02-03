@@ -12,7 +12,6 @@
 
 - (CLColor *)initWithJSON:(id)json {
     // example from http://www.colourlovers.com/api/color/6B4106?format=json
-
     /*
     [
      {

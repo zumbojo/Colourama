@@ -17,6 +17,4 @@
 // convenience:
 @property (nonatomic) UIColor *color;
 
-- (CLColor *)initWithJSON:(id)json;
-
 @end

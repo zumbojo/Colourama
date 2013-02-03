@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CLPrettyThing.h"
 
-@interface CLPattern : NSObject
+@interface CLPattern : CLPrettyThing
+
+// from API:
+// (none at the moment)
+
+// convenience:
+@property (nonatomic) UIImage *image;
 
 @end
