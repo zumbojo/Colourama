@@ -211,11 +211,18 @@
     }
     else {
         // http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html
-        
-        // todo: nav bar or something for dismissal
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.settingsViewController];
+        self.settingsViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                                                         style:UIBarButtonItemStylePlain
+                                                                                                        target:self
+                                                                                                        action:@selector(dismissViewController)];
         self.settingsViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        [self presentViewController:self.settingsViewController animated:YES completion:nil];
+        [self presentViewController:navController animated:YES completion:nil];
     }
+}
+
+- (void)dismissViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark UIActionSheetDelegate
