@@ -334,8 +334,6 @@
 #pragma mark SettingsViewControllerDelegate
 
 - (void)setTransitionDuration:(NSTimeInterval)transitionDuration {
-    NSLog(@"setTransitionDuration: %.0f", transitionDuration);
-    
     if (self.fadeToNextPageTimer) {
         [self.fadeToNextPageTimer invalidate];
         self.fadeToNextPageTimer = nil;
