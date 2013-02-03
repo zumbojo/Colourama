@@ -18,6 +18,7 @@
 // convenience:
 @property (nonatomic) NSArray *slats;
 
+- (CLPrettyThing *)initWithJSON:(id)json;
 + (CLPalette *)paletteFromArray:(NSArray *)array; // array of @[string, NSNumber]s
 + (CLPalette *)paletteFromJSON:(id)json;
 

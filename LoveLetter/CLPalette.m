@@ -10,16 +10,24 @@
 
 @implementation CLPalette
 
-/*
-- (id)init
-{
-    self = [super init]; // http://stackoverflow.com/a/12428407/103058
+- (CLPalette *)initWithJSON:(id)json {
+    self = [super initWithJSON:json];
     if (self) {
-        
+        NSMutableArray *slats = [[NSMutableArray alloc] init];
+        NSArray *colors = [json valueForKeyPath:@"colors"];
+        NSArray *colorWidths = [json valueForKeyPath:@"colorWidths"];
+        NSUInteger index = 0;
+        for (NSString *hexColor in colors) {
+            CLSlat *slat = [[CLSlat alloc] init];
+            slat.color = UIColorFromRGBString(hexColor);
+            slat.width = [colorWidths[index] floatValue];
+            [slats addObject:slat];
+            index++;
+        }
+        self.slats = slats;
     }
     return self;
 }
- */
 
 - (NSURL *)webPageURL {
     // example: http://www.colourlovers.com/palette/2668882
@@ -79,29 +87,8 @@
     ]
     */
     
-    CLPalette *palette = [[CLPalette alloc] init];
-    palette.remoteId = [[json valueForKeyPath:@"id"] intValue];
-    palette.title = [json valueForKeyPath:@"title"];
-    palette.userName = [json valueForKeyPath:@"userName"];
-    palette.numViews = [[json valueForKeyPath:@"numViews"] intValue];
-    palette.numVotes = [[json valueForKeyPath:@"numVotes"] intValue];
-    palette.numComments = [[json valueForKeyPath:@"numComments"] intValue];
-    palette.numHearts = [[json valueForKeyPath:@"numHearts"] intValue];
+    return [[CLPalette alloc] initWithJSON:json];
     
-    NSMutableArray *slats = [[NSMutableArray alloc] init];
-    NSArray *colors = [json valueForKeyPath:@"colors"];
-    NSArray *colorWidths = [json valueForKeyPath:@"colorWidths"];
-    NSUInteger index = 0;
-    for (NSString *hexColor in colors) {
-        CLSlat *slat = [[CLSlat alloc] init];
-        slat.color = UIColorFromRGBString(hexColor);
-        slat.width = [colorWidths[index] floatValue];
-        [slats addObject:slat];
-        index++;
-    }
-    palette.slats = slats;
-    
-    return palette;
 }
 
 @end

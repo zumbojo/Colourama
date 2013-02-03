@@ -23,4 +23,6 @@
 // convenience:
 @property (nonatomic, readonly) NSURL *webPageURL;
 
+- (CLPrettyThing *)initWithJSON:(id)json; // Don't call directly; only call via [super initWithJSON:json] in subclasses.
+
 @end
