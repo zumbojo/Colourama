@@ -307,7 +307,7 @@
         CLPalette *palette = ((CLPaletteViewController *)fromVC).palette;
         
         CLPaletteViewController *ghost = [[CLPaletteViewController alloc] initWithPalette:palette];
-        ghost.view.frame = self.view.bounds;
+        ghost.view.frame = self.view.frame;
         [self addChildViewController:ghost];
         [self.view insertSubview:ghost.view belowSubview:self.settingsButton];
         
