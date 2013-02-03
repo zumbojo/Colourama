@@ -47,7 +47,7 @@
     return self.palette;
 }
 
-- (CLPrettyThingViewController *)ghost {
+- (CLPaletteViewController *)ghost {
     CLPaletteViewController *ghost = [[CLPaletteViewController alloc] initWithPalette:self.palette];
     ghost.view.frame = self.view.frame;
     return ghost;
