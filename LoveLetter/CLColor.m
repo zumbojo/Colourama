@@ -53,10 +53,4 @@
     return self;
 }
 
-- (NSURL *)webPageURL {
-    // example: http://www.colourlovers.com/color/4ECDC4/Pacifica
-    // or http://www.colourlovers.com/color/4ECDC4
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@/color/%@", COLOURLOVERS_URL_BASE, self.hex]];
-}
-
 @end

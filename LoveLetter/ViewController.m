@@ -229,7 +229,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        [[UIApplication sharedApplication] openURL:((CLPrettyThingViewController *)self.currentPage).prettyThing.webPageURL]; // http://stackoverflow.com/questions/9343443/alertview-open-safari
+        [[UIApplication sharedApplication] openURL:((CLPrettyThingViewController *)self.currentPage).prettyThing.url]; // http://stackoverflow.com/questions/9343443/alertview-open-safari
         // todo: remove cast if self.currentPage is changed to a CLPrettyThingViewController
     }
 }

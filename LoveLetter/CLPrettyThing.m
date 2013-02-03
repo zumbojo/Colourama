@@ -20,6 +20,7 @@
         self.numVotes = [[json valueForKeyPath:@"numVotes"] intValue];
         self.numComments = [[json valueForKeyPath:@"numComments"] intValue];
         self.numHearts = [[json valueForKeyPath:@"numHearts"] intValue];
+        self.url = [NSURL URLWithString:[json valueForKeyPath:@"url"]];
     }
     return self;
 }

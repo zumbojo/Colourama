@@ -66,11 +66,6 @@
     return self;
 }
 
-- (NSURL *)webPageURL {
-    // example: http://www.colourlovers.com/palette/2668882
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@/palette/%d", COLOURLOVERS_URL_BASE, self.remoteId]];
-}
-
 + (CLPalette *)paletteFromArray:(NSArray *)array {
     NSMutableArray *slats = [[NSMutableArray alloc] init];
 

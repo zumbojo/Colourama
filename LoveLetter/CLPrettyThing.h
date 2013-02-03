@@ -19,9 +19,7 @@
 @property (nonatomic) NSUInteger numComments;
 @property (nonatomic) NSUInteger numHearts;
 @property (nonatomic) NSUInteger rank;
-
-// convenience:
-@property (nonatomic, readonly) NSURL *webPageURL;
+@property (nonatomic) NSURL *url;
 
 - (CLPrettyThing *)initWithJSON:(id)json; // Don't call directly; only call via [super initWithJSON:json] in subclasses.
 
