@@ -26,6 +26,7 @@
 		CE78564B16BCA30C0064460E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78564916BCA30B0064460E /* SettingsViewController.m */; };
 		CE78564C16BCA30C0064460E /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE78564A16BCA30C0064460E /* SettingsViewController.xib */; };
 		CE78565116BE138E0064460E /* CLColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565016BE138E0064460E /* CLColor.m */; };
+		CE78565516BE1D4C0064460E /* CLPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565416BE1D4B0064460E /* CLPattern.m */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -79,6 +80,8 @@
 		CE78564A16BCA30C0064460E /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		CE78564F16BE138E0064460E /* CLColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLColor.h; sourceTree = "<group>"; };
 		CE78565016BE138E0064460E /* CLColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLColor.m; sourceTree = "<group>"; };
+		CE78565316BE1D4B0064460E /* CLPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPattern.h; sourceTree = "<group>"; };
+		CE78565416BE1D4B0064460E /* CLPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPattern.m; sourceTree = "<group>"; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +130,7 @@
 				CE78563A16BB481E0064460E /* Abstract */,
 				CE78565216BE139E0064460E /* Colors */,
 				CE78564E16BE135F0064460E /* Palettes */,
+				CE78565616BE1D5B0064460E /* Patterns */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -201,6 +205,15 @@
 				CE78565016BE138E0064460E /* CLColor.m */,
 			);
 			name = Colors;
+			sourceTree = "<group>";
+		};
+		CE78565616BE1D5B0064460E /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				CE78565316BE1D4B0064460E /* CLPattern.h */,
+				CE78565416BE1D4B0064460E /* CLPattern.m */,
+			);
+			name = Patterns;
 			sourceTree = "<group>";
 		};
 		CED03B0216AA28660077CAB8 = {
@@ -378,6 +391,7 @@
 				CE78563916BB48190064460E /* CLPrettyThing.m in Sources */,
 				CE78564B16BCA30C0064460E /* SettingsViewController.m in Sources */,
 				CE78565116BE138E0064460E /* CLColor.m in Sources */,
+				CE78565516BE1D4C0064460E /* CLPattern.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
