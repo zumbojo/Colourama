@@ -7,9 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CLPrettyThing.h"
 
-@interface CLColor : NSObject
+@interface CLColor : CLPrettyThing
 
-+ (CLColor *)colorFromJSON:(id)json;
+// from API:
+@property (nonatomic) NSString *hex;
+
+// convenience:
+@property (nonatomic) UIColor *color;
+
+- (CLColor *)initWithJSON:(id)json;
 
 @end

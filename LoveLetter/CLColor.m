@@ -10,7 +10,7 @@
 
 @implementation CLColor
 
-+ (CLColor *)colorFromJSON:(id)json {
+- (CLColor *)initWithJSON:(id)json {
     // example from http://www.colourlovers.com/api/color/6B4106?format=json
 
     /*
@@ -45,8 +45,12 @@
      ]
      */
     
-    return nil; // todo
-
+    self = [super initWithJSON:json];
+    if (self) {
+        self.hex = [json valueForKeyPath:@"hex"];
+        self.color = UIColorFromRGBString(self.hex);
+    }
+    return self;
 }
 
 @end
