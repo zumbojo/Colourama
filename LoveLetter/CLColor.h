@@ -10,4 +10,6 @@
 
 @interface CLColor : NSObject
 
++ (CLColor *)colorFromJSON:(id)json;
+
 @end
