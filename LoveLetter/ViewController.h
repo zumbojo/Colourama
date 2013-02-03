@@ -20,4 +20,7 @@
 - (IBAction)shareButtonTouched:(id)sender;
 - (IBAction)settingsButtonTouched:(id)sender;
 
+// SettingsViewControllerDelegate:
+@property (nonatomic) NSTimeInterval transitionDuration;
+
 @end

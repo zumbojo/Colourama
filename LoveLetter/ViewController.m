@@ -222,6 +222,7 @@
 }
 
 - (void)dismissViewController {
+    [self hideControlsAfterDelay];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

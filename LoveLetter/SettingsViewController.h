@@ -10,7 +10,7 @@
 
 @protocol SettingsViewControllerDelegate
 
-@property (nonatomic) NSTimeInterval *transitionDuration;
+@property (nonatomic) NSTimeInterval transitionDuration;
 
 @end
 
@@ -20,7 +20,7 @@
 - (IBAction)testButtonTouched:(id)sender;
 - (IBAction)transitionSpeedSliderValueChanged:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UISlider *transitionSpeedSlider;
+@property (weak, nonatomic) IBOutlet UISlider *transitionSpeedSlider; // todo: deprecate
 @property(weak) id<SettingsViewControllerDelegate> delegate;
 
 @end
