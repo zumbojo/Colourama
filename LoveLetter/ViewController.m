@@ -28,6 +28,77 @@
 @implementation ViewController
 
 #pragma mark -
+#pragma mark UIViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self populateContentControllers];
+    NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
+                                                        forKey:UIPageViewControllerOptionSpineLocationKey];
+    
+    self.pageController = [[UIPageViewController alloc]
+                           initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
+                           navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                           options: options];
+    
+    self.pageController.delegate = self;
+    self.pageController.dataSource = self;
+    self.pageController.view.frame = self.view.bounds;
+    
+    UIViewController *initialViewController = [self viewControllerAtIndex:0];
+    NSArray *viewControllers =
+    [NSArray arrayWithObject:initialViewController];
+    
+    [self.pageController setViewControllers:viewControllers
+                                  direction:UIPageViewControllerNavigationDirectionForward
+                                   animated:NO
+                                 completion:nil];
+    
+    self.currentPage = viewControllers[0];
+    [self addChildViewController:self.pageController];
+    [self.view addSubview:self.pageController.view];
+    [self.view bringSubviewToFront:self.settingsButton];
+    [self.view bringSubviewToFront:self.shareButton];
+    [self.pageController didMoveToParentViewController:self];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
+    [self hideControlsAfterDelay];
+    
+    // request a handful of new palettes:
+    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
+        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
+        NSLog(@"palettes loaded, added to contentControllers");
+    }];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)populateContentControllers
+{
+    NSMutableArray *pvcs = [[NSMutableArray alloc] init];
+    
+    [pvcs addObjectsFromArray:[self paletteViewControllersFromPalettes:[self samplePalettes]]];
+    
+    self.contentControllers = pvcs;
+}
+
+- (NSArray *)paletteViewControllersFromPalettes:(NSArray *)palettes {
+    NSMutableArray *pvcs = [[NSMutableArray alloc] init];
+    
+    for (CLPalette *palette in palettes) {
+        CLPaletteViewController *pvc = [[CLPaletteViewController alloc] initWithPalette:palette];
+        pvc.view.bounds = self.view.bounds;
+        [pvcs addObject:pvc];
+    }
+    
+    return [NSArray arrayWithArray:pvcs];
+}
+
+#pragma mark -
 #pragma mark UIPageViewControllerDataSource
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
@@ -72,7 +143,6 @@
     return [self.contentControllers indexOfObject:viewController];
 }
 
-
 #pragma mark -
 #pragma mark UIPageViewControllerDelegate
 
@@ -95,77 +165,6 @@
     NSLog(@"will trans to: %p", pendingViewControllers[0]);
     self.pendingPage = pendingViewControllers[0];
 }
-
-#pragma mark -
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self populateContentControllers];
-    NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
-                                                        forKey:UIPageViewControllerOptionSpineLocationKey];
-    
-    self.pageController = [[UIPageViewController alloc]
-                           initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
-                           navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-                           options: options];
-    
-    self.pageController.delegate = self;
-    self.pageController.dataSource = self;
-    self.pageController.view.frame = self.view.bounds;
-    
-    UIViewController *initialViewController = [self viewControllerAtIndex:0];
-    NSArray *viewControllers =
-    [NSArray arrayWithObject:initialViewController];
-    
-    [self.pageController setViewControllers:viewControllers
-                                  direction:UIPageViewControllerNavigationDirectionForward
-                                   animated:NO
-                                 completion:nil];
-    
-    self.currentPage = viewControllers[0];
-    [self addChildViewController:self.pageController];
-    [self.view addSubview:self.pageController.view];
-    [self.view bringSubviewToFront:self.settingsButton];
-    [self.view bringSubviewToFront:self.shareButton];
-    [self.pageController didMoveToParentViewController:self];
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
-    [self hideControlsAfterDelay];
-    
-    // request a handful of new palettes:
-    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
-        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
-        NSLog(@"palettes loaded, added to contentControllers");
-    }];
-}
-
-- (void)populateContentControllers
-{
-    NSMutableArray *pvcs = [[NSMutableArray alloc] init];
-    
-    [pvcs addObjectsFromArray:[self paletteViewControllersFromPalettes:[self samplePalettes]]];
-    
-    self.contentControllers = pvcs;
-}
-
-- (NSArray *)paletteViewControllersFromPalettes:(NSArray *)palettes {
-    NSMutableArray *pvcs = [[NSMutableArray alloc] init];
-    
-    for (CLPalette *palette in palettes) {
-        CLPaletteViewController *pvc = [[CLPaletteViewController alloc] initWithPalette:palette];
-        pvc.view.bounds = self.view.bounds;
-        [pvcs addObject:pvc];
-    }
-    
-    return [NSArray arrayWithArray:pvcs];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - 
 #pragma mark UI
