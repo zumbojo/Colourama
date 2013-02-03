@@ -331,6 +331,22 @@
 }
 
 #pragma mark -
+#pragma mark SettingsViewControllerDelegate
+
+- (void)setTransitionDuration:(NSTimeInterval)transitionDuration {
+    NSLog(@"setTransitionDuration: %.0f", transitionDuration);
+    
+    if (self.fadeToNextPageTimer) {
+        [self.fadeToNextPageTimer invalidate];
+        self.fadeToNextPageTimer = nil;
+    }
+    
+    if (transitionDuration) { // transitionDuration = 0 means no transitions, so don't bother setting up a timer.
+        self.fadeToNextPageTimer = [NSTimer scheduledTimerWithTimeInterval:transitionDuration target:self selector:@selector(fadeToNextPage) userInfo:nil repeats:YES];
+    }
+}
+
+#pragma mark -
 #pragma mark Test Methods
 
 - (void)toggleFadeToNextPageTimer {

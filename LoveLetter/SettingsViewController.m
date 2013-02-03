@@ -46,7 +46,7 @@
     NSUInteger notch = (NSUInteger)slider.value; // http://stackoverflow.com/questions/2519460/uislider-with-increments-of-5
     slider.value = notch;
     
-    self.delegate.transitionDuration = [@[@0.0, @30.0, @60.0, @300.0, @3600.0][notch] doubleValue];
+    self.delegate.transitionDuration = [@[@0.0, @10.0, @30.0, @300.0, @3600.0][notch] doubleValue];
 }
 
 @end
