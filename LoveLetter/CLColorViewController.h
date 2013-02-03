@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLPrettyThingViewController.h"
 
-@interface CLColorViewController : UIViewController
+@class CLColor;
+
+@interface CLColorViewController : CLPrettyThingViewController
+
+@property (nonatomic) CLColor *color;
+
+- (id)initWithColor:(CLColor *)color;
 
 @end
