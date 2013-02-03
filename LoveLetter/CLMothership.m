@@ -65,7 +65,7 @@ static const int kColourLoversDefaultPageSize = 20;
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSMutableArray* parsed = [[NSMutableArray alloc] init];
         for (id node in JSON) {
-            [parsed addObject:[CLPalette paletteFromJSON:node]];
+            [parsed addObject:[[CLPalette alloc] initWithJSON:node]];
         }
         
         // notify the caller of our success and send the list of colours along

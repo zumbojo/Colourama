@@ -49,46 +49,4 @@
     return palette;
 }
 
-+ (CLPalette *)paletteFromJSON:(id)json {
-    // example from http://www.colourlovers.com/api/palette/2646927?format=json&showPaletteWidths=1
-    // (after being run through http://jsonlint.com/ , of course)
-    /*
-    [
-     {
-         "id": 2646927,
-         "title": "Ashley's Peanut Cake",
-         "userName": "Ethulai",
-         "numViews": 13,
-         "numVotes": 5,
-         "numComments": 3,
-         "numHearts": 0,
-         "rank": 0,
-         "dateCreated": "2013-01-20 17:03:17",
-         "colors": [
-                    "5F5453",
-                    "EEB548",
-                    "F7C95F",
-                    "D5BD95",
-                    "6D6379"
-                    ],
-         "colorWidths": [
-                         0.37,
-                         0.1,
-                         0.05,
-                         0.03,
-                         0.45
-                         ],
-         "description": "<a style=\"border:none\" href=\"http://www.colourlovers.com/forums/1,1,3731\" title=\"1LPxCLer Above Me GAME\" target=\"_blank\"><img style=\"max-width:95%;\" alt=\"1LPxCLer Above Me GAME\" src=\"http://i.imgur.com/DGcFk.png\" /></a>",
-         "url": "http://www.colourlovers.com/palette/2646927/Ashleys_Peanut_Cake",
-         "imageUrl": "http://www.colourlovers.com/paletteImg/5F5453/EEB548/F7C95F/D5BD95/6D6379/Ashleys_Peanut_Cake.png",
-         "badgeUrl": "http://www.colourlovers.com/images/badges/pw/2646/2646927_Ashleys_Peanut_Cake.png",
-         "apiUrl": "http://www.colourlovers.com/api/palette/2646927"
-     }
-    ]
-    */
-    
-    return [[CLPalette alloc] initWithJSON:json];
-    
-}
-
 @end
