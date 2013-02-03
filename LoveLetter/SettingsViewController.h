@@ -10,14 +10,17 @@
 
 @protocol SettingsViewControllerDelegate
 
-@end
+@property (nonatomic) NSTimeInterval *transitionDuration;
 
+@end
 
 
 @interface SettingsViewController : UIViewController
 
 - (IBAction)testButtonTouched:(id)sender;
+- (IBAction)transitionSpeedSliderValueChanged:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISlider *transitionSpeedSlider;
 @property(weak) id<SettingsViewControllerDelegate> delegate;
 
 @end

@@ -39,4 +39,9 @@
     NSLog(@"testButtonTouched");
 }
 
+- (IBAction)transitionSpeedSliderValueChanged:(id)sender {
+    // http://stackoverflow.com/questions/2519460/uislider-with-increments-of-5
+    NSLog(@"transitionSpeedSliderValueChanged");
+}
+
 @end
