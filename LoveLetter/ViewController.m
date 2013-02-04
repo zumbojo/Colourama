@@ -70,7 +70,7 @@
         NSLog(@"palettes loaded, added to contentControllers");
     }];
     
-    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class]];
+    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:nil];
 }
 
 - (void)didReceiveMemoryWarning

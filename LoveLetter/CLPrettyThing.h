@@ -21,6 +21,9 @@
 @property (nonatomic) NSUInteger rank;
 @property (nonatomic) NSURL *url;
 
+// convenience:
+@property (nonatomic, readonly) NSString *pluralApiPath; // "colors", "palettes", "patterns", etc.
+
 - (CLPrettyThing *)initWithJSON:(id)json; // Don't call directly; only call via [super initWithJSON:json] in subclasses.
 
 @end

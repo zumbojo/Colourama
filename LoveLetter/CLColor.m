@@ -52,4 +52,8 @@
     return self;
 }
 
++ (NSString *)pluralApiPath {
+    return @"colors";
+}
+
 @end

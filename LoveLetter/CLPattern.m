@@ -54,5 +54,10 @@
     return self;
 }
 
++ (NSString *)pluralApiPath {
+    return @"patterns";
+}
+
+
 
 @end

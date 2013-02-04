@@ -66,6 +66,10 @@
     return self;
 }
 
++ (NSString *)pluralApiPath {
+    return @"palettes";
+}
+
 + (CLPalette *)paletteFromArray:(NSArray *)array {
     NSMutableArray *slats = [[NSMutableArray alloc] init];
 
