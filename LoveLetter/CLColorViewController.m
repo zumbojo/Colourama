@@ -51,6 +51,7 @@
 	// Do any additional setup after loading the view.
     
     self.view.layer.backgroundColor = self.color.color.CGColor; // insert Inception joke here
+    [super addThingLabels];
 }
 
 /*
