@@ -56,4 +56,8 @@
     return @"colors";
 }
 
++ (NSString *)specialApiArguments {
+    return @"";
+}
+
 @end

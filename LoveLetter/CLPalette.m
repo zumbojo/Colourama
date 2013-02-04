@@ -70,6 +70,10 @@
     return @"palettes";
 }
 
++ (NSString *)specialApiArguments {
+    return @"&showPaletteWidths=1";
+}
+
 + (CLPalette *)paletteFromArray:(NSArray *)array {
     NSMutableArray *slats = [[NSMutableArray alloc] init];
 

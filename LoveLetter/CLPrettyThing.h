@@ -23,6 +23,7 @@
 
 // convenience:
 @property (nonatomic, readonly) NSString *pluralApiPath; // "colors", "palettes", "patterns", etc.
+@property (nonatomic, readonly) NSString *specialApiArguments; // "&showPaletteWidths=1", etc.
 
 - (CLPrettyThing *)initWithJSON:(id)json; // Don't call directly; only call via [super initWithJSON:json] in subclasses.
 

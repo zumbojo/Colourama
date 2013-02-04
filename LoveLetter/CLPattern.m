@@ -58,6 +58,8 @@
     return @"patterns";
 }
 
-
++ (NSString *)specialApiArguments {
+    return @"";
+}
 
 @end
