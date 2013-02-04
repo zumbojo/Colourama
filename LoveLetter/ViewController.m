@@ -106,6 +106,27 @@
     return [NSArray arrayWithArray:pvcs];
 }
 
+- (NSArray *)prettyThingViewControllersFromPrettyThings:(NSArray *)prettyThings {
+    NSMutableArray *ptvcs = [[NSMutableArray alloc] init];
+    
+    for (CLPrettyThing *thing in prettyThings) {
+        CLPrettyThingViewController *ptvc;
+        
+        if ([thing class] == [CLColor class]) {
+            ptvc = [[CLColorViewController alloc] initWithColor:(CLColor *)thing];
+        }
+        else if ([thing class] == [CLPalette class]) {
+            ptvc = [[CLPaletteViewController alloc] initWithPalette:(CLPalette *)thing];
+        }
+        // todo: pattern
+        
+        ptvc.view.bounds = self.view.bounds;
+        [ptvcs addObject:ptvc];
+    }
+    
+    return [NSArray arrayWithArray:ptvcs];
+}
+
 #pragma mark -
 #pragma mark UIPageViewControllerDataSource
 
