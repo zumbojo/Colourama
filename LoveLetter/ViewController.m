@@ -8,6 +8,8 @@
 
 
 #import "ViewController.h"
+#import "CLColor.h"
+#import "CLColorViewController.h"
 #import "CLPaletteViewController.h"
 #import "CLPalette.h"
 #import "CLMothership.h"
@@ -75,6 +77,12 @@
         NSLog(@"palettes loaded, added to contentControllers");
     }];
 
+    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLColor class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *colors) {
+        //[self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
+        //NSLog(@"colors loaded, added to contentControllers");
+        
+        NSLog(@"colors loaded");
+    }];
     
 //    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:nil];
 }
