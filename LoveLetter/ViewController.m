@@ -67,15 +67,13 @@
     [self hideControlsAfterDelay];
     
     [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *palettes) {
-        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
+        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:palettes]];
         NSLog(@"palettes loaded, added to contentControllers");
     }];
 
     [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLColor class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *colors) {
-        //[self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
-        //NSLog(@"colors loaded, added to contentControllers");
-        
-        NSLog(@"colors loaded");
+        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:colors]];
+        NSLog(@"colors loaded, added to contentControllers");
     }];
 }
 
@@ -89,21 +87,9 @@
 {
     NSMutableArray *pvcs = [[NSMutableArray alloc] init];
     
-    [pvcs addObjectsFromArray:[self paletteViewControllersFromPalettes:[self samplePalettes]]];
+    [pvcs addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:[self samplePalettes]]];
     
     self.contentControllers = pvcs;
-}
-
-- (NSArray *)paletteViewControllersFromPalettes:(NSArray *)palettes {
-    NSMutableArray *pvcs = [[NSMutableArray alloc] init];
-    
-    for (CLPalette *palette in palettes) {
-        CLPaletteViewController *pvc = [[CLPaletteViewController alloc] initWithPalette:palette];
-        pvc.view.bounds = self.view.bounds;
-        [pvcs addObject:pvc];
-    }
-    
-    return [NSArray arrayWithArray:pvcs];
 }
 
 - (NSArray *)prettyThingViewControllersFromPrettyThings:(NSArray *)prettyThings {
