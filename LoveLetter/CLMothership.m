@@ -80,17 +80,19 @@ static const int kColourLoversDefaultPageSize = 20;
                                                 //NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
                                           }
                                         completionBlock:^(NSArray *operations) {
-                                                /*
+                                            BOOL allRequestsCompletedWithoutError = true;
                                                 for (AFHTTPRequestOperation *ro in operations) {
                                                     if (ro.error) {
                                                         NSLog(@"++++++++++++++ Operation error");
+                                                        allRequestsCompletedWithoutError = false;
                                                     }
-                                                    else {
-                                                        NSLog(@"Operation OK: %@", [ro.responseData description]);
-                                                    }
+                                                    //else {
+                                                    //    NSLog(@"Operation OK: %@", [ro.responseData description]);
+                                                    //}
                                                 }
-                                                 */
-                                            success(parsed);
+                                            if (allRequestsCompletedWithoutError) {
+                                                success(parsed);
+                                            }
                                         }];
         }
         else {
