@@ -66,12 +66,6 @@
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
     [self hideControlsAfterDelay];
     
-    // request a handful of new palettes:
-//    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
-//        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
-//        NSLog(@"palettes loaded, added to contentControllers");
-//    }];
-    
     [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *palettes) {
         [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
         NSLog(@"palettes loaded, added to contentControllers");
@@ -83,8 +77,6 @@
         
         NSLog(@"colors loaded");
     }];
-    
-//    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:nil];
 }
 
 - (void)didReceiveMemoryWarning
