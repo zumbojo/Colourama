@@ -28,6 +28,7 @@
 		CE78565116BE138E0064460E /* CLColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565016BE138E0064460E /* CLColor.m */; };
 		CE78565516BE1D4C0064460E /* CLPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565416BE1D4B0064460E /* CLPattern.m */; };
 		CE78565916BE21330064460E /* CLColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565816BE21330064460E /* CLColorViewController.m */; };
+		CE78565C16BF707F0064460E /* CLPatternViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565B16BF707F0064460E /* CLPatternViewController.m */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -85,6 +86,8 @@
 		CE78565416BE1D4B0064460E /* CLPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPattern.m; sourceTree = "<group>"; };
 		CE78565716BE21330064460E /* CLColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLColorViewController.h; sourceTree = "<group>"; };
 		CE78565816BE21330064460E /* CLColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLColorViewController.m; sourceTree = "<group>"; };
+		CE78565A16BF707E0064460E /* CLPatternViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPatternViewController.h; sourceTree = "<group>"; };
+		CE78565B16BF707F0064460E /* CLPatternViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPatternViewController.m; sourceTree = "<group>"; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -299,10 +302,12 @@
 			isa = PBXGroup;
 			children = (
 				CE78563B16BB482D0064460E /* Abstract */,
-				CE78556916AB5BE40064460E /* CLPaletteViewController.h */,
-				CE78556A16AB5BE40064460E /* CLPaletteViewController.m */,
 				CE78565716BE21330064460E /* CLColorViewController.h */,
 				CE78565816BE21330064460E /* CLColorViewController.m */,
+				CE78556916AB5BE40064460E /* CLPaletteViewController.h */,
+				CE78556A16AB5BE40064460E /* CLPaletteViewController.m */,
+				CE78565A16BF707E0064460E /* CLPatternViewController.h */,
+				CE78565B16BF707F0064460E /* CLPatternViewController.m */,
 			);
 			name = "Pretty Views";
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				CE78565116BE138E0064460E /* CLColor.m in Sources */,
 				CE78565516BE1D4C0064460E /* CLPattern.m in Sources */,
 				CE78565916BE21330064460E /* CLColorViewController.m in Sources */,
+				CE78565C16BF707F0064460E /* CLPatternViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
