@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLPrettyThingViewController.h"
 
-@interface CLPatternViewController : UIViewController
+@class CLPattern;
+
+@interface CLPatternViewController : CLPrettyThingViewController
+
+@property (nonatomic) CLPattern *pattern;
+
+- (id)initWithPattern:(CLPattern *)pattern;
 
 @end
