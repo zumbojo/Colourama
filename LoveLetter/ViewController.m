@@ -65,12 +65,18 @@
     [self hideControlsAfterDelay];
     
     // request a handful of new palettes:
-    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
+//    [[CLMothership sharedInstance] loadPalettesOfType:ColourPaletteTypeNew success:^(NSArray *palettes) {
+//        [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
+//        NSLog(@"palettes loaded, added to contentControllers");
+//    }];
+    
+    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *palettes) {
         [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
         NSLog(@"palettes loaded, added to contentControllers");
     }];
+
     
-    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:nil];
+//    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:nil];
 }
 
 - (void)didReceiveMemoryWarning
