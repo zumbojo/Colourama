@@ -12,7 +12,7 @@
 
 @implementation CLMothership
 
-// Based heavily on https://github.com/gdawg/iOSColourLovers (especially the loadPalette methods), then modified for petty pickiness and/or fun.
+// Based heavily on https://github.com/gdawg/iOSColourLovers (especially the loadPrettyThingsOfClass methods), then modified for petty pickiness and/or fun.
 
 static const int kColourLoversDefaultPageSize = 20;
 
@@ -30,8 +30,6 @@ static const int kColourLoversDefaultPageSize = 20;
 }
 
 - (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass withVariety:(CLPrettyThingVariety)variety number:(NSUInteger)numResults offset:(NSUInteger)offset success:(void (^)(NSArray* prettyThings))success {
-    NSLog(@"%@", NSStringFromClass(prettyThingSubclass));
-    
     NSString *urlString = [NSString stringWithFormat:@"%@/api/%@/", COLOURLOVERS_URL_BASE, ((CLPrettyThing *)prettyThingSubclass).pluralApiPath];
     switch (variety) {
         case CLPrettyThingVarietyTop:
