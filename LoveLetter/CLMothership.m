@@ -25,7 +25,7 @@ static const int kColourLoversDefaultPageSize = 20;
     return _shared;
 }
 
-- (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass {
+- (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass withVariety:(CLPrettyThingVariety)variety success:(void (^)(NSArray* prettyThings))block {
     NSLog(@"%@", NSStringFromClass(prettyThingSubclass));
 }
 
