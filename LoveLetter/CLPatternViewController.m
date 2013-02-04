@@ -50,6 +50,7 @@
 	// Do any additional setup after loading the view.
     
     // todo: tile self.pattern.image
+    [super addThingLabels];
 }
 
 /*

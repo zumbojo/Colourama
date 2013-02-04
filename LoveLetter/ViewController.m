@@ -11,6 +11,7 @@
 #import "CLColor.h"
 #import "CLColorViewController.h"
 #import "CLPaletteViewController.h"
+#import "CLPatternViewController.h"
 #import "CLPalette.h"
 #import "CLPattern.h"
 #import "CLMothership.h"
@@ -67,20 +68,19 @@
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
     [self hideControlsAfterDelay];
     
-    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *palettes) {
-        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:palettes]];
-        NSLog(@"palettes loaded, added to contentControllers");
-    }];
-
-    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLColor class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *colors) {
-        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:colors]];
-        NSLog(@"colors loaded, added to contentControllers");
-    }];
+//    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *palettes) {
+//        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:palettes]];
+//        NSLog(@"palettes loaded, added to contentControllers");
+//    }];
+//
+//    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLColor class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *colors) {
+//        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:colors]];
+//        NSLog(@"colors loaded, added to contentControllers");
+//    }];
     
     [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPattern class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *patterns) {
-//        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:colors]];
-//        NSLog(@"patterns loaded, added to contentControllers");
-        NSLog(@"patterns loaded");
+        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:patterns]];
+        NSLog(@"patterns loaded, added to contentControllers");
     }];
 }
 
@@ -111,8 +111,9 @@
         else if ([thing class] == [CLPalette class]) {
             ptvc = [[CLPaletteViewController alloc] initWithPalette:(CLPalette *)thing];
         }
-        // todo: pattern
-        
+        else if ([thing class] == [CLPattern class]) {
+            ptvc = [[CLPatternViewController alloc] initWithPattern:(CLPattern *)thing];
+        }
         ptvc.view.bounds = self.view.bounds;
         [ptvcs addObject:ptvc];
     }
