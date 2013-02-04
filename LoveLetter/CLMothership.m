@@ -68,12 +68,12 @@ static const int kColourLoversDefaultPageSize = 20;
             // queue up images for download:
             NSMutableArray *imageOperations = [[NSMutableArray alloc] init];
             for (CLPattern* pattern in parsed) {
-                // How to use "enqueueBatchOfHTTPRequestOperationsWithRequests":
-                // https://github.com/AFNetworking/AFNetworking/issues/305
                 
                 [imageOperations addObject:[[AFHTTPRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]]];
             }
             
+            // How to use "enqueueBatchOfHTTPRequestOperationsWithRequests":
+            // https://github.com/AFNetworking/AFNetworking/issues/305
             AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
             [client enqueueBatchOfHTTPRequestOperations:imageOperations
                                           progressBlock:^(NSUInteger numberOfCompletedOperations, NSUInteger totalNumberOfOperations) {
