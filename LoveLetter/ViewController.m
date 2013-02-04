@@ -69,6 +69,8 @@
         [self.contentControllers addObjectsFromArray:[self paletteViewControllersFromPalettes:palettes]];
         NSLog(@"palettes loaded, added to contentControllers");
     }];
+    
+    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class]];
 }
 
 - (void)didReceiveMemoryWarning

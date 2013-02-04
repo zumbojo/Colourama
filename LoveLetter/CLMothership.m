@@ -25,6 +25,10 @@ static const int kColourLoversDefaultPageSize = 20;
     return _shared;
 }
 
+- (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass {
+    NSLog(@"%@", NSStringFromClass(prettyThingSubclass));
+}
+
 -(void) loadPalettes:(void (^)(NSArray* palettes))success {
     [self loadPalettesOfType:ColourPaletteTypeTop success:success];
 }
