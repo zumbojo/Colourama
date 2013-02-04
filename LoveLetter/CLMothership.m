@@ -74,15 +74,13 @@ static const int kColourLoversDefaultPageSize = 20;
                 [imageOperations addObject:[[AFHTTPRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]]];
             }
             
-            NSLog(@"%d", [imageOperations count]);
-            
             AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
-            
             [client enqueueBatchOfHTTPRequestOperations:imageOperations
                                           progressBlock:^(NSUInteger numberOfCompletedOperations, NSUInteger totalNumberOfOperations) {
-                                                NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
+                                                //NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
                                           }
                                         completionBlock:^(NSArray *operations) {
+                                                /*
                                                 for (AFHTTPRequestOperation *ro in operations) {
                                                     if (ro.error) {
                                                         NSLog(@"++++++++++++++ Operation error");
@@ -91,6 +89,8 @@ static const int kColourLoversDefaultPageSize = 20;
                                                         NSLog(@"Operation OK: %@", [ro.responseData description]);
                                                     }
                                                 }
+                                                 */
+                                            success(parsed);
                                         }];
         }
         else {
