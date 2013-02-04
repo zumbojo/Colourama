@@ -74,23 +74,24 @@ static const int kColourLoversDefaultPageSize = 20;
                 [imageOperations addObject:[[AFHTTPRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]]];
             }
             
-            [[AFHTTPClient alloc] enqueueBatchOfHTTPRequestOperations:imageOperations
-                                                        progressBlock:^(NSUInteger numberOfCompletedOperations, NSUInteger totalNumberOfOperations) {
-                                                            NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
-                                                        }
-                                                      completionBlock:^(NSArray *operations) {
-                                                          
-                                                            for (AFHTTPRequestOperation *ro in operations) {
-                                                                if (ro.error) {
-                                                                    NSLog(@"++++++++++++++ Operation error");
-                                                                }
-                                                                else {
-                                                                    NSLog(@"Operation OK: %@", [ro.responseData description]);
-                                                                }
-                                                            }
-                                                      }];
+            NSLog(@"%d", [imageOperations count]);
             
+            AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
             
+            [client enqueueBatchOfHTTPRequestOperations:imageOperations
+                                          progressBlock:^(NSUInteger numberOfCompletedOperations, NSUInteger totalNumberOfOperations) {
+                                                NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
+                                          }
+                                        completionBlock:^(NSArray *operations) {
+                                                for (AFHTTPRequestOperation *ro in operations) {
+                                                    if (ro.error) {
+                                                        NSLog(@"++++++++++++++ Operation error");
+                                                    }
+                                                    else {
+                                                        NSLog(@"Operation OK: %@", [ro.responseData description]);
+                                                    }
+                                                }
+                                        }];
         }
         else {
             // notify the caller of our success and send the list of pretty things along

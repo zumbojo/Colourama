@@ -12,6 +12,7 @@
 #import "CLColorViewController.h"
 #import "CLPaletteViewController.h"
 #import "CLPalette.h"
+#import "CLPattern.h"
 #import "CLMothership.h"
 
 @interface ViewController ()
@@ -74,6 +75,12 @@
     [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLColor class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *colors) {
         [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:colors]];
         NSLog(@"colors loaded, added to contentControllers");
+    }];
+    
+    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPattern class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *patterns) {
+//        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:colors]];
+//        NSLog(@"patterns loaded, added to contentControllers");
+        NSLog(@"patterns loaded");
     }];
 }
 
