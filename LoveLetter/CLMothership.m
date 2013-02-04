@@ -7,7 +7,7 @@
 //
 
 #import "CLMothership.h"
-#import "CLPalette.h"
+#import "CLPattern.h"
 #import "AFNetworking.h"
 
 @implementation CLMothership
@@ -64,9 +64,38 @@ static const int kColourLoversDefaultPageSize = 20;
             [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
         }
         
-        // notify the caller of our success and send the list of colours along
-        success(parsed);
-        
+        if ([prettyThingSubclass class] == [CLPattern class]) {
+            // queue up images for download:
+            NSMutableArray *imageOperations = [[NSMutableArray alloc] init];
+            for (CLPattern* pattern in parsed) {
+                // How to use "enqueueBatchOfHTTPRequestOperationsWithRequests":
+                // https://github.com/AFNetworking/AFNetworking/issues/305
+                
+                [imageOperations addObject:[[AFHTTPRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]]];
+            }
+            
+            [[AFHTTPClient alloc] enqueueBatchOfHTTPRequestOperations:imageOperations
+                                                        progressBlock:^(NSUInteger numberOfCompletedOperations, NSUInteger totalNumberOfOperations) {
+                                                            NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
+                                                        }
+                                                      completionBlock:^(NSArray *operations) {
+                                                          
+                                                            for (AFHTTPRequestOperation *ro in operations) {
+                                                                if (ro.error) {
+                                                                    NSLog(@"++++++++++++++ Operation error");
+                                                                }
+                                                                else {
+                                                                    NSLog(@"Operation OK: %@", [ro.responseData description]);
+                                                                }
+                                                            }
+                                                      }];
+            
+            
+        }
+        else {
+            // notify the caller of our success and send the list of pretty things along
+            success(parsed);
+        }
     } failure:nil];
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];

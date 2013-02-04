@@ -8,12 +8,6 @@
 
 #import "CLPattern.h"
 
-@interface CLPattern ()
-
-@property (nonatomic) NSURL *imageUrl;
-
-@end
-
 @implementation CLPattern
 
 - (CLPattern *)initWithJSON:(id)json {
@@ -49,7 +43,7 @@
     if (self) {
         self.imageUrl = [NSURL URLWithString:[json valueForKeyPath:@"imageUrl"]];
         
-        // todo: load image using imageUrl.
+        // image is loaded in CLMothership loadPrettyThingsOfClass:...
     }
     return self;
 }

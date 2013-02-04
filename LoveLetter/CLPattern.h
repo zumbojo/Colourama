@@ -12,7 +12,7 @@
 @interface CLPattern : CLPrettyThing
 
 // from API:
-// (none at the moment)
+@property (nonatomic) NSURL *imageUrl;
 
 // convenience:
 @property (nonatomic) UIImage *image;
