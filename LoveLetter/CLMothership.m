@@ -90,9 +90,10 @@ static const int kColourLoversDefaultPageSize = 20;
                                                     //    NSLog(@"Operation OK: %@", [ro.responseData description]);
                                                     //}
                                                 }
-                                            if (allRequestsCompletedWithoutError) {
-                                                success(parsed);
-                                            }
+                                            
+                                                if (allRequestsCompletedWithoutError) {
+                                                    success(parsed);
+                                                }
                                         }];
         }
         else {
