@@ -68,8 +68,6 @@ static const int kColourLoversDefaultPageSize = 20;
             // queue up images for download:
             NSMutableArray *imageOperations = [[NSMutableArray alloc] init];
             for (CLPattern* pattern in parsed) {
-                //[imageOperations addObject:[[AFHTTPRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]]];
-                
                 AFImageRequestOperation *imageOp = [[AFImageRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]];
                 imageOp.userInfo = @{@"pattern" : pattern};
                 [imageOperations addObject:imageOp];
@@ -90,8 +88,7 @@ static const int kColourLoversDefaultPageSize = 20;
                                                         allRequestsCompletedWithoutError = false;
                                                     }
                                                     else {
-                                                        CLPattern *pattern = ro.userInfo[@"pattern"];
-                                                        pattern.image = ro.responseImage;
+                                                        ((CLPattern *)ro.userInfo[@"pattern"]).image = ro.responseImage; // assign responseImage to pattern.image
                                                         //NSLog(@"Operation OK: %@", [ro.responseData description]);
                                                     }
                                                 }
