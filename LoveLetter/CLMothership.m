@@ -68,8 +68,11 @@ static const int kColourLoversDefaultPageSize = 20;
             // queue up images for download:
             NSMutableArray *imageOperations = [[NSMutableArray alloc] init];
             for (CLPattern* pattern in parsed) {
+                //[imageOperations addObject:[[AFHTTPRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]]];
                 
-                [imageOperations addObject:[[AFHTTPRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]]];
+                AFImageRequestOperation *imageOp = [[AFImageRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]];
+                imageOp.userInfo = @{@"pattern" : pattern};
+                [imageOperations addObject:imageOp];
             }
             
             // How to use "enqueueBatchOfHTTPRequestOperationsWithRequests":
@@ -81,14 +84,16 @@ static const int kColourLoversDefaultPageSize = 20;
                                           }
                                         completionBlock:^(NSArray *operations) {
                                             BOOL allRequestsCompletedWithoutError = true;
-                                                for (AFHTTPRequestOperation *ro in operations) {
+                                                for (AFImageRequestOperation *ro in operations) {
                                                     if (ro.error) {
                                                         NSLog(@"++++++++++++++ Operation error");
                                                         allRequestsCompletedWithoutError = false;
                                                     }
-                                                    //else {
-                                                    //    NSLog(@"Operation OK: %@", [ro.responseData description]);
-                                                    //}
+                                                    else {
+                                                        CLPattern *pattern = ro.userInfo[@"pattern"];
+                                                        pattern.image = ro.responseImage;
+                                                        //NSLog(@"Operation OK: %@", [ro.responseData description]);
+                                                    }
                                                 }
                                             
                                                 if (allRequestsCompletedWithoutError) {
