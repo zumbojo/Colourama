@@ -222,6 +222,33 @@
 			name = Patterns;
 			sourceTree = "<group>";
 		};
+		CE78565D16C0A7FA0064460E /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				CE78565716BE21330064460E /* CLColorViewController.h */,
+				CE78565816BE21330064460E /* CLColorViewController.m */,
+			);
+			name = Colors;
+			sourceTree = "<group>";
+		};
+		CE78565E16C0A8040064460E /* Palettes */ = {
+			isa = PBXGroup;
+			children = (
+				CE78556916AB5BE40064460E /* CLPaletteViewController.h */,
+				CE78556A16AB5BE40064460E /* CLPaletteViewController.m */,
+			);
+			name = Palettes;
+			sourceTree = "<group>";
+		};
+		CE78565F16C0A8140064460E /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				CE78565A16BF707E0064460E /* CLPatternViewController.h */,
+				CE78565B16BF707F0064460E /* CLPatternViewController.m */,
+			);
+			name = Patterns;
+			sourceTree = "<group>";
+		};
 		CED03B0216AA28660077CAB8 = {
 			isa = PBXGroup;
 			children = (
@@ -302,12 +329,9 @@
 			isa = PBXGroup;
 			children = (
 				CE78563B16BB482D0064460E /* Abstract */,
-				CE78565716BE21330064460E /* CLColorViewController.h */,
-				CE78565816BE21330064460E /* CLColorViewController.m */,
-				CE78556916AB5BE40064460E /* CLPaletteViewController.h */,
-				CE78556A16AB5BE40064460E /* CLPaletteViewController.m */,
-				CE78565A16BF707E0064460E /* CLPatternViewController.h */,
-				CE78565B16BF707F0064460E /* CLPatternViewController.m */,
+				CE78565D16C0A7FA0064460E /* Colors */,
+				CE78565E16C0A8040064460E /* Palettes */,
+				CE78565F16C0A8140064460E /* Patterns */,
 			);
 			name = "Pretty Views";
 			sourceTree = "<group>";
