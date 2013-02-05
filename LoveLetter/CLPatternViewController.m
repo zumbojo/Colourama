@@ -50,14 +50,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:self.pattern.image]; // http://stackoverflow.com/questions/224503/repeating-background-image-in-native-iphone-app
-//    UIImageView *background = [[UIImageView alloc] initWithImage:self.pattern.image];
-//    background.frame = self.view.frame;
-//    [self.view addSubview:background];
-//
-    
     [self.view addSubview:[[KLPatternShiftView alloc] initWithFrame:self.view.frame image:self.pattern.image shift:CGSizeMake(50, 50)]];
-    
     [super addThingLabels];
 }
 

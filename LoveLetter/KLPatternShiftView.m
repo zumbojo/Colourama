@@ -10,7 +10,6 @@
 
 @interface KLPatternShiftView ()
 
-@property (nonatomic) UIImage *image;
 @property (nonatomic) CGSize shift;
 @property (nonatomic) CGColorRef pattern;
 
@@ -22,9 +21,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.image = image;
         self.shift = shift;
-        self.pattern = [UIColor colorWithPatternImage:self.image].CGColor;
+        self.pattern = [UIColor colorWithPatternImage:image].CGColor;
     }
     return self;
 }
