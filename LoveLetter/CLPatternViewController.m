@@ -49,12 +49,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:self.pattern.image];
-    UIImageView *background = [[UIImageView alloc] initWithImage:self.pattern.image];
-    background.frame = self.view.frame;
-    [self.view addSubview:background];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:self.pattern.image]; // http://stackoverflow.com/questions/224503/repeating-background-image-in-native-iphone-app
+//    UIImageView *background = [[UIImageView alloc] initWithImage:self.pattern.image];
+//    background.frame = self.view.frame;
+//    [self.view addSubview:background];
+//
     
-    // todo: tile self.pattern.image
     [super addThingLabels];
 }
 
