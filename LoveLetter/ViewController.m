@@ -78,7 +78,7 @@
 //        NSLog(@"colors loaded, added to contentControllers");
 //    }];
     
-    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPattern class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *patterns) {
+    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPattern class] withVariety:CLPrettyThingVarietyTop success:^(NSArray *patterns) {
         [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:patterns]];
         NSLog(@"patterns loaded, added to contentControllers");
     }];

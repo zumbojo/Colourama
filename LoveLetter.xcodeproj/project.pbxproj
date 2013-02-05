@@ -29,6 +29,7 @@
 		CE78565516BE1D4C0064460E /* CLPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565416BE1D4B0064460E /* CLPattern.m */; };
 		CE78565916BE21330064460E /* CLColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565816BE21330064460E /* CLColorViewController.m */; };
 		CE78565C16BF707F0064460E /* CLPatternViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565B16BF707F0064460E /* CLPatternViewController.m */; };
+		CE78566216C0A9180064460E /* KLPatternShiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78566116C0A9180064460E /* KLPatternShiftView.m */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -88,6 +89,8 @@
 		CE78565816BE21330064460E /* CLColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLColorViewController.m; sourceTree = "<group>"; };
 		CE78565A16BF707E0064460E /* CLPatternViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPatternViewController.h; sourceTree = "<group>"; };
 		CE78565B16BF707F0064460E /* CLPatternViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPatternViewController.m; sourceTree = "<group>"; };
+		CE78566016C0A9180064460E /* KLPatternShiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLPatternShiftView.h; sourceTree = "<group>"; };
+		CE78566116C0A9180064460E /* KLPatternShiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLPatternShiftView.m; sourceTree = "<group>"; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -245,6 +248,8 @@
 			children = (
 				CE78565A16BF707E0064460E /* CLPatternViewController.h */,
 				CE78565B16BF707F0064460E /* CLPatternViewController.m */,
+				CE78566016C0A9180064460E /* KLPatternShiftView.h */,
+				CE78566116C0A9180064460E /* KLPatternShiftView.m */,
 			);
 			name = Patterns;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 				CE78565516BE1D4C0064460E /* CLPattern.m in Sources */,
 				CE78565916BE21330064460E /* CLColorViewController.m in Sources */,
 				CE78565C16BF707F0064460E /* CLPatternViewController.m in Sources */,
+				CE78566216C0A9180064460E /* KLPatternShiftView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

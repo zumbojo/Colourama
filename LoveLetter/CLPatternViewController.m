@@ -8,6 +8,7 @@
 
 #import "CLPatternViewController.h"
 #import "CLPattern.h"
+#import "KLPatternShiftView.h"
 
 @interface CLPatternViewController ()
 
@@ -54,6 +55,8 @@
 //    background.frame = self.view.frame;
 //    [self.view addSubview:background];
 //
+    
+    [self.view addSubview:[[KLPatternShiftView alloc] initWithFrame:self.view.frame image:self.pattern.image shift:CGSizeMake(50, 50)]];
     
     [super addThingLabels];
 }
