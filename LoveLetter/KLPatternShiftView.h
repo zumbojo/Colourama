@@ -10,6 +10,6 @@
 
 @interface KLPatternShiftView : UIView
 
-- (id)initWithFrame:(CGRect)frame image:(UIImage *)image shift:(CGSize)shift;
+- (id)initWithFrame:(CGRect)frame image:(UIImage *)image;
 
 @end
