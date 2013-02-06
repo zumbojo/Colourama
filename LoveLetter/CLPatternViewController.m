@@ -50,7 +50,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self.view addSubview:[[KLPatternShiftView alloc] initWithFrame:self.view.frame image:self.pattern.image shift:CGSizeMake(50, 50)]];
+    KLPatternShiftView *shifty = [[KLPatternShiftView alloc] initWithFrame:self.view.frame image:self.pattern.image shift:CGSizeMake(50, 50)];
+    shifty.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    shifty.contentMode = UIViewContentModeRedraw;
+    self.view.autoresizesSubviews = YES;
+    
+    
+    [self.view addSubview:shifty];
     [super addThingLabels];
 }
 
