@@ -15,8 +15,6 @@
 @implementation CLPrettyThingViewController
 
 - (void)addThingLabels {
-    
-    
     // add the background (with shadow):
     UIView *byLineBackground = [[UIView alloc] init];
     byLineBackground.translatesAutoresizingMaskIntoConstraints = NO;
@@ -65,7 +63,7 @@
                                                views:views]];
     
     [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineShadow(2)][byLineBackground(25)]|"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineShadow(2)][byLineBackground(26)]|"
                                              options:0
                                              metrics:nil
                                                views:views]];
