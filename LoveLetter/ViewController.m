@@ -384,7 +384,7 @@
 
 - (void)setShowByline:(BOOL)showByline {
     [self applyBlock:^(UIViewController *controller) {
-        // todo: 
+        [(CLPrettyThingViewController *)controller setShowByline:showByline animated:YES];
     } toAllContentControllersOfClass:[CLPrettyThingViewController class]];
 }
 

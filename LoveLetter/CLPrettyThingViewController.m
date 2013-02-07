@@ -81,6 +81,10 @@
                                                views:views]];
 }
 
+- (void)setShowByline:(BOOL)show animated:(BOOL)animated {
+    NSLog(@"setShowByline is nye");
+}
+
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

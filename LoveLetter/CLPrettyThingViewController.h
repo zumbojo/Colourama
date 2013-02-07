@@ -17,5 +17,6 @@
 @property (nonatomic, readonly) CLPrettyThingViewController *ghost; // a visually identical copy of this VC, used as part of ViewController's fadeToNextPage: method.
 
 - (void)addThingLabels;
+- (void)setShowByline:(BOOL)show animated:(BOOL)animated;
 
 @end
