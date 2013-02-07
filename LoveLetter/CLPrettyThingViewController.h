@@ -14,6 +14,8 @@
 @interface CLPrettyThingViewController : UIViewController
 
 @property (nonatomic, readonly) CLPrettyThing *prettyThing;
+@property (nonatomic, readonly) BOOL showByline; // change using setShowByline:animated:
+@property (nonatomic) UIView *byLineView;
 @property (nonatomic, readonly) CLPrettyThingViewController *ghost; // a visually identical copy of this VC, used as part of ViewController's fadeToNextPage: method.
 
 - (void)addThingLabels;

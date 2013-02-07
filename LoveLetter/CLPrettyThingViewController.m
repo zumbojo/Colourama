@@ -20,18 +20,19 @@
     byLineBackground.translatesAutoresizingMaskIntoConstraints = NO;
     byLineBackground.backgroundColor = UIColorFromRGBString(@"F1F1F1");
     [self.view addSubview:byLineBackground];
+    self.byLineView = byLineBackground;
     
     UIView *byLineShadow = [[UIView alloc] init];
     byLineShadow.translatesAutoresizingMaskIntoConstraints = NO;
     byLineShadow.backgroundColor = UIColorFromRGBString(@"CCCCCC");
-    [self.view addSubview:byLineShadow];
+    [byLineBackground addSubview:byLineShadow];
     
     // add the label:
     UILabel *byLineLabel = [[UILabel alloc] init];
     byLineLabel.translatesAutoresizingMaskIntoConstraints = NO;
     byLineLabel.textColor = UIColorFromRGBString(@"808080");
     byLineLabel.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:byLineLabel];
+    [byLineBackground addSubview:byLineLabel];
     
     if (self.prettyThing.title && self.prettyThing.userName) { // todo: remove this check as soon as bundled palettes are created via bundled JSON
         // fancy attributed text:
@@ -82,7 +83,21 @@
 }
 
 - (void)setShowByline:(BOOL)show animated:(BOOL)animated {
-    NSLog(@"setShowByline is nye");
+    if (show == self.showByline) {
+        return;
+    }
+    
+    _showByline = show;
+    if (animated) {
+        [UIView animateWithDuration:1.0f animations:^{
+            self.byLineView.alpha = _showByline ? 1 : 0;
+        }];
+    }
+    else {
+        self.byLineView.alpha = _showByline ? 1 : 0;
+    }
+    
+    NSLog(@"bla");
 }
 
 /*
