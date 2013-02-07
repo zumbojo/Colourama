@@ -27,5 +27,7 @@
 @property (nonatomic) BOOL showColors;
 @property (nonatomic) BOOL showPalettes;
 @property (nonatomic) BOOL showPatterns;
+@property (nonatomic) BOOL showVariableWidths;
+@property (nonatomic) BOOL showByline;
 
 @end

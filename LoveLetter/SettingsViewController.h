@@ -16,6 +16,8 @@
 @property (nonatomic) BOOL showColors;
 @property (nonatomic) BOOL showPalettes;
 @property (nonatomic) BOOL showPatterns;
+@property (nonatomic) BOOL showVariableWidths;
+@property (nonatomic) BOOL showByline;
 
 @end
 
@@ -26,7 +28,9 @@
 - (IBAction)paletteSwitchValueChanged:(UISwitch *)sender;
 - (IBAction)patternSwitchValueChanged:(UISwitch *)sender;
 - (IBAction)varietyValueChanged:(UISegmentedControl *)sender;
+- (IBAction)showPaletteWidthValueChanged:(UISegmentedControl *)sender;
 - (IBAction)transitionValueChanged:(UISegmentedControl *)sender;
+- (IBAction)showBylineValueChanged:(UISegmentedControl *)sender;
 - (IBAction)testButtonTouched:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UISlider *transitionSpeedSlider; // todo: deprecate

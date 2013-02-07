@@ -488,6 +488,24 @@
 					</object>
 					<int key="connectionID">142</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showPaletteWidthValueChanged:</string>
+						<reference key="source" ref="533488876"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">147</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showBylineValueChanged:</string>
+						<reference key="source" ref="531201206"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">148</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -1405,7 +1423,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">146</int>
+			<int key="maxID">148</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1424,6 +1442,8 @@
 						<string key="colorSwitchValueChanged:">UISwitch</string>
 						<string key="paletteSwitchValueChanged:">UISwitch</string>
 						<string key="patternSwitchValueChanged:">UISwitch</string>
+						<string key="showBylineValueChanged:">UISegmentedControl</string>
+						<string key="showPaletteWidthValueChanged:">UISegmentedControl</string>
 						<string key="testButtonTouched:">UIButton</string>
 						<string key="transitionValueChanged:">UISegmentedControl</string>
 						<string key="varietyValueChanged:">UISegmentedControl</string>
@@ -1440,6 +1460,14 @@
 						<object class="IBActionInfo" key="patternSwitchValueChanged:">
 							<string key="name">patternSwitchValueChanged:</string>
 							<string key="candidateClassName">UISwitch</string>
+						</object>
+						<object class="IBActionInfo" key="showBylineValueChanged:">
+							<string key="name">showBylineValueChanged:</string>
+							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
+						<object class="IBActionInfo" key="showPaletteWidthValueChanged:">
+							<string key="name">showPaletteWidthValueChanged:</string>
+							<string key="candidateClassName">UISegmentedControl</string>
 						</object>
 						<object class="IBActionInfo" key="testButtonTouched:">
 							<string key="name">testButtonTouched:</string>
