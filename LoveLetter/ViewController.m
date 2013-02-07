@@ -14,7 +14,6 @@
 #import "CLPatternViewController.h"
 #import "CLPalette.h"
 #import "CLPattern.h"
-#import "CLMothership.h"
 
 @interface ViewController ()
 

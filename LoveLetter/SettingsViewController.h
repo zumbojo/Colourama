@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLMothership.h"
 
 @protocol SettingsViewControllerDelegate
 
 @property (nonatomic) NSTimeInterval transitionDuration;
+@property (nonatomic) CLPrettyThingVariety preferredVariety;
+@property (nonatomic) BOOL showColors;
+@property (nonatomic) BOOL showPalettes;
+@property (nonatomic) BOOL showPatterns;
 
 @end
 

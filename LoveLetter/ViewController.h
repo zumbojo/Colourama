@@ -9,6 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
+#import "CLMothership.h"
 
 @interface ViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
@@ -22,5 +23,9 @@
 
 // SettingsViewControllerDelegate:
 @property (nonatomic) NSTimeInterval transitionDuration;
+@property (nonatomic) CLPrettyThingVariety preferredVariety;
+@property (nonatomic) BOOL showColors;
+@property (nonatomic) BOOL showPalettes;
+@property (nonatomic) BOOL showPatterns;
 
 @end
