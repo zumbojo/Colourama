@@ -41,7 +41,7 @@
     NSLog(@"testButtonTouched");
 }
 
-- (IBAction)transitionSpeedSliderValueChanged:(id)sender {
+- (IBAction)transitionSpeedSegmentedControlValueChanged:(id)sender {
     UISlider *slider = (UISlider *)sender;
     NSUInteger notch = (NSUInteger)slider.value; // http://stackoverflow.com/questions/2519460/uislider-with-increments-of-5
     slider.value = notch;
