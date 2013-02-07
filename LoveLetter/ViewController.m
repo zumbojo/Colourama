@@ -331,10 +331,13 @@
         [self addChildViewController:ghost];
         [self.view insertSubview:ghost.view belowSubview:self.settingsButton];
         
-        // sneakily push toVC in background
+        // sneakily push toVC in background:
+        __weak ViewController *weakSelf = self; // to address a "Capturing 'self' strongly in this block is likely to lead to a retain cycle" warning
+        // http://stackoverflow.com/questions/7853915/how-do-i-avoid-capturing-self-in-blocks-when-implementing-an-api
+        // http://stackoverflow.com/questions/4352561/retain-cycle-on-self-with-blocks
         [self.pageController setViewControllers:@[toVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:^(BOOL finished){
             if (finished) {
-                self.currentPage = toVC;
+                weakSelf.currentPage = toVC;
             }
         }];
         
