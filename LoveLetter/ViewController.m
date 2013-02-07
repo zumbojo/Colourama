@@ -376,6 +376,18 @@
     }
 }
 
+- (void)setShowVariableWidths:(BOOL)showVariableWidths {
+    [self applyBlock:^(UIViewController *controller) {
+        // todo
+    } toAllContentControllersOfClass:[CLPaletteViewController class]];
+}
+
+- (void)setShowByline:(BOOL)showByline {
+    [self applyBlock:^(UIViewController *controller) {
+        // todo: 
+    } toAllContentControllersOfClass:[CLPrettyThingViewController class]];
+}
+
 #pragma mark -
 #pragma mark Test Methods
 
