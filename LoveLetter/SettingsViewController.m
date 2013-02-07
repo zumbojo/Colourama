@@ -37,12 +37,16 @@
 }
  */
 
-- (IBAction)testButtonTouched:(id)sender {
+- (IBAction)testButtonTouched:(UIButton *)sender {
     NSLog(@"testButtonTouched");
 }
 
-- (IBAction)transitionValueChanged:(id)sender {
-    self.delegate.transitionDuration = [@[@0.0, @10.0, @30.0, @300.0, @3600.0][((UISegmentedControl *)sender).selectedSegmentIndex] doubleValue];
+- (IBAction)varietyValueChanged:(UISegmentedControl *)sender {
+    self.delegate.preferredVariety = sender.selectedSegmentIndex; // The segment indexes are ordered identically to the enum.
+}
+
+- (IBAction)transitionValueChanged:(UISegmentedControl *)sender {
+    self.delegate.transitionDuration = [@[@0.0, @10.0, @30.0, @300.0, @3600.0][sender.selectedSegmentIndex] doubleValue];
 }
 
 @end
