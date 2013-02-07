@@ -445,6 +445,33 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">colorSwitchValueChanged:</string>
+						<reference key="source" ref="604215196"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">146</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">paletteSwitchValueChanged:</string>
+						<reference key="source" ref="639286256"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">145</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">patternSwitchValueChanged:</string>
+						<reference key="source" ref="1006047372"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">144</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">varietyValueChanged:</string>
 						<reference key="source" ref="745569930"/>
 						<reference key="destination" ref="372490531"/>
@@ -1378,7 +1405,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">143</int>
+			<int key="maxID">146</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1394,18 +1421,33 @@
 					<string key="className">SettingsViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="testButtonTouched:">id</string>
-						<string key="transitionValueChanged:">id</string>
+						<string key="colorSwitchValueChanged:">UISwitch</string>
+						<string key="paletteSwitchValueChanged:">UISwitch</string>
+						<string key="patternSwitchValueChanged:">UISwitch</string>
+						<string key="testButtonTouched:">UIButton</string>
+						<string key="transitionValueChanged:">UISegmentedControl</string>
 						<string key="varietyValueChanged:">UISegmentedControl</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="colorSwitchValueChanged:">
+							<string key="name">colorSwitchValueChanged:</string>
+							<string key="candidateClassName">UISwitch</string>
+						</object>
+						<object class="IBActionInfo" key="paletteSwitchValueChanged:">
+							<string key="name">paletteSwitchValueChanged:</string>
+							<string key="candidateClassName">UISwitch</string>
+						</object>
+						<object class="IBActionInfo" key="patternSwitchValueChanged:">
+							<string key="name">patternSwitchValueChanged:</string>
+							<string key="candidateClassName">UISwitch</string>
+						</object>
 						<object class="IBActionInfo" key="testButtonTouched:">
 							<string key="name">testButtonTouched:</string>
-							<string key="candidateClassName">id</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBActionInfo" key="transitionValueChanged:">
 							<string key="name">transitionValueChanged:</string>
-							<string key="candidateClassName">id</string>
+							<string key="candidateClassName">UISegmentedControl</string>
 						</object>
 						<object class="IBActionInfo" key="varietyValueChanged:">
 							<string key="name">varietyValueChanged:</string>

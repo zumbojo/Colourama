@@ -22,9 +22,12 @@
 
 @interface SettingsViewController : UIViewController
 
-- (IBAction)testButtonTouched:(UIButton *)sender;
+- (IBAction)colorSwitchValueChanged:(UISwitch *)sender;
+- (IBAction)paletteSwitchValueChanged:(UISwitch *)sender;
+- (IBAction)patternSwitchValueChanged:(UISwitch *)sender;
 - (IBAction)varietyValueChanged:(UISegmentedControl *)sender;
 - (IBAction)transitionValueChanged:(UISegmentedControl *)sender;
+- (IBAction)testButtonTouched:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UISlider *transitionSpeedSlider; // todo: deprecate
 @property(weak) id<SettingsViewControllerDelegate> delegate;
