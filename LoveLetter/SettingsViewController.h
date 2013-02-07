@@ -23,7 +23,7 @@
 @interface SettingsViewController : UIViewController
 
 - (IBAction)testButtonTouched:(id)sender;
-- (IBAction)transitionSpeedSegmentedControlValueChanged:(id)sender;
+- (IBAction)transitionValueChanged:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISlider *transitionSpeedSlider; // todo: deprecate
 @property(weak) id<SettingsViewControllerDelegate> delegate;
