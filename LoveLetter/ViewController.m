@@ -165,6 +165,14 @@
     return [self.contentControllers indexOfObject:viewController];
 }
 
+- (void)applyBlock:(void (^)(UIViewController* controller))block toAllContentControllersOfClass:(Class)class {
+    for (UIViewController *controller in self.contentControllers) {
+        if ([controller isKindOfClass:class]) {
+            block(controller);
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark UIPageViewControllerDelegate
 
