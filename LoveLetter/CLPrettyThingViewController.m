@@ -15,9 +15,53 @@
 @implementation CLPrettyThingViewController
 
 - (void)addThingLabels {
+    
+    
+    // add the background (with shadow):
+    UIView *byLineBackground = [[UIView alloc] init];
+    byLineBackground.translatesAutoresizingMaskIntoConstraints = NO;
+    byLineBackground.backgroundColor = UIColorFromRGBString(@"F1F1F1");
+    [self.view addSubview:byLineBackground];
+    
+    UIView *byLineShadow = [[UIView alloc] init];
+    byLineShadow.translatesAutoresizingMaskIntoConstraints = NO;
+    byLineShadow.backgroundColor = UIColorFromRGBString(@"CCCCCC");
+    [self.view addSubview:byLineShadow];
+    
+    NSDictionary *backgroundBinding = NSDictionaryOfVariableBindings(byLineBackground, byLineShadow);
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineShadow(2)][byLineBackground(25)]|" // todo: base on height of label
+                                             options:0
+                                             metrics:nil
+                                               views:backgroundBinding]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|[byLineBackground]|"
+                                             options:0
+                                             metrics:nil
+                                               views:backgroundBinding]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|[byLineShadow]|"
+                                             options:0
+                                             metrics:nil
+                                               views:backgroundBinding]];
+    
+    // background: F1F1F1
+    // shadow: 808080
+    // text: CCCCCC
+    
+    
+    // slatView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    
+    
+    
+    // add the label:
     UILabel *byLineLabel = [[UILabel alloc] init];
     byLineLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    byLineLabel.textColor = [UIColor lightGrayColor];
+    byLineLabel.textColor = UIColorFromRGBString(@"808080");
     byLineLabel.backgroundColor = [UIColor clearColor];
     [self.view addSubview:byLineLabel];
     
@@ -36,19 +80,19 @@
     }
     
     // constraints:
-    NSDictionary *views = NSDictionaryOfVariableBindings(byLineLabel);
+    NSDictionary *byLineLabelBinding = NSDictionaryOfVariableBindings(byLineLabel);
     
     [self.view addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineLabel]-5-|"
                                              options:0
                                              metrics:nil
-                                               views:views]];
+                                               views:byLineLabelBinding]];
     
     [self.view addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"[byLineLabel]-5-|"
                                              options:0
                                              metrics:nil
-                                               views:views]];    
+                                               views:byLineLabelBinding]];    
 }
 
 /*
