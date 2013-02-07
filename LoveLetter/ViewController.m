@@ -378,7 +378,7 @@
 
 - (void)setShowVariableWidths:(BOOL)showVariableWidths {
     [self applyBlock:^(UIViewController *controller) {
-        // todo
+        [(CLPaletteViewController *)controller setShowVariableWidths:showVariableWidths animated:YES];
     } toAllContentControllersOfClass:[CLPaletteViewController class]];
 }
 
