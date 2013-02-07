@@ -28,36 +28,6 @@
     byLineShadow.backgroundColor = UIColorFromRGBString(@"CCCCCC");
     [self.view addSubview:byLineShadow];
     
-    NSDictionary *backgroundBinding = NSDictionaryOfVariableBindings(byLineBackground, byLineShadow);
-    
-    [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineShadow(2)][byLineBackground(25)]|" // todo: base on height of label
-                                             options:0
-                                             metrics:nil
-                                               views:backgroundBinding]];
-    
-    [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"|[byLineBackground]|"
-                                             options:0
-                                             metrics:nil
-                                               views:backgroundBinding]];
-    
-    [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"|[byLineShadow]|"
-                                             options:0
-                                             metrics:nil
-                                               views:backgroundBinding]];
-    
-    // background: F1F1F1
-    // shadow: 808080
-    // text: CCCCCC
-    
-    
-    // slatView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    
-    
-    
     // add the label:
     UILabel *byLineLabel = [[UILabel alloc] init];
     byLineLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -80,19 +50,37 @@
     }
     
     // constraints:
-    NSDictionary *byLineLabelBinding = NSDictionaryOfVariableBindings(byLineLabel);
+    NSDictionary *views = NSDictionaryOfVariableBindings(byLineLabel, byLineBackground, byLineShadow);
     
     [self.view addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineLabel]-5-|"
                                              options:0
                                              metrics:nil
-                                               views:byLineLabelBinding]];
+                                               views:views]];
     
     [self.view addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"[byLineLabel]-5-|"
                                              options:0
                                              metrics:nil
-                                               views:byLineLabelBinding]];    
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineShadow(2)][byLineBackground(25)]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|[byLineBackground]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|[byLineShadow]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
 }
 
 /*
