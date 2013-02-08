@@ -93,9 +93,12 @@
 #pragma mark API Interaction (CLMothership Interaction)
 
 // todo: method to figure out when a new fetch is necessary (like we are nearing the the end of the pages, etc.)
-// todo: method to clean out old pages
+// todo: method to clean out old pages (e.g. when have long since been viewed, or when that pretty thing type is switched of in SettingsView (if user doesn't want to see any more patterns, for example, we should clear out patterns from all future (but not past, until later) VCs))
 
 - (void)fetchSomePrettyThings {
+    
+    // need to make requests for possibly colors, palettes, *and* patterns (all of the current preferredVariety), shuffle the responses, create PVCs for each of these, and add them to self.contentControllers
+    
     
 }
 
