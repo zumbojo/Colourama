@@ -61,6 +61,7 @@
     self.currentPage = viewControllers[0];
     [self addChildViewController:self.pageController];
     [self.view addSubview:self.pageController.view];
+    [self.view bringSubviewToFront:self.spinner];
     [self.view bringSubviewToFront:self.settingsButton];
     [self.view bringSubviewToFront:self.shareButton];
     [self.pageController didMoveToParentViewController:self];
@@ -77,9 +78,11 @@
 //        NSLog(@"colors loaded, added to contentControllers");
 //    }];
     
+    [self.spinner startAnimating];
     [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPattern class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *patterns) {
         [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:patterns]];
         NSLog(@"patterns loaded, added to contentControllers");
+        [self.spinner stopAnimating];
     }];
 }
 
