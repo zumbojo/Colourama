@@ -89,6 +89,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -
+#pragma mark API Interaction (CLMothership Interaction)
+
+// todo: method to figure out when a new fetch is necessary (like we are nearing the the end of the pages, etc.)
+// todo: method to clean out old pages
+
+- (void)fetchSomePrettyThings {
+    
+}
+
+#pragma mark -
+#pragma mark Content Controller Creation
+
 - (void)populateContentControllers
 {
     NSMutableArray *pvcs = [[NSMutableArray alloc] init];
