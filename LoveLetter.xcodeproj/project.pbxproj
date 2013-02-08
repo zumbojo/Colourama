@@ -30,6 +30,7 @@
 		CE78565916BE21330064460E /* CLColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565816BE21330064460E /* CLColorViewController.m */; };
 		CE78565C16BF707F0064460E /* CLPatternViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78565B16BF707F0064460E /* CLPatternViewController.m */; };
 		CE78566216C0A9180064460E /* KLPatternShiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78566116C0A9180064460E /* KLPatternShiftView.m */; };
+		CE804E1A16C4ACC70015FF35 /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = CE804E1916C4ACC70015FF35 /* NSMutableArray_Shuffling.m */; };
 		CED03B1216AA28660077CAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1116AA28660077CAB8 /* UIKit.framework */; };
 		CED03B1416AA28660077CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1316AA28660077CAB8 /* Foundation.framework */; };
 		CED03B1616AA28660077CAB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B1516AA28660077CAB8 /* CoreGraphics.framework */; };
@@ -91,6 +92,8 @@
 		CE78565B16BF707F0064460E /* CLPatternViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPatternViewController.m; sourceTree = "<group>"; };
 		CE78566016C0A9180064460E /* KLPatternShiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLPatternShiftView.h; sourceTree = "<group>"; };
 		CE78566116C0A9180064460E /* KLPatternShiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLPatternShiftView.m; sourceTree = "<group>"; };
+		CE804E1816C4ACC70015FF35 /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
+		CE804E1916C4ACC70015FF35 /* NSMutableArray_Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableArray_Shuffling.m; sourceTree = "<group>"; };
 		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -148,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				CE7855F516AE35DD0064460E /* AFNetworking (ba9185d) */,
+				CE804E1B16C4ACD30015FF35 /* NSMutableArray_Shuffling */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -252,6 +256,15 @@
 				CE78566116C0A9180064460E /* KLPatternShiftView.m */,
 			);
 			name = Patterns;
+			sourceTree = "<group>";
+		};
+		CE804E1B16C4ACD30015FF35 /* NSMutableArray_Shuffling */ = {
+			isa = PBXGroup;
+			children = (
+				CE804E1816C4ACC70015FF35 /* NSMutableArray_Shuffling.h */,
+				CE804E1916C4ACC70015FF35 /* NSMutableArray_Shuffling.m */,
+			);
+			name = NSMutableArray_Shuffling;
 			sourceTree = "<group>";
 		};
 		CED03B0216AA28660077CAB8 = {
@@ -434,6 +447,7 @@
 				CE78565916BE21330064460E /* CLColorViewController.m in Sources */,
 				CE78565C16BF707F0064460E /* CLPatternViewController.m in Sources */,
 				CE78566216C0A9180064460E /* KLPatternShiftView.m in Sources */,
+				CE804E1A16C4ACC70015FF35 /* NSMutableArray_Shuffling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
