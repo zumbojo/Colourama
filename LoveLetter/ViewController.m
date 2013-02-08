@@ -36,6 +36,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // for testing:
+    self.showColors = YES;
+    self.showPalettes = YES;
+    self.showPatterns = YES;
+    self.preferredVariety = CLPrettyThingVarietyNew;
+    
     [self populateContentControllers];
     NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
                                                         forKey:UIPageViewControllerOptionSpineLocationKey];
@@ -96,10 +103,21 @@
 // todo: method to clean out old pages (e.g. when have long since been viewed, or when that pretty thing type is switched of in SettingsView (if user doesn't want to see any more patterns, for example, we should clear out patterns from all future (but not past, until later) VCs))
 
 - (void)fetchSomePrettyThings {
-    
-    // need to make requests for possibly colors, palettes, *and* patterns (all of the current preferredVariety), shuffle the responses, create PVCs for each of these, and add them to self.contentControllers
-    
-    
+    if (self.showColors || self.showPalettes || self.showPatterns) {
+        NSMutableArray *classes = [[NSMutableArray alloc] init];
+        
+        if (self.showColors) { [classes addObject:[CLColor class]]; }
+        if (self.showPalettes) { [classes addObject:[CLPalette class]]; }
+        if (self.showPatterns) { [classes addObject:[CLPattern class]]; }
+        
+        [[CLMothership sharedInstance] loadPrettyThingsOfClasses:classes withVariety:self.preferredVariety success:^(NSArray *prettyThings) {
+            NSLog(@"%d pretty things returned", [prettyThings count]);
+            // todo: shuffle, create PVCs, append to self.contentControllers
+        }];
+    }
+    else {
+        NSLog(@"showColors, showPalettes, and showPatterns are all set to NO.  Double-u tee eff?");
+    }
 }
 
 #pragma mark -

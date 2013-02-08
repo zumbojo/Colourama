@@ -108,4 +108,8 @@ static const int kColourLoversDefaultPageSize = 20;
     [queue addOperation:operation];
 }
 
+- (void)loadPrettyThingsOfClasses:(NSArray *)prettyThingSubclasses withVariety:(CLPrettyThingVariety)variety success:(void (^)(NSArray* prettyThings))success {
+    // todo
+}
+
 @end
