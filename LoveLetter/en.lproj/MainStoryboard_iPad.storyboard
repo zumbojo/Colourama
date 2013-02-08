@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -45,14 +45,17 @@
                                     <action selector="shareButtonTouched:" destination="2" eventType="touchUpInside" id="HAI-fr-8aF"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bM5-Ar-Kui"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ADq-xn-iBl" firstAttribute="top" secondItem="haO-Ua-hni" secondAttribute="top" type="default" id="2t4-OB-zEs"/>
+                            <constraint firstAttribute="trailing" secondItem="bM5-Ar-Kui" secondAttribute="trailing" constant="123" id="6xl-lx-ioE"/>
                             <constraint firstItem="ADq-xn-iBl" firstAttribute="bottom" secondItem="haO-Ua-hni" secondAttribute="bottom" type="default" id="IQh-2N-Eon"/>
                             <constraint firstAttribute="trailing" secondItem="ADq-xn-iBl" secondAttribute="trailing" constant="57" id="VWI-pe-5gu"/>
                             <constraint firstItem="haO-Ua-hni" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="WTk-0g-HlN"/>
                             <constraint firstAttribute="bottom" secondItem="ADq-xn-iBl" secondAttribute="bottom" constant="14" id="hG1-K2-yqv"/>
+                            <constraint firstItem="bM5-Ar-Kui" firstAttribute="centerY" secondItem="ADq-xn-iBl" secondAttribute="centerY" type="default" id="sbG-Wf-XMB"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
@@ -61,6 +64,7 @@
                     <connections>
                         <outlet property="settingsButton" destination="haO-Ua-hni" id="6d0-2s-NVH"/>
                         <outlet property="shareButton" destination="ADq-xn-iBl" id="naw-av-Snt"/>
+                        <outlet property="spinner" destination="bM5-Ar-Kui" id="8Zx-MM-xCY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
@@ -79,6 +83,7 @@
                 <relationship kind="action" name="shareButtonTouched:"/>
                 <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>
     </classes>
