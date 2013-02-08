@@ -1,13 +1,19 @@
-//
 //  NSMutableArray_Shuffling.m
-//  LoveLetter
-//
-//  Created by user on 2/7/13.
-//  Copyright (c) 2013 Kevin Lawson. All rights reserved.
-//
+// from http://stackoverflow.com/a/56656/103058
 
 #import "NSMutableArray_Shuffling.h"
 
-@implementation NSMutableArray_Shuffling
+@implementation NSMutableArray (Shuffling)
+
+- (void)shuffle
+{
+    NSUInteger count = [self count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        // Select a random element between i and end of array to swap with.
+        NSInteger nElements = count - i;
+        NSInteger n = (arc4random() % nElements) + i;
+        [self exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+}
 
 @end

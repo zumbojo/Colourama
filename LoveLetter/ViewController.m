@@ -14,6 +14,7 @@
 #import "CLPatternViewController.h"
 #import "CLPalette.h"
 #import "CLPattern.h"
+#import "NSMutableArray_Shuffling.h"
 
 @interface ViewController ()
 

@@ -1,13 +1,14 @@
-//
 //  NSMutableArray_Shuffling.h
-//  LoveLetter
-//
-//  Created by user on 2/7/13.
-//  Copyright (c) 2013 Kevin Lawson. All rights reserved.
-//
+// from http://stackoverflow.com/a/56656/103058
 
-#import <Foundation/Foundation.h>
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#else
+#include <Cocoa/Cocoa.h>
+#endif
 
-@interface NSMutableArray_Shuffling : NSObject
-
+// This category enhances NSMutableArray by providing
+// methods to randomly shuffle the elements.
+@interface NSMutableArray (Shuffling)
+- (void)shuffle;
 @end
