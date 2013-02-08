@@ -113,7 +113,11 @@
         
         [[CLMothership sharedInstance] loadPrettyThingsOfClasses:classes withVariety:self.preferredVariety success:^(NSArray *prettyThings) {
             NSLog(@"%d pretty things returned", [prettyThings count]);
-            // todo: shuffle, create PVCs, append to self.contentControllers
+            
+            // shuffle, create PVCs, append to self.contentControllers:
+            NSMutableArray *shuffled = [[NSMutableArray alloc] initWithArray:prettyThings];
+            [shuffled shuffle];
+            [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:shuffled]];
         }];
     }
     else {
