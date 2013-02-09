@@ -25,59 +25,15 @@ static const int kColourLoversDefaultPageSize = 20;
     return _shared;
 }
 
-- (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass withVariety:(CLPrettyThingVariety)variety success:(void (^)(NSArray* prettyThings))block {
-    [self loadPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:kColourLoversDefaultPageSize offset:0 success:block];
+- (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass withVariety:(CLPrettyThingVariety)variety success:(void (^)(NSArray* prettyThings))success {
+    [self loadPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:kColourLoversDefaultPageSize offset:0 success:success];
 }
 
 - (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass withVariety:(CLPrettyThingVariety)variety number:(NSUInteger)numResults offset:(NSUInteger)offset success:(void (^)(NSArray* prettyThings))success {
     
     NSURLRequest *request = [self requestForPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:numResults offset:offset];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSMutableArray* parsed = [[NSMutableArray alloc] init];
-        for (id node in JSON) {
-            [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
-        }
-        
-        if ([prettyThingSubclass class] == [CLPattern class]) {
-            // queue up images for download:
-            NSMutableArray *imageOperations = [[NSMutableArray alloc] init];
-            for (CLPattern* pattern in parsed) {
-                AFImageRequestOperation *imageOp = [[AFImageRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]];
-                imageOp.userInfo = @{@"pattern" : pattern};
-                [imageOperations addObject:imageOp];
-            }
-            
-            // How to use "enqueueBatchOfHTTPRequestOperationsWithRequests":
-            // https://github.com/AFNetworking/AFNetworking/issues/305
-            AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
-            [client enqueueBatchOfHTTPRequestOperations:imageOperations
-                                          progressBlock:^(NSUInteger numberOfCompletedOperations, NSUInteger totalNumberOfOperations) {
-                                                //NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
-                                          }
-                                        completionBlock:^(NSArray *operations) {
-                                            BOOL allRequestsCompletedWithoutError = true;
-                                                for (AFImageRequestOperation *ro in operations) {
-                                                    if (ro.error) {
-                                                        NSLog(@"++++++++++++++ Operation error");
-                                                        allRequestsCompletedWithoutError = false;
-                                                    }
-                                                    else {
-                                                        ((CLPattern *)ro.userInfo[@"pattern"]).image = ro.responseImage; // assign responseImage to pattern.image
-                                                        //NSLog(@"Operation OK: %@", [ro.responseData description]);
-                                                    }
-                                                }
-                                            
-                                                if (allRequestsCompletedWithoutError) {
-                                                    success(parsed);
-                                                }
-                                        }];
-        }
-        else {
-            // notify the caller of our success and send the list of pretty things along
-            success(parsed);
-        }
-    } failure:nil];
+    AFJSONRequestOperation *operation = [self operationForPrettyThingsOfClass:prettyThingSubclass request:request success:success];
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:operation];
@@ -85,6 +41,10 @@ static const int kColourLoversDefaultPageSize = 20;
 
 - (void)loadPrettyThingsOfClasses:(NSArray *)prettyThingSubclasses withVariety:(CLPrettyThingVariety)variety success:(void (^)(NSArray* prettyThings))success {
     // todo
+    
+    for (Class prettyThingSubclass in prettyThingSubclasses) {
+        
+    }
 }
 
 #pragma mark -
@@ -118,6 +78,54 @@ static const int kColourLoversDefaultPageSize = 20;
     
     NSLog(@"request pretty things at url %@",urlString);
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+}
+
+- (AFJSONRequestOperation *)operationForPrettyThingsOfClass:(Class)prettyThingSubclass request:(NSURLRequest *)request success:(void (^)(NSArray* prettyThings))success {
+    return [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSMutableArray* parsed = [[NSMutableArray alloc] init];
+        for (id node in JSON) {
+            [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
+        }
+        
+        if ([prettyThingSubclass class] == [CLPattern class]) {
+            // queue up images for download:
+            NSMutableArray *imageOperations = [[NSMutableArray alloc] init];
+            for (CLPattern* pattern in parsed) {
+                AFImageRequestOperation *imageOp = [[AFImageRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]];
+                imageOp.userInfo = @{@"pattern" : pattern};
+                [imageOperations addObject:imageOp];
+            }
+            
+            // How to use "enqueueBatchOfHTTPRequestOperationsWithRequests":
+            // https://github.com/AFNetworking/AFNetworking/issues/305
+            AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
+            [client enqueueBatchOfHTTPRequestOperations:imageOperations
+                                          progressBlock:^(NSUInteger numberOfCompletedOperations, NSUInteger totalNumberOfOperations) {
+                                              //NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
+                                          }
+                                        completionBlock:^(NSArray *operations) {
+                                            BOOL allRequestsCompletedWithoutError = true;
+                                            for (AFImageRequestOperation *ro in operations) {
+                                                if (ro.error) {
+                                                    NSLog(@"++++++++++++++ Operation error");
+                                                    allRequestsCompletedWithoutError = false;
+                                                }
+                                                else {
+                                                    ((CLPattern *)ro.userInfo[@"pattern"]).image = ro.responseImage; // assign responseImage to pattern.image
+                                                    //NSLog(@"Operation OK: %@", [ro.responseData description]);
+                                                }
+                                            }
+                                            
+                                            if (allRequestsCompletedWithoutError) {
+                                                success(parsed);
+                                            }
+                                        }];
+        }
+        else {
+            // notify the caller of our success and send the list of pretty things along
+            success(parsed);
+        }
+    } failure:nil];
 }
 
 @end
