@@ -44,7 +44,8 @@ static const int kColourLoversDefaultPageSize = 20;
     for (Class prettyThingSubclass in prettyThingSubclasses) {
         NSURLRequest *request = [self requestForPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:kColourLoversDefaultPageSize offset:0];
         // todo: need to keep track of offset for New and Top varieties.
-        AFJSONRequestOperation *operation = [self operationForPrettyThingsOfClass:prettyThingSubclass request:request success:success];
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
+        operation.userInfo = @{@"class" : prettyThingSubclass};
         [operations addObject:operation];
     }
     
@@ -54,6 +55,7 @@ static const int kColourLoversDefaultPageSize = 20;
                                       NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
                                   }
                                 completionBlock:^(NSArray *operations) {
+                                    NSLog(@"zomg operation completed");
                                     // todo
                                     
 //                                    BOOL allRequestsCompletedWithoutError = true;
