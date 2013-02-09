@@ -40,11 +40,38 @@ static const int kColourLoversDefaultPageSize = 20;
 }
 
 - (void)loadPrettyThingsOfClasses:(NSArray *)prettyThingSubclasses withVariety:(CLPrettyThingVariety)variety success:(void (^)(NSArray* prettyThings))success {
-    // todo
-    
+    NSMutableArray *operations = [[NSMutableArray alloc] init];
     for (Class prettyThingSubclass in prettyThingSubclasses) {
-        
+        NSURLRequest *request = [self requestForPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:kColourLoversDefaultPageSize offset:0];
+        // todo: need to keep track of offset for New and Top varieties.
+        AFJSONRequestOperation *operation = [self operationForPrettyThingsOfClass:prettyThingSubclass request:request success:success];
+        [operations addObject:operation];
     }
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
+    [client enqueueBatchOfHTTPRequestOperations:operations
+                                  progressBlock:^(NSUInteger numberOfCompletedOperations, NSUInteger totalNumberOfOperations) {
+                                      NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
+                                  }
+                                completionBlock:^(NSArray *operations) {
+                                    // todo
+                                    
+//                                    BOOL allRequestsCompletedWithoutError = true;
+//                                    for (AFImageRequestOperation *ro in operations) {
+//                                        if (ro.error) {
+//                                            NSLog(@"++++++++++++++ Operation error");
+//                                            allRequestsCompletedWithoutError = false;
+//                                        }
+//                                        else {
+//                                            ((CLPattern *)ro.userInfo[@"pattern"]).image = ro.responseImage; // assign responseImage to pattern.image
+//                                            //NSLog(@"Operation OK: %@", [ro.responseData description]);
+//                                        }
+//                                    }
+//                                    
+//                                    if (allRequestsCompletedWithoutError) {
+//                                        success(parsed);
+//                                    }
+                                }];
 }
 
 #pragma mark -
