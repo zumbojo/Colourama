@@ -55,24 +55,20 @@ static const int kColourLoversDefaultPageSize = 20;
                                       NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
                                   }
                                 completionBlock:^(NSArray *operations) {
-                                    NSLog(@"zomg operation completed");
-                                    // todo
+                                    BOOL allRequestsCompletedWithoutError = true;
+                                    for (AFJSONRequestOperation *op in operations) {
+                                        if (op.error) {
+                                            NSLog(@"++++++++++++++ Operation error");
+                                            allRequestsCompletedWithoutError = false;
+                                        }
+                                        else {
+                                            NSLog(@"Operation OK: %@", [op.responseData description]);
+                                        }
+                                    }
                                     
-//                                    BOOL allRequestsCompletedWithoutError = true;
-//                                    for (AFImageRequestOperation *ro in operations) {
-//                                        if (ro.error) {
-//                                            NSLog(@"++++++++++++++ Operation error");
-//                                            allRequestsCompletedWithoutError = false;
-//                                        }
-//                                        else {
-//                                            ((CLPattern *)ro.userInfo[@"pattern"]).image = ro.responseImage; // assign responseImage to pattern.image
-//                                            //NSLog(@"Operation OK: %@", [ro.responseData description]);
-//                                        }
-//                                    }
-//                                    
-//                                    if (allRequestsCompletedWithoutError) {
-//                                        success(parsed);
-//                                    }
+                                    if (allRequestsCompletedWithoutError) {
+                                        //success(parsed);
+                                    }
                                 }];
 }
 
