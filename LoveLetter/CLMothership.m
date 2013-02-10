@@ -34,12 +34,15 @@ static const int kColourLoversDefaultPageSize = 20;
 
 - (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass withVariety:(CLPrettyThingVariety)variety number:(NSUInteger)numResults offset:(NSUInteger)offset success:(void (^)(NSArray* prettyThings))success {
     
-    NSURLRequest *request = [self requestForPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:numResults offset:offset];
+    [self loadPrettyThingsOfClasses:@[prettyThingSubclass] withVariety:variety success:success];
     
-    AFJSONRequestOperation *operation = [self operationForPrettyThingsOfClass:prettyThingSubclass request:request success:success];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [queue addOperation:operation];
+//    NSURLRequest *request = [self requestForPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:numResults offset:offset];
+//    
+//    AFJSONRequestOperation *operation = [self operationForPrettyThingsOfClass:prettyThingSubclass request:request success:success];
+//    
+//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//    [queue addOperation:operation];
 }
 
 - (void)loadPrettyThingsOfClasses:(NSArray *)prettyThingSubclasses withVariety:(CLPrettyThingVariety)variety success:(void (^)(NSArray* prettyThings))success {
