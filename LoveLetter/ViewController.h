@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSMutableArray *contentControllers;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 - (IBAction)shareButtonTouched:(id)sender;
 - (IBAction)settingsButtonTouched:(id)sender;
