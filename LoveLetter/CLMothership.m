@@ -10,6 +10,9 @@
 #import "CLPattern.h"
 #import "AFNetworking.h"
 
+typedef void(^prettyThingAcceptor)(NSArray* prettyThings);
+typedef void(^prettyThingJSONOperationQueueParser)(NSArray *operations, prettyThingAcceptor success);
+
 @implementation CLMothership
 
 // Based heavily on https://github.com/gdawg/iOSColourLovers (especially the loadPrettyThingsOfClass methods), then modified for petty pickiness and/or fun.
@@ -211,6 +214,12 @@ static const int kColourLoversDefaultPageSize = 20;
             success(parsed);
         }
     } failure:nil];
+}
+
++ (prettyThingJSONOperationQueueParser)parser {
+    return ^(NSArray *operations, prettyThingAcceptor success) {
+        
+    };
 }
 
 @end
