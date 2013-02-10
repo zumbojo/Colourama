@@ -113,6 +113,7 @@
         if (self.showPalettes) { [classes addObject:[CLPalette class]]; }
         if (self.showPatterns) { [classes addObject:[CLPattern class]]; }
         
+        [self.spinner startAnimating];
         [[CLMothership sharedInstance] loadPrettyThingsOfClasses:classes withVariety:self.preferredVariety success:^(NSArray *prettyThings) {
             NSLog(@"%d pretty things returned", [prettyThings count]);
             
@@ -120,6 +121,7 @@
             NSMutableArray *shuffled = [[NSMutableArray alloc] initWithArray:prettyThings];
             [shuffled shuffle];
             [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:shuffled]];
+            [self.spinner stopAnimating];
         }];
     }
     else {
