@@ -129,29 +129,6 @@ static const int kColourLoversDefaultPageSize = 20;
                                     if (!waitForPatternQueueCompletion) {
                                         success(parsed);
                                     }
-                                    
-
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    /*
-                                    BOOL allRequestsCompletedWithoutError = true;
-                                    for (AFJSONRequestOperation *op in operations) {
-                                        if (op.error) {
-                                            NSLog(@"++++++++++++++ Operation error");
-                                            allRequestsCompletedWithoutError = false;
-                                        }
-                                        else {
-                                            NSLog(@"Operation OK: %@", [op.responseData description]);
-                                        }
-                                    }
-                                    
-                                    if (allRequestsCompletedWithoutError) {
-                                        //success(parsed);
-                                    }
-                                     */
                                 }];
 }
 
