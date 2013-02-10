@@ -58,7 +58,6 @@ static const int kColourLoversDefaultPageSize = 20;
                                       NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
                                   }
                                 completionBlock:^(NSArray *operations) {
-                                    //prettyThingJSONOperationQueueParser parser = ;
                                     [CLMothership parser](operations, success);
                                 }];
 }
