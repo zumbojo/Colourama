@@ -81,18 +81,21 @@ static const int kColourLoversDefaultPageSize = 20;
                                             Class prettyThingSubclass = op.userInfo[@"class"];
                                             
                                             if (prettyThingSubclass == [CLPattern class]) {
-                                                //waitForPatternQueueCompletion = YES;
+                                                waitForPatternQueueCompletion = YES;
                                                 
                                                 for (id node in op.responseJSON) {
                                                     [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
                                                 }
-                                                /*
+                                                
                                                 // queue up images for download:
                                                 NSMutableArray *imageOperations = [[NSMutableArray alloc] init];
-                                                for (CLPattern* pattern in parsed) {
-                                                    AFImageRequestOperation *imageOp = [[AFImageRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]];
-                                                    imageOp.userInfo = @{@"pattern" : pattern};
-                                                    [imageOperations addObject:imageOp];
+                                                for (CLPrettyThing* thing in parsed) {
+                                                    if ([thing isKindOfClass:[CLPattern class]]) {
+                                                        CLPattern *pattern = (CLPattern *)thing;
+                                                        AFImageRequestOperation *imageOp = [[AFImageRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]];
+                                                        imageOp.userInfo = @{@"pattern" : pattern};
+                                                        [imageOperations addObject:imageOp];
+                                                    }
                                                 }
                                                 
                                                 // How to use "enqueueBatchOfHTTPRequestOperationsWithRequests":
@@ -119,7 +122,6 @@ static const int kColourLoversDefaultPageSize = 20;
                                                                                     success(parsed);
                                                                                 }
                                                                             }];
-                                                 */
                                             }
                                         }
                                     }
