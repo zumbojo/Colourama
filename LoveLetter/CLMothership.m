@@ -55,6 +55,33 @@ static const int kColourLoversDefaultPageSize = 20;
                                       NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
                                   }
                                 completionBlock:^(NSArray *operations) {
+                                    NSMutableArray* parsed = [[NSMutableArray alloc] init];
+                                    
+                                    for (AFJSONRequestOperation *op in operations) { // first pass; parse CLColors and CLPalettes
+                                        if (op.error) {
+                                            NSLog(@"++++++++++++++ Operation error");
+                                        }
+                                        else {
+                                            Class prettyThingSubclass = op.userInfo[@"class"];
+                                            
+                                            if (prettyThingSubclass != [CLPattern class]) {
+                                                for (id node in op.responseJSON) {
+                                                    [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
+                                                }
+                                            }
+                                            
+                                            //NSLog(@"Operation OK: %@", [op.responseData description]);
+                                        }
+                                    }
+                                    
+                                    success(parsed);
+
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    /*
                                     BOOL allRequestsCompletedWithoutError = true;
                                     for (AFJSONRequestOperation *op in operations) {
                                         if (op.error) {
@@ -69,6 +96,7 @@ static const int kColourLoversDefaultPageSize = 20;
                                     if (allRequestsCompletedWithoutError) {
                                         //success(parsed);
                                     }
+                                     */
                                 }];
 }
 
