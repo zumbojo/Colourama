@@ -56,6 +56,7 @@ static const int kColourLoversDefaultPageSize = 20;
                                   }
                                 completionBlock:^(NSArray *operations) {
                                     NSMutableArray* parsed = [[NSMutableArray alloc] init];
+                                    BOOL waitForPatternQueueCompletion = NO;
                                     
                                     for (AFJSONRequestOperation *op in operations) { // first pass; parse CLColors and CLPalettes
                                         if (op.error) {
@@ -69,12 +70,64 @@ static const int kColourLoversDefaultPageSize = 20;
                                                     [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
                                                 }
                                             }
-                                            
-                                            //NSLog(@"Operation OK: %@", [op.responseData description]);
                                         }
                                     }
                                     
-                                    success(parsed);
+                                    for (AFJSONRequestOperation *op in operations) { // second pass; parse CLPatterns
+                                        if (op.error) {
+                                            NSLog(@"++++++++++++++ Operation error");
+                                        }
+                                        else {
+                                            Class prettyThingSubclass = op.userInfo[@"class"];
+                                            
+                                            if (prettyThingSubclass == [CLPattern class]) {
+                                                //waitForPatternQueueCompletion = YES;
+                                                
+                                                for (id node in op.responseJSON) {
+                                                    [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
+                                                }
+                                                /*
+                                                // queue up images for download:
+                                                NSMutableArray *imageOperations = [[NSMutableArray alloc] init];
+                                                for (CLPattern* pattern in parsed) {
+                                                    AFImageRequestOperation *imageOp = [[AFImageRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:pattern.imageUrl]];
+                                                    imageOp.userInfo = @{@"pattern" : pattern};
+                                                    [imageOperations addObject:imageOp];
+                                                }
+                                                
+                                                // How to use "enqueueBatchOfHTTPRequestOperationsWithRequests":
+                                                // https://github.com/AFNetworking/AFNetworking/issues/305
+                                                AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
+                                                [client enqueueBatchOfHTTPRequestOperations:imageOperations
+                                                                              progressBlock:^(NSUInteger numberOfCompletedOperations, NSUInteger totalNumberOfOperations) {
+                                                                                  //NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
+                                                                              }
+                                                                            completionBlock:^(NSArray *operations) {
+                                                                                BOOL allRequestsCompletedWithoutError = true;
+                                                                                for (AFImageRequestOperation *ro in operations) {
+                                                                                    if (ro.error) {
+                                                                                        NSLog(@"++++++++++++++ Operation error");
+                                                                                        allRequestsCompletedWithoutError = false;
+                                                                                    }
+                                                                                    else {
+                                                                                        ((CLPattern *)ro.userInfo[@"pattern"]).image = ro.responseImage; // assign responseImage to pattern.image
+                                                                                        //NSLog(@"Operation OK: %@", [ro.responseData description]);
+                                                                                    }
+                                                                                }
+                                                                                
+                                                                                if (allRequestsCompletedWithoutError) {
+                                                                                    success(parsed);
+                                                                                }
+                                                                            }];
+                                                 */
+                                            }
+                                        }
+                                    }
+                                    
+                                    if (!waitForPatternQueueCompletion) {
+                                        success(parsed);
+                                    }
+                                    
 
                                     
                                     
