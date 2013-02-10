@@ -10,8 +10,8 @@
 #import "CLPattern.h"
 #import "AFNetworking.h"
 
-typedef void(^prettyThingAcceptor)(NSArray* prettyThings);
-typedef void(^prettyThingJSONOperationQueueParser)(NSArray *operations, prettyThingAcceptor success);
+typedef void(^CLPrettyThingAcceptor)(NSArray* prettyThings);
+typedef void(^CLPrettyThingJSONOperationQueueParser)(NSArray *operations, CLPrettyThingAcceptor success);
 
 @implementation CLMothership
 
@@ -58,8 +58,8 @@ static const int kColourLoversDefaultPageSize = 20;
                                       NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
                                   }
                                 completionBlock:^(NSArray *operations) {
-                                    prettyThingJSONOperationQueueParser parser = [CLMothership parser];
-                                    parser(operations, success);
+                                    //prettyThingJSONOperationQueueParser parser = ;
+                                    [CLMothership parser](operations, success);
                                 }];
 }
 
@@ -144,8 +144,8 @@ static const int kColourLoversDefaultPageSize = 20;
     } failure:nil];
 }
 
-+ (prettyThingJSONOperationQueueParser)parser {
-    return ^(NSArray *operations, prettyThingAcceptor success) {
++ (CLPrettyThingJSONOperationQueueParser)parser {
+    return ^(NSArray *operations, CLPrettyThingAcceptor success) {
         NSMutableArray* parsed = [[NSMutableArray alloc] init];
         BOOL waitForPatternQueueCompletion = NO;
         
