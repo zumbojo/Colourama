@@ -7,6 +7,8 @@
 //
 
 #import "CLMothership.h"
+#import "CLColor.h"
+#import "CLPalette.h"
 #import "CLPattern.h"
 #import "AFNetworking.h"
 
@@ -18,6 +20,12 @@ typedef void(^CLPrettyThingJSONOperationQueueParser)(NSArray *operations, CLPret
 // Based heavily on https://github.com/gdawg/iOSColourLovers (especially the loadPrettyThingsOfClass methods), then modified for petty pickiness and/or fun.
 
 static const int kColourLoversDefaultPageSize = 20;
+static NSUInteger colorsNewOffset = 0;
+static NSUInteger colorsTopOffset = 0;
+static NSUInteger palettesNewOffset = 0;
+static NSUInteger palettesTopOffset = 0;
+static NSUInteger patternsNewOffset = 0;
+static NSUInteger patternsTopOffset = 0;
 
 + (CLMothership *)sharedInstance { // http://stuartkhall.com/posts/ios-development-tips-i-would-want-if-i-was-starting-out-today
     static CLMothership *_shared = nil;
@@ -57,7 +65,39 @@ static const int kColourLoversDefaultPageSize = 20;
 }
 
 #pragma mark -
-#pragma Helpers
+#pragma mark Offsets
+
+- (void)resetOffsets {
+    colorsNewOffset = 0;
+    colorsTopOffset = 0;
+    palettesNewOffset = 0;
+    palettesTopOffset = 0;
+    patternsNewOffset = 0;
+    patternsTopOffset = 0;
+}
+
+- (NSUInteger)offsetForClass:(Class)class andVariety:(CLPrettyThingVariety)variety {
+    if (variety == CLPrettyThingVarietyNew || variety == CLPrettyThingVarietyTop) {
+        if (class == [CLColor class]) {
+            return variety == CLPrettyThingVarietyNew ? colorsNewOffset : colorsTopOffset;
+        }
+        if (class == [CLPalette class]) {
+            return variety == CLPrettyThingVarietyNew ? palettesNewOffset : palettesTopOffset;
+        }
+        if (class == [CLPattern class]) {
+            return variety == CLPrettyThingVarietyNew ? patternsNewOffset : patternsTopOffset;
+        }
+    }
+    
+    NSLog(@"WARNING: offsetForClass was called on invalid combination.");
+    return 0;
+}
+
+- (void)setOffsetForClass:(Class)class andVariety:(CLPrettyThingVariety)variety {
+}
+
+#pragma mark -
+#pragma mark Helpers
 
 - (NSURLRequest *)requestForPrettyThingsOfClass:(Class)prettyThingSubclass withVariety:(CLPrettyThingVariety)variety number:(NSUInteger)numResults offset:(NSUInteger)offset {
     NSString *urlString = [NSString stringWithFormat:@"%@/api/%@/", COLOURLOVERS_URL_BASE, ((CLPrettyThing *)prettyThingSubclass).pluralApiPath];
