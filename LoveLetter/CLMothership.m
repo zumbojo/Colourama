@@ -93,7 +93,34 @@ static NSUInteger patternsTopOffset = 0;
     return 0;
 }
 
-- (void)setOffsetForClass:(Class)class andVariety:(CLPrettyThingVariety)variety {
+- (void)setOffset:(NSUInteger)offset forClass:(Class)class andVariety:(CLPrettyThingVariety)variety {
+    if (variety == CLPrettyThingVarietyNew) {
+        if (class == [CLColor class]) {
+            colorsNewOffset = offset;
+        }
+        if (class == [CLPalette class]) {
+            palettesNewOffset = offset;
+        }
+        if (class == [CLPattern class]) {
+            patternsNewOffset = offset;
+        }
+    }
+    else if  (variety == CLPrettyThingVarietyTop) {
+        if (class == [CLColor class]) {
+            colorsTopOffset = offset;
+        }
+        if (class == [CLPalette class]) {
+            palettesTopOffset = offset;
+        }
+        if (class == [CLPattern class]) {
+            patternsTopOffset = offset;
+        }
+    }
+}
+
+- (void)increment:(NSUInteger)increment offsetForClass:(Class)class andVariety:(CLPrettyThingVariety)variety {
+    NSUInteger new = [self offsetForClass:class andVariety:variety] + increment;
+    [self setOffset:new forClass:class andVariety:variety];
 }
 
 #pragma mark -
