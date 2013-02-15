@@ -437,6 +437,8 @@
                              [ghost removeFromParentViewController];
                          }];
     }
+    
+    [self checkAndFetchAndClean];
 }
 
 #pragma mark -

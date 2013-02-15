@@ -58,7 +58,7 @@
 }
 
 - (IBAction)transitionValueChanged:(UISegmentedControl *)sender {
-    self.delegate.transitionDuration = [@[@0.0, @10.0, @30.0, @300.0, @3600.0][sender.selectedSegmentIndex] doubleValue];
+    self.delegate.transitionDuration = [@[@0.0, @1.0, @30.0, @300.0, @3600.0][sender.selectedSegmentIndex] doubleValue]; // todo: revert back to 10s
 }
 
 - (IBAction)showBylineValueChanged:(UISegmentedControl *)sender {
