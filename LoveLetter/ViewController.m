@@ -30,6 +30,8 @@
 @property (nonatomic) UIPopoverController *settingsPopover;
 @property (nonatomic) SettingsViewController *settingsViewController;
 
+@property (nonatomic) BOOL fetchInProgress;
+
 @end
 
 @implementation ViewController
@@ -93,6 +95,8 @@
 //        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:patterns]];
 //        NSLog(@"patterns loaded, added to contentControllers");
 //    }];
+    self.fetchInProgress = NO;
+    
     [self checkAndFetchAndClean];
 }
 
@@ -111,16 +115,15 @@
 
 - (void)checkAndFetchAndClean {
     if ([self fetchIsNeeded]) {
-        NSLog(@"fetch is needed");
+        [self fetchSomePrettyThings];
     }
-    
-    // todo: clean
 }
 
 - (BOOL)fetchIsNeeded {
     return (!self.contentControllers
             || self.contentControllers.count == 0
-            || ( self.contentControllers.count - [self.contentControllers indexOfObject:self.currentPage] < 5)); // e.g., if count is 30 and index is 25, it's time to fetch more
+            || ( self.contentControllers.count - [self.contentControllers indexOfObject:self.currentPage] < 5)) // e.g., if count is 30 and index is 25, it's time to fetch more
+            && !self.fetchInProgress;
 }
 
 - (void)fetchSomePrettyThings {
@@ -131,6 +134,7 @@
         if (self.showPalettes) { [classes addObject:[CLPalette class]]; }
         if (self.showPatterns) { [classes addObject:[CLPattern class]]; }
         
+        self.fetchInProgress = YES;
         [self.spinner startAnimating];
         [[CLMothership sharedInstance] loadPrettyThingsOfClasses:classes withVariety:self.preferredVariety success:^(NSArray *prettyThings) {
             NSLog(@"%d pretty things returned", [prettyThings count]);
@@ -140,11 +144,24 @@
             [shuffled shuffle];
             [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:shuffled]];
             [self.spinner stopAnimating];
+            self.fetchInProgress = NO;
+            
+            if ([self cleanIsNeeded]) {
+                [self clean];
+            }
         }];
     }
     else {
         NSLog(@"showColors, showPalettes, and showPatterns are all set to NO.  Double-u tee eff?");
     }
+}
+
+- (BOOL)cleanIsNeeded {
+    return NO; // todo
+}
+
+- (void)clean {
+    NSLog(@"clean is nyi");
 }
 
 #pragma mark -
