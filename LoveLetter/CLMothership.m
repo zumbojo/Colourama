@@ -19,7 +19,7 @@ typedef void(^CLPrettyThingJSONOperationQueueParser)(NSArray *operations, CLPret
 
 // Based heavily on https://github.com/gdawg/iOSColourLovers (especially the loadPrettyThingsOfClass methods), then modified for petty pickiness and/or fun.
 
-static const int kColourLoversDefaultPageSize = 20;
+static const int kColourLoversDefaultPageSize = 2;
 static NSUInteger colorsNewOffset = 0;
 static NSUInteger colorsTopOffset = 0;
 static NSUInteger palettesNewOffset = 0;

@@ -47,7 +47,7 @@
     self.showColors = YES;
     self.showPalettes = YES;
     self.showPatterns = YES;
-    self.preferredVariety = CLPrettyThingVarietyNew;
+    self.preferredVariety = CLPrettyThingVarietyRandom;
     
     [self populateContentControllers];
     NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
@@ -266,12 +266,13 @@
         self.pendingPage = nil;
     }
     
-    NSLog(@"did trans: %d, current: %p", completed, self.currentPage);
+    //NSLog(@"did trans: %d, current: %p", completed, self.currentPage);
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
-    NSLog(@"will trans to: %p", pendingViewControllers[0]);
+    //NSLog(@"will trans to: %p", pendingViewControllers[0]);
     self.pendingPage = pendingViewControllers[0];
+    [self checkAndFetchAndClean];
 }
 
 #pragma mark - 
