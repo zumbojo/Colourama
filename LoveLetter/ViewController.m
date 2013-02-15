@@ -16,6 +16,8 @@
 #import "CLPattern.h"
 #import "NSMutableArray_Shuffling.h"
 
+#define PAGES_TO_KEEP 100 // once we hit this many pages, clean out all but the N most recent pages
+
 @interface ViewController ()
 
 @property (strong, nonatomic) UIPageViewController *pageController;
@@ -146,7 +148,7 @@
             [self.spinner stopAnimating];
             self.fetchInProgress = NO;
             
-            if ([self cleanIsNeeded]) {
+            if (self.contentControllers.count > PAGES_TO_KEEP) {
                 [self clean];
             }
         }];
@@ -154,10 +156,6 @@
     else {
         NSLog(@"showColors, showPalettes, and showPatterns are all set to NO.  Double-u tee eff?");
     }
-}
-
-- (BOOL)cleanIsNeeded {
-    return NO; // todo
 }
 
 - (void)clean {
