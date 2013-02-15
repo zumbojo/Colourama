@@ -159,7 +159,7 @@
 }
 
 - (void)clean {
-    NSLog(@"clean is nyi");
+    NSLog(@"clean is nyi.  count: %d", self.contentControllers.count);
 }
 
 #pragma mark -
