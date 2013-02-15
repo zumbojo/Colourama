@@ -18,6 +18,9 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) UIPageViewController *pageController;
+@property (strong, nonatomic) NSMutableArray *contentControllers;
+
 @property (nonatomic) NSTimer *controlVisibilityTimer; // for fading out buttons after a nice delay
 @property (nonatomic) NSTimer *fadeToNextPageTimer;
 @property (nonatomic) UIViewController *pendingPage; // for keeping track of the current page in UIPageViewController (see UIPageViewControllerDelegate method comments)
@@ -90,7 +93,7 @@
 //        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:patterns]];
 //        NSLog(@"patterns loaded, added to contentControllers");
 //    }];
-    [self fetchSomePrettyThings];
+    [self checkAndFetchAndClean];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,6 +107,21 @@
 
 // todo: method to figure out when a new fetch is necessary (like we are nearing the the end of the pages, etc.)
 // todo: method to clean out old pages (e.g. when have long since been viewed, or when that pretty thing type is switched of in SettingsView (if user doesn't want to see any more patterns, for example, we should clear out patterns from all future (but not past, until later) VCs))
+
+
+- (void)checkAndFetchAndClean {
+    if ([self fetchIsNeeded]) {
+        NSLog(@"fetch is needed");
+    }
+    
+    // todo: clean
+}
+
+- (BOOL)fetchIsNeeded {
+    return (!self.contentControllers
+            || self.contentControllers.count == 0
+            || ( self.contentControllers.count - [self.contentControllers indexOfObject:self.currentPage] < 5)); // e.g., if count is 30 and index is 25, it's time to fetch more
+}
 
 - (void)fetchSomePrettyThings {
     if (self.showColors || self.showPalettes || self.showPatterns) {

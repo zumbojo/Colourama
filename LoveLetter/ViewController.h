@@ -13,8 +13,6 @@
 
 @interface ViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
-@property (strong, nonatomic) UIPageViewController *pageController;
-@property (strong, nonatomic) NSMutableArray *contentControllers;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
