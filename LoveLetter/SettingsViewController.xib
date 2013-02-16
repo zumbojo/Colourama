@@ -435,6 +435,62 @@
 					<int key="connectionID">3</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">colorSwitch</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="604215196"/>
+					</object>
+					<int key="connectionID">149</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">paletteSwitch</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="639286256"/>
+					</object>
+					<int key="connectionID">150</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">patternSwitch</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1006047372"/>
+					</object>
+					<int key="connectionID">151</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">varietySeg</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="745569930"/>
+					</object>
+					<int key="connectionID">152</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">paletteWidthSeg</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="533488876"/>
+					</object>
+					<int key="connectionID">153</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">transitionSpeedSeg</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="579062830"/>
+					</object>
+					<int key="connectionID">154</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">bylineSeg</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="531201206"/>
+					</object>
+					<int key="connectionID">155</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">testButtonTouched:</string>
 						<reference key="source" ref="1072330293"/>
@@ -1423,7 +1479,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">148</int>
+			<int key="maxID">155</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1482,17 +1538,45 @@
 							<string key="candidateClassName">UISegmentedControl</string>
 						</object>
 					</dictionary>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">transitionSpeedSlider</string>
-						<string key="NS.object.0">UISlider</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">transitionSpeedSlider</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">transitionSpeedSlider</string>
-							<string key="candidateClassName">UISlider</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="bylineSeg">UISegmentedControl</string>
+						<string key="colorSwitch">UISwitch</string>
+						<string key="paletteSwitch">UISwitch</string>
+						<string key="paletteWidthSeg">UISegmentedControl</string>
+						<string key="patternSwitch">UISwitch</string>
+						<string key="transitionSpeedSeg">UISegmentedControl</string>
+						<string key="varietySeg">UISegmentedControl</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="bylineSeg">
+							<string key="name">bylineSeg</string>
+							<string key="candidateClassName">UISegmentedControl</string>
 						</object>
-					</object>
+						<object class="IBToOneOutletInfo" key="colorSwitch">
+							<string key="name">colorSwitch</string>
+							<string key="candidateClassName">UISwitch</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="paletteSwitch">
+							<string key="name">paletteSwitch</string>
+							<string key="candidateClassName">UISwitch</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="paletteWidthSeg">
+							<string key="name">paletteWidthSeg</string>
+							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="patternSwitch">
+							<string key="name">patternSwitch</string>
+							<string key="candidateClassName">UISwitch</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="transitionSpeedSeg">
+							<string key="name">transitionSpeedSeg</string>
+							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="varietySeg">
+							<string key="name">varietySeg</string>
+							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/SettingsViewController.h</string>

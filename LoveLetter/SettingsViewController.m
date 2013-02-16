@@ -30,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSLog(@"SettingsViewController viewDidLoad");
+    [self updateUIFromSettings];
 }
 
 /*
@@ -52,6 +52,7 @@
         [defaults setBool:YES forKey:@"showColors"];
         [defaults setBool:YES forKey:@"showPalettes"];
         [defaults setBool:YES forKey:@"showPatterns"];
+        [defaults setBool:YES forKey:@"showVariableWidths"];
         [defaults setInteger:CLPrettyThingVarietyRandom forKey:@"preferredVariety"];
         [defaults setInteger:0 forKey:@"transitionDurationIndex"];
         [defaults setBool:YES forKey:@"showByline"];
@@ -65,6 +66,10 @@
     self.delegate.preferredVariety = [defaults integerForKey:@"preferredVariety"];
     self.delegate.transitionDuration = [self transitionDurationForIndex:[defaults integerForKey:@"transitionDurationIndex"]];
     self.delegate.showByline = [defaults boolForKey:@"showByline"];
+}
+
+- (void)updateUIFromSettings {
+    
 }
 
 #pragma mark -

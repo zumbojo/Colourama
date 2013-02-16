@@ -35,5 +35,12 @@
 - (IBAction)testButtonTouched:(UIButton *)sender;
 
 @property(weak) id<SettingsViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UISwitch *colorSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *paletteSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *patternSwitch;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *varietySeg;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *paletteWidthSeg;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *transitionSpeedSeg;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *bylineSeg;
 
 @end
