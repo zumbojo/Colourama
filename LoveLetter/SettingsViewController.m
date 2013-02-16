@@ -49,22 +49,23 @@
     
     if (![defaults objectForKey:@"showColors"]) { // setup NSUserDefaults if none exist
         NSLog(@"no NSUserDefaults");
+        [defaults setInteger:0 forKey:@"transitionDurationIndex"];
+        [defaults setInteger:CLPrettyThingVarietyRandom forKey:@"preferredVariety"];
         [defaults setBool:YES forKey:@"showColors"];
         [defaults setBool:YES forKey:@"showPalettes"];
         [defaults setBool:YES forKey:@"showPatterns"];
         [defaults setBool:YES forKey:@"showVariableWidths"];
-        [defaults setInteger:CLPrettyThingVarietyRandom forKey:@"preferredVariety"];
-        [defaults setInteger:0 forKey:@"transitionDurationIndex"];
         [defaults setBool:YES forKey:@"showByline"];
         [defaults synchronize];
     }
     
     // update delegate using NSUserDefaults:
+    self.delegate.transitionDuration = [self transitionDurationForIndex:[defaults integerForKey:@"transitionDurationIndex"]];
+    self.delegate.preferredVariety = [defaults integerForKey:@"preferredVariety"];
     self.delegate.showColors = [defaults boolForKey:@"showColors"];
     self.delegate.showPalettes = [defaults boolForKey:@"showPalettes"];
     self.delegate.showPatterns = [defaults boolForKey:@"showPatterns"];
-    self.delegate.preferredVariety = [defaults integerForKey:@"preferredVariety"];
-    self.delegate.transitionDuration = [self transitionDurationForIndex:[defaults integerForKey:@"transitionDurationIndex"]];
+    self.delegate.showVariableWidths = [defaults boolForKey:@"showVariableWidths"];
     self.delegate.showByline = [defaults boolForKey:@"showByline"];
 }
 
