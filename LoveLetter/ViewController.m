@@ -16,7 +16,7 @@
 #import "CLPattern.h"
 #import "NSMutableArray_Shuffling.h"
 
-#define PAGES_TO_KEEP 100 // once we hit this many pages, clean out all but the N most recent pages
+#define PAGES_TO_KEEP 10 // once we hit this many pages, clean out all but the N most recent pages
 
 @interface ViewController ()
 
@@ -106,10 +106,6 @@
 #pragma mark -
 #pragma mark API Interaction (CLMothership Interaction)
 
-// todo: method to figure out when a new fetch is necessary (like we are nearing the the end of the pages, etc.)
-// todo: method to clean out old pages (e.g. when have long since been viewed, or when that pretty thing type is switched of in SettingsView (if user doesn't want to see any more patterns, for example, we should clear out patterns from all future (but not past, until later) VCs))
-
-
 - (void)checkAndFetchAndClean {
     if ([self fetchIsNeeded]) {
         [self fetchSomePrettyThings];
@@ -154,7 +150,25 @@
 }
 
 - (void)clean {
-    NSLog(@"clean is nyi.  count: %d", self.contentControllers.count);
+    //NSLog(@"clean is nyi.  count: %d", self.contentControllers.count);
+    NSLog(@"cleaning.  count: %d", self.contentControllers.count);
+    
+    NSUInteger *currentPageIndex = [self.contentControllers indexOfObject:self.currentPage];
+    NSUInteger *cutoffIndex = self.contentControllers.count - PAGES_TO_KEEP;
+    
+    if (currentPageIndex >= cutoffIndex) {
+        [self.contentControllers removeObjectsInRange:NSMakeRange(0, cutoffIndex - 1)];
+    }
+    
+    // lets say we have count = 20
+    // current page is 15
+    // pages to keep is 10
+    // cutoffIndex then would be 20 - 10 = 10
+    // removed objects then would be indexes 0 through 9 inclusive
+    
+    NSLog(@"cleaned!  count: %d", self.contentControllers.count);
+    
+    // [self.contentControllers indexOfObject:self.currentPage]
 }
 
 #pragma mark -
