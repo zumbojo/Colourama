@@ -46,12 +46,6 @@
     [super viewDidLoad];
     self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
     
-    // for testing:
-    self.showColors = YES;
-    self.showPalettes = YES;
-    self.showPatterns = YES;
-    self.preferredVariety = CLPrettyThingVarietyRandom;
-    
     [self populateContentControllers];
     NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
                                                         forKey:UIPageViewControllerOptionSpineLocationKey];

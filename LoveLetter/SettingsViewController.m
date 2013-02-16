@@ -48,6 +48,13 @@
     // todo: if NSUserDefaults, load those.  if not, load default settings, and create NSUserDefaults
     
     // notify delegate of all settings
+    
+    self.delegate.showColors = YES;
+    self.delegate.showPalettes = YES;
+    self.delegate.showPatterns = YES;
+    self.delegate.preferredVariety = CLPrettyThingVarietyRandom;
+    // self.delegate.transitionDuration
+    // self.delegate.showByline
 }
 
 #pragma mark -
