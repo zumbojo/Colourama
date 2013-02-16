@@ -93,30 +93,37 @@
 
 - (IBAction)colorSwitchValueChanged:(UISwitch *)sender {
     self.delegate.showColors = sender.on;
+    [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:SHOW_COLORS_KEY];
 }
 
 - (IBAction)paletteSwitchValueChanged:(UISwitch *)sender {
     self.delegate.showPalettes = sender.on;
+    [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:SHOW_PALETTES_KEY];
 }
 
 - (IBAction)patternSwitchValueChanged:(UISwitch *)sender {
     self.delegate.showPatterns = sender.on;
+    [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:SHOW_PATTERNS_KEY];
 }
 
 - (IBAction)varietyValueChanged:(UISegmentedControl *)sender {
     self.delegate.preferredVariety = sender.selectedSegmentIndex; // The segment indexes are ordered identically to the enum.
+    [[NSUserDefaults standardUserDefaults] setInteger:sender.selectedSegmentIndex forKey:PREFERRED_VARIETY_KEY];
 }
 
 - (IBAction)showPaletteWidthValueChanged:(UISegmentedControl *)sender {
     self.delegate.showVariableWidths = sender.selectedSegmentIndex == 0;
+    [[NSUserDefaults standardUserDefaults] setBool:(sender.selectedSegmentIndex == 0) forKey:SHOW_VARIABLE_WIDTHS_KEY];
 }
 
 - (IBAction)transitionValueChanged:(UISegmentedControl *)sender {
     self.delegate.transitionDuration = [self transitionDurationForIndex:sender.selectedSegmentIndex];
+    [[NSUserDefaults standardUserDefaults] setInteger:sender.selectedSegmentIndex forKey:TRANSITION_DURATION_INDEX_KEY];
 }
 
 - (IBAction)showBylineValueChanged:(UISegmentedControl *)sender {
     self.delegate.showByline = sender.selectedSegmentIndex == 0;
+    [[NSUserDefaults standardUserDefaults] setBool:(sender.selectedSegmentIndex == 0) forKey:SHOW_BYLINE_KEY];
 }
 
 - (IBAction)testButtonTouched:(UIButton *)sender {
