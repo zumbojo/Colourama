@@ -407,8 +407,8 @@
     NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
     UIViewController *fromVC = self.currentPage;
     UIViewController *toVC = [self viewControllerAtIndex:currentIndex + 1];
-    
-    if ([fromVC isKindOfClass:[CLPrettyThingViewController class]]) {
+        
+    if (toVC && [fromVC isKindOfClass:[CLPrettyThingViewController class]]) {
         // create a copy of the currently shown pvc, add it to the main VC, then slowly fade it out as the page view controller is instantly manually advanced in the background
         
         CLPrettyThingViewController *ghost = ((CLPrettyThingViewController *)fromVC).ghost;
