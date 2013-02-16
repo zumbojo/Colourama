@@ -45,16 +45,26 @@
 #pragma mark Defaults
 
 - (void)loadSettings {
-    // todo: if NSUserDefaults, load those.  if not, load default settings, and create NSUserDefaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    // notify delegate of all settings
+    if (![defaults objectForKey:@"showColors"]) { // setup NSUserDefaults if none exist
+        NSLog(@"no NSUserDefaults");
+        [defaults setBool:YES forKey:@"showColors"];
+        [defaults setBool:YES forKey:@"showPalettes"];
+        [defaults setBool:YES forKey:@"showPatterns"];
+        [defaults setInteger:CLPrettyThingVarietyRandom forKey:@"preferredVariety"];
+        [defaults setInteger:0 forKey:@"transitionDurationIndex"];
+        [defaults setBool:YES forKey:@"showByline"];
+        [defaults synchronize];
+    }
     
-    self.delegate.showColors = YES;
-    self.delegate.showPalettes = YES;
-    self.delegate.showPatterns = YES;
-    self.delegate.preferredVariety = CLPrettyThingVarietyRandom;
-    // self.delegate.transitionDuration
-    // self.delegate.showByline
+    // update delegate using NSUserDefaults:
+    self.delegate.showColors = [defaults boolForKey:@"showColors"];
+    self.delegate.showPalettes = [defaults boolForKey:@"showPalettes"];
+    self.delegate.showPatterns = [defaults boolForKey:@"showPatterns"];
+    self.delegate.preferredVariety = [defaults integerForKey:@"preferredVariety"];
+    self.delegate.transitionDuration = [self transitionDurationForIndex:[defaults integerForKey:@"transitionDurationIndex"]];
+    self.delegate.showByline = [defaults boolForKey:@"showByline"];
 }
 
 #pragma mark -
@@ -81,7 +91,7 @@
 }
 
 - (IBAction)transitionValueChanged:(UISegmentedControl *)sender {
-    self.delegate.transitionDuration = [@[@0.0, @1.0, @30.0, @300.0, @3600.0][sender.selectedSegmentIndex] doubleValue]; // todo: revert back to 10s
+    self.delegate.transitionDuration = [self transitionDurationForIndex:sender.selectedSegmentIndex];
 }
 
 - (IBAction)showBylineValueChanged:(UISegmentedControl *)sender {
@@ -90,6 +100,13 @@
 
 - (IBAction)testButtonTouched:(UIButton *)sender {
     NSLog(@"testButtonTouched");
+}
+
+#pragma mark -
+#pragma mark Helpers
+
+- (NSTimeInterval)transitionDurationForIndex:(NSUInteger)index {
+    return [@[@0.0, @1.0, @30.0, @300.0, @3600.0][index] doubleValue]; // todo: revert back to 10s
 }
 
 @end
