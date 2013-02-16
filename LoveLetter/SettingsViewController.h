@@ -24,6 +24,7 @@
 
 @interface SettingsViewController : UIViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil delegate:(id<SettingsViewControllerDelegate>)delegate;
 - (IBAction)colorSwitchValueChanged:(UISwitch *)sender;
 - (IBAction)paletteSwitchValueChanged:(UISwitch *)sender;
 - (IBAction)patternSwitchValueChanged:(UISwitch *)sender;
@@ -33,7 +34,6 @@
 - (IBAction)showBylineValueChanged:(UISegmentedControl *)sender;
 - (IBAction)testButtonTouched:(UIButton *)sender;
 
-@property (weak, nonatomic) IBOutlet UISlider *transitionSpeedSlider; // todo: deprecate
 @property(weak) id<SettingsViewControllerDelegate> delegate;
 
 @end

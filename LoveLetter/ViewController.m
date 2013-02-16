@@ -44,8 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-    self.settingsViewController.delegate = self;    
+    self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
     
     // for testing:
     self.showColors = YES;

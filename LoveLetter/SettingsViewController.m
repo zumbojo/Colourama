@@ -14,12 +14,13 @@
 
 @implementation SettingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil delegate:(id<SettingsViewControllerDelegate>)delegate
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSLog(@"SettingsViewController initWithNibName");
+        self.delegate = delegate;
+        [self loadSettings];
     }
     return self;
 }
@@ -40,6 +41,17 @@
 }
  */
 
+#pragma mark -
+#pragma mark Defaults
+
+- (void)loadSettings {
+    // todo: if NSUserDefaults, load those.  if not, load default settings, and create NSUserDefaults
+    
+    // notify delegate of all settings
+}
+
+#pragma mark -
+#pragma mark UI
 
 - (IBAction)colorSwitchValueChanged:(UISwitch *)sender {
     self.delegate.showColors = sender.on;
