@@ -150,7 +150,6 @@
 }
 
 - (void)clean {
-    //NSLog(@"clean is nyi.  count: %d", self.contentControllers.count);
     NSLog(@"cleaning.  count: %d", self.contentControllers.count);
     
     NSUInteger *currentPageIndex = [self.contentControllers indexOfObject:self.currentPage];
@@ -160,15 +159,7 @@
         [self.contentControllers removeObjectsInRange:NSMakeRange(0, cutoffIndex - 1)];
     }
     
-    // lets say we have count = 20
-    // current page is 15
-    // pages to keep is 10
-    // cutoffIndex then would be 20 - 10 = 10
-    // removed objects then would be indexes 0 through 9 inclusive
-    
     NSLog(@"cleaned!  count: %d", self.contentControllers.count);
-    
-    // [self.contentControllers indexOfObject:self.currentPage]
 }
 
 #pragma mark -
