@@ -44,6 +44,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    self.settingsViewController.delegate = self;    
     
     // for testing:
     self.showColors = YES;
@@ -302,12 +304,7 @@
 
 - (IBAction)settingsButtonTouched:(id)sender {
     [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
-    
-    if (!self.settingsViewController) {
-        self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-        self.settingsViewController.delegate = self;
-    }
-    
+        
     // show settingsVC:
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         // http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/Popovers.html
