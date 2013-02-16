@@ -8,6 +8,14 @@
 
 #import "SettingsViewController.h"
 
+#define TRANSITION_DURATION_INDEX_KEY   @"transitionDurationIndex"
+#define PREFERRED_VARIETY_KEY           @"preferredVariety"
+#define SHOW_COLORS_KEY                 @"showColors"
+#define SHOW_PALETTES_KEY               @"showPalettes"
+#define SHOW_PATTERNS_KEY               @"showPatterns"
+#define SHOW_VARIABLE_WIDTHS_KEY        @"showVariableWidths"
+#define SHOW_BYLINE_KEY                 @"showByline"
+
 @interface SettingsViewController ()
 
 @end
@@ -47,37 +55,37 @@
 - (void)loadSettings {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if (![defaults objectForKey:@"showColors"]) { // setup NSUserDefaults if none exist
+    if (![defaults objectForKey:SHOW_COLORS_KEY]) { // setup NSUserDefaults if none exist
         NSLog(@"no NSUserDefaults");
-        [defaults setInteger:0 forKey:@"transitionDurationIndex"];
-        [defaults setInteger:CLPrettyThingVarietyRandom forKey:@"preferredVariety"];
-        [defaults setBool:YES forKey:@"showColors"];
-        [defaults setBool:YES forKey:@"showPalettes"];
-        [defaults setBool:YES forKey:@"showPatterns"];
-        [defaults setBool:YES forKey:@"showVariableWidths"];
-        [defaults setBool:YES forKey:@"showByline"];
+        [defaults setInteger:0 forKey:TRANSITION_DURATION_INDEX_KEY];
+        [defaults setInteger:CLPrettyThingVarietyRandom forKey:PREFERRED_VARIETY_KEY];
+        [defaults setBool:YES forKey:SHOW_COLORS_KEY];
+        [defaults setBool:YES forKey:SHOW_PALETTES_KEY];
+        [defaults setBool:YES forKey:SHOW_PATTERNS_KEY];
+        [defaults setBool:YES forKey:SHOW_VARIABLE_WIDTHS_KEY];
+        [defaults setBool:YES forKey:SHOW_BYLINE_KEY];
         [defaults synchronize];
     }
     
     // update delegate using NSUserDefaults:
-    self.delegate.transitionDuration = [self transitionDurationForIndex:[defaults integerForKey:@"transitionDurationIndex"]];
-    self.delegate.preferredVariety = [defaults integerForKey:@"preferredVariety"];
-    self.delegate.showColors = [defaults boolForKey:@"showColors"];
-    self.delegate.showPalettes = [defaults boolForKey:@"showPalettes"];
-    self.delegate.showPatterns = [defaults boolForKey:@"showPatterns"];
-    self.delegate.showVariableWidths = [defaults boolForKey:@"showVariableWidths"];
-    self.delegate.showByline = [defaults boolForKey:@"showByline"];
+    self.delegate.transitionDuration = [self transitionDurationForIndex:[defaults integerForKey:TRANSITION_DURATION_INDEX_KEY]];
+    self.delegate.preferredVariety = [defaults integerForKey:PREFERRED_VARIETY_KEY];
+    self.delegate.showColors = [defaults boolForKey:SHOW_COLORS_KEY];
+    self.delegate.showPalettes = [defaults boolForKey:SHOW_PALETTES_KEY];
+    self.delegate.showPatterns = [defaults boolForKey:SHOW_PATTERNS_KEY];
+    self.delegate.showVariableWidths = [defaults boolForKey:SHOW_VARIABLE_WIDTHS_KEY];
+    self.delegate.showByline = [defaults boolForKey:SHOW_BYLINE_KEY];
 }
 
 - (void)updateUIFromSettings {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.transitionSpeedSeg.selectedSegmentIndex = [defaults integerForKey:@"transitionDurationIndex"];
-    self.varietySeg.selectedSegmentIndex = [defaults integerForKey:@"preferredVariety"];
-    self.colorSwitch.on = [defaults boolForKey:@"showColors"];
-    self.paletteSwitch.on = [defaults boolForKey:@"showPalettes"];
-    self.patternSwitch.on = [defaults boolForKey:@"showPatterns"];
-    self.paletteWidthSeg.selectedSegmentIndex = ![defaults boolForKey:@"showVariableWidths"];
-    self.bylineSeg.selectedSegmentIndex = ![defaults boolForKey:@"showByline"];
+    self.transitionSpeedSeg.selectedSegmentIndex = [defaults integerForKey:TRANSITION_DURATION_INDEX_KEY];
+    self.varietySeg.selectedSegmentIndex = [defaults integerForKey:PREFERRED_VARIETY_KEY];
+    self.colorSwitch.on = [defaults boolForKey:SHOW_COLORS_KEY];
+    self.paletteSwitch.on = [defaults boolForKey:SHOW_PALETTES_KEY];
+    self.patternSwitch.on = [defaults boolForKey:SHOW_PATTERNS_KEY];
+    self.paletteWidthSeg.selectedSegmentIndex = ![defaults boolForKey:SHOW_VARIABLE_WIDTHS_KEY];
+    self.bylineSeg.selectedSegmentIndex = ![defaults boolForKey:SHOW_BYLINE_KEY];
 }
 
 #pragma mark -
