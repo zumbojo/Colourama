@@ -70,7 +70,14 @@
 }
 
 - (void)updateUIFromSettings {
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.transitionSpeedSeg.selectedSegmentIndex = [defaults integerForKey:@"transitionDurationIndex"];
+    self.varietySeg.selectedSegmentIndex = [defaults integerForKey:@"preferredVariety"];
+    self.colorSwitch.on = [defaults boolForKey:@"showColors"];
+    self.paletteSwitch.on = [defaults boolForKey:@"showPalettes"];
+    self.patternSwitch.on = [defaults boolForKey:@"showPatterns"];
+    self.paletteWidthSeg.selectedSegmentIndex = ![defaults boolForKey:@"showVariableWidths"];
+    self.bylineSeg.selectedSegmentIndex = ![defaults boolForKey:@"showByline"];
 }
 
 #pragma mark -
