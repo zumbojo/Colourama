@@ -130,7 +130,7 @@
 #pragma mark Helpers
 
 - (NSTimeInterval)transitionDurationForIndex:(NSUInteger)index {
-    return [@[@0.0, @1.0, @30.0, @300.0, @3600.0][index] doubleValue]; // todo: revert back to 10s
+    return [@[@0.0, @10.0, @30.0, @300.0, @3600.0][index] doubleValue];
 }
 
 @end
