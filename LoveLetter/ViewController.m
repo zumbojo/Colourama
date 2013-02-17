@@ -437,6 +437,40 @@
 #pragma mark -
 #pragma mark SettingsViewControllerDelegate
 
+- (void)setShowColors:(BOOL)showColors {
+    _showColors = showColors;
+    
+    if (!_showColors) {
+        [self removeAllFuturePagesOfClass:[CLColorViewController class]];
+    }
+    
+    [self checkAndFetchAndClean];
+}
+
+- (void)setShowPalettes:(BOOL)showPalettes {
+    _showPalettes = showPalettes;
+    
+    if (!_showColors) {
+        [self removeAllFuturePagesOfClass:[CLPaletteViewController class]];
+    }
+    
+    [self checkAndFetchAndClean];
+}
+
+- (void)setShowPatterns:(BOOL)showPatterns {
+    _showPatterns = showPatterns;
+    
+    if (!_showColors) {
+        [self removeAllFuturePagesOfClass:[CLPatternViewController class]];
+    }
+    
+    [self checkAndFetchAndClean];
+}
+
+- (void)removeAllFuturePagesOfClass:(Class)class {
+    // todo
+}
+
 - (void)setTransitionDuration:(NSTimeInterval)transitionDuration {
     _transitionDuration = transitionDuration;
     
