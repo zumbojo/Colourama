@@ -49,12 +49,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="oKB-6t-8mr" secondAttribute="trailing" constant="127" id="1Yo-yo-w4g"/>
                             <constraint firstAttribute="bottom" secondItem="Lcp-SI-KKD" secondAttribute="bottom" constant="14" id="8Ru-Tx-wRY"/>
                             <constraint firstAttribute="trailing" secondItem="Lcp-SI-KKD" secondAttribute="trailing" constant="55" id="CCt-UB-128"/>
                             <constraint firstItem="Lcp-SI-KKD" firstAttribute="top" secondItem="Oh8-xw-PbR" secondAttribute="top" type="default" id="Fqq-hh-ct8"/>
+                            <constraint firstItem="oKB-6t-8mr" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ZtR-Fl-P6W"/>
+                            <constraint firstAttribute="trailing" secondItem="oKB-6t-8mr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eRq-CU-sBV"/>
                             <constraint firstItem="Oh8-xw-PbR" firstAttribute="bottom" secondItem="Lcp-SI-KKD" secondAttribute="bottom" type="default" id="ebv-Ta-A8l"/>
-                            <constraint firstItem="oKB-6t-8mr" firstAttribute="centerY" secondItem="Lcp-SI-KKD" secondAttribute="centerY" type="default" id="hG3-UT-QYx"/>
                             <constraint firstItem="Oh8-xw-PbR" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="lFG-88-lgs"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

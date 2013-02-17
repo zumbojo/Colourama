@@ -21,7 +21,7 @@ typedef void(^CLPrettyThingJSONOperationQueueParser)(NSArray *operations, CLMoth
 
 static const int kColourLoversDefaultPageSize = 20;
 static NSUInteger colorsNewOffset = 0;
-static NSUInteger colorsTopOffset = 1000000000;
+static NSUInteger colorsTopOffset = 0;
 static NSUInteger palettesNewOffset = 0;
 static NSUInteger palettesTopOffset = 0;
 static NSUInteger patternsNewOffset = 0;

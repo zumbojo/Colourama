@@ -50,12 +50,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ADq-xn-iBl" firstAttribute="top" secondItem="haO-Ua-hni" secondAttribute="top" type="default" id="2t4-OB-zEs"/>
-                            <constraint firstAttribute="trailing" secondItem="bM5-Ar-Kui" secondAttribute="trailing" constant="123" id="6xl-lx-ioE"/>
+                            <constraint firstAttribute="trailing" secondItem="bM5-Ar-Kui" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BXl-HV-Ppa"/>
                             <constraint firstItem="ADq-xn-iBl" firstAttribute="bottom" secondItem="haO-Ua-hni" secondAttribute="bottom" type="default" id="IQh-2N-Eon"/>
                             <constraint firstAttribute="trailing" secondItem="ADq-xn-iBl" secondAttribute="trailing" constant="57" id="VWI-pe-5gu"/>
                             <constraint firstItem="haO-Ua-hni" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="WTk-0g-HlN"/>
                             <constraint firstAttribute="bottom" secondItem="ADq-xn-iBl" secondAttribute="bottom" constant="14" id="hG1-K2-yqv"/>
-                            <constraint firstItem="bM5-Ar-Kui" firstAttribute="centerY" secondItem="ADq-xn-iBl" secondAttribute="centerY" type="default" id="sbG-Wf-XMB"/>
+                            <constraint firstItem="haO-Ua-hni" firstAttribute="baseline" secondItem="ADq-xn-iBl" secondAttribute="baseline" type="default" id="qMl-UA-Mop"/>
+                            <constraint firstItem="bM5-Ar-Kui" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="tuW-lv-dqR"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
