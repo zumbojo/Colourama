@@ -28,6 +28,7 @@
 @property (nonatomic) UIViewController *pendingPage; // for keeping track of the current page in UIPageViewController (see UIPageViewControllerDelegate method comments)
 @property (nonatomic) UIViewController *currentPage; // ditto
 
+@property (nonatomic) UIView *menuView;
 @property (nonatomic) UIActionSheet *shareMenu;
 @property (nonatomic) UIPopoverController *settingsPopover;
 @property (nonatomic) SettingsViewController *settingsViewController;
@@ -57,6 +58,8 @@
 }
 
 - (void)setupMenuBarAndSpinner {
+    
+    
     
     // todo: create a menu bar, like the byline bar, BYLINE_BAR_HEIGHT from the bottom of the screen
     // todo: create new settingsButton and shareButtons

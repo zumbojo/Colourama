@@ -20,3 +20,6 @@ UIColorFromRGB(rgbHex); \
 #define COLOURLOVERS_URL_BASE   @"http://www.colourlovers.com"
 #define BYLINE_BAR_HEIGHT       28
 #define BAR_SHADOW_HEIGHT       2
+#define BAR_BACKGROUND_COLOR    UIColorFromRGBString(@"F1F1F1")
+#define BAR_SHADOW_COLOR        UIColorFromRGBString(@"CCCCCC")
+#define BAR_TEXT_AND_ICON_COLOR UIColorFromRGBString(@"808080")

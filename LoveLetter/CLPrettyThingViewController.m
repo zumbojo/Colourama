@@ -18,19 +18,19 @@
     // add the background (with shadow):
     UIView *byLineBackground = [[UIView alloc] init];
     byLineBackground.translatesAutoresizingMaskIntoConstraints = NO;
-    byLineBackground.backgroundColor = UIColorFromRGBString(@"F1F1F1");
+    byLineBackground.backgroundColor = BAR_BACKGROUND_COLOR;
     [self.view addSubview:byLineBackground];
     self.byLineView = byLineBackground;
     
     UIView *byLineShadow = [[UIView alloc] init];
     byLineShadow.translatesAutoresizingMaskIntoConstraints = NO;
-    byLineShadow.backgroundColor = UIColorFromRGBString(@"CCCCCC");
+    byLineShadow.backgroundColor = BAR_SHADOW_COLOR;
     [byLineBackground addSubview:byLineShadow];
     
     // add the label:
     UILabel *byLineLabel = [[UILabel alloc] init];
     byLineLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    byLineLabel.textColor = UIColorFromRGBString(@"808080");
+    byLineLabel.textColor = BAR_TEXT_AND_ICON_COLOR;
     byLineLabel.backgroundColor = [UIColor clearColor];
     [byLineBackground addSubview:byLineLabel];
     
