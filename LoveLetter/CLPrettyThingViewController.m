@@ -64,7 +64,7 @@
                                                views:views]];
     
     [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[byLineShadow(%d)][byLineBackground(%d)]|", BAR_SHADOW_HEIGHT, BYLINE_BAR_HEIGHT - BAR_SHADOW_HEIGHT]
+     [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[byLineShadow(%d)][byLineBackground(%d)]|", BAR_SHADOW_HEIGHT, BYLINE_BACKGROUND_HEIGHT]
                                              options:0
                                              metrics:nil
                                                views:views]];
