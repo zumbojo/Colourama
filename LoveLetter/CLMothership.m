@@ -65,15 +65,6 @@ static NSUInteger patternsTopOffset = 0;
 #pragma mark -
 #pragma mark Offsets
 
-- (void)resetOffsets {
-    colorsNewOffset = 0;
-    colorsTopOffset = 0;
-    palettesNewOffset = 0;
-    palettesTopOffset = 0;
-    patternsNewOffset = 0;
-    patternsTopOffset = 0;
-}
-
 - (NSUInteger)offsetForClass:(Class)class andVariety:(CLPrettyThingVariety)variety {
     if (variety == CLPrettyThingVarietyNew || variety == CLPrettyThingVarietyTop) {
         if (class == [CLColor class]) {
