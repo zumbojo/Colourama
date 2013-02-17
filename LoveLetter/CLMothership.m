@@ -13,7 +13,7 @@
 #import "AFNetworking.h"
 
 typedef void(^CLPrettyThingAcceptor)(NSArray* prettyThings);
-typedef void(^CLPrettyThingJSONOperationQueueParser)(NSArray *operations, CLPrettyThingAcceptor success);
+typedef void(^CLPrettyThingJSONOperationQueueParser)(NSArray *operations, CLMothership *instance, CLPrettyThingAcceptor success);
 
 @implementation CLMothership
 
@@ -43,8 +43,9 @@ static NSUInteger patternsTopOffset = 0;
 - (void)loadPrettyThingsOfClasses:(NSArray *)prettyThingSubclasses withVariety:(CLPrettyThingVariety)variety success:(void (^)(NSArray* prettyThings))success {
     NSMutableArray *operations = [[NSMutableArray alloc] init];
     for (Class prettyThingSubclass in prettyThingSubclasses) {
-        NSURLRequest *request = [self requestForPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:kColourLoversDefaultPageSize offset:0];
-        // todo: need to keep track of offset for New and Top varieties.
+        NSUInteger offset = [self offsetForClass:prettyThingSubclass andVariety:variety];
+        NSLog(@"offset: %d", offset);
+        NSURLRequest *request = [self requestForPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:kColourLoversDefaultPageSize offset:offset];
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
         operation.userInfo = @{@"class" : prettyThingSubclass,
                                @"variety" : [NSNumber numberWithInt:variety]};
@@ -57,7 +58,7 @@ static NSUInteger patternsTopOffset = 0;
                                       NSLog(@"%d / %d", numberOfCompletedOperations, totalNumberOfOperations);
                                   }
                                 completionBlock:^(NSArray *operations) {
-                                    [CLMothership parser](operations, success);
+                                    [CLMothership parser](operations, self, success);
                                 }];
 }
 
@@ -85,8 +86,7 @@ static NSUInteger patternsTopOffset = 0;
             return variety == CLPrettyThingVarietyNew ? patternsNewOffset : patternsTopOffset;
         }
     }
-    
-    NSLog(@"WARNING: offsetForClass was called on invalid combination.");
+
     return 0;
 }
 
@@ -154,7 +154,7 @@ static NSUInteger patternsTopOffset = 0;
 }
 
 + (CLPrettyThingJSONOperationQueueParser)parser {
-    return ^(NSArray *operations, CLPrettyThingAcceptor success) {
+    return ^(NSArray *operations, CLMothership *instance, CLPrettyThingAcceptor success) {
         NSMutableArray* parsed = [[NSMutableArray alloc] init];
         BOOL waitForPatternQueueCompletion = NO;
         
@@ -169,7 +169,7 @@ static NSUInteger patternsTopOffset = 0;
                 if (prettyThingSubclass != [CLPattern class]) {
                     for (id node in op.responseJSON) {
                         [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
-                        NSLog(@"variety: %d", variety);
+                        [instance increment:1 offsetForClass:prettyThingSubclass andVariety:variety];
                     }
                 }
             }
@@ -181,12 +181,14 @@ static NSUInteger patternsTopOffset = 0;
             }
             else {
                 Class prettyThingSubclass = op.userInfo[@"class"];
+                CLPrettyThingVariety variety = [op.userInfo[@"variety"] intValue];
                 
                 if (prettyThingSubclass == [CLPattern class]) {
                     waitForPatternQueueCompletion = YES;
                     
                     for (id node in op.responseJSON) {
                         [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
+                        [instance increment:1 offsetForClass:prettyThingSubclass andVariety:variety];
                     }
                     
                     // queue up images for download:
