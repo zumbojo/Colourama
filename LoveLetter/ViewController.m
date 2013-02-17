@@ -77,23 +77,8 @@
     [self.pageController didMoveToParentViewController:self];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
     [self hideControlsAfterDelay];
-    
-//    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPalette class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *palettes) {
-//        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:palettes]];
-//        NSLog(@"palettes loaded, added to contentControllers");
-//    }];
-//
-//    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLColor class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *colors) {
-//        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:colors]];
-//        NSLog(@"colors loaded, added to contentControllers");
-//    }];
 
-//    [[CLMothership sharedInstance] loadPrettyThingsOfClass:[CLPattern class] withVariety:CLPrettyThingVarietyNew success:^(NSArray *patterns) {
-//        [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:patterns]];
-//        NSLog(@"patterns loaded, added to contentControllers");
-//    }];
     self.fetchInProgress = NO;
-    
     [self checkAndFetchAndClean];
 }
 
