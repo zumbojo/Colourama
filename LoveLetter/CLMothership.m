@@ -37,10 +37,6 @@ static NSUInteger patternsTopOffset = 0;
 }
 
 - (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass withVariety:(CLPrettyThingVariety)variety success:(void (^)(NSArray* prettyThings))success {
-    [self loadPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:kColourLoversDefaultPageSize offset:0 success:success];
-}
-
-- (void)loadPrettyThingsOfClass:(Class)prettyThingSubclass withVariety:(CLPrettyThingVariety)variety number:(NSUInteger)numResults offset:(NSUInteger)offset success:(void (^)(NSArray* prettyThings))success {
     [self loadPrettyThingsOfClasses:@[prettyThingSubclass] withVariety:variety success:success];
 }
 
