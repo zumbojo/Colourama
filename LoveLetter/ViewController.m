@@ -57,6 +57,12 @@
 }
 
 - (void)setupMenuBarAndSpinner {
+    
+    // todo: create a menu bar, like the byline bar, BYLINE_BAR_HEIGHT from the bottom of the screen
+    // todo: create new settingsButton and shareButtons
+    // todo: make settingsButton and shareButtons subviews of this bar
+    // todo: handle fading this bar
+    
     [self.view bringSubviewToFront:self.spinner];
     [self.view bringSubviewToFront:self.settingsButton];
     [self.view bringSubviewToFront:self.shareButton];
