@@ -126,10 +126,6 @@
     [[NSUserDefaults standardUserDefaults] setBool:(sender.selectedSegmentIndex == 0) forKey:SHOW_BYLINE_KEY];
 }
 
-- (IBAction)testButtonTouched:(UIButton *)sender {
-    NSLog(@"testButtonTouched");
-}
-
 #pragma mark -
 #pragma mark Helpers
 

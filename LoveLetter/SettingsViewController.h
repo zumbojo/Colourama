@@ -33,7 +33,6 @@
 - (IBAction)showPaletteWidthValueChanged:(UISegmentedControl *)sender;
 - (IBAction)transitionValueChanged:(UISegmentedControl *)sender;
 - (IBAction)showBylineValueChanged:(UISegmentedControl *)sender;
-- (IBAction)testButtonTouched:(UIButton *)sender;
 
 @property(weak) id<SettingsViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UISwitch *colorSwitch;
