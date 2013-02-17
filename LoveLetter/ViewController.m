@@ -16,7 +16,7 @@
 #import "CLPattern.h"
 #import "NSMutableArray_Shuffling.h"
 
-#define PAGES_TO_KEEP 10 // once we hit this many pages, clean out all but the N most recent pages
+#define PAGES_TO_KEEP 100 // once we hit this many pages, clean out all but the N most recent pages
 
 @interface ViewController ()
 
