@@ -18,3 +18,5 @@ UIColorFromRGB(rgbHex); \
 
 // Constants:
 #define COLOURLOVERS_URL_BASE   @"http://www.colourlovers.com"
+#define BYLINE_BAR_HEIGHT       28
+#define BAR_SHADOW_HEIGHT       2
