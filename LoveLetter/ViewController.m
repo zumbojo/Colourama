@@ -450,7 +450,7 @@
 - (void)setShowPalettes:(BOOL)showPalettes {
     _showPalettes = showPalettes;
     
-    if (!_showColors) {
+    if (!_showPalettes) {
         [self removeAllFuturePagesOfClass:[CLPaletteViewController class]];
     }
     
@@ -460,15 +460,25 @@
 - (void)setShowPatterns:(BOOL)showPatterns {
     _showPatterns = showPatterns;
     
-    if (!_showColors) {
+    if (!_showPatterns) {
         [self removeAllFuturePagesOfClass:[CLPatternViewController class]];
     }
     
     [self checkAndFetchAndClean];
 }
 
-- (void)removeAllFuturePagesOfClass:(Class)class {
-    // todo
+- (void)removeAllFuturePagesOfClass:(Class)class { // helper for the above setters
+    NSUInteger currentPageIndex = [self.contentControllers indexOfObject:self.currentPage];
+    NSMutableArray *remove = [[NSMutableArray alloc] init];
+    
+    for (UIViewController *controller in self.contentControllers) {
+        NSUInteger controllerIndex = [self.contentControllers indexOfObject:controller];
+        if ([controller isKindOfClass:class] && controllerIndex > currentPageIndex + 1) { // add one to skip the next page, just in case a fade is about to occur
+            [remove addObject:controller];
+        }
+    }
+    
+    [self.contentControllers removeObjectsInArray:remove];
 }
 
 - (void)setTransitionDuration:(NSTimeInterval)transitionDuration {
