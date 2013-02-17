@@ -58,10 +58,54 @@
 }
 
 - (void)setupMenuBarAndSpinner {
+    // based on byline (addThingLabels: in CLPrettyThingViewController.m)
+    
+    UIView *menuView = [[UIView alloc] init];
+    menuView.translatesAutoresizingMaskIntoConstraints  = NO;
+    menuView.backgroundColor = BAR_BACKGROUND_COLOR;
+    [self.view addSubview:menuView];
+    self.menuView = menuView;
+    
+    UIView *menuViewShadow = [[UIView alloc] init];
+    menuViewShadow.translatesAutoresizingMaskIntoConstraints = NO;
+    menuViewShadow.backgroundColor = BAR_SHADOW_COLOR;
+    [menuView addSubview:menuViewShadow];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(menuView, menuViewShadow);
+    
+//    [self.view addConstraints:
+//     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineLabel]-5-|"
+//                                             options:0
+//                                             metrics:nil
+//                                               views:views]];
+    
+//    [self.view addConstraints:
+//     [NSLayoutConstraint constraintsWithVisualFormat:@"[byLineLabel]-5-|"
+//                                             options:0
+//                                             metrics:nil
+//                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[menuViewShadow(%d)][menuView(%d)]-%d-|", BAR_SHADOW_HEIGHT, BYLINE_BACKGROUND_HEIGHT, BYLINE_BACKGROUND_HEIGHT]
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|[menuView]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|[menuViewShadow]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+
     
     
     
-    // todo: create a menu bar, like the byline bar, BYLINE_BAR_HEIGHT from the bottom of the screen
     // todo: create new settingsButton and shareButtons
     // todo: make settingsButton and shareButtons subviews of this bar
     // todo: handle fading this bar
