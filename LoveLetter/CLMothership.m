@@ -21,7 +21,7 @@ typedef void(^CLPrettyThingJSONOperationQueueParser)(NSArray *operations, CLMoth
 
 static const int kColourLoversDefaultPageSize = 20;
 static NSUInteger colorsNewOffset = 0;
-static NSUInteger colorsTopOffset = 0;
+static NSUInteger colorsTopOffset = 1000000000;
 static NSUInteger palettesNewOffset = 0;
 static NSUInteger palettesTopOffset = 0;
 static NSUInteger patternsNewOffset = 0;
@@ -171,6 +171,12 @@ static NSUInteger patternsTopOffset = 0;
                         [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
                         [instance increment:1 offsetForClass:prettyThingSubclass andVariety:variety];
                     }
+                    
+                    if (![op.responseJSON count]) {
+                        // Reset offsets if API returns 200 OK but there are no results (e.g. we've reached the end of that pretty thing type's supply)
+                        NSLog(@"No %@ returned.  Resetting offset (%d) to 0.", NSStringFromClass(prettyThingSubclass), [instance offsetForClass:prettyThingSubclass andVariety:variety]);
+                        [instance setOffset:0 forClass:prettyThingSubclass andVariety:variety];
+                    }
                 }
             }
         }
@@ -189,6 +195,12 @@ static NSUInteger patternsTopOffset = 0;
                     for (id node in op.responseJSON) {
                         [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
                         [instance increment:1 offsetForClass:prettyThingSubclass andVariety:variety];
+                    }
+                    
+                    if (![op.responseJSON count]) {
+                        // Reset offsets if API returns 200 OK but there are no results (e.g. we've reached the end of that pretty thing type's supply)
+                        NSLog(@"No %@ returned.  Resetting offset (%d) to 0.", NSStringFromClass(prettyThingSubclass), [instance offsetForClass:prettyThingSubclass andVariety:variety]);
+                        [instance setOffset:0 forClass:prettyThingSubclass andVariety:variety];
                     }
                     
                     // queue up images for download:
