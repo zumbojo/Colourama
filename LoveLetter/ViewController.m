@@ -47,6 +47,25 @@
     self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
     
     [self populateContentControllers];
+    
+    [self setupPageViewController];
+    
+    [self setupMenuBarAndSpinner];
+
+    self.fetchInProgress = NO;
+    [self checkAndFetchAndClean];
+}
+
+- (void)setupMenuBarAndSpinner {
+    [self.view bringSubviewToFront:self.spinner];
+    [self.view bringSubviewToFront:self.settingsButton];
+    [self.view bringSubviewToFront:self.shareButton];
+    [self.pageController didMoveToParentViewController:self];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
+    [self hideControlsAfterDelay];
+}
+
+- (void)setupPageViewController {
     NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
                                                         forKey:UIPageViewControllerOptionSpineLocationKey];
     
@@ -71,15 +90,6 @@
     self.currentPage = viewControllers[0];
     [self addChildViewController:self.pageController];
     [self.view addSubview:self.pageController.view];
-    [self.view bringSubviewToFront:self.spinner];
-    [self.view bringSubviewToFront:self.settingsButton];
-    [self.view bringSubviewToFront:self.shareButton];
-    [self.pageController didMoveToParentViewController:self];
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
-    [self hideControlsAfterDelay];
-
-    self.fetchInProgress = NO;
-    [self checkAndFetchAndClean];
 }
 
 - (void)didReceiveMemoryWarning
