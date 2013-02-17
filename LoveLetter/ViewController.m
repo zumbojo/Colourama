@@ -152,11 +152,11 @@
 - (void)clean {
     NSLog(@"cleaning.  count: %d", self.contentControllers.count);
     
-    NSUInteger *currentPageIndex = [self.contentControllers indexOfObject:self.currentPage];
-    NSUInteger *cutoffIndex = self.contentControllers.count - PAGES_TO_KEEP;
+    NSUInteger currentPageIndex = [self.contentControllers indexOfObject:self.currentPage];
+    NSInteger cutoffIndex = self.contentControllers.count - PAGES_TO_KEEP;
     
-    if (currentPageIndex >= cutoffIndex) {
-        [self.contentControllers removeObjectsInRange:NSMakeRange(0, cutoffIndex - 1)];
+    if (currentPageIndex > cutoffIndex && cutoffIndex > 0) {
+        [self.contentControllers removeObjectsInRange:NSMakeRange(0, cutoffIndex)];
     }
     
     NSLog(@"cleaned!  count: %d", self.contentControllers.count);
