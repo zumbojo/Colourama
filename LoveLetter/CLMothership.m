@@ -46,7 +46,8 @@ static NSUInteger patternsTopOffset = 0;
         NSURLRequest *request = [self requestForPrettyThingsOfClass:prettyThingSubclass withVariety:variety number:kColourLoversDefaultPageSize offset:0];
         // todo: need to keep track of offset for New and Top varieties.
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:nil failure:nil];
-        operation.userInfo = @{@"class" : prettyThingSubclass};
+        operation.userInfo = @{@"class" : prettyThingSubclass,
+                               @"variety" : [NSNumber numberWithInt:variety]};
         [operations addObject:operation];
     }
     
@@ -163,10 +164,12 @@ static NSUInteger patternsTopOffset = 0;
             }
             else {
                 Class prettyThingSubclass = op.userInfo[@"class"];
+                CLPrettyThingVariety variety = [op.userInfo[@"variety"] intValue];
                 
                 if (prettyThingSubclass != [CLPattern class]) {
                     for (id node in op.responseJSON) {
                         [parsed addObject:[[prettyThingSubclass alloc] initWithJSON:node]];
+                        NSLog(@"variety: %d", variety);
                     }
                 }
             }
