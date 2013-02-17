@@ -60,7 +60,6 @@
     [self.view bringSubviewToFront:self.spinner];
     [self.view bringSubviewToFront:self.settingsButton];
     [self.view bringSubviewToFront:self.shareButton];
-    [self.pageController didMoveToParentViewController:self];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
     [self hideControlsAfterDelay];
 }
@@ -90,6 +89,7 @@
     self.currentPage = viewControllers[0];
     [self addChildViewController:self.pageController];
     [self.view addSubview:self.pageController.view];
+    [self.pageController didMoveToParentViewController:self];
 }
 
 - (void)didReceiveMemoryWarning
