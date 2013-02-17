@@ -18,6 +18,7 @@
 @property (nonatomic) BOOL showPatterns;
 @property (nonatomic) BOOL showVariableWidths;
 @property (nonatomic) BOOL showByline;
+@property (nonatomic) BOOL initialSettingsLoadIsComplete;
 
 @end
 

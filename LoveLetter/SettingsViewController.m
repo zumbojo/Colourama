@@ -75,6 +75,7 @@
     self.delegate.showPatterns = [defaults boolForKey:SHOW_PATTERNS_KEY];
     self.delegate.showVariableWidths = [defaults boolForKey:SHOW_VARIABLE_WIDTHS_KEY];
     self.delegate.showByline = [defaults boolForKey:SHOW_BYLINE_KEY];
+    self.delegate.initialSettingsLoadIsComplete = YES;
 }
 
 - (void)updateUIFromSettings {
