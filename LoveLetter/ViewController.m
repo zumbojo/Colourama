@@ -130,8 +130,6 @@
     // todo: handle fading this bar
     
     [self.view bringSubviewToFront:self.spinner];
-    [self.view bringSubviewToFront:self.settingsButton];
-    [self.view bringSubviewToFront:self.shareButton];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
     [self hideControlsAfterDelay];
 }
@@ -418,7 +416,7 @@
 // Control hide/show logic from MWPhotoBrowser.
 
 - (BOOL)controlsAreHidden {
-    return self.settingsButton.alpha == 0;
+    return self.menuView.alpha == 0;
 }
 
 - (void)hideControls {
@@ -436,13 +434,11 @@
     
     if (animated) {
         [UIView animateWithDuration:0.35 animations:^{
-            self.shareButton.alpha = alpha;
-            self.settingsButton.alpha = alpha;
+            self.menuView.alpha = alpha;
         }];
     }
     else {
-        self.shareButton.alpha = alpha;
-        self.settingsButton.alpha = alpha;
+        self.menuView.alpha = alpha;
     }
     
     if (!permanent) {
@@ -476,7 +472,7 @@
         
         CLPrettyThingViewController *ghost = ((CLPrettyThingViewController *)fromVC).ghost;
         [self addChildViewController:ghost];
-        [self.view insertSubview:ghost.view belowSubview:self.settingsButton];
+        [self.view insertSubview:ghost.view belowSubview:self.menuView];
         
         // sneakily push toVC in background:
         __weak ViewController *weakSelf = self; // to address a "Capturing 'self' strongly in this block is likely to lead to a retain cycle" warning
