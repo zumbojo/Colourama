@@ -71,19 +71,31 @@
     menuViewShadow.backgroundColor = BAR_SHADOW_COLOR;
     [menuView addSubview:menuViewShadow];
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(menuView, menuViewShadow);
+    // buttons
+    // todo: add Glyphish license to Settings.bundle (if Glyphish icons are used for final version)
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    settingsButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [settingsButton setBackgroundImage:[UIImage imageNamed:@"29-gear"] forState:UIControlStateNormal];
+    [menuView addSubview:settingsButton];
     
-//    [self.view addConstraints:
-//     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineLabel]-5-|"
-//                                             options:0
-//                                             metrics:nil
-//                                               views:views]];
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    shareButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [shareButton setBackgroundImage:[UIImage imageNamed:@"29-heart"] forState:UIControlStateNormal];
+    [menuView addSubview:shareButton];
     
-//    [self.view addConstraints:
-//     [NSLayoutConstraint constraintsWithVisualFormat:@"[byLineLabel]-5-|"
-//                                             options:0
-//                                             metrics:nil
-//                                               views:views]];
+    NSDictionary *views = NSDictionaryOfVariableBindings(menuView, menuViewShadow, settingsButton, shareButton);
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[menuViewShadow]-5-[shareButton]"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"[shareButton]-5-|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
     
     [self.view addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[menuViewShadow(%d)][menuView(%d)]-%d-|", BAR_SHADOW_HEIGHT, BYLINE_BACKGROUND_HEIGHT, BYLINE_BACKGROUND_HEIGHT]
