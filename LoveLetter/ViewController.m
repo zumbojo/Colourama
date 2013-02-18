@@ -76,11 +76,13 @@
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.translatesAutoresizingMaskIntoConstraints = NO;
     [settingsButton setBackgroundImage:[UIImage imageNamed:@"19-gear"] forState:UIControlStateNormal];
+    [settingsButton addTarget:self action:@selector(settingsButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [menuView addSubview:settingsButton];
     
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     shareButton.translatesAutoresizingMaskIntoConstraints = NO;
     [shareButton setBackgroundImage:[UIImage imageNamed:@"29-heart"] forState:UIControlStateNormal];
+    [shareButton addTarget:self action:@selector(shareButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [menuView addSubview:shareButton];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(menuView, menuViewShadow, settingsButton, shareButton);
