@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE307E2A16D1A6D40057A2FB /* 29-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = CE307E2916D1A6D40057A2FB /* 29-heart.png */; };
+		CE307E2C16D1A6F00057A2FB /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = CE307E2B16D1A6F00057A2FB /* 19-gear.png */; };
+		CE307E2E16D1A70A0057A2FB /* 00-Read me first - license.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE307E2D16D1A70A0057A2FB /* 00-Read me first - license.txt */; };
 		CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78556A16AB5BE40064460E /* CLPaletteViewController.m */; };
 		CE7855E116AE34110064460E /* CLMothership.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855E016AE34110064460E /* CLMothership.m */; };
 		CE78560A16AE36980064460E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE78560916AE36980064460E /* Settings.bundle */; };
@@ -49,6 +52,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE307E2916D1A6D40057A2FB /* 29-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart.png"; sourceTree = "<group>"; };
+		CE307E2B16D1A6F00057A2FB /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
+		CE307E2D16D1A70A0057A2FB /* 00-Read me first - license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "00-Read me first - license.txt"; sourceTree = "<group>"; };
 		CE78556916AB5BE40064460E /* CLPaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPaletteViewController.h; sourceTree = "<group>"; };
 		CE78556A16AB5BE40064460E /* CLPaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPaletteViewController.m; sourceTree = "<group>"; };
 		CE7855DF16AE34110064460E /* CLMothership.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMothership.h; sourceTree = "<group>"; };
@@ -136,6 +142,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE307E2816D1A6BC0057A2FB /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				CE307E2F16D1A7130057A2FB /* Glyphish */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		CE307E2F16D1A7130057A2FB /* Glyphish */ = {
+			isa = PBXGroup;
+			children = (
+				CE307E2D16D1A70A0057A2FB /* 00-Read me first - license.txt */,
+				CE307E2B16D1A6F00057A2FB /* 19-gear.png */,
+				CE307E2916D1A6D40057A2FB /* 29-heart.png */,
+			);
+			name = Glyphish;
+			sourceTree = "<group>";
+		};
 		CE7855E316AE34220064460E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +336,7 @@
 				CE78564916BCA30B0064460E /* SettingsViewController.m */,
 				CE78564A16BCA30C0064460E /* SettingsViewController.xib */,
 				CED03B1816AA28660077CAB8 /* Supporting Files */,
+				CE307E2816D1A6BC0057A2FB /* Icons */,
 				CE7855F316AE35C10064460E /* External */,
 			);
 			path = LoveLetter;
@@ -413,6 +438,9 @@
 				CED03B2E16AA28660077CAB8 /* MainStoryboard_iPad.storyboard in Resources */,
 				CE78560A16AE36980064460E /* Settings.bundle in Resources */,
 				CE78564C16BCA30C0064460E /* SettingsViewController.xib in Resources */,
+				CE307E2A16D1A6D40057A2FB /* 29-heart.png in Resources */,
+				CE307E2C16D1A6F00057A2FB /* 19-gear.png in Resources */,
+				CE307E2E16D1A70A0057A2FB /* 00-Read me first - license.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
