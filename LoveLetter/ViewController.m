@@ -92,7 +92,7 @@
                                                views:views]];
     
     [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[menuViewShadow]-7-[shareButton]"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[menuViewShadow]-7-[shareButton]" // 7 instead of 5 due to differently-sized Glyphish test icons >:-(
                                              options:0
                                              metrics:nil
                                                views:views]];
@@ -104,10 +104,13 @@
                                                views:views]];
     
     [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[menuViewShadow(%d)][menuView(%d)]-%d-|", BAR_SHADOW_HEIGHT, BYLINE_BACKGROUND_HEIGHT, BYLINE_BACKGROUND_HEIGHT]
+     [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[menuViewShadow(%d)][menuView]-%d-|", BAR_SHADOW_HEIGHT, BYLINE_BACKGROUND_HEIGHT]
                                              options:0
                                              metrics:nil
                                                views:views]];
+
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:menuView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:settingsButton attribute:NSLayoutAttributeHeight multiplier:1 constant:6]];
+    
     
     [self.view addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"|[menuView]|"
@@ -120,12 +123,8 @@
                                              options:0
                                              metrics:nil
                                                views:views]];
-
     
-    
-    
-    // todo: create new settingsButton and shareButtons
-    // todo: make settingsButton and shareButtons subviews of this bar
+    // todo: wire up new settingsButton and shareButtons
     // todo: handle fading this bar
     
     [self.view bringSubviewToFront:self.spinner];
