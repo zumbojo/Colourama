@@ -75,7 +75,7 @@
     // todo: add Glyphish license to Settings.bundle (if Glyphish icons are used for final version)
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [settingsButton setBackgroundImage:[UIImage imageNamed:@"29-gear"] forState:UIControlStateNormal];
+    [settingsButton setBackgroundImage:[UIImage imageNamed:@"19-gear"] forState:UIControlStateNormal];
     [menuView addSubview:settingsButton];
     
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -84,15 +84,21 @@
     [menuView addSubview:shareButton];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(menuView, menuViewShadow, settingsButton, shareButton);
-    
+
     [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[menuViewShadow]-5-[shareButton]"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[menuViewShadow]-5-[settingsButton]"
                                              options:0
                                              metrics:nil
                                                views:views]];
     
     [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"[shareButton]-5-|"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[menuViewShadow]-7-[shareButton]"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"[shareButton]-10-[settingsButton]-5-|"
                                              options:0
                                              metrics:nil
                                                views:views]];
