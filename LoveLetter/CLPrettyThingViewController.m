@@ -85,10 +85,6 @@
 - (void)setShowByline:(BOOL)show animated:(BOOL)animated {
     _showByline = show;
     
-    if (show == self.showByline) {
-        return;
-    }
-    
     if (animated) {
         [UIView animateWithDuration:1.0f animations:^{
             self.byLineView.alpha = _showByline ? 1 : 0;
@@ -97,8 +93,6 @@
     else {
         self.byLineView.alpha = _showByline ? 1 : 0;
     }
-    
-    NSLog(@"bla");
 }
 
 /*
