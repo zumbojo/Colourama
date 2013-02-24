@@ -42,6 +42,7 @@
 - (CLColorViewController *)ghost {
     CLColorViewController *ghost = [[CLColorViewController alloc] initWithColor:self.color];
     ghost.view.frame = self.view.frame;
+    [ghost setShowByline:self.showByline animated:NO];
     return ghost;
 }
 

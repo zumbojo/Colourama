@@ -42,6 +42,7 @@
 - (CLPatternViewController *)ghost {
     CLPatternViewController *ghost = [[CLPatternViewController alloc] initWithPattern:self.pattern];
     ghost.view.frame = self.view.frame;
+    [ghost setShowByline:self.showByline animated:NO];
     return ghost;
 }
 

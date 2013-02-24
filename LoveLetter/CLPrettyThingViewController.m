@@ -83,11 +83,12 @@
 }
 
 - (void)setShowByline:(BOOL)show animated:(BOOL)animated {
+    _showByline = show;
+    
     if (show == self.showByline) {
         return;
     }
     
-    _showByline = show;
     if (animated) {
         [UIView animateWithDuration:1.0f animations:^{
             self.byLineView.alpha = _showByline ? 1 : 0;
