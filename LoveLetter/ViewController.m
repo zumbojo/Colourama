@@ -208,6 +208,8 @@
             if (self.contentControllers.count > PAGES_TO_KEEP) {
                 [self clean];
             }
+            
+            [self applySettingsToAllContentControllers];
         }];
     }
     else {
@@ -559,15 +561,25 @@
 }
 
 - (void)setShowVariableWidths:(BOOL)showVariableWidths {
-    [self applyBlock:^(UIViewController *controller) {
-        [(CLPaletteViewController *)controller setShowVariableWidths:showVariableWidths animated:YES];
-    } toAllContentControllersOfClass:[CLPaletteViewController class]];
+    _showVariableWidths = showVariableWidths;
+    [self applySettingsToAllContentControllers];
 }
 
 - (void)setShowByline:(BOOL)showByline {
+    _showByline = showByline;
+    [self applySettingsToAllContentControllers];
+}
+
+// Helpers:
+
+- (void)applySettingsToAllContentControllers {
     [self applyBlock:^(UIViewController *controller) {
-        [(CLPrettyThingViewController *)controller setShowByline:showByline animated:YES];
-    } toAllContentControllersOfClass:[CLPrettyThingViewController class]];
+        [(CLPaletteViewController *)controller setShowVariableWidths:self.showVariableWidths animated:YES];
+    } toAllContentControllersOfClass:[CLPaletteViewController class]];
+
+    [self applyBlock:^(UIViewController *controller) {
+        [(CLPrettyThingViewController *)controller setShowByline:self.showByline animated:YES];
+    } toAllContentControllersOfClass:[CLPrettyThingViewController class]];    
 }
 
 #pragma mark -
