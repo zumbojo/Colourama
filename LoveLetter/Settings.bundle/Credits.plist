@@ -10,14 +10,29 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>OMG CREDITS</string>
+			<string>
+Made by Kevin M. Lawson
+
+http://kevinmlawson.com/
+
+Icon by Kevin M. Lawson
+
+Icon palette is "cheer up emo kid" by Keith Parent.
+
+http://www.colourlovers.com/palette/1930/cheer_up_emo_kid
+http://www.colourlovers.com/lover/electrikmonk
+http://www.keithparent.com/
+
+"cheer up emo kid" is used in compliance with the CC-BY-SA license.
+
+http://creativecommons.org/licenses/by-sa/3.0/
+			</string>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>==========
-Kevin made this.
+			<string>:D
             </string>
 		</dict>	
 	</array>
