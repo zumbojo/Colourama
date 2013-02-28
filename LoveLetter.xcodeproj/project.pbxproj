@@ -59,10 +59,10 @@
 		CE307E2916D1A6D40057A2FB /* 29-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart.png"; sourceTree = "<group>"; };
 		CE307E2B16D1A6F00057A2FB /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
 		CE307E2D16D1A70A0057A2FB /* 00-Read me first - license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "00-Read me first - license.txt"; sourceTree = "<group>"; };
-		CE4240C216DEF9CD0021209B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		CE4240C416DEF9DB0021209B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		CE4240C616DEF9E40021209B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		CE4240C816DEF9E80021209B /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		CE4240C216DEF9CD0021209B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		CE4240C416DEF9DB0021209B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		CE4240C616DEF9E40021209B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
+		CE4240C816DEF9E80021209B /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
 		CE78556916AB5BE40064460E /* CLPaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPaletteViewController.h; sourceTree = "<group>"; };
 		CE78556A16AB5BE40064460E /* CLPaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPaletteViewController.m; sourceTree = "<group>"; };
 		CE7855DF16AE34110064460E /* CLMothership.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMothership.h; sourceTree = "<group>"; };
@@ -153,6 +153,10 @@
 		CE307E2816D1A6BC0057A2FB /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				CE4240C816DEF9E80021209B /* Icon-72@2x.png */,
+				CE4240C616DEF9E40021209B /* Icon-72.png */,
+				CE4240C416DEF9DB0021209B /* Icon@2x.png */,
+				CE4240C216DEF9CD0021209B /* Icon.png */,
 				CE307E2F16D1A7130057A2FB /* Glyphish */,
 			);
 			name = Icons;
@@ -302,10 +306,6 @@
 		CED03B0216AA28660077CAB8 = {
 			isa = PBXGroup;
 			children = (
-				CE4240C816DEF9E80021209B /* Icon-72@2x.png */,
-				CE4240C616DEF9E40021209B /* Icon-72.png */,
-				CE4240C416DEF9DB0021209B /* Icon@2x.png */,
-				CE4240C216DEF9CD0021209B /* Icon.png */,
 				CED03B1716AA28660077CAB8 /* LoveLetter */,
 				CED03B1016AA28660077CAB8 /* Frameworks */,
 				CED03B0E16AA28660077CAB8 /* Products */,
