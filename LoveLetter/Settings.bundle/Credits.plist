@@ -8,20 +8,18 @@
 	<array>
 		<dict>
 			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
+			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Legal</string>
-			<key>File</key>
-			<string>Licenses</string>
+			<string>OMG CREDITS</string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
+			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Credits</string>
-			<key>File</key>
-			<string>Credits</string>
-		</dict>
+			<string>==========
+Kevin made this.
+            </string>
+		</dict>	
 	</array>
 </dict>
 </plist>
