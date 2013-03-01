@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE307E2A16D1A6D40057A2FB /* 29-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = CE307E2916D1A6D40057A2FB /* 29-heart.png */; };
-		CE307E2C16D1A6F00057A2FB /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = CE307E2B16D1A6F00057A2FB /* 19-gear.png */; };
-		CE307E2E16D1A70A0057A2FB /* 00-Read me first - license.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE307E2D16D1A70A0057A2FB /* 00-Read me first - license.txt */; };
 		CE4240C316DEF9CD0021209B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4240C216DEF9CD0021209B /* Icon.png */; };
 		CE4240C516DEF9DB0021209B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4240C416DEF9DB0021209B /* Icon@2x.png */; };
 		CE4240C716DEF9E40021209B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4240C616DEF9E40021209B /* Icon-72.png */; };
@@ -60,9 +57,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE307E2916D1A6D40057A2FB /* 29-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart.png"; sourceTree = "<group>"; };
-		CE307E2B16D1A6F00057A2FB /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
-		CE307E2D16D1A70A0057A2FB /* 00-Read me first - license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "00-Read me first - license.txt"; sourceTree = "<group>"; };
 		CE4240C216DEF9CD0021209B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		CE4240C416DEF9DB0021209B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		CE4240C616DEF9E40021209B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
@@ -166,19 +160,8 @@
 				CE637A0C16E03F9F0091455F /* gear.png */,
 				CE637A0D16E03F9F0091455F /* gear@2x.png */,
 				CE613DE816E0325500F815C8 /* App Icon */,
-				CE307E2F16D1A7130057A2FB /* Glyphish */,
 			);
 			name = Icons;
-			sourceTree = "<group>";
-		};
-		CE307E2F16D1A7130057A2FB /* Glyphish */ = {
-			isa = PBXGroup;
-			children = (
-				CE307E2D16D1A70A0057A2FB /* 00-Read me first - license.txt */,
-				CE307E2B16D1A6F00057A2FB /* 19-gear.png */,
-				CE307E2916D1A6D40057A2FB /* 29-heart.png */,
-			);
-			name = Glyphish;
 			sourceTree = "<group>";
 		};
 		CE613DE816E0325500F815C8 /* App Icon */ = {
@@ -470,9 +453,6 @@
 				CED03B2E16AA28660077CAB8 /* MainStoryboard_iPad.storyboard in Resources */,
 				CE78560A16AE36980064460E /* Settings.bundle in Resources */,
 				CE78564C16BCA30C0064460E /* SettingsViewController.xib in Resources */,
-				CE307E2A16D1A6D40057A2FB /* 29-heart.png in Resources */,
-				CE307E2C16D1A6F00057A2FB /* 19-gear.png in Resources */,
-				CE307E2E16D1A70A0057A2FB /* 00-Read me first - license.txt in Resources */,
 				CE4240C316DEF9CD0021209B /* Icon.png in Resources */,
 				CE4240C516DEF9DB0021209B /* Icon@2x.png in Resources */,
 				CE4240C716DEF9E40021209B /* Icon-72.png in Resources */,
