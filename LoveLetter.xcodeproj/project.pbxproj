@@ -14,6 +14,8 @@
 		CE4240C516DEF9DB0021209B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4240C416DEF9DB0021209B /* Icon@2x.png */; };
 		CE4240C716DEF9E40021209B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4240C616DEF9E40021209B /* Icon-72.png */; };
 		CE4240C916DEF9E80021209B /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4240C816DEF9E80021209B /* Icon-72@2x.png */; };
+		CE613DEF16E0333000F815C8 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = CE613DED16E0333000F815C8 /* heart.png */; };
+		CE613DF016E0333000F815C8 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE613DEE16E0333000F815C8 /* heart@2x.png */; };
 		CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78556A16AB5BE40064460E /* CLPaletteViewController.m */; };
 		CE7855E116AE34110064460E /* CLMothership.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855E016AE34110064460E /* CLMothership.m */; };
 		CE78560A16AE36980064460E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE78560916AE36980064460E /* Settings.bundle */; };
@@ -63,6 +65,8 @@
 		CE4240C416DEF9DB0021209B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		CE4240C616DEF9E40021209B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		CE4240C816DEF9E80021209B /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
+		CE613DED16E0333000F815C8 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		CE613DEE16E0333000F815C8 /* heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart@2x.png"; sourceTree = "<group>"; };
 		CE78556916AB5BE40064460E /* CLPaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPaletteViewController.h; sourceTree = "<group>"; };
 		CE78556A16AB5BE40064460E /* CLPaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPaletteViewController.m; sourceTree = "<group>"; };
 		CE7855DF16AE34110064460E /* CLMothership.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMothership.h; sourceTree = "<group>"; };
@@ -153,10 +157,9 @@
 		CE307E2816D1A6BC0057A2FB /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				CE4240C816DEF9E80021209B /* Icon-72@2x.png */,
-				CE4240C616DEF9E40021209B /* Icon-72.png */,
-				CE4240C416DEF9DB0021209B /* Icon@2x.png */,
-				CE4240C216DEF9CD0021209B /* Icon.png */,
+				CE613DED16E0333000F815C8 /* heart.png */,
+				CE613DEE16E0333000F815C8 /* heart@2x.png */,
+				CE613DE816E0325500F815C8 /* App Icon */,
 				CE307E2F16D1A7130057A2FB /* Glyphish */,
 			);
 			name = Icons;
@@ -170,6 +173,17 @@
 				CE307E2916D1A6D40057A2FB /* 29-heart.png */,
 			);
 			name = Glyphish;
+			sourceTree = "<group>";
+		};
+		CE613DE816E0325500F815C8 /* App Icon */ = {
+			isa = PBXGroup;
+			children = (
+				CE4240C816DEF9E80021209B /* Icon-72@2x.png */,
+				CE4240C616DEF9E40021209B /* Icon-72.png */,
+				CE4240C416DEF9DB0021209B /* Icon@2x.png */,
+				CE4240C216DEF9CD0021209B /* Icon.png */,
+			);
+			name = "App Icon";
 			sourceTree = "<group>";
 		};
 		CE7855E316AE34220064460E /* Model */ = {
@@ -457,6 +471,8 @@
 				CE4240C516DEF9DB0021209B /* Icon@2x.png in Resources */,
 				CE4240C716DEF9E40021209B /* Icon-72.png in Resources */,
 				CE4240C916DEF9E80021209B /* Icon-72@2x.png in Resources */,
+				CE613DEF16E0333000F815C8 /* heart.png in Resources */,
+				CE613DF016E0333000F815C8 /* heart@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

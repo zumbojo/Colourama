@@ -81,7 +81,7 @@
     
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     shareButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [shareButton setBackgroundImage:[UIImage imageNamed:@"29-heart"] forState:UIControlStateNormal];
+    [shareButton setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
     [shareButton addTarget:self action:@selector(shareButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [menuView addSubview:shareButton];
     
