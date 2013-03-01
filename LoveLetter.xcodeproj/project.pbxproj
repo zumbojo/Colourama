@@ -15,6 +15,7 @@
 		CE613DF016E0333000F815C8 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE613DEE16E0333000F815C8 /* heart@2x.png */; };
 		CE637A0E16E03F9F0091455F /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = CE637A0C16E03F9F0091455F /* gear.png */; };
 		CE637A0F16E03F9F0091455F /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE637A0D16E03F9F0091455F /* gear@2x.png */; };
+		CE637A1216E04EEF0091455F /* OnlyPortraitNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE637A1116E04EEF0091455F /* OnlyPortraitNavigationController.m */; };
 		CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78556A16AB5BE40064460E /* CLPaletteViewController.m */; };
 		CE7855E116AE34110064460E /* CLMothership.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7855E016AE34110064460E /* CLMothership.m */; };
 		CE78560A16AE36980064460E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE78560916AE36980064460E /* Settings.bundle */; };
@@ -65,6 +66,8 @@
 		CE613DEE16E0333000F815C8 /* heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart@2x.png"; sourceTree = "<group>"; };
 		CE637A0C16E03F9F0091455F /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		CE637A0D16E03F9F0091455F /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		CE637A1016E04EEF0091455F /* OnlyPortraitNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyPortraitNavigationController.h; sourceTree = "<group>"; };
+		CE637A1116E04EEF0091455F /* OnlyPortraitNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyPortraitNavigationController.m; sourceTree = "<group>"; };
 		CE78556916AB5BE40064460E /* CLPaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPaletteViewController.h; sourceTree = "<group>"; };
 		CE78556A16AB5BE40064460E /* CLPaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPaletteViewController.m; sourceTree = "<group>"; };
 		CE7855DF16AE34110064460E /* CLMothership.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMothership.h; sourceTree = "<group>"; };
@@ -175,6 +178,15 @@
 			name = "App Icon";
 			sourceTree = "<group>";
 		};
+		CE637A1316E04EF40091455F /* OnlyPortraitNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				CE637A1016E04EEF0091455F /* OnlyPortraitNavigationController.h */,
+				CE637A1116E04EEF0091455F /* OnlyPortraitNavigationController.m */,
+			);
+			name = OnlyPortraitNavigationController;
+			sourceTree = "<group>";
+		};
 		CE7855E316AE34220064460E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +203,7 @@
 			children = (
 				CE7855F516AE35DD0064460E /* AFNetworking (ba9185d) */,
 				CE804E1B16C4ACD30015FF35 /* NSMutableArray_Shuffling */,
+				CE637A1316E04EF40091455F /* OnlyPortraitNavigationController */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -496,6 +509,7 @@
 				CE78565C16BF707F0064460E /* CLPatternViewController.m in Sources */,
 				CE78566216C0A9180064460E /* KLPatternShiftView.m in Sources */,
 				CE804E1A16C4ACC70015FF35 /* NSMutableArray_Shuffling.m in Sources */,
+				CE637A1216E04EEF0091455F /* OnlyPortraitNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

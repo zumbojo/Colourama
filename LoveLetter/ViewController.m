@@ -15,6 +15,7 @@
 #import "CLPalette.h"
 #import "CLPattern.h"
 #import "NSMutableArray_Shuffling.h"
+#import "OnlyPortraitNavigationController.h"
 
 #define PAGES_TO_KEEP 100 // once we hit this many pages, clean out all but the N most recent pages
 
@@ -380,7 +381,7 @@
     }
     else {
         // http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.settingsViewController];
+        OnlyPortraitNavigationController *navController = [[OnlyPortraitNavigationController alloc] initWithRootViewController:self.settingsViewController];
         self.settingsViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
                                                                                                          style:UIBarButtonItemStylePlain
                                                                                                         target:self
