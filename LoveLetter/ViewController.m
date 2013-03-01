@@ -75,7 +75,7 @@
     // todo: add Glyphish license to Settings.bundle (if Glyphish icons are used for final version)
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [settingsButton setBackgroundImage:[UIImage imageNamed:@"19-gear"] forState:UIControlStateNormal];
+    [settingsButton setBackgroundImage:[UIImage imageNamed:@"gear"] forState:UIControlStateNormal];
     [settingsButton addTarget:self action:@selector(settingsButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [menuView addSubview:settingsButton];
     
