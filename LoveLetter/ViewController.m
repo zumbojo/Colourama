@@ -347,8 +347,8 @@
 #pragma mark Buttons
 
 - (IBAction)shareButtonTouched:(id)sender {
-    [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
-
+    [self cancelControlHiding];
+    
     // create shareMenu (or hide existing):
     if (self.shareMenu) {
         // dismiss existing shareMenu to prevent multiple from appearing:
@@ -370,12 +370,13 @@
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
-    [self hideControlsAfterDelay]; // reset the hide timer (so touching the buttons keep them shown)
+    [self cancelControlHiding];
         
     // show settingsVC:
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         // http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/Popovers.html
         self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:self.settingsViewController];
+        self.settingsPopover.delegate = self;
         self.settingsPopover.popoverContentSize = self.settingsViewController.view.frame.size;
         [self.settingsPopover presentPopoverFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
@@ -394,6 +395,13 @@
 - (void)dismissViewController {
     [self hideControlsAfterDelay];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark UIPopoverControllerDelegate
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+    [self hideControlsAfterDelay];
+    NSLog(@"popoverControllerDidDismissPopover");
 }
 
 #pragma mark UIActionSheetDelegate
