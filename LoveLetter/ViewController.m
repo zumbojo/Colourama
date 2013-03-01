@@ -94,7 +94,7 @@
                                                views:views]];
     
     [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[menuViewShadow]-7-[shareButton]" // 7 instead of 5 due to differently-sized Glyphish test icons >:-(
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[menuViewShadow]-5-[shareButton]"
                                              options:0
                                              metrics:nil
                                                views:views]];
