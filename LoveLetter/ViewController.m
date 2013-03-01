@@ -30,6 +30,8 @@
 @property (nonatomic) UIViewController *currentPage; // ditto
 
 @property (nonatomic) UIView *menuView;
+@property (nonatomic) UIButton *shareButton;
+@property (nonatomic) UIButton *settingsButton;
 @property (nonatomic) UIActionSheet *shareMenu;
 @property (nonatomic) UIPopoverController *settingsPopover;
 @property (nonatomic) SettingsViewController *settingsViewController;
@@ -79,12 +81,14 @@
     [settingsButton setBackgroundImage:[UIImage imageNamed:@"gear"] forState:UIControlStateNormal];
     [settingsButton addTarget:self action:@selector(settingsButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [menuView addSubview:settingsButton];
+    self.settingsButton = settingsButton;
     
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     shareButton.translatesAutoresizingMaskIntoConstraints = NO;
     [shareButton setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
     [shareButton addTarget:self action:@selector(shareButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [menuView addSubview:shareButton];
+    self.shareButton = shareButton;
     
     NSDictionary *views = NSDictionaryOfVariableBindings(menuView, menuViewShadow, settingsButton, shareButton);
 
@@ -167,6 +171,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if (self.settingsPopover && self.settingsPopover.popoverVisible) {
+        [self showSettingsPopover];
+    }
 }
 
 #pragma mark -
@@ -374,11 +384,7 @@
         
     // show settingsVC:
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        // http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/Popovers.html
-        self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:self.settingsViewController];
-        self.settingsPopover.delegate = self;
-        self.settingsPopover.popoverContentSize = self.settingsViewController.view.frame.size;
-        [self.settingsPopover presentPopoverFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        [self showSettingsPopover];
     }
     else {
         // http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html
@@ -390,6 +396,18 @@
         self.settingsViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         [self presentViewController:navController animated:YES completion:nil];
     }
+}
+
+- (void)showSettingsPopover {
+    // http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/Popovers.html
+
+    if (!self.settingsPopover) {
+        self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:self.settingsViewController];
+        self.settingsPopover.delegate = self;
+        self.settingsPopover.popoverContentSize = self.settingsViewController.view.frame.size;
+    }
+    
+    [self.settingsPopover presentPopoverFromRect:self.settingsButton.frame inView:self.settingsButton.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)dismissViewController {
