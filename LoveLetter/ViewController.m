@@ -174,9 +174,32 @@
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    if (self.settingsPopover && self.settingsPopover.popoverVisible) {
-        [self showSettingsPopover];
+
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if (self.shareMenu && self.shareMenu.visible) {
+            [self cancelControlHiding];
+            [self showShareMenu];
+        }
+        
+        
+        if (self.settingsPopover && self.settingsPopover.popoverVisible) {
+            [self showSettingsPopover];
+        }
     }
+    
+    
+//    [self.shareMenu dismissWithClickedButtonIndex:-1 animated:NO];
+//}
+//else {
+//    self.shareMenu = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open in Safari", nil];
+//}
+//
+//// show shareMenu:
+//if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+//    [self.shareMenu showFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview animated:YES];
+    
+    
+
 }
 
 #pragma mark -
@@ -358,20 +381,23 @@
 
 - (IBAction)shareButtonTouched:(id)sender {
     [self cancelControlHiding];
-    
+    [self showShareMenu];
+}
+
+- (void)showShareMenu {
     // create shareMenu (or hide existing):
     if (self.shareMenu) {
         // dismiss existing shareMenu to prevent multiple from appearing:
         // see http://stackoverflow.com/questions/5448987/ipads-uiactionsheet-showing-multiple-times
         [self.shareMenu dismissWithClickedButtonIndex:-1 animated:NO];
     }
-    else {
-        self.shareMenu = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open in Safari", nil];
-    }
+    
+    self.shareMenu = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open in Safari", nil];
     
     // show shareMenu:
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self.shareMenu showFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview animated:YES];
+        //[self.shareMenu showFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview animated:YES];
+        [self.shareMenu showFromRect:self.shareButton.frame inView:self.shareButton.superview animated:YES];
         // http://stackoverflow.com/questions/13710789/uiactionsheet-showfromrect-autorotation
     }
     else {
