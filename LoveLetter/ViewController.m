@@ -174,32 +174,16 @@
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         if (self.shareMenu && self.shareMenu.visible) {
             [self cancelControlHiding];
             [self showShareMenu];
         }
         
-        
         if (self.settingsPopover && self.settingsPopover.popoverVisible) {
             [self showSettingsPopover];
         }
     }
-    
-    
-//    [self.shareMenu dismissWithClickedButtonIndex:-1 animated:NO];
-//}
-//else {
-//    self.shareMenu = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open in Safari", nil];
-//}
-//
-//// show shareMenu:
-//if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//    [self.shareMenu showFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview animated:YES];
-    
-    
-
 }
 
 #pragma mark -
