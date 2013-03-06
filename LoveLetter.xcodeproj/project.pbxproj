@@ -55,6 +55,10 @@
 		CED03B3A16AA2D5C0077CAB8 /* CLPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3916AA2D5C0077CAB8 /* CLPalette.m */; };
 		CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */ = {isa = PBXBuildFile; fileRef = CED03B3C16AA2E220077CAB8 /* CLSlat.m */; };
 		CED03B4616AA34240077CAB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED03B4516AA34230077CAB8 /* QuartzCore.framework */; };
+		CED1B70616E6CFB1007C066D /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1B70516E6CFB1007C066D /* Default-Landscape@2x.png */; };
+		CED1B70A16E6D13E007C066D /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1B70716E6D13E007C066D /* Default-Landscape.png */; };
+		CED1B70B16E6D13E007C066D /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1B70816E6D13E007C066D /* Default-Portrait.png */; };
+		CED1B70C16E6D13E007C066D /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1B70916E6D13E007C066D /* Default-Portrait@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +140,10 @@
 		CED03B3C16AA2E220077CAB8 /* CLSlat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSlat.m; sourceTree = "<group>"; };
 		CED03B4516AA34230077CAB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CED03B4716AA37200077CAB8 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		CED1B70516E6CFB1007C066D /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x.png"; sourceTree = "<group>"; };
+		CED1B70716E6D13E007C066D /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		CED1B70816E6D13E007C066D /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		CED1B70916E6D13E007C066D /* Default-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +381,7 @@
 		CED03B1816AA28660077CAB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CED1B70416E6CF99007C066D /* Launch Images */,
 				CE78560916AE36980064460E /* Settings.bundle */,
 				CED03B1916AA28660077CAB8 /* LoveLetter-Info.plist */,
 				CED03B1A16AA28660077CAB8 /* InfoPlist.strings */,
@@ -405,6 +414,25 @@
 				CE78565F16C0A8140064460E /* Patterns */,
 			);
 			name = "Pretty Views";
+			sourceTree = "<group>";
+		};
+		CED1B70416E6CF99007C066D /* Launch Images */ = {
+			isa = PBXGroup;
+			children = (
+				CED1B70D16E6D149007C066D /* iPad */,
+			);
+			name = "Launch Images";
+			sourceTree = "<group>";
+		};
+		CED1B70D16E6D149007C066D /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				CED1B70716E6D13E007C066D /* Default-Landscape.png */,
+				CED1B70816E6D13E007C066D /* Default-Portrait.png */,
+				CED1B70916E6D13E007C066D /* Default-Portrait@2x.png */,
+				CED1B70516E6CFB1007C066D /* Default-Landscape@2x.png */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +502,10 @@
 				CE613DF016E0333000F815C8 /* heart@2x.png in Resources */,
 				CE637A0E16E03F9F0091455F /* gear.png in Resources */,
 				CE637A0F16E03F9F0091455F /* gear@2x.png in Resources */,
+				CED1B70616E6CFB1007C066D /* Default-Landscape@2x.png in Resources */,
+				CED1B70A16E6D13E007C066D /* Default-Landscape.png in Resources */,
+				CED1B70B16E6D13E007C066D /* Default-Portrait.png in Resources */,
+				CED1B70C16E6D13E007C066D /* Default-Portrait@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
