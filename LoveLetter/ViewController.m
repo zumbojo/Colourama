@@ -207,7 +207,7 @@
             NSLog(@"%d pretty things returned", [prettyThings count]);
             
             if (!prettyThings.count) {
-                // todo: If no network, throw up a UIAlertView to that effect.  If it's some other error, start a retry timer.
+                // todo: If no network, throw up a UIAlertView to that effect.  If it's some other error, start a retry timer. (#45)
                 NSLog(@"NOTHING RETURNED!");
             }
             
