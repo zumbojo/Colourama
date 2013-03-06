@@ -50,11 +50,11 @@
     [super viewDidLoad];
     self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
     
-    [self populateContentControllers];
-    
-    [self setupPageViewController];
-    
-    [self setupMenuBarAndSpinner];
+//    [self populateContentControllers];
+//    
+//    [self setupPageViewController];
+//
+//    [self setupMenuBarAndSpinner];
 
     self.fetchInProgress = NO;
     [self checkAndFetchAndClean];
@@ -212,6 +212,12 @@
         [[CLMothership sharedInstance] loadPrettyThingsOfClasses:classes withVariety:self.preferredVariety success:^(NSArray *prettyThings) {
             NSLog(@"%d pretty things returned", [prettyThings count]);
             
+            BOOL isFirstBatch = !self.contentControllers;
+            
+            if (isFirstBatch) {
+                self.contentControllers = [[NSMutableArray alloc] init];
+            }
+            
             // shuffle, create PVCs, append to self.contentControllers:
             NSMutableArray *shuffled = [[NSMutableArray alloc] initWithArray:prettyThings];
             [shuffled shuffle];
@@ -224,6 +230,13 @@
             }
             
             [self applySettingsToAllContentControllers];
+            
+            if (isFirstBatch) {
+                [self setupPageViewController];
+                [self setupMenuBarAndSpinner];
+                
+                // todo: start fade in, etc.
+            }
         }];
     }
     else {
