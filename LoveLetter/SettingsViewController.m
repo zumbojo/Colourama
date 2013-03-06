@@ -58,7 +58,7 @@
     if (![defaults objectForKey:SHOW_COLORS_KEY]) { // setup NSUserDefaults if none exist
         NSLog(@"no NSUserDefaults");
         [defaults setInteger:0 forKey:TRANSITION_DURATION_INDEX_KEY];
-        [defaults setInteger:CLPrettyThingVarietyRandom forKey:PREFERRED_VARIETY_KEY];
+        [defaults setInteger:CLPrettyThingVarietyTop forKey:PREFERRED_VARIETY_KEY];
         [defaults setBool:YES forKey:SHOW_COLORS_KEY];
         [defaults setBool:YES forKey:SHOW_PALETTES_KEY];
         [defaults setBool:YES forKey:SHOW_PATTERNS_KEY];
