@@ -49,12 +49,6 @@
 {
     [super viewDidLoad];
     self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
-    
-//    [self populateContentControllers];
-//    
-//    [self setupPageViewController];
-//
-//    [self setupMenuBarAndSpinner];
 
     self.fetchInProgress = NO;
     [self checkAndFetchAndClean];
@@ -259,15 +253,6 @@
 
 #pragma mark -
 #pragma mark Content Controller Creation
-
-- (void)populateContentControllers
-{
-    NSMutableArray *pvcs = [[NSMutableArray alloc] init];
-    
-    [pvcs addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:[self samplePalettes]]];
-    
-    self.contentControllers = pvcs;
-}
 
 - (NSArray *)prettyThingViewControllersFromPrettyThings:(NSArray *)prettyThings {
     NSMutableArray *ptvcs = [[NSMutableArray alloc] init];
@@ -632,64 +617,6 @@
     [self applyBlock:^(UIViewController *controller) {
         [(CLPrettyThingViewController *)controller setShowByline:self.showByline animated:YES];
     } toAllContentControllersOfClass:[CLPrettyThingViewController class]];    
-}
-
-#pragma mark -
-#pragma mark Test Methods
-
-- (void)toggleFadeToNextPageTimer {
-    if (!self.fadeToNextPageTimer) {
-        self.fadeToNextPageTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(fadeToNextPage) userInfo:nil repeats:YES];
-    }
-    else {
-        [self.fadeToNextPageTimer invalidate];
-        self.fadeToNextPageTimer = nil;
-    }
-}
-
-#pragma mark Test Data
-
-- (NSArray *)samplePalettes {
-    return @[
-    // "Terra?"
-    // http://www.colourlovers.com/api/palette/292482&showPaletteWidths=1
-    [CLPalette paletteFromArray:@[
-     @[@"E8DDCB", [NSNumber numberWithFloat:0.05]],
-     @[@"CDB380", [NSNumber numberWithFloat:0.06]],
-     @[@"036564", [NSNumber numberWithFloat:0.06]],
-     @[@"033649", [NSNumber numberWithFloat:0.14]],
-     @[@"031634", [NSNumber numberWithFloat:0.69]]
-     ]],
-    
-    // "cheer up emo kid"
-    // http://www.colourlovers.com/api/palette/1930&showPaletteWidths=1
-    [CLPalette paletteFromArray:@[
-     @[@"556270", [NSNumber numberWithFloat:0.2]],
-     @[@"4ECDC4", [NSNumber numberWithFloat:0.2]],
-     @[@"C7F464", [NSNumber numberWithFloat:0.2]],
-     @[@"FF6B6B", [NSNumber numberWithFloat:0.2]],
-     @[@"C44D58", [NSNumber numberWithFloat:0.2]]
-     ]],
-
-    // "Metro"
-    // http://www.colourlovers.com/api/palette/1&showPaletteWidths=1
-    [CLPalette paletteFromArray:@[
-     @[@"515151", [NSNumber numberWithFloat:0.25]],
-     @[@"FFFFFF", [NSNumber numberWithFloat:0.25]],
-     @[@"00B4FF", [NSNumber numberWithFloat:0.25]],
-     @[@"EEEEEE", [NSNumber numberWithFloat:0.25]]
-     ]],
-    
-    // "Ashley's Peanut Cake"
-    // http://www.colourlovers.com/api/palette/2646927&showPaletteWidths=1
-    [CLPalette paletteFromArray:@[
-     @[@"5F5453", [NSNumber numberWithFloat:0.37]],
-     @[@"EEB548", [NSNumber numberWithFloat:0.10]],
-     @[@"F7C95F", [NSNumber numberWithFloat:0.05]],
-     @[@"D5BD95", [NSNumber numberWithFloat:0.03]],
-     @[@"6D6379", [NSNumber numberWithFloat:0.45]]
-     ]]
-    ];    
 }
 
 @end

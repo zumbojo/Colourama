@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -13,10 +13,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="bM5-Ar-Kui"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading pretty things..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaw-9r-mtC">
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bM5-Ar-Kui" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BXl-HV-Ppa"/>
+                            <constraint firstItem="kaw-9r-mtC" firstAttribute="top" secondItem="5" secondAttribute="top" constant="373" id="cIl-FT-LjR"/>
+                            <constraint firstItem="kaw-9r-mtC" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="fi3-vb-yqS"/>
                             <constraint firstItem="bM5-Ar-Kui" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="tuW-lv-dqR"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
