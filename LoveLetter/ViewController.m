@@ -75,7 +75,6 @@
     [menuView addSubview:menuViewShadow];
     
     // buttons
-    // todo: add Glyphish license to Settings.bundle (if Glyphish icons are used for final version)
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.translatesAutoresizingMaskIntoConstraints = NO;
     [settingsButton setBackgroundImage:[UIImage imageNamed:@"gear"] forState:UIControlStateNormal];
@@ -130,9 +129,6 @@
                                              options:0
                                              metrics:nil
                                                views:views]];
-    
-    // todo: wire up new settingsButton and shareButtons
-    // todo: handle fading this bar
     
     [self.view bringSubviewToFront:self.spinner];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
