@@ -206,6 +206,11 @@
         [[CLMothership sharedInstance] loadPrettyThingsOfClasses:classes withVariety:self.preferredVariety success:^(NSArray *prettyThings) {
             NSLog(@"%d pretty things returned", [prettyThings count]);
             
+            if (!prettyThings.count) {
+                // todo: If no network, throw up a UIAlertView to that effect.  If it's some other error, start a retry timer.
+                NSLog(@"NOTHING RETURNED!");
+            }
+            
             BOOL isFirstBatch = !self.contentControllers;
             
             if (isFirstBatch) {
@@ -226,10 +231,12 @@
             [self applySettingsToAllContentControllers];
             
             if (isFirstBatch) {
-                [self setupPageViewController];
-                [self setupMenuBarAndSpinner];
-                
-                // todo: start fade in, etc.
+                if (self.contentControllers.count) { // If any contentControllers exist, continue setup
+                    [self setupPageViewController];
+                    [self setupMenuBarAndSpinner];
+                    
+                    // todo: start fade in, etc.
+                }
             }
         }];
     }
