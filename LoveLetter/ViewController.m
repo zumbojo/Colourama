@@ -211,7 +211,7 @@
                 NSLog(@"NOTHING RETURNED!");
             }
             
-            BOOL isFirstBatch = !self.contentControllers;
+            BOOL isFirstBatch = !self.contentControllers.count;
             
             if (isFirstBatch) {
                 self.contentControllers = [[NSMutableArray alloc] init];
