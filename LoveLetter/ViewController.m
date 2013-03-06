@@ -230,13 +230,11 @@
             
             [self applySettingsToAllContentControllers];
             
-            if (isFirstBatch) {
-                if (self.contentControllers.count) { // If any contentControllers exist, continue setup
-                    [self setupPageViewController];
-                    [self setupMenuBarAndSpinner];
-                    
-                    // todo: start fade in, etc.
-                }
+            if (isFirstBatch && self.contentControllers.count) {
+                [self setupPageViewController];
+                [self setupMenuBarAndSpinner];
+                
+                // todo: start fade in, etc.
             }
         }];
     }
