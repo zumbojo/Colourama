@@ -57,7 +57,7 @@
     }];
     
 //    self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
-
+//
 //    self.fetchInProgress = NO;
 //    [self checkAndFetchAndClean];
 }
@@ -262,6 +262,7 @@
                 
                 [UIView animateWithDuration:1 animations:^{
                     self.pageController.view.alpha = 1;
+                    self.loadingLabel.alpha = 0;
                 }];
             }
         }];
