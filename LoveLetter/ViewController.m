@@ -61,7 +61,7 @@
     UIView *menuView = [[UIView alloc] init];
     menuView.translatesAutoresizingMaskIntoConstraints  = NO;
     menuView.backgroundColor = BAR_BACKGROUND_COLOR;
-    [self.view addSubview:menuView];
+    [self.pageController.view addSubview:menuView];
     self.menuView = menuView;
     
     UIView *menuViewShadow = [[UIView alloc] init];
@@ -142,6 +142,7 @@
     self.pageController.delegate = self;
     self.pageController.dataSource = self;
     self.pageController.view.frame = self.view.bounds;
+    self.pageController.view.alpha = 0;
     
     UIViewController *initialViewController = [self viewControllerAtIndex:0];
     NSArray *viewControllers =
@@ -236,7 +237,9 @@
                 [self setupPageViewController];
                 [self setupMenuBarAndSpinner];
                 
-                // todo: start fade in, etc.
+                [UIView animateWithDuration:1 animations:^{
+                    self.pageController.view.alpha = 1;
+                }];
             }
         }];
     }
