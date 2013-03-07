@@ -55,6 +55,17 @@
 //    [self checkAndFetchAndClean];
 }
 
+- (void)loadiPhoneBackgroundImage {
+    // http://stackoverflow.com/a/12890447/103058
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        if ([[UIScreen mainScreen] bounds].size.height == 568) {
+            //5
+        }else{
+            //not 5
+        }
+    }
+}
+
 - (void)setupMenuBarAndSpinner {
     // based on byline (addThingLabels: in CLPrettyThingViewController.m)
     

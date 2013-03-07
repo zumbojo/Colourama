@@ -35,6 +35,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="backgroundImageView" destination="uD0-Zv-GEA" id="zix-kF-yHR"/>
                         <outlet property="spinner" destination="oKB-6t-8mr" id="moi-aI-BDM"/>
                     </connections>
                 </viewController>
@@ -51,6 +52,7 @@
             <relationships>
                 <relationship kind="action" name="settingsButtonTouched:"/>
                 <relationship kind="action" name="shareButtonTouched:"/>
+                <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>

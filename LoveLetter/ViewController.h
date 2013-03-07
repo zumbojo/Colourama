@@ -14,6 +14,7 @@
 @interface ViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 - (IBAction)shareButtonTouched:(id)sender;
 - (IBAction)settingsButtonTouched:(id)sender;
