@@ -9,10 +9,11 @@
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="oKB-6t-8mr"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="uD0-Zv-GEA"/>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading pretty things..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkE-08-QnH">
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -21,15 +22,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="uD0-Zv-GEA" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="3dh-bs-D9b"/>
                             <constraint firstItem="FkE-08-QnH" firstAttribute="top" secondItem="3" secondAttribute="top" constant="149" id="CgS-7E-0v0"/>
+                            <constraint firstItem="uD0-Zv-GEA" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="FqJ-xr-zw8"/>
+                            <constraint firstItem="uD0-Zv-GEA" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Ftf-gC-0aE"/>
                             <constraint firstItem="oKB-6t-8mr" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ZtR-Fl-P6W"/>
+                            <constraint firstItem="uD0-Zv-GEA" firstAttribute="centerX" secondItem="FkE-08-QnH" secondAttribute="centerX" type="default" id="cwU-wY-5VT"/>
                             <constraint firstAttribute="trailing" secondItem="oKB-6t-8mr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eRq-CU-sBV"/>
-                            <constraint firstItem="FkE-08-QnH" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="kDX-7b-VIW"/>
+                            <constraint firstItem="uD0-Zv-GEA" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="x7r-0y-icC"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="spinner" destination="oKB-6t-8mr" id="moi-aI-BDM"/>
                     </connections>
