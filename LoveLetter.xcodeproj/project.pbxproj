@@ -62,6 +62,8 @@
 		CED1B72316E839CB007C066D /* 1136x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1B72116E839CB007C066D /* 1136x1136.png */; };
 		CED1B72416E839CB007C066D /* 2048x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1B72216E839CB007C066D /* 2048x2048.png */; };
 		CED1B72616E83DB5007C066D /* 960x960.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1B72516E83DB5007C066D /* 960x960.png */; };
+		CED1B72816E848D5007C066D /* 480x480.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1B72716E848D5007C066D /* 480x480.png */; };
+		CED1B72A16E848E8007C066D /* 1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1B72916E848E8007C066D /* 1024x1024.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +152,8 @@
 		CED1B72116E839CB007C066D /* 1136x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1136x1136.png; sourceTree = "<group>"; };
 		CED1B72216E839CB007C066D /* 2048x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2048x2048.png; sourceTree = "<group>"; };
 		CED1B72516E83DB5007C066D /* 960x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 960x960.png; sourceTree = "<group>"; };
+		CED1B72716E848D5007C066D /* 480x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 480x480.png; sourceTree = "<group>"; };
+		CED1B72916E848E8007C066D /* 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024x1024.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,8 +455,10 @@
 		CED1B71F16E837C4007C066D /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				CED1B72716E848D5007C066D /* 480x480.png */,
 				CED1B72516E83DB5007C066D /* 960x960.png */,
 				CED1B72116E839CB007C066D /* 1136x1136.png */,
+				CED1B72916E848E8007C066D /* 1024x1024.png */,
 				CED1B72216E839CB007C066D /* 2048x2048.png */,
 			);
 			name = Backgrounds;
@@ -542,6 +548,8 @@
 				CED1B72316E839CB007C066D /* 1136x1136.png in Resources */,
 				CED1B72416E839CB007C066D /* 2048x2048.png in Resources */,
 				CED1B72616E83DB5007C066D /* 960x960.png in Resources */,
+				CED1B72816E848D5007C066D /* 480x480.png in Resources */,
+				CED1B72A16E848E8007C066D /* 1024x1024.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
