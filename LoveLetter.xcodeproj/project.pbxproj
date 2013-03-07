@@ -372,7 +372,7 @@
 				CE78564916BCA30B0064460E /* SettingsViewController.m */,
 				CE78564A16BCA30C0064460E /* SettingsViewController.xib */,
 				CED03B1816AA28660077CAB8 /* Supporting Files */,
-				CE307E2816D1A6BC0057A2FB /* Icons */,
+				CED1B72016E837D3007C066D /* Images */,
 				CE7855F316AE35C10064460E /* External */,
 			);
 			path = LoveLetter;
@@ -381,7 +381,6 @@
 		CED03B1816AA28660077CAB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CED1B70416E6CF99007C066D /* Launch Images */,
 				CE78560916AE36980064460E /* Settings.bundle */,
 				CED03B1916AA28660077CAB8 /* LoveLetter-Info.plist */,
 				CED03B1A16AA28660077CAB8 /* InfoPlist.strings */,
@@ -441,6 +440,23 @@
 				CED1B71216E6D2A8007C066D /* Default@2x.png */,
 			);
 			name = iPhone;
+			sourceTree = "<group>";
+		};
+		CED1B71F16E837C4007C066D /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Backgrounds;
+			sourceTree = "<group>";
+		};
+		CED1B72016E837D3007C066D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CED1B71F16E837C4007C066D /* Backgrounds */,
+				CE307E2816D1A6BC0057A2FB /* Icons */,
+				CED1B70416E6CF99007C066D /* Launch Images */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
