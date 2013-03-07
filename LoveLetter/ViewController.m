@@ -49,19 +49,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadPhoneBackgroundImage];
 //    self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
 
 //    self.fetchInProgress = NO;
 //    [self checkAndFetchAndClean];
 }
 
-- (void)loadiPhoneBackgroundImage {
+- (void)loadPhoneBackgroundImage {
     // http://stackoverflow.com/a/12890447/103058
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-        if ([[UIScreen mainScreen] bounds].size.height == 568) {
-            //5
-        }else{
-            //not 5
+        if ([[UIScreen mainScreen] bounds].size.height == 568) { // iPhone 5 (and probably future widescreen devices)
+            self.backgroundImageView.image = [UIImage imageNamed:@"1136x1136"];
+        }
+        else {
+            self.backgroundImageView.image = [UIImage imageNamed:@"960x960"];
         }
     }
 }
