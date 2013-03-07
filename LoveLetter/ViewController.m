@@ -35,6 +35,7 @@
 @property (nonatomic) UIActionSheet *shareMenu;
 @property (nonatomic) UIPopoverController *settingsPopover;
 @property (nonatomic) SettingsViewController *settingsViewController;
+@property (nonatomic) UIAlertView *networkAlertView;
 
 @property (nonatomic) BOOL fetchInProgress;
 
@@ -206,9 +207,10 @@
         [[CLMothership sharedInstance] loadPrettyThingsOfClasses:classes withVariety:self.preferredVariety success:^(NSArray *prettyThings) {
             NSLog(@"%d pretty things returned", [prettyThings count]);
             
-            if (!prettyThings.count) {
-                // todo: If no network, throw up a UIAlertView to that effect.  If it's some other error, start a retry timer. (#45)
-                NSLog(@"NOTHING RETURNED!");
+            if (!prettyThings.count && !self.networkAlertView) {
+                // If nothing is returned, throw up a network error UIAlertView, with a retry button that starts a new fetch operation.
+                self.networkAlertView = [[UIAlertView alloc] initWithTitle:@"Network error" message:@"Please check your internet connection." delegate:self cancelButtonTitle:@"Try again" otherButtonTitles:nil];
+                [self.networkAlertView show];
             }
             
             BOOL isFirstBatch = !self.contentControllers.count;
