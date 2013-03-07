@@ -50,6 +50,12 @@
 {
     [super viewDidLoad];
     [self loadPhoneBackgroundImage];
+    
+    self.loadingLabel.alpha = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.loadingLabel.alpha = 1;
+    }];
+    
 //    self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
 
 //    self.fetchInProgress = NO;

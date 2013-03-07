@@ -36,6 +36,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="Ieh-cB-fWW" id="l1k-Ng-DkW"/>
+                        <outlet property="loadingLabel" destination="kaw-9r-mtC" id="Xey-JN-DBT"/>
                         <outlet property="spinner" destination="bM5-Ar-Kui" id="8Zx-MM-xCY"/>
                     </connections>
                 </viewController>
@@ -57,6 +58,7 @@
                 <relationship kind="action" name="settingsButtonTouched:"/>
                 <relationship kind="action" name="shareButtonTouched:"/>
                 <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>
