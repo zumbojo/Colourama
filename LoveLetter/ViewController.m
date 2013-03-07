@@ -284,6 +284,16 @@
 }
 
 #pragma mark -
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView == self.networkAlertView) {
+        [self checkAndFetchAndClean];
+        self.networkAlertView = nil;
+    }
+}
+
+#pragma mark -
 #pragma mark UIPageViewControllerDataSource
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController

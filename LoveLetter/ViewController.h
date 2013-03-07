@@ -11,7 +11,7 @@
 #import "SettingsViewController.h"
 #import "CLMothership.h"
 
-@interface ViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverControllerDelegate>
+@interface ViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
