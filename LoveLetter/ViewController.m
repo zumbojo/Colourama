@@ -49,7 +49,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadPhoneBackgroundImage];
+    [self loadBackgroundImage];
     
     self.loadingLabel.alpha = 0;
     [UIView animateWithDuration:0.5 animations:^{
@@ -62,15 +62,19 @@
 //    [self checkAndFetchAndClean];
 }
 
-- (void)loadPhoneBackgroundImage {
-    // http://stackoverflow.com/a/12890447/103058
+- (void)loadBackgroundImage {
+    // Detect iPhone 5: http://stackoverflow.com/a/12890447/103058
+    // Detect Retina: http://stackoverflow.com/questions/3504173/detect-retina-display
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
         if ([[UIScreen mainScreen] bounds].size.height == 568) { // iPhone 5 (and probably future widescreen devices)
             self.backgroundImageView.image = [UIImage imageNamed:@"1136x1136"];
         }
         else {
-            self.backgroundImageView.image = [UIImage imageNamed:@"960x960"];
+            self.backgroundImageView.image = [UIScreen mainScreen].scale == 2.0 ? [UIImage imageNamed:@"960x960"] : [UIImage imageNamed:@"480x480"];
         }
+    }
+    else {
+        self.backgroundImageView.image = [UIScreen mainScreen].scale == 2.0 ? [UIImage imageNamed:@"2048x2048"] : [UIImage imageNamed:@"1024x1024"];
     }
 }
 
