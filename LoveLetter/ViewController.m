@@ -80,7 +80,7 @@
 - (void)showLoadingLabel {
     self.loadingLabel = [[UILabel alloc] init];
     self.loadingLabel.text = @"Loading pretty things...";
-    self.loadingLabel.textColor = [UIColor whiteColor];
+    self.loadingLabel.textColor = UIColorFromRGBString(@"DDDDDD");
     self.loadingLabel.backgroundColor = [UIColor clearColor];
     self.loadingLabel.alpha = 0;
     [self.view addSubview:self.loadingLabel];
