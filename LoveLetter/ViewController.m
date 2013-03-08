@@ -160,7 +160,7 @@
     UIView *menuView = [[UIView alloc] init];
     menuView.translatesAutoresizingMaskIntoConstraints  = NO;
     menuView.backgroundColor = BAR_BACKGROUND_COLOR;
-    [self.pageController.view addSubview:menuView];
+    [self.view addSubview:menuView];
     self.menuView = menuView;
     
     UIView *menuViewShadow = [[UIView alloc] init];
