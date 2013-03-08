@@ -16,6 +16,7 @@
 #import "CLPattern.h"
 #import "NSMutableArray_Shuffling.h"
 #import "OnlyPortraitNavigationController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define PAGES_TO_KEEP 100 // once we hit this many pages, clean out all but the N most recent pages
 
@@ -79,9 +80,17 @@
 - (void)showLoadingLabel {
     self.loadingLabel = [[UILabel alloc] init];
     self.loadingLabel.text = @"Loading pretty things...";
+    self.loadingLabel.textColor = [UIColor whiteColor];
     self.loadingLabel.backgroundColor = [UIColor clearColor];
     self.loadingLabel.alpha = 0;
     [self.view addSubview:self.loadingLabel];
+    
+    // shadow from http://stackoverflow.com/a/4748311/103058
+    self.loadingLabel.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.loadingLabel.layer.shadowOffset = CGSizeMake(0.5, 0.5);
+    self.loadingLabel.layer.shadowRadius = 1.0;
+    self.loadingLabel.layer.shadowOpacity = 0.5;
+    self.loadingLabel.layer.masksToBounds = NO;
     
     // offset from center contstraints from http://stackoverflow.com/a/14722308/103058
     [self.loadingLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
