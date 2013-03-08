@@ -54,12 +54,11 @@
     [super viewDidLoad];
     [self loadBackgroundImage];
     [self showLoadingLabel];
-
     
-//    self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
-//
-//    self.fetchInProgress = NO;
-//    [self checkAndFetchAndClean];
+    self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
+
+    self.fetchInProgress = NO;
+    [self checkAndFetchAndClean];
 }
 
 - (void)loadBackgroundImage {
