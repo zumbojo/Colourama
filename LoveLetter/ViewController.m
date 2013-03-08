@@ -31,6 +31,7 @@
 @property (nonatomic) UIViewController *currentPage; // ditto
 
 @property (nonatomic) UILabel *loadingLabel;
+@property (nonatomic) UIActivityIndicatorView *initialLoadingSpinner;
 @property (nonatomic) UIView *menuView;
 @property (nonatomic) UIButton *shareButton;
 @property (nonatomic) UIButton *settingsButton;
@@ -82,15 +83,14 @@
     self.loadingLabel.text = @"Loading pretty things...";
     self.loadingLabel.textColor = UIColorFromRGBString(@"DDDDDD");
     self.loadingLabel.backgroundColor = [UIColor clearColor];
-    self.loadingLabel.alpha = 0;
-    [self.view addSubview:self.loadingLabel];
-    
     // shadow from http://stackoverflow.com/a/4748311/103058
     self.loadingLabel.layer.shadowColor = [[UIColor blackColor] CGColor];
     self.loadingLabel.layer.shadowOffset = CGSizeMake(0.5, 0.5);
     self.loadingLabel.layer.shadowRadius = 1.0;
     self.loadingLabel.layer.shadowOpacity = 0.5;
     self.loadingLabel.layer.masksToBounds = NO;
+    self.loadingLabel.alpha = 0;
+    [self.view addSubview:self.loadingLabel];
     
     // offset from center contstraints from http://stackoverflow.com/a/14722308/103058
     [self.loadingLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -111,9 +111,48 @@
                                                          multiplier:1.0
                                                            constant:0.0]]; // horizontal center
     
+    // a spinner, too.  why not?:
+    self.initialLoadingSpinner = [[UIActivityIndicatorView alloc] init];
+    self.initialLoadingSpinner.color = UIColorFromRGBString(@"DDDDDD");
+    self.initialLoadingSpinner.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.initialLoadingSpinner.layer.shadowOffset = CGSizeMake(0.5, 0.5);
+    self.initialLoadingSpinner.layer.shadowRadius = 1.0;
+    self.initialLoadingSpinner.layer.shadowOpacity = 0.5;
+    self.initialLoadingSpinner.layer.masksToBounds = NO;
+    self.initialLoadingSpinner.alpha = 0;
+    [self.view addSubview:self.initialLoadingSpinner];
+    
+    [self.initialLoadingSpinner setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.initialLoadingSpinner
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.loadingLabel
+                                                          attribute:NSLayoutAttributeCenterY
+                                                         multiplier:1.0
+                                                           constant:20]]; // below loadingLabel
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.initialLoadingSpinner
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterX
+                                                         multiplier:1.0
+                                                           constant:0.0]]; // horizontal center
+
+    [self.initialLoadingSpinner startAnimating];
+    
+    // fade in the label immediately:
     [UIView animateWithDuration:0.5 animations:^{
         self.loadingLabel.alpha = 1;
     }];
+    
+    // fade in spinner after a delay:
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:1 animations:^{
+            self.initialLoadingSpinner.alpha = 1;
+        }];
+    });
 }
 
 - (void)setupMenuBarAndSpinner {
@@ -301,6 +340,7 @@
                 [UIView animateWithDuration:1 animations:^{
                     self.pageController.view.alpha = 1;
                     self.loadingLabel.alpha = 0;
+                    self.initialLoadingSpinner.alpha = 0;
                 }];
             }
         }];
