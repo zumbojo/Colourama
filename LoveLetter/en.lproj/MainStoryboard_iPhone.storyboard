@@ -14,20 +14,13 @@
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="oKB-6t-8mr"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="1136x1136.png" translatesAutoresizingMaskIntoConstraints="NO" id="uD0-Zv-GEA"/>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading pretty things..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkE-08-QnH">
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uD0-Zv-GEA" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="3dh-bs-D9b"/>
-                            <constraint firstItem="FkE-08-QnH" firstAttribute="top" secondItem="3" secondAttribute="top" constant="149" id="CgS-7E-0v0"/>
                             <constraint firstItem="uD0-Zv-GEA" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="FqJ-xr-zw8"/>
                             <constraint firstItem="uD0-Zv-GEA" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Ftf-gC-0aE"/>
                             <constraint firstItem="oKB-6t-8mr" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ZtR-Fl-P6W"/>
-                            <constraint firstItem="uD0-Zv-GEA" firstAttribute="centerX" secondItem="FkE-08-QnH" secondAttribute="centerX" type="default" id="cwU-wY-5VT"/>
                             <constraint firstAttribute="trailing" secondItem="oKB-6t-8mr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eRq-CU-sBV"/>
                             <constraint firstItem="uD0-Zv-GEA" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="x7r-0y-icC"/>
                         </constraints>
@@ -36,7 +29,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="uD0-Zv-GEA" id="zix-kF-yHR"/>
-                        <outlet property="loadingLabel" destination="FkE-08-QnH" id="PIS-5L-qco"/>
                         <outlet property="spinner" destination="oKB-6t-8mr" id="moi-aI-BDM"/>
                     </connections>
                 </viewController>
@@ -47,21 +39,6 @@
     <resources>
         <image name="1136x1136.png" width="1136" height="1136"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="settingsButtonTouched:"/>
-                <relationship kind="action" name="shareButtonTouched:"/>
-                <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

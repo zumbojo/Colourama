@@ -29,6 +29,7 @@
 @property (nonatomic) UIViewController *pendingPage; // for keeping track of the current page in UIPageViewController (see UIPageViewControllerDelegate method comments)
 @property (nonatomic) UIViewController *currentPage; // ditto
 
+@property (nonatomic) UILabel *loadingLabel;
 @property (nonatomic) UIView *menuView;
 @property (nonatomic) UIButton *shareButton;
 @property (nonatomic) UIButton *settingsButton;
@@ -50,11 +51,8 @@
 {
     [super viewDidLoad];
     [self loadBackgroundImage];
-    
-    self.loadingLabel.alpha = 0;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.loadingLabel.alpha = 1;
-    }];
+    [self showLoadingLabel];
+
     
 //    self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
 //
@@ -76,6 +74,37 @@
     else {
         self.backgroundImageView.image = [UIScreen mainScreen].scale == 2.0 ? [UIImage imageNamed:@"2048x2048"] : [UIImage imageNamed:@"1024x1024"];
     }
+}
+
+- (void)showLoadingLabel {
+    self.loadingLabel = [[UILabel alloc] init];
+    self.loadingLabel.text = @"Loading pretty things...";
+    self.loadingLabel.backgroundColor = [UIColor clearColor];
+    self.loadingLabel.alpha = 0;
+    [self.view addSubview:self.loadingLabel];
+    
+    // offset from center contstraints from http://stackoverflow.com/a/14722308/103058
+    [self.loadingLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.loadingLabel
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterY
+                                                         multiplier:1.0
+                                                           constant:40]]; // a few points off of the vertical center
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.loadingLabel
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterX
+                                                         multiplier:1.0
+                                                           constant:0.0]]; // horizontal center
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.loadingLabel.alpha = 1;
+    }];
 }
 
 - (void)setupMenuBarAndSpinner {

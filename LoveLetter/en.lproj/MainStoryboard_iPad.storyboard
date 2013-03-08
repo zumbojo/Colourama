@@ -14,20 +14,13 @@
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="bM5-Ar-Kui"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="2048x2048.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ieh-cB-fWW"/>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading pretty things..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaw-9r-mtC">
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ieh-cB-fWW" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="A8w-5V-pO2"/>
                             <constraint firstAttribute="trailing" secondItem="bM5-Ar-Kui" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BXl-HV-Ppa"/>
-                            <constraint firstItem="kaw-9r-mtC" firstAttribute="centerX" secondItem="Ieh-cB-fWW" secondAttribute="centerX" type="default" id="DZL-rW-lxj"/>
                             <constraint firstItem="Ieh-cB-fWW" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="NbA-px-6Qb"/>
                             <constraint firstItem="Ieh-cB-fWW" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="YGl-J2-qGu"/>
-                            <constraint firstAttribute="bottom" secondItem="kaw-9r-mtC" secondAttribute="bottom" constant="440" id="dvj-sQ-a86"/>
                             <constraint firstItem="Ieh-cB-fWW" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="hfx-Pl-0FF"/>
                             <constraint firstItem="bM5-Ar-Kui" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="tuW-lv-dqR"/>
                         </constraints>
@@ -36,7 +29,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="Ieh-cB-fWW" id="l1k-Ng-DkW"/>
-                        <outlet property="loadingLabel" destination="kaw-9r-mtC" id="Xey-JN-DBT"/>
                         <outlet property="spinner" destination="bM5-Ar-Kui" id="8Zx-MM-xCY"/>
                     </connections>
                 </viewController>

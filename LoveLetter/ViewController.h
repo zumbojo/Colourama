@@ -15,7 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
 
 - (IBAction)shareButtonTouched:(id)sender;
 - (IBAction)settingsButtonTouched:(id)sender;
