@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:LoveLetter.xcodeproj">
+      location = "self:Colourama.xcodeproj">
    </FileRef>
 </Workspace>

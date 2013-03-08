@@ -122,14 +122,14 @@
 		CE78566116C0A9180064460E /* KLPatternShiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLPatternShiftView.m; sourceTree = "<group>"; };
 		CE804E1816C4ACC70015FF35 /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
 		CE804E1916C4ACC70015FF35 /* NSMutableArray_Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableArray_Shuffling.m; sourceTree = "<group>"; };
-		CED03B0D16AA28660077CAB8 /* LoveLetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED03B0D16AA28660077CAB8 /* Colourama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colourama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED03B1116AA28660077CAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED03B1316AA28660077CAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CED03B1516AA28660077CAB8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CED03B1916AA28660077CAB8 /* LoveLetter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LoveLetter-Info.plist"; sourceTree = "<group>"; };
+		CED03B1916AA28660077CAB8 /* Colourama-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Colourama-Info.plist"; sourceTree = "<group>"; };
 		CED03B1B16AA28660077CAB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CED03B1D16AA28660077CAB8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CED03B1F16AA28660077CAB8 /* LoveLetter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LoveLetter-Prefix.pch"; sourceTree = "<group>"; };
+		CED03B1F16AA28660077CAB8 /* Colourama-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Colourama-Prefix.pch"; sourceTree = "<group>"; };
 		CED03B2016AA28660077CAB8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CED03B2116AA28660077CAB8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CED03B2A16AA28660077CAB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 		CED03B0E16AA28660077CAB8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CED03B0D16AA28660077CAB8 /* LoveLetter.app */,
+				CED03B0D16AA28660077CAB8 /* Colourama.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -392,10 +392,10 @@
 			isa = PBXGroup;
 			children = (
 				CE78560916AE36980064460E /* Settings.bundle */,
-				CED03B1916AA28660077CAB8 /* LoveLetter-Info.plist */,
+				CED03B1916AA28660077CAB8 /* Colourama-Info.plist */,
 				CED03B1A16AA28660077CAB8 /* InfoPlist.strings */,
 				CED03B1D16AA28660077CAB8 /* main.m */,
-				CED03B1F16AA28660077CAB8 /* LoveLetter-Prefix.pch */,
+				CED03B1F16AA28660077CAB8 /* Colourama-Prefix.pch */,
 				CED03B4716AA37200077CAB8 /* constants.h */,
 			);
 			name = "Supporting Files";
@@ -477,9 +477,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CED03B0C16AA28660077CAB8 /* LoveLetter */ = {
+		CED03B0C16AA28660077CAB8 /* Colourama */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CED03B3416AA28660077CAB8 /* Build configuration list for PBXNativeTarget "LoveLetter" */;
+			buildConfigurationList = CED03B3416AA28660077CAB8 /* Build configuration list for PBXNativeTarget "Colourama" */;
 			buildPhases = (
 				CED03B0916AA28660077CAB8 /* Sources */,
 				CED03B0A16AA28660077CAB8 /* Frameworks */,
@@ -489,9 +489,9 @@
 			);
 			dependencies = (
 			);
-			name = LoveLetter;
+			name = Colourama;
 			productName = LoveLetter;
-			productReference = CED03B0D16AA28660077CAB8 /* LoveLetter.app */;
+			productReference = CED03B0D16AA28660077CAB8 /* Colourama.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -503,7 +503,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Kevin Lawson";
 			};
-			buildConfigurationList = CED03B0716AA28660077CAB8 /* Build configuration list for PBXProject "LoveLetter" */;
+			buildConfigurationList = CED03B0716AA28660077CAB8 /* Build configuration list for PBXProject "Colourama" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -515,7 +515,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CED03B0C16AA28660077CAB8 /* LoveLetter */,
+				CED03B0C16AA28660077CAB8 /* Colourama */,
 			);
 		};
 /* End PBXProject section */
@@ -675,9 +675,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LoveLetter/LoveLetter-Prefix.pch";
-				INFOPLIST_FILE = "LoveLetter/LoveLetter-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "LoveLetter/Colourama-Prefix.pch";
+				INFOPLIST_FILE = "LoveLetter/Colourama-Info.plist";
+				PRODUCT_NAME = Colourama;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -686,9 +686,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LoveLetter/LoveLetter-Prefix.pch";
-				INFOPLIST_FILE = "LoveLetter/LoveLetter-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "LoveLetter/Colourama-Prefix.pch";
+				INFOPLIST_FILE = "LoveLetter/Colourama-Info.plist";
+				PRODUCT_NAME = Colourama;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -696,7 +696,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CED03B0716AA28660077CAB8 /* Build configuration list for PBXProject "LoveLetter" */ = {
+		CED03B0716AA28660077CAB8 /* Build configuration list for PBXProject "Colourama" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CED03B3216AA28660077CAB8 /* Debug */,
@@ -705,7 +705,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CED03B3416AA28660077CAB8 /* Build configuration list for PBXNativeTarget "LoveLetter" */ = {
+		CED03B3416AA28660077CAB8 /* Build configuration list for PBXNativeTarget "Colourama" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CED03B3516AA28660077CAB8 /* Debug */,
