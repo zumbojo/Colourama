@@ -160,6 +160,7 @@
     UIView *menuView = [[UIView alloc] init];
     menuView.translatesAutoresizingMaskIntoConstraints  = NO;
     menuView.backgroundColor = BAR_BACKGROUND_COLOR;
+    menuView.alpha = 0;
     [self.view addSubview:menuView];
     self.menuView = menuView;
     
@@ -338,6 +339,7 @@
                 
                 [UIView animateWithDuration:1 animations:^{
                     self.pageController.view.alpha = 1;
+                    self.menuView.alpha = 1;
                     self.loadingLabel.alpha = 0;
                     self.initialLoadingSpinner.alpha = 0;
                 }];
