@@ -227,7 +227,6 @@
     
     [self.view bringSubviewToFront:self.spinner];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
-    [self hideControlsAfterDelay];
 }
 
 - (void)setupPageViewController {
@@ -342,6 +341,10 @@
                     self.menuView.alpha = 1;
                     self.loadingLabel.alpha = 0;
                     self.initialLoadingSpinner.alpha = 0;
+                }completion:^(BOOL finished) {
+                    if (finished) {
+                        [self hideControlsAfterDelay];
+                    }
                 }];
             }
         }];
