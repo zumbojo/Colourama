@@ -243,7 +243,7 @@
     self.pageController.view.frame = self.view.bounds;
     self.pageController.view.alpha = 0;
     
-    UIViewController *initialViewController = [self viewControllerAtIndex:0];
+    UIViewController *initialViewController = self.contentControllers[0];
     NSArray *viewControllers =
     [NSArray arrayWithObject:initialViewController];
     
@@ -407,45 +407,54 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self indexOfViewController:viewController];
-    if ((index == 0) || (index == NSNotFound)) {
-        return nil;
-    }
+    NSUInteger vcIndex = [self.contentControllers indexOfObject:viewController];
+    return vcIndex > 0 ? self.contentControllers[vcIndex - 1] : nil;
     
-    index--;
-    return [self viewControllerAtIndex:index];
+    
+    
+//    NSUInteger index = [self indexOfViewController:viewController];
+//    if ((index == 0) || (index == NSNotFound)) {
+//        return nil;
+//    }
+//    
+//    index--;
+//    return [self viewControllerAtIndex:index];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self indexOfViewController:viewController];
-    if (index == NSNotFound) {
-        return nil;
-    }
+    NSUInteger vcIndex = [self.contentControllers indexOfObject:viewController];
+    return vcIndex < self.contentControllers.count-1 ? self.contentControllers[vcIndex + 1] : nil;
     
-    index++;
-    if (index == [self.contentControllers count]) {
-        return nil;
-    }
-    return [self viewControllerAtIndex:index];
+    
+//    NSUInteger index = [self indexOfViewController:viewController];
+//    if (index == NSNotFound) {
+//        return nil;
+//    }
+//    
+//    index++;
+//    if (index == [self.contentControllers count]) {
+//        return nil;
+//    }
+//    return [self viewControllerAtIndex:index];
 }
 
 // Helpers:
 
-- (UIViewController *)viewControllerAtIndex:(NSUInteger)index
-{
-    // Return the data view controller for the given index.
-    if (([self.contentControllers count] == 0) ||
-        (index >= [self.contentControllers count])) {
-        return nil;
-    }
-    return [self.contentControllers objectAtIndex:index];
-}
-
-- (NSUInteger)indexOfViewController:(UIViewController *)viewController
-{
-    return [self.contentControllers indexOfObject:viewController];
-}
+//- (UIViewController *)viewControllerAtIndex:(NSUInteger)index
+//{
+//    // Return the data view controller for the given index.
+//    if (([self.contentControllers count] == 0) ||
+//        (index >= [self.contentControllers count])) {
+//        return nil;
+//    }
+//    return [self.contentControllers objectAtIndex:index];
+//}
+//
+//- (NSUInteger)indexOfViewController:(UIViewController *)viewController
+//{
+//    return [self.contentControllers indexOfObject:viewController];
+//}
 
 - (void)applyBlock:(void (^)(UIViewController* controller))block toAllContentControllersOfClass:(Class)class {
     for (UIViewController *controller in self.contentControllers) {
@@ -628,9 +637,8 @@
 // fancy fade trick:
 
 - (void)fadeToNextPage {
-    NSUInteger currentIndex = [self indexOfViewController:self.currentPage];
     UIViewController *fromVC = self.currentPage;
-    UIViewController *toVC = [self viewControllerAtIndex:currentIndex + 1];
+    UIViewController *toVC = [self pageViewController:nil viewControllerAfterViewController:self.currentPage];
         
     if (toVC && [fromVC isKindOfClass:[CLPrettyThingViewController class]]) {
         // create a copy of the currently shown pvc, add it to the main VC, then slowly fade it out as the page view controller is instantly manually advanced in the background
