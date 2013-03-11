@@ -409,59 +409,12 @@
 {
     NSUInteger vcIndex = [self.contentControllers indexOfObject:viewController];
     return vcIndex > 0 ? self.contentControllers[vcIndex - 1] : nil;
-    
-    
-    
-//    NSUInteger index = [self indexOfViewController:viewController];
-//    if ((index == 0) || (index == NSNotFound)) {
-//        return nil;
-//    }
-//    
-//    index--;
-//    return [self viewControllerAtIndex:index];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
     NSUInteger vcIndex = [self.contentControllers indexOfObject:viewController];
     return vcIndex < self.contentControllers.count-1 ? self.contentControllers[vcIndex + 1] : nil;
-    
-    
-//    NSUInteger index = [self indexOfViewController:viewController];
-//    if (index == NSNotFound) {
-//        return nil;
-//    }
-//    
-//    index++;
-//    if (index == [self.contentControllers count]) {
-//        return nil;
-//    }
-//    return [self viewControllerAtIndex:index];
-}
-
-// Helpers:
-
-//- (UIViewController *)viewControllerAtIndex:(NSUInteger)index
-//{
-//    // Return the data view controller for the given index.
-//    if (([self.contentControllers count] == 0) ||
-//        (index >= [self.contentControllers count])) {
-//        return nil;
-//    }
-//    return [self.contentControllers objectAtIndex:index];
-//}
-//
-//- (NSUInteger)indexOfViewController:(UIViewController *)viewController
-//{
-//    return [self.contentControllers indexOfObject:viewController];
-//}
-
-- (void)applyBlock:(void (^)(UIViewController* controller))block toAllContentControllersOfClass:(Class)class {
-    for (UIViewController *controller in self.contentControllers) {
-        if ([controller isKindOfClass:class]) {
-            block(controller);
-        }
-    }
 }
 
 #pragma mark -
@@ -742,6 +695,14 @@
 }
 
 // Helpers:
+
+- (void)applyBlock:(void (^)(UIViewController* controller))block toAllContentControllersOfClass:(Class)class {
+    for (UIViewController *controller in self.contentControllers) {
+        if ([controller isKindOfClass:class]) {
+            block(controller);
+        }
+    }
+}
 
 - (void)applySettingsToAllContentControllers {
     [self applyBlock:^(UIViewController *controller) {
