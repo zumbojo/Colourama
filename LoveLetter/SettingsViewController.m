@@ -143,11 +143,21 @@
     }
     
     // Disabling all three pretty thing types prevents anything from getting loaded and is Bad Times(TM).  See issue #55
-    // Revert the switch that caused these bad times and flash a warning.
     
+    // Revert the switch that caused these bad times.
     [sender setOn:YES animated:YES];
     
-    // todo: flash warning
+    // Flash a warning.
+    [UIView animateWithDuration:0.5 animations:^{
+        self.switchWarningLabel.alpha = 1;
+    } completion:^(BOOL finished) {
+        // fade out after five second delay
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:1 animations:^{
+                self.switchWarningLabel.alpha = 0;
+            }];
+        });
+    }];
     
     return NO;
 }
