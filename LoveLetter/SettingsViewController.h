@@ -36,6 +36,7 @@
 - (IBAction)showBylineValueChanged:(UISegmentedControl *)sender;
 
 @property(weak) id<SettingsViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UILabel *switchWarningLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *colorSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *paletteSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *patternSwitch;
