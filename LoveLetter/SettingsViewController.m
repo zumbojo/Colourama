@@ -94,18 +94,24 @@
 #pragma mark UI
 
 - (IBAction)colorSwitchValueChanged:(UISwitch *)sender {
-    self.delegate.showColors = sender.on;
-    [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:SHOW_COLORS_KEY];
+    if ([self switchSettingsAreValid:sender]) {
+        self.delegate.showColors = sender.on;
+        [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:SHOW_COLORS_KEY];
+    }
 }
 
 - (IBAction)paletteSwitchValueChanged:(UISwitch *)sender {
-    self.delegate.showPalettes = sender.on;
-    [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:SHOW_PALETTES_KEY];
+    if ([self switchSettingsAreValid:sender]) {
+        self.delegate.showPalettes = sender.on;
+        [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:SHOW_PALETTES_KEY];
+    }
 }
 
 - (IBAction)patternSwitchValueChanged:(UISwitch *)sender {
-    self.delegate.showPatterns = sender.on;
-    [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:SHOW_PATTERNS_KEY];
+    if ([self switchSettingsAreValid:sender]) {
+        self.delegate.showPatterns = sender.on;
+        [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:SHOW_PATTERNS_KEY];
+    }
 }
 
 - (IBAction)varietyValueChanged:(UISegmentedControl *)sender {
