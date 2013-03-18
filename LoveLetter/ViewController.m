@@ -29,6 +29,7 @@
 @property (nonatomic) NSTimer *fadeToNextPageTimer;
 @property (nonatomic) UIViewController *pendingPage; // for keeping track of the current page in UIPageViewController (see UIPageViewControllerDelegate method comments)
 @property (nonatomic) UIViewController *currentPage; // ditto
+@property (nonatomic) UIViewController *endPage; // for fixing bug wherein a user could get stuck on the last page, even though new pages have since been loaded.  See issue #48
 
 @property (nonatomic) UILabel *loadingLabel;
 @property (nonatomic) UIActivityIndicatorView *initialLoadingSpinner;
@@ -56,7 +57,7 @@
     [self showLoadingLabel];
     
     self.settingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil delegate:self];
-
+    
     self.fetchInProgress = NO;
     [self checkAndFetchAndClean];
 }
@@ -138,7 +139,7 @@
                                                           attribute:NSLayoutAttributeCenterX
                                                          multiplier:1.0
                                                            constant:0.0]]; // horizontal center
-
+    
     [self.initialLoadingSpinner startAnimating];
     
     // fade in the label immediately:
@@ -185,7 +186,7 @@
     self.shareButton = shareButton;
     
     NSDictionary *views = NSDictionaryOfVariableBindings(menuView, menuViewShadow, settingsButton, shareButton);
-
+    
     [self.view addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"V:[menuViewShadow]-5-[settingsButton]"
                                              options:0
@@ -209,7 +210,7 @@
                                              options:0
                                              metrics:nil
                                                views:views]];
-
+    
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:menuView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:settingsButton attribute:NSLayoutAttributeHeight multiplier:1 constant:6]];
     
     
@@ -322,7 +323,7 @@
             // shuffle, create PVCs, append to self.contentControllers:
             NSMutableArray *shuffled = [[NSMutableArray alloc] initWithArray:prettyThings];
             [shuffled shuffle];
-            [self.contentControllers addObjectsFromArray:[self prettyThingViewControllersFromPrettyThings:shuffled]];
+            [self addNewContentControllersFromArray:[self prettyThingViewControllersFromPrettyThings:shuffled]];
             [self.spinner stopAnimating];
             self.fetchInProgress = NO;
             
@@ -351,6 +352,18 @@
     }
     else {
         NSLog(@"showColors, showPalettes, and showPatterns are all set to NO.  Double-u tee eff?");
+    }
+}
+
+- (void)addNewContentControllersFromArray:(NSArray *)array {
+    [self.contentControllers addObjectsFromArray:array];
+    [self fixAndResetEndPage];
+}
+
+- (void)fixAndResetEndPage {
+    if (self.endPage && self.endPage == self.currentPage) {
+        [self.pageController setViewControllers:@[self.currentPage] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        self.endPage = nil;
     }
 }
 
@@ -414,7 +427,13 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
     NSUInteger vcIndex = [self.contentControllers indexOfObject:viewController];
-    return vcIndex < self.contentControllers.count-1 ? self.contentControllers[vcIndex + 1] : nil;
+    UIViewController *after = vcIndex < self.contentControllers.count-1 ? self.contentControllers[vcIndex + 1] : nil;
+    
+    if (!after) {
+        self.endPage = viewController;
+    }
+    
+    return after;
 }
 
 #pragma mark -
@@ -427,6 +446,7 @@
     
     if (completed) {
         self.currentPage = self.pendingPage;
+        [self fixAndResetEndPage];
     }
     else {
         self.pendingPage = nil;
@@ -441,7 +461,7 @@
     [self checkAndFetchAndClean];
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark UI
 #pragma mark Buttons
 
@@ -473,7 +493,7 @@
 
 - (IBAction)settingsButtonTouched:(id)sender {
     [self cancelControlHiding];
-        
+    
     // show settingsVC:
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         [self showSettingsPopover];
@@ -492,7 +512,7 @@
 
 - (void)showSettingsPopover {
     // http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/Popovers.html
-
+    
     if (!self.settingsPopover) {
         self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:self.settingsViewController];
         self.settingsPopover.delegate = self;
@@ -592,7 +612,7 @@
 - (void)fadeToNextPage {
     UIViewController *fromVC = self.currentPage;
     UIViewController *toVC = [self pageViewController:nil viewControllerAfterViewController:self.currentPage];
-        
+    
     if (toVC && [fromVC isKindOfClass:[CLPrettyThingViewController class]]) {
         // create a copy of the currently shown pvc, add it to the main VC, then slowly fade it out as the page view controller is instantly manually advanced in the background
         
@@ -708,10 +728,10 @@
     [self applyBlock:^(UIViewController *controller) {
         [(CLPaletteViewController *)controller setShowVariableWidths:self.showVariableWidths animated:YES];
     } toAllContentControllersOfClass:[CLPaletteViewController class]];
-
+    
     [self applyBlock:^(UIViewController *controller) {
         [(CLPrettyThingViewController *)controller setShowByline:self.showByline animated:YES];
-    } toAllContentControllersOfClass:[CLPrettyThingViewController class]];    
+    } toAllContentControllersOfClass:[CLPrettyThingViewController class]];
 }
 
 @end
