@@ -37,6 +37,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.switchWarningLabel.alpha = 0;
     
     [self updateUIFromSettings];
 }
@@ -129,6 +130,21 @@
 
 #pragma mark -
 #pragma mark Helpers
+
+- (BOOL)switchSettingsAreValid:(UISwitch *)sender {
+    if (self.colorSwitch.on || self.paletteSwitch.on || self.patternSwitch.on) {
+        return YES;
+    }
+    
+    // Disabling all three pretty thing types prevents anything from getting loaded and is Bad Times(TM).  See issue #55
+    // Revert the switch that caused these bad times and flash a warning.
+    
+    [sender setOn:YES animated:YES];
+    
+    // todo: flash warning
+    
+    return NO;
+}
 
 - (NSTimeInterval)transitionDurationForIndex:(NSUInteger)index {
     return [@[@0.0, @10.0, @30.0, @300.0, @3600.0][index] doubleValue];
