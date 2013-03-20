@@ -289,7 +289,7 @@
 
 - (BOOL)fetchIsNeeded {
     return (!self.contentControllers
-            || self.contentControllers.count == 0
+            || self.contentControllers.count < 10
             || ( self.contentControllers.count - [self.contentControllers indexOfObject:self.currentPage] < 5)) // e.g., if count is 30 and index is 25, it's time to fetch more
             && !self.fetchInProgress
             && self.initialSettingsLoadIsComplete;
@@ -348,6 +348,8 @@
                     }
                 }];
             }
+            
+            [self checkAndFetchAndClean];
         }];
     }
     else {
