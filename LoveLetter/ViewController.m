@@ -289,8 +289,8 @@
 
 - (BOOL)fetchIsNeeded {
     return (!self.contentControllers
-            || self.contentControllers.count < 10
-            || ( self.contentControllers.count - [self.contentControllers indexOfObject:self.currentPage] < 5)) // e.g., if count is 30 and index is 25, it's time to fetch more
+            || self.contentControllers.count < 20
+            || ( self.contentControllers.count - [self.contentControllers indexOfObject:self.currentPage] < 20)) // e.g., if count is 50 and index is 30, it's time to fetch more
             && !self.fetchInProgress
             && self.initialSettingsLoadIsComplete;
 }
@@ -448,7 +448,7 @@
     
     if (completed) {
         self.currentPage = self.pendingPage;
-        [self fixAndResetEndPage];
+        //[self fixAndResetEndPage]; // disabled until this fixAndResetEndPage approach is a bit more stable when called from this method.  Issue #48.
     }
     else {
         self.pendingPage = nil;
