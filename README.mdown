@@ -1,0 +1,3 @@
+Colourama is an app for viewing beautiful palettes, patterns, and colors made by the COLOURlovers community.
+
+[kevinmlawson.com/colourama](http://kevinmlawson.com/colourama/)
