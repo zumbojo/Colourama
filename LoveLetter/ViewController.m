@@ -473,24 +473,13 @@
 }
 
 - (void)showShareMenu {
-    // create shareMenu (or hide existing):
-    if (self.shareMenu) {
-        // dismiss existing shareMenu to prevent multiple from appearing:
-        // see http://stackoverflow.com/questions/5448987/ipads-uiactionsheet-showing-multiple-times
-        [self.shareMenu dismissWithClickedButtonIndex:-1 animated:NO];
-    }
     
-    self.shareMenu = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open in Safari", nil];
+    CLPrettyThingViewController *currentPrettyThing = (CLPrettyThingViewController *)self.currentPage;
     
-    // show shareMenu:
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        //[self.shareMenu showFromRect:((UIButton*)sender).frame inView:((UIButton*)sender).superview animated:YES];
-        [self.shareMenu showFromRect:self.shareButton.frame inView:self.shareButton.superview animated:YES];
-        // http://stackoverflow.com/questions/13710789/uiactionsheet-showfromrect-autorotation
-    }
-    else {
-        [self.shareMenu showInView:self.view];
-    }
+    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[currentPrettyThing.prettyThing.url] applicationActivities:nil];
+    
+    [self presentViewController:shareViewController animated:YES completion:nil];
+    
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
