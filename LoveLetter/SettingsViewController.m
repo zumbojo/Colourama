@@ -37,6 +37,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) { // Prevent iOS 7 from overlapping top bar over content http://stackoverflow.com/a/18785646/103058
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     self.switchWarningLabel.alpha = 0;
     
     [self updateUIFromSettings];
