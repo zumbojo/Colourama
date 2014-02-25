@@ -534,21 +534,6 @@
     [self hideControlsAfterDelay];
 }
 
-#pragma mark UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        [[UIApplication sharedApplication] openURL:((CLPrettyThingViewController *)self.currentPage).prettyThing.url]; // http://stackoverflow.com/questions/9343443/alertview-open-safari
-        // todo: remove cast if self.currentPage is changed to a CLPrettyThingViewController
-    }
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    // for shareMenu
-    // This is shareMenu's counterpart to settingsPopover's popoverControllerDidDismissPopover (because shareMenu is a UIActionSheet called using showFromRect:inView:, not a true popover).
-    [self hideControlsAfterDelay];
-}
-
 #pragma mark Gestures
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
