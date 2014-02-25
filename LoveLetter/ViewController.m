@@ -37,7 +37,6 @@
 @property (nonatomic) UIView *menuView;
 @property (nonatomic) UIButton *shareButton;
 @property (nonatomic) UIButton *settingsButton;
-@property (nonatomic) UIActionSheet *shareMenu;
 @property (nonatomic) UIPopoverController *sharePopover;
 @property (nonatomic) UIPopoverController *settingsPopover;
 @property (nonatomic) SettingsViewController *settingsViewController;
@@ -269,8 +268,7 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        if (self.shareMenu && self.shareMenu.visible) {
-            [self cancelControlHiding];
+        if (self.sharePopover && self.sharePopover.popoverVisible) {
             [self showShareMenu];
         }
         
@@ -481,11 +479,12 @@
     
     // show shareMenu:
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        if (!self.sharePopover.isPopoverVisible) {
+        if (!self.sharePopover) {
             self.sharePopover = [[UIPopoverController alloc] initWithContentViewController:shareViewController];
             self.sharePopover.delegate = self;
-            [self.sharePopover presentPopoverFromRect:self.shareButton.frame inView:self.shareButton.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
+        
+        [self.sharePopover presentPopoverFromRect:self.shareButton.frame inView:self.shareButton.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else {
         [self presentViewController:shareViewController animated:YES completion:nil];
