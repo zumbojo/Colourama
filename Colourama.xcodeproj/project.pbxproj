@@ -11,6 +11,12 @@
 		CE4240C516DEF9DB0021209B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4240C416DEF9DB0021209B /* Icon@2x.png */; };
 		CE4240C716DEF9E40021209B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4240C616DEF9E40021209B /* Icon-72.png */; };
 		CE4240C916DEF9E80021209B /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4240C816DEF9E80021209B /* Icon-72@2x.png */; };
+		CE4D82E418BC40FC00A94E59 /* TUSafariActivity.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE4D82CA18BC40FC00A94E59 /* TUSafariActivity.strings */; };
+		CE4D82E518BC40FC00A94E59 /* Safari.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4D82DA18BC40FC00A94E59 /* Safari.png */; };
+		CE4D82E618BC40FC00A94E59 /* Safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4D82DB18BC40FC00A94E59 /* Safari@2x.png */; };
+		CE4D82E718BC40FC00A94E59 /* Safari@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4D82DC18BC40FC00A94E59 /* Safari@2x~ipad.png */; };
+		CE4D82E818BC40FC00A94E59 /* Safari~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4D82DD18BC40FC00A94E59 /* Safari~ipad.png */; };
+		CE4D82E918BC40FC00A94E59 /* TUSafariActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D82E118BC40FC00A94E59 /* TUSafariActivity.m */; };
 		CE613DEF16E0333000F815C8 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = CE613DED16E0333000F815C8 /* heart.png */; };
 		CE613DF016E0333000F815C8 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE613DEE16E0333000F815C8 /* heart@2x.png */; };
 		CE637A0E16E03F9F0091455F /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = CE637A0C16E03F9F0091455F /* gear.png */; };
@@ -71,6 +77,31 @@
 		CE4240C416DEF9DB0021209B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		CE4240C616DEF9E40021209B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		CE4240C816DEF9E80021209B /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
+		CE4D82CB18BC40FC00A94E59 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82CC18BC40FC00A94E59 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82CD18BC40FC00A94E59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82CE18BC40FC00A94E59 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82CF18BC40FC00A94E59 /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eu; path = eu.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D018BC40FC00A94E59 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D118BC40FC00A94E59 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D218BC40FC00A94E59 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D318BC40FC00A94E59 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D418BC40FC00A94E59 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D518BC40FC00A94E59 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D618BC40FC00A94E59 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D718BC40FC00A94E59 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D818BC40FC00A94E59 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82D918BC40FC00A94E59 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82DA18BC40FC00A94E59 /* Safari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Safari.png; sourceTree = "<group>"; };
+		CE4D82DB18BC40FC00A94E59 /* Safari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Safari@2x.png"; sourceTree = "<group>"; };
+		CE4D82DC18BC40FC00A94E59 /* Safari@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Safari@2x~ipad.png"; sourceTree = "<group>"; };
+		CE4D82DD18BC40FC00A94E59 /* Safari~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Safari~ipad.png"; sourceTree = "<group>"; };
+		CE4D82DE18BC40FC00A94E59 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82DF18BC40FC00A94E59 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82E018BC40FC00A94E59 /* TUSafariActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSafariActivity.h; sourceTree = "<group>"; };
+		CE4D82E118BC40FC00A94E59 /* TUSafariActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSafariActivity.m; sourceTree = "<group>"; };
+		CE4D82E218BC40FC00A94E59 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
+		CE4D82E318BC40FC00A94E59 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
 		CE613DED16E0333000F815C8 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		CE613DEE16E0333000F815C8 /* heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart@2x.png"; sourceTree = "<group>"; };
 		CE637A0C16E03F9F0091455F /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -185,6 +216,21 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		CE4D82C918BC40FC00A94E59 /* TUSafariActivity (097ec23) */ = {
+			isa = PBXGroup;
+			children = (
+				CE4D82CA18BC40FC00A94E59 /* TUSafariActivity.strings */,
+				CE4D82DA18BC40FC00A94E59 /* Safari.png */,
+				CE4D82DB18BC40FC00A94E59 /* Safari@2x.png */,
+				CE4D82DC18BC40FC00A94E59 /* Safari@2x~ipad.png */,
+				CE4D82DD18BC40FC00A94E59 /* Safari~ipad.png */,
+				CE4D82E018BC40FC00A94E59 /* TUSafariActivity.h */,
+				CE4D82E118BC40FC00A94E59 /* TUSafariActivity.m */,
+			);
+			name = "TUSafariActivity (097ec23)";
+			path = TUSafariActivity;
+			sourceTree = "<group>";
+		};
 		CE613DE816E0325500F815C8 /* App Icon */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +268,7 @@
 				CE7855F516AE35DD0064460E /* AFNetworking (ba9185d) */,
 				CE804E1B16C4ACD30015FF35 /* NSMutableArray_Shuffling */,
 				CE637A1316E04EF40091455F /* OnlyPortraitNavigationController */,
+				CE4D82C918BC40FC00A94E59 /* TUSafariActivity (097ec23) */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -514,6 +561,24 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				cs,
+				de,
+				es,
+				eu,
+				fi,
+				fr,
+				it,
+				ja,
+				ko,
+				nl,
+				no,
+				pl,
+				pt,
+				ru,
+				sk,
+				sv,
+				vi,
+				zh_CN,
 			);
 			mainGroup = CED03B0216AA28660077CAB8;
 			productRefGroup = CED03B0E16AA28660077CAB8 /* Products */;
@@ -532,22 +597,27 @@
 			files = (
 				CED03B1C16AA28660077CAB8 /* InfoPlist.strings in Resources */,
 				CED03B2B16AA28660077CAB8 /* MainStoryboard_iPhone.storyboard in Resources */,
+				CE4D82E718BC40FC00A94E59 /* Safari@2x~ipad.png in Resources */,
 				CED03B2E16AA28660077CAB8 /* MainStoryboard_iPad.storyboard in Resources */,
 				CE78560A16AE36980064460E /* Settings.bundle in Resources */,
 				CE78564C16BCA30C0064460E /* SettingsViewController.xib in Resources */,
 				CE4240C316DEF9CD0021209B /* Icon.png in Resources */,
 				CE4240C516DEF9DB0021209B /* Icon@2x.png in Resources */,
 				CE4240C716DEF9E40021209B /* Icon-72.png in Resources */,
+				CE4D82E518BC40FC00A94E59 /* Safari.png in Resources */,
+				CE4D82E818BC40FC00A94E59 /* Safari~ipad.png in Resources */,
 				CE4240C916DEF9E80021209B /* Icon-72@2x.png in Resources */,
 				CE613DEF16E0333000F815C8 /* heart.png in Resources */,
 				CE613DF016E0333000F815C8 /* heart@2x.png in Resources */,
 				CE637A0E16E03F9F0091455F /* gear.png in Resources */,
 				CE637A0F16E03F9F0091455F /* gear@2x.png in Resources */,
 				CED1B71316E6D2A8007C066D /* Default.png in Resources */,
+				CE4D82E418BC40FC00A94E59 /* TUSafariActivity.strings in Resources */,
 				CED1B71416E6D2A8007C066D /* Default-568h@2x.png in Resources */,
 				CED1B71516E6D2A8007C066D /* Default@2x.png in Resources */,
 				CED1B71A16E6D575007C066D /* Default-Landscape.png in Resources */,
 				CED1B71B16E6D575007C066D /* Default-Landscape@2x.png in Resources */,
+				CE4D82E618BC40FC00A94E59 /* Safari@2x.png in Resources */,
 				CED1B71C16E6D575007C066D /* Default-Portrait.png in Resources */,
 				CED1B71D16E6D575007C066D /* Default-Portrait@2x.png in Resources */,
 				CED1B72316E839CB007C066D /* 1136x1136.png in Resources */,
@@ -572,6 +642,7 @@
 				CED03B3D16AA2E220077CAB8 /* CLSlat.m in Sources */,
 				CE78556B16AB5BE40064460E /* CLPaletteViewController.m in Sources */,
 				CE7855E116AE34110064460E /* CLMothership.m in Sources */,
+				CE4D82E918BC40FC00A94E59 /* TUSafariActivity.m in Sources */,
 				CE78560B16AE3A400064460E /* AFHTTPClient.m in Sources */,
 				CE78560C16AE3A400064460E /* AFHTTPRequestOperation.m in Sources */,
 				CE78560D16AE3A400064460E /* AFImageRequestOperation.m in Sources */,
@@ -597,6 +668,32 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		CE4D82CA18BC40FC00A94E59 /* TUSafariActivity.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE4D82CB18BC40FC00A94E59 /* cs */,
+				CE4D82CC18BC40FC00A94E59 /* de */,
+				CE4D82CD18BC40FC00A94E59 /* en */,
+				CE4D82CE18BC40FC00A94E59 /* es */,
+				CE4D82CF18BC40FC00A94E59 /* eu */,
+				CE4D82D018BC40FC00A94E59 /* fi */,
+				CE4D82D118BC40FC00A94E59 /* fr */,
+				CE4D82D218BC40FC00A94E59 /* it */,
+				CE4D82D318BC40FC00A94E59 /* ja */,
+				CE4D82D418BC40FC00A94E59 /* ko */,
+				CE4D82D518BC40FC00A94E59 /* nl */,
+				CE4D82D618BC40FC00A94E59 /* no */,
+				CE4D82D718BC40FC00A94E59 /* pl */,
+				CE4D82D818BC40FC00A94E59 /* pt */,
+				CE4D82D918BC40FC00A94E59 /* ru */,
+				CE4D82DE18BC40FC00A94E59 /* sk */,
+				CE4D82DF18BC40FC00A94E59 /* sv */,
+				CE4D82E218BC40FC00A94E59 /* vi */,
+				CE4D82E318BC40FC00A94E59 /* zh_CN */,
+			);
+			name = TUSafariActivity.strings;
+			sourceTree = "<group>";
+		};
 		CED03B1A16AA28660077CAB8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
