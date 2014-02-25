@@ -16,6 +16,7 @@
 #import "CLPattern.h"
 #import "NSMutableArray_Shuffling.h"
 #import "OnlyPortraitNavigationController.h"
+#import "TUSafariActivity.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define PAGES_TO_KEEP 100 // once we hit this many pages, clean out all but the N most recent pages
@@ -37,6 +38,7 @@
 @property (nonatomic) UIButton *shareButton;
 @property (nonatomic) UIButton *settingsButton;
 @property (nonatomic) UIActionSheet *shareMenu;
+@property (nonatomic) UIPopoverController *sharePopover;
 @property (nonatomic) UIPopoverController *settingsPopover;
 @property (nonatomic) SettingsViewController *settingsViewController;
 @property (nonatomic) UIAlertView *networkAlertView;
@@ -473,13 +475,21 @@
 }
 
 - (void)showShareMenu {
-    
     CLPrettyThingViewController *currentPrettyThing = (CLPrettyThingViewController *)self.currentPage;
     
-    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[currentPrettyThing.prettyThing.url] applicationActivities:nil];
+    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[currentPrettyThing.prettyThing.url] applicationActivities:@[[[TUSafariActivity alloc] init]]];
     
-    [self presentViewController:shareViewController animated:YES completion:nil];
-    
+    // show shareMenu:
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if (!self.sharePopover.isPopoverVisible) {
+            self.sharePopover = [[UIPopoverController alloc] initWithContentViewController:shareViewController];
+            self.sharePopover.delegate = self;
+            [self.sharePopover presentPopoverFromRect:self.shareButton.frame inView:self.shareButton.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
+    }
+    else {
+        [self presentViewController:shareViewController animated:YES completion:nil];
+    }
 }
 
 - (IBAction)settingsButtonTouched:(id)sender {
