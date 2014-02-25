@@ -502,6 +502,11 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Kevin Lawson";
+				TargetAttributes = {
+					CED03B0C16AA28660077CAB8 = {
+						DevelopmentTeam = FXGC9C3FQN;
+					};
+				};
 			};
 			buildConfigurationList = CED03B0716AA28660077CAB8 /* Build configuration list for PBXProject "Colourama" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -677,10 +682,13 @@
 		CED03B3516AA28660077CAB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LoveLetter/Colourama-Prefix.pch";
 				INFOPLIST_FILE = "LoveLetter/Colourama-Info.plist";
 				PRODUCT_NAME = Colourama;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -688,10 +696,13 @@
 		CED03B3616AA28660077CAB8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LoveLetter/Colourama-Prefix.pch";
 				INFOPLIST_FILE = "LoveLetter/Colourama-Info.plist";
 				PRODUCT_NAME = Colourama;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
