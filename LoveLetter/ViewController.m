@@ -505,6 +505,8 @@
                                                                                                          style:UIBarButtonItemStylePlain
                                                                                                         target:self
                                                                                                         action:@selector(dismissViewController)];
+        self.settingsViewController.navigationController.navigationBar.translucent = NO;
+        
         self.settingsViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         [self presentViewController:navController animated:YES completion:nil];
     }
