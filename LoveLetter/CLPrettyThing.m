@@ -41,7 +41,17 @@
     // this will probably break if colourlovers changes their urls, etc.
     
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
-    return [regex stringByReplacingMatchesInString:longUrl options:NSMatchingReportProgress range:NSMakeRange(0, longUrl.length) withTemplate:@"$1"];;
+//    NSString *shortUrl = [longUrl substringWithRange:[regex rangeOfFirstMatchInString:longUrl options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, longUrl.length)]];
+//    return shortUrl;
+    
+    NSArray* results = [regex matchesInString:longUrl options:0 range:NSMakeRange(0, [longUrl length])];
+    for (NSTextCheckingResult* result in results) {
+        
+        NSString* resultString = [longUrl substringWithRange:result.range];
+        NSLog(@"%@",resultString);
+    }
+    
+    return @"todo";
 }
 
 
