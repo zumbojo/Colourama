@@ -16,9 +16,12 @@
 @property (nonatomic, readonly) CLPrettyThing *prettyThing;
 @property (nonatomic, readonly) BOOL showByline; // change using setShowByline:animated:
 @property (nonatomic) UIView *byLineView;
+@property (nonatomic, readonly) BOOL showWatermark; // change using setShowWatermark:animated:
+@property (nonatomic) UIView *watermarkView;
 @property (nonatomic, readonly) CLPrettyThingViewController *ghost; // a visually identical copy of this VC, used as part of ViewController's fadeToNextPage: method.
 
 - (void)addThingLabels;
 - (void)setShowByline:(BOOL)show animated:(BOOL)animated;
+- (void)setShowWatermark:(BOOL)show animated:(BOOL)animated;
 
 @end

@@ -15,6 +15,14 @@
 @implementation CLPrettyThingViewController
 
 - (void)addThingLabels {
+    // add the watermark:
+    UILabel *watermarkLabel = [[UILabel alloc] init];
+    watermarkLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    watermarkLabel.textColor = [UIColor purpleColor];
+    #warning watermarkLabel is GHASTLY
+    watermarkLabel.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:watermarkLabel];
+    
     // add the background (with shadow):
     UIView *byLineBackground = [[UIView alloc] init];
     byLineBackground.translatesAutoresizingMaskIntoConstraints = NO;
@@ -92,6 +100,19 @@
     }
     else {
         self.byLineView.alpha = _showByline ? 1 : 0;
+    }
+}
+
+- (void)setShowWatermark:(BOOL)show animated:(BOOL)animated {
+    _showWatermark = show;
+    
+    if (animated) {
+        [UIView animateWithDuration:1.0f animations:^{
+            self.watermarkView.alpha = _showWatermark ? 1 : 0;
+        }];
+    }
+    else {
+        self.watermarkView.alpha = _showWatermark ? 1 : 0;
     }
 }
 
