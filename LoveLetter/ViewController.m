@@ -637,13 +637,40 @@
 #pragma mark Share/Export
 
 - (UIImage *)takeScreenshotWithWatermark:(BOOL)applyWatermark {
+    // hide byline on current page:
+    [(CLPrettyThingViewController *)self.currentPage setShowByline:NO animated:NO];
     
+    // hide controls:
+    BOOL hideControlsAfterScreenshot = [self controlsAreHidden];
+    self.menuView.alpha = 0.0f;
+
+    // todo: lock UI, unlock later
+    // todo: apply watermark
     
-    #warning applyWatermark is NYI
+    // take screenshot:
+    UIImage *screenshot = [UIView_UIImageWithView imageWithView:self.view];
+
+    // revert controls:
+    self.menuView.alpha = hideControlsAfterScreenshot ? 0.0f : 1.0f;
     
+    // revert byline:
+    [(CLPrettyThingViewController *)self.currentPage setShowByline:self.showByline animated:NO];
     
+    return screenshot;
+}
+
+- (BOOL)quickHideChrome { // hides controls and byline without animation, returns current controlsAreHidden status
+    // hide byline on current page
+    [(CLPrettyThingViewController *)self.currentPage setShowByline:NO animated:NO];
     
-    return [UIView_UIImageWithView imageWithView:self.view];
+    // hide controls
+    BOOL hideControlsAfterScreenshot = [self controlsAreHidden];
+    self.menuView.alpha = 0;
+    return hideControlsAfterScreenshot;
+}
+
+- (void)quickRevertChrome { // shows (or doesn't, depending on the current settings) everything that was hidden in quickHideChrome, also without animation
+    [(CLPrettyThingViewController *)self.currentPage setShowByline:self.showByline animated:NO];
 }
 
 #pragma mark -
