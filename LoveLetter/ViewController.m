@@ -486,7 +486,7 @@
             self.sharePopover.delegate = self;
         }
         
-        [self.sharePopover presentPopoverFromRect:self.shareButton.frame inView:self.shareButton.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        [self.sharePopover presentPopoverFromRect:self.shareButton.frame inView:self.shareButton.superview permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
     }
     else {
         [self presentViewController:shareViewController animated:YES completion:nil];
@@ -523,7 +523,7 @@
         self.settingsPopover.popoverContentSize = self.settingsViewController.view.frame.size;
     }
     
-    [self.settingsPopover presentPopoverFromRect:self.settingsButton.frame inView:self.settingsButton.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.settingsPopover presentPopoverFromRect:self.settingsButton.frame inView:self.settingsButton.superview permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
 }
 
 - (void)dismissViewController {
