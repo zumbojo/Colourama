@@ -45,13 +45,21 @@
 //    return shortUrl;
     
     NSArray* results = [regex matchesInString:longUrl options:0 range:NSMakeRange(0, [longUrl length])];
-    for (NSTextCheckingResult* result in results) {
-        
-        NSString* resultString = [longUrl substringWithRange:result.range];
-        NSLog(@"%@",resultString);
+    
+    if (results.count == 0) {
+        return nil;
     }
     
-    return @"todo";
+    NSTextCheckingResult* result = results[0];
+    NSString *shortUrl = [longUrl substringWithRange:result.range];
+    
+    return shortUrl;
+    
+//    for (NSTextCheckingResult* result in results) {
+//        
+//        NSString* resultString = [longUrl substringWithRange:result.range];
+//        NSLog(@"%@",resultString);
+//    }
 }
 
 
