@@ -17,6 +17,7 @@
 #import "NSMutableArray_Shuffling.h"
 #import "OnlyPortraitNavigationController.h"
 #import "TUSafariActivity.h"
+#import "UIView_UIImageWithView.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define PAGES_TO_KEEP 100 // once we hit this many pages, clean out all but the N most recent pages
@@ -473,9 +474,10 @@
 }
 
 - (void)showShareMenu {
+    UIImage *screenshot = [self takeScreenshotWithWatermark:YES];
     CLPrettyThingViewController *currentPrettyThing = (CLPrettyThingViewController *)self.currentPage;
     
-    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[currentPrettyThing.prettyThing.url] applicationActivities:@[[[TUSafariActivity alloc] init]]];
+    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[screenshot, currentPrettyThing.prettyThing.url] applicationActivities:@[[[TUSafariActivity alloc] init]]];
     
     // show shareMenu:
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -629,6 +631,19 @@
     }
     
     [self checkAndFetchAndClean];
+}
+
+#pragma mark -
+#pragma mark Share/Export
+
+- (UIImage *)takeScreenshotWithWatermark:(BOOL)applyWatermark {
+    
+    
+    #warning applyWatermark is NYI
+    
+    
+    
+    return [UIView_UIImageWithView imageWithView:self.view];
 }
 
 #pragma mark -
