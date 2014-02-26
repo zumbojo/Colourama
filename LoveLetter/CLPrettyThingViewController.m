@@ -20,7 +20,8 @@
     watermarkLabel.translatesAutoresizingMaskIntoConstraints = NO;
     watermarkLabel.textColor = [UIColor purpleColor];
     #warning watermarkLabel is GHASTLY
-    watermarkLabel.backgroundColor = [UIColor clearColor];
+    watermarkLabel.backgroundColor = [UIColor whiteColor];
+    watermarkLabel.layer.cornerRadius = 3;
     [self.view addSubview:watermarkLabel];
     
     // add the background (with shadow):
