@@ -50,7 +50,6 @@
         const CGFloat fontSize = 15;
         UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
         UIFont *regularFont = [UIFont systemFontOfSize:fontSize];
-        UIFont *nonEmojiFont = [UIFont fontWithName:@"ArialMT" size:fontSize];
                                  
         NSMutableAttributedString *byLineText = [[NSMutableAttributedString alloc] initWithString:self.prettyThing.title attributes:@{NSFontAttributeName : boldFont}];
         [byLineText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" by " attributes:@{NSFontAttributeName : regularFont}]];
@@ -58,13 +57,20 @@
         
         byLineLabel.attributedText = byLineText;
         
-        NSMutableAttributedString *watermarkText = [[NSMutableAttributedString alloc] initWithString:@" " attributes:@{NSFontAttributeName : regularFont}];
-        [watermarkText appendAttributedString:byLineText];
-        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" ♥ " attributes:@{NSFontAttributeName : nonEmojiFont}]]; // unicode heart spacer!  http://codepoints.net/U+2665
-        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.shortPrintableUrl attributes:@{NSFontAttributeName : regularFont}]];
-        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" ♥ " attributes:@{NSFontAttributeName : nonEmojiFont}]];
-        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:APP_SHORT_PRINTABLE_URL attributes:@{NSFontAttributeName : regularFont}]];
-        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" " attributes:@{NSFontAttributeName : regularFont}]];
+        const CGFloat smallFontSize = 10;
+        UIFont *smallBold = [UIFont boldSystemFontOfSize:smallFontSize];
+        UIFont *smallRegular = [UIFont systemFontOfSize:smallFontSize];
+        UIFont *smallNonEmoji = [UIFont fontWithName:@"ArialMT" size:smallFontSize];
+        
+        NSMutableAttributedString *watermarkText = [[NSMutableAttributedString alloc] initWithString:@" " attributes:@{NSFontAttributeName : smallRegular}];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.title attributes:@{NSFontAttributeName : smallBold}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" by " attributes:@{NSFontAttributeName : smallRegular}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.userName attributes:@{NSFontAttributeName : smallBold}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" ♥ " attributes:@{NSFontAttributeName : smallNonEmoji}]]; // unicode heart spacer!  http://codepoints.net/U+2665
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.shortPrintableUrl attributes:@{NSFontAttributeName : smallRegular}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" ♥ " attributes:@{NSFontAttributeName : smallNonEmoji}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:APP_SHORT_PRINTABLE_URL attributes:@{NSFontAttributeName : smallRegular}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" " attributes:@{NSFontAttributeName : smallRegular}]];
 
         watermarkLabel.attributedText = watermarkText;
     }
