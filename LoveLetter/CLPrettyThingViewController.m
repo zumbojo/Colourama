@@ -18,10 +18,10 @@
     // add the watermark:
     UILabel *watermarkLabel = [[UILabel alloc] init];
     watermarkLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    watermarkLabel.textColor = [UIColor purpleColor];
-    #warning watermarkLabel is GHASTLY
-    watermarkLabel.backgroundColor = [UIColor whiteColor];
+    watermarkLabel.textColor = BAR_TEXT_AND_ICON_COLOR;
+    watermarkLabel.backgroundColor = BAR_BACKGROUND_COLOR;
     watermarkLabel.layer.cornerRadius = 3;
+    watermarkLabel.alpha = 0.66f;
     [self.view addSubview:watermarkLabel];
     
     // add the background (with shadow):
@@ -49,18 +49,21 @@
         const CGFloat fontSize = 15;
         UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
         UIFont *regularFont = [UIFont systemFontOfSize:fontSize];
-        
+        UIFont *nonEmojiFont = [UIFont fontWithName:@"ArialMT" size:fontSize];
+                                 
         NSMutableAttributedString *byLineText = [[NSMutableAttributedString alloc] initWithString:self.prettyThing.title attributes:@{NSFontAttributeName : boldFont}];
         [byLineText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" by " attributes:@{NSFontAttributeName : regularFont}]];
         [byLineText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.userName attributes:@{NSFontAttributeName : boldFont}]];
         
         byLineLabel.attributedText = byLineText;
         
-        NSMutableAttributedString *watermarkText = [[NSMutableAttributedString alloc] initWithAttributedString:byLineText];
-        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" - " attributes:@{NSFontAttributeName : regularFont}]];
+        NSMutableAttributedString *watermarkText = [[NSMutableAttributedString alloc] initWithString:@" " attributes:@{NSFontAttributeName : regularFont}];
+        [watermarkText appendAttributedString:byLineText];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" ♥ " attributes:@{NSFontAttributeName : nonEmojiFont}]]; // unicode heart spacer!  http://codepoints.net/U+2665
         [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.shortPrintableUrl attributes:@{NSFontAttributeName : regularFont}]];
-        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" - " attributes:@{NSFontAttributeName : regularFont}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" ♥ " attributes:@{NSFontAttributeName : nonEmojiFont}]];
         [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:APP_SHORT_PRINTABLE_URL attributes:@{NSFontAttributeName : regularFont}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" " attributes:@{NSFontAttributeName : regularFont}]];
 
         watermarkLabel.attributedText = watermarkText;
     }
