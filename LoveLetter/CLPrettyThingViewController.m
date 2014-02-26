@@ -49,15 +49,33 @@
         UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
         UIFont *regularFont = [UIFont systemFontOfSize:fontSize];
         
-        NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:self.prettyThing.title attributes:@{NSFontAttributeName : boldFont}];
-        [attributedText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" by " attributes:@{NSFontAttributeName : regularFont}]];
-        [attributedText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.userName attributes:@{NSFontAttributeName : boldFont}]];
+        NSMutableAttributedString *byLineText = [[NSMutableAttributedString alloc] initWithString:self.prettyThing.title attributes:@{NSFontAttributeName : boldFont}];
+        [byLineText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" by " attributes:@{NSFontAttributeName : regularFont}]];
+        [byLineText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.userName attributes:@{NSFontAttributeName : boldFont}]];
         
-        byLineLabel.attributedText = attributedText;
+        byLineLabel.attributedText = byLineText;
+        
+        NSMutableAttributedString *watermarkText = [[NSMutableAttributedString alloc] initWithAttributedString:byLineText];
+        #warning watermark urls are not yet included
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" - bla bla bla bla bla watermark urls and such" attributes:@{NSFontAttributeName : regularFont}]];
+
+        watermarkLabel.attributedText = watermarkText;
     }
     
     // constraints:
-    NSDictionary *views = NSDictionaryOfVariableBindings(byLineLabel, byLineBackground, byLineShadow);
+    NSDictionary *views = NSDictionaryOfVariableBindings(watermarkLabel, byLineLabel, byLineBackground, byLineShadow);
+
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[watermarkLabel]-5-|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"[watermarkLabel]-5-|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
     
     [self.view addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"V:[byLineLabel]-5-|"
