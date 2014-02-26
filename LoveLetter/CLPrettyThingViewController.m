@@ -42,7 +42,7 @@
     byLineLabel.backgroundColor = [UIColor clearColor];
     [byLineBackground addSubview:byLineLabel];
     
-    if (self.prettyThing.title && self.prettyThing.userName) { // todo: remove this check as soon as bundled palettes are created via bundled JSON
+    if (self.prettyThing.title && self.prettyThing.userName && self.prettyThing.shortPrintableUrl) { // todo: remove this check as soon as bundled palettes are created via bundled JSON
         // fancy attributed text:
         // http://stackoverflow.com/questions/3586871/bold-non-bold-text-in-a-single-uilabel
         const CGFloat fontSize = 15;
@@ -56,8 +56,10 @@
         byLineLabel.attributedText = byLineText;
         
         NSMutableAttributedString *watermarkText = [[NSMutableAttributedString alloc] initWithAttributedString:byLineText];
-        #warning watermark urls are not yet included
-        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" - bla bla bla bla bla watermark urls and such" attributes:@{NSFontAttributeName : regularFont}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" - " attributes:@{NSFontAttributeName : regularFont}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:self.prettyThing.shortPrintableUrl attributes:@{NSFontAttributeName : regularFont}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" - " attributes:@{NSFontAttributeName : regularFont}]];
+        [watermarkText appendAttributedString:[[NSMutableAttributedString alloc] initWithString:APP_SHORT_PRINTABLE_URL attributes:@{NSFontAttributeName : regularFont}]];
 
         watermarkLabel.attributedText = watermarkText;
     }

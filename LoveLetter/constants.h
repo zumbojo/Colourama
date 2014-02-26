@@ -23,3 +23,6 @@ UIColorFromRGB(rgbHex); \
 #define BAR_BACKGROUND_COLOR        UIColorFromRGBString(@"F1F1F1")
 #define BAR_SHADOW_COLOR            UIColorFromRGBString(@"CCCCCC")
 #define BAR_TEXT_AND_ICON_COLOR     UIColorFromRGBString(@"808080")
+#define APP_SHORT_PRINTABLE_URL     @"appstore.com/colourama" // maybe change to kevinmlawson.com/colourama later
+// https://developer.apple.com/library/ios/qa/qa1633/_index.html
+// " iOS: http://appstore.com/<appname> for example, http://appstore.com/keynote "

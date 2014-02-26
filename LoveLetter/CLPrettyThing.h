@@ -24,6 +24,7 @@
 // convenience:
 @property (nonatomic, readonly) NSString *pluralApiPath; // "colors", "palettes", "patterns", etc.
 @property (nonatomic, readonly) NSString *specialApiArguments; // "&showPaletteWidths=1", etc.
+@property (nonatomic, readonly) NSString *shortPrintableUrl; // "colourlovers.com/palette/92095" instead of http://www.colourlovers.com/palette/92095/Giant_Goldfish
 
 - (CLPrettyThing *)initWithJSON:(id)json; // Don't call directly; only call via [super initWithJSON:json] in subclasses.
 
