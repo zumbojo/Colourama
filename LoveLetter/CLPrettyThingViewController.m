@@ -23,6 +23,7 @@
     watermarkLabel.layer.cornerRadius = 3;
     watermarkLabel.alpha = 0.66f;
     [self.view addSubview:watermarkLabel];
+    self.watermarkView = watermarkLabel;
     
     // add the background (with shadow):
     UIView *byLineBackground = [[UIView alloc] init];
@@ -112,6 +113,8 @@
                                              options:0
                                              metrics:nil
                                                views:views]];
+    
+    [self setShowWatermark:NO animated:NO]; // hide the watermark by default
 }
 
 - (void)setShowByline:(BOOL)show animated:(BOOL)animated {
