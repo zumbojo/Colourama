@@ -43,6 +43,7 @@
     CLColorViewController *ghost = [[CLColorViewController alloc] initWithColor:self.color];
     ghost.view.frame = self.view.frame;
     [ghost setShowByline:self.showByline animated:NO];
+    [ghost setShowWatermark:self.showWatermark animated:NO];
     return ghost;
 }
 

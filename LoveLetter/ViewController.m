@@ -644,10 +644,14 @@
     BOOL hideControlsAfterScreenshot = [self controlsAreHidden];
     self.menuView.alpha = 0.0f;
     
-    // todo: apply watermark
+    // show watermark:
+    [(CLPrettyThingViewController *)self.currentPage setShowWatermark:YES animated:NO];
     
     // take screenshot:
     UIImage *screenshot = [UIView_UIImageWithView imageWithView:self.view];
+    
+    // hide watermark:
+    [(CLPrettyThingViewController *)self.currentPage setShowWatermark:NO animated:NO];
 
     // revert controls:
     self.menuView.alpha = hideControlsAfterScreenshot ? 0.0f : 1.0f;
